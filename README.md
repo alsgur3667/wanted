@@ -279,3 +279,8 @@ B는 처음부터 끝까지 mock으로 UI를 완성하고, 마지막에 실제 A
 | bullet 원자화 로직 | 그대로 제품 핵심 로직 |
 | PIT 누수 / propensity 보정 | 본선 기술력 발표 자료 |
 | 심사위원 분석 | 본선 Demo Day 발표 구성 |
+
+---
+
+## 관련 문서
+- [데이터 스키마 (SQL)](docs/wanted_pivot_simulator_schema.sql) — 원티드 데이터 연결 시 확장 구조. 제출물이 아니라 '확장성' 근거 자료.
