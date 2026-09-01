@@ -1,0 +1,180 @@
+{
+  "version": "1.0",
+  "currentPosition": {
+    "jobTitle": "그로스 마케터",
+    "jobFamily": "마케팅",
+    "careerMonths": 62,
+    "industry": "IT/커머스",
+    "summary": "데이터로 가설을 세우고 실험으로 검증해 온 5년차 그로스 마케터"
+  },
+  "skills": [
+    {
+      "id": "sk_01",
+      "name": "A/B 테스트 설계",
+      "quadrant": "leverage",
+      "spread": 0.82,
+      "scarcity": 0.71,
+      "proficiency": 0.9,
+      "evidence": "결제 퍼널 A/B 테스트를 설계해 전환율을 12% 개선"
+    },
+    {
+      "id": "sk_02",
+      "name": "퍼널 분석",
+      "quadrant": "leverage",
+      "spread": 0.76,
+      "scarcity": 0.68,
+      "proficiency": 0.85,
+      "evidence": "이탈 구간을 퍼널 단위로 쪼개 원인 가설 3개를 도출"
+    },
+    {
+      "id": "sk_03",
+      "name": "SQL",
+      "quadrant": "leverage",
+      "spread": 0.88,
+      "scarcity": 0.55,
+      "proficiency": 0.7,
+      "evidence": "주간 지표 대시보드를 직접 SQL로 작성해 운영"
+    },
+    {
+      "id": "sk_04",
+      "name": "사용자 인터뷰",
+      "quadrant": "leverage",
+      "spread": 0.74,
+      "scarcity": 0.62,
+      "proficiency": 0.65,
+      "evidence": "이탈 고객 20명 인터뷰를 통해 온보딩 개선 과제 정의"
+    },
+    {
+      "id": "sk_05",
+      "name": "요구사항 정의",
+      "quadrant": "leverage",
+      "spread": 0.79,
+      "scarcity": 0.58,
+      "proficiency": 0.6,
+      "evidence": "개발팀과 스펙 문서를 함께 작성해 2주 스프린트로 배포"
+    },
+    {
+      "id": "sk_06",
+      "name": "퍼포먼스 광고 운영",
+      "quadrant": "lockin",
+      "spread": 0.28,
+      "scarcity": 0.66,
+      "proficiency": 0.88,
+      "evidence": "월 예산 8천만 원 규모의 메타·구글 광고 계정을 단독 운영"
+    },
+    {
+      "id": "sk_07",
+      "name": "CRM 시나리오 설계",
+      "quadrant": "lockin",
+      "spread": 0.34,
+      "scarcity": 0.6,
+      "proficiency": 0.72,
+      "evidence": "휴면 고객 리텐션 시나리오를 설계해 재구매율 8% 상승"
+    },
+    {
+      "id": "sk_08",
+      "name": "Amplitude",
+      "quadrant": "common",
+      "spread": 0.65,
+      "scarcity": 0.3,
+      "proficiency": 0.8,
+      "evidence": "Amplitude로 코호트 리텐션을 주 단위 모니터링"
+    },
+    {
+      "id": "sk_09",
+      "name": "협업 커뮤니케이션",
+      "quadrant": "common",
+      "spread": 0.92,
+      "scarcity": 0.12,
+      "proficiency": 0.75,
+      "evidence": "개발·디자인·CS 3개 팀과 주간 싱크를 주도"
+    },
+    {
+      "id": "sk_10",
+      "name": "엑셀/스프레드시트",
+      "quadrant": "common",
+      "spread": 0.95,
+      "scarcity": 0.08,
+      "proficiency": 0.85,
+      "evidence": "주간 성과 리포트를 스프레드시트로 자동화"
+    }
+  ],
+  "routes": [
+    {
+      "id": "rt_01",
+      "destination": "프로덕트 매니저",
+      "jobFamily": "기획/PM",
+      "fitScore": 84,
+      "surpriseScore": 21,
+      "isHiddenRoute": false,
+      "difficulty": "moderate",
+      "estimatedMonths": 6,
+      "bridgeSkills": ["A/B 테스트 설계", "퍼널 분석", "사용자 인터뷰", "요구사항 정의"],
+      "gapSkills": [
+        {
+          "name": "로드맵 우선순위 관리",
+          "difficulty": 0.45,
+          "firstStep": "지금 맡은 실험 3건을 임팩트·공수 2축으로 정렬한 문서를 만들어 팀에 공유해 보세요."
+        },
+        {
+          "name": "기술 커뮤니케이션",
+          "difficulty": 0.55,
+          "firstStep": "다음 스펙 문서에 API 흐름도를 직접 그려 넣고 개발자 리뷰를 받아 보세요."
+        }
+      ],
+      "reason": "실험 설계와 사용자 인터뷰로 문제를 정의해 온 과정이 PM 업무의 핵심 절반과 그대로 겹칩니다.",
+      "marketNote": "동일 산업 내 전환이라 도메인 학습 비용이 낮습니다."
+    },
+    {
+      "id": "rt_02",
+      "destination": "프로덕트 데이터 분석가",
+      "jobFamily": "데이터",
+      "fitScore": 76,
+      "surpriseScore": 38,
+      "isHiddenRoute": false,
+      "difficulty": "moderate",
+      "estimatedMonths": 8,
+      "bridgeSkills": ["SQL", "퍼널 분석", "A/B 테스트 설계"],
+      "gapSkills": [
+        {
+          "name": "통계적 유의성 검정",
+          "difficulty": 0.6,
+          "firstStep": "지난 A/B 테스트 결과 하나를 골라 표본 크기와 p-value를 직접 계산해 보세요."
+        },
+        {
+          "name": "Python (pandas)",
+          "difficulty": 0.65,
+          "firstStep": "지금 SQL로 뽑는 주간 리포트 쿼리 하나를 pandas로 똑같이 재현해 보세요."
+        }
+      ],
+      "reason": "이미 SQL로 지표를 직접 다루고 있어, 분석 도구만 확장하면 되는 경로입니다.",
+      "marketNote": null
+    },
+    {
+      "id": "rt_03",
+      "destination": "B2B SaaS 고객 성공 매니저",
+      "jobFamily": "고객성공",
+      "fitScore": 71,
+      "surpriseScore": 82,
+      "isHiddenRoute": true,
+      "difficulty": "easy",
+      "estimatedMonths": 3,
+      "bridgeSkills": ["사용자 인터뷰", "CRM 시나리오 설계", "퍼널 분석", "협업 커뮤니케이션"],
+      "gapSkills": [
+        {
+          "name": "B2B 계약·갱신 구조 이해",
+          "difficulty": 0.35,
+          "firstStep": "관심 있는 SaaS 3곳의 요금제 페이지를 비교해 갱신 조건 차이를 정리해 보세요."
+        },
+        {
+          "name": "온보딩 플레이북 작성",
+          "difficulty": 0.4,
+          "firstStep": "지금 만든 리텐션 시나리오를 '신규 고객 첫 30일' 관점으로 다시 써 보세요."
+        }
+      ],
+      "reason": "이탈 원인을 인터뷰로 파고들어 리텐션 시나리오를 설계한 경험은 고객 성공 직무의 중심 업무와 같은 일입니다. 직무명이 달라 잘 드러나지 않는 경로입니다.",
+      "marketNote": "국내 B2B SaaS 채용이 늘고 있어 진입 시점이 유리합니다."
+    }
+  ],
+  "generatedAt": "2026-09-01T09:00:00.000Z"
+}
