@@ -23,6 +23,7 @@ NCS = [("R600020", "개발"), ("R600008", "디자인"), ("R600001", "기획")]
 PLAN_HINT = ("기획", "PM", "PO", "프로덕트", "서비스기획", "사업기획", "전략", "상품기획",
              "데이터분석", "사업관리", "프로젝트관리")
 
+MIN_POSTED = "20250901"     # 이보다 오래된 공고는 받지 않는다 (build_corpus 와 같은 기준)
 CALL_BUDGET = 800          # 개발계정 일 1,000회. 여유를 남긴다.
 ROWS = 100
 
@@ -56,6 +57,9 @@ def run():
                 break
 
             for j in rows:
+                if str(j.get("pbancBgngYmd") or "") < MIN_POSTED:
+                    skipped += 1
+                    continue
                 title = j.get("recrutPbancTtl") or ""
                 if fam == "기획" and not any(h in title for h in PLAN_HINT):
                     skipped += 1

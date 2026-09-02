@@ -23,7 +23,7 @@ from collections import Counter, defaultdict
 from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent))
-from collect_common import RAW  # noqa: E402
+from collect_common import RAW, word_pattern  # noqa: E402
 
 OUT = RAW / "_roles.json"
 MIN_POSTS = 5          # 공고가 이보다 적은 역할은 통계가 의미 없다
@@ -106,6 +106,38 @@ ROLES = [
 ]
 
 
+# ── 연차 판정 ──────────────────────────────────────────────────────────
+# 민간 공고 1,200건 중 절반이 시니어다(제목에 Senior·Staff·Lead). 본문의 경력 요구도
+# 중앙 5년이다. 그대로 집계하면 요구 스킬이 전부 '5년차 기준'이 되고,
+# Route.gapSkills 가 실제보다 무겁게 나온다 — 전환의 문턱을 높여 보이게 만든다.
+# 그래서 같은 직무라도 연차를 나눠 따로 센다.
+SENIOR_TITLE = re.compile(
+    r"senior|sr\.|staff|principal|lead|head of|director|architect|manager|"
+    r"시니어|팀장|리드|수석|책임|총괄", re.I)
+ENTRY_TITLE = re.compile(
+    r"junior|jr\.|entry|graduate|intern|working student|werkstudent|associate|"
+    r"신입|주니어|인턴|경력무관|신입/경력", re.I)
+YEARS = re.compile(r"(\d{1,2})\s*\+?\s*(?:years?|년)\s*(?:of\s+)?(?:experience|경력|이상)", re.I)
+
+
+def seniority(d: dict) -> str:
+    """senior | entry — 제목 표현을 먼저 보고, 없으면 본문의 경력 연수를 본다.
+
+    entry 는 '신입'만이 아니라 **시니어가 아닌 것 전부**다. 주니어 표기가 4%뿐이라
+    따로 떼면 표본이 무너진다. 연차를 명시하지 않은 공고는 신입도 지원할 수 있다고 본다.
+    """
+    t = d["title"]
+    if ENTRY_TITLE.search(t):
+        return "entry"
+    if SENIOR_TITLE.search(t):
+        return "senior"
+    yrs = [int(m.group(1)) for m in YEARS.finditer(d["text"][:4000])]
+    yrs = [y for y in yrs if 0 < y <= 20]
+    if yrs and min(yrs) >= 4:
+        return "senior"
+    return "entry"
+
+
 def role_of(title: str):
     low = title.lower()
     if any(p in low for p in NOT_TARGET):
@@ -154,29 +186,35 @@ def run():
     #    뒤는 영문·숫자만 막는다. 한글 조사(분석을·개발이)가 붙는 것은 정상 등장이다.
     #    대소문자는 구분한다 — 사전이 이미 대문자 사용 비율로 걸러졌는데
     #    re.I 를 쓰면 그 판단이 무효가 된다 (소문자 sass 가 Sass 로 20건 오탐).
-    pat = {k: re.compile(r"(?<![A-Za-z0-9가-힣])" + re.escape(nm) + r"(?![A-Za-z0-9])")
-           for k, nm in key_name.items()}
+    pat = {k: word_pattern(nm) for k, nm in key_name.items()}
 
     counted = {}
+    seniority_n = {}
     for name, docs in posts.items():
         if len(docs) < MIN_POSTS:
             continue
         cnt, pref_cnt = Counter(), Counter()
+        by_sen = {"senior": Counter(), "entry": Counter()}
+        n_sen = Counter()
         for d in docs:
             blob = f"{d['title']} {d['text']}"
             pref = d.get("pref_text", "")
+            lv = seniority(d)
+            n_sen[lv] += 1
             for k in keys:
                 if pat[k].search(blob):
                     cnt[k] += 1
+                    by_sen[lv][k] += 1
                     if pat[k].search(pref):
                         pref_cnt[k] += 1
-        counted[name] = (cnt, pref_cnt, len(docs))
+        counted[name] = (cnt, pref_cnt, len(docs), by_sen)
+        seniority_n[name] = dict(n_sen)
 
     # 전체 평균 등장률 — lift 의 분모
     overall = Counter()
-    total_posts = sum(n for _, _, n in counted.values())
-    for cnt, _, _ in counted.values():
-        overall.update(cnt)
+    total_posts = sum(v[2] for v in counted.values())
+    for v in counted.values():
+        overall.update(v[0])
 
     # 역할별 요구 스킬.
     #   share 만 쓰면 AI·IT·API 처럼 어느 공고에나 있는 말이 상위를 채우고,
@@ -184,7 +222,8 @@ def run():
     #   그래서 lift = (이 역할의 등장률) / (전체 평균 등장률) 을 함께 본다.
     #   lift 가 1 보다 크면 '이 역할에서 유난히 많이 요구되는' 스킬이다.
     roles = []
-    for name, (cnt, pref_cnt, n) in sorted(counted.items(), key=lambda x: -x[1][2]):
+    for name, (cnt, pref_cnt, n, by_sen) in sorted(counted.items(), key=lambda x: -x[1][2]):
+        ns = seniority_n[name]
         req = []
         for k, c in cnt.items():
             share = c / n
@@ -198,6 +237,10 @@ def run():
                 "lift": round(lift, 2),
                 "characteristic": lift >= MIN_LIFT,
                 "pref_share": round(pref_cnt[k] / c, 3) if c else 0,
+                "senior_posts": by_sen["senior"][k],
+                "entry_posts": by_sen["entry"][k],
+                "senior_share": round(by_sen["senior"][k] / ns.get("senior", 1), 3) if ns.get("senior") else None,
+                "entry_share": round(by_sen["entry"][k] / ns.get("entry", 1), 3) if ns.get("entry") else None,
                 "quadrant": sk_by_key[k]["quadrant"],
                 "spread": sk_by_key[k]["spread"],
                 "scarcity": sk_by_key[k]["scarcity"],
@@ -205,8 +248,10 @@ def run():
         req.sort(key=lambda x: -x["lift"])
         nchar = sum(1 for s in req if s["characteristic"])
         roles.append({"role": name, "family": fam_of[name], "posts": n,
+                      "senior_posts": ns.get("senior", 0), "entry_posts": ns.get("entry", 0),
                       "required_skills": req})
-        print(f"  {name:22} 공고 {n:>4}건 · 요구 {len(req):>3}개 · 변별력 있는 것 {nchar:>2}개")
+        print(f"  {name:22} 공고 {n:>4}건 (시니어 {ns.get('senior',0)} / 그 외 {ns.get('entry',0)}) "
+              f"· 요구 {len(req):>3}개 · 변별력 {nchar:>2}개")
 
     # 역할 간 인접도 — **변별력 있는 스킬만으로** 계산한다
     idx = {r["role"]: {s["key"] for s in r["required_skills"] if s["characteristic"]}
@@ -245,18 +290,40 @@ def run():
         # 없으면 Route.isHiddenRoute("이 길도 있어요")를 줄 수 없는데,
         # 그건 이 제품의 차별점이라 순위 때문에 잘려서는 안 된다.
         if not any(x[2] for x in ns):
-            cross = next((x for x in ranked if x[2]), None)
-            if cross:
-                ns = ns[:TOP_K - 1] + [cross]
+            # 변수 이름을 cross 로 쓰면 바깥의 '직군 교차 간선 목록'을 덮어쓴다.
+            pull = next((x for x in ranked if x[2]), None)
+            if pull:
+                ns = ns[:TOP_K - 1] + [pull]
         r["neighbors"] = [{"role": x[0], "jaccard": x[1], "cross_family": x[2]} for x in ns]
         if not any(x[2] for x in ns):
             no_cross += 1
     print(f"상위 {TOP_K} 이웃에 직군 교차가 없는 역할: {no_cross}/{len(roles)}")
 
+    # ── 문턱 없는 직무별 등장 수 ─────────────────────────────────────────
+    #
+    # required_skills 는 등장률 5% 이상만 담는다. "이 직무가 요구하는가"를 정하는 데는 맞다.
+    # 그런데 그 표로 spread(전이성)를 재면 안 된다 — 여러 직무에서 3%씩 쓰이는 스킬이
+    # 어디에서도 안 잡혀 '직무 1개짜리'가 되고, 엔트로피가 0 이 된다.
+    #
+    # 실측: 5% 문턱을 걸면 스킬의 43%가 직무 1개에만 걸리고 전이성 중앙값이 0.158 이다.
+    #       문턱 없이 세면 6% · 0.419 다. PyTorch 2→9개 직무, Jira 5→11개, SAP 2→7개.
+    #
+    # spread 와 scarcity 는 "이 스킬이 어디에 등장하는가"의 문제이므로 문턱 없는 값을 쓴다.
+    skill_job_dist = {}
+    for name, (cnt, _, _, _) in counted.items():
+        for k, c in cnt.items():
+            skill_job_dist.setdefault(k, {})[name] = c
+    n_one = sum(1 for v in skill_job_dist.values() if len(v) == 1)
+    print(f"문턱 없는 직무 분포 — 스킬 {len(skill_job_dist):,}개 · "
+          f"직무 1개에만 등장 {n_one}개 ({n_one / max(1, len(skill_job_dist)):.0%})")
+
     OUT.write_text(json.dumps({
         "method": "공고 제목에서 역할을 뽑고, 그 공고들에 등장한 사전 등재 스킬을 요구 스킬로 본다",
         "note": "공공기관 공고는 제목이 직무명이 아니라 제외했다",
         "min_posts": MIN_POSTS, "min_skill_share": MIN_SKILL_DF,
+        "skill_job_dist_note": "문턱 없는 직무별 등장 공고 수. spread·scarcity 는 이것으로 잰다 "
+                               "(required_skills 는 5% 문턱을 거쳐 전이성 계산에 쓰면 안 된다)",
+        "skill_job_dist": skill_job_dist,
         "roles": roles, "edges": edges,
     }, ensure_ascii=False, indent=1), encoding="utf-8")
     print(f"→ {OUT.name}")

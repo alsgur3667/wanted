@@ -22,12 +22,14 @@ from pathlib import Path
 import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).parent))
-from collect_common import RAW  # noqa: E402
+from collect_common import RAW, word_pattern  # noqa: E402
 
 ONTO = RAW / "ontology"
 OUT = RAW / "_skills.json"
 
-MIN_DF = 10   # 4로 두면 4~9건짜리에서 엔트로피가 요동쳐 전이성 상위가 잡음으로 찬다
+MIN_DF = 5    # 코퍼스 크기에 맞춘 값. 6,359건일 때 10 이었는데 기간 필터로 2,012건이 되면서
+#               비율로는 3배 엄격해졌다. 그 바람에 한국어 스킬 26→7, 자격증 30→5 로 무너졌다
+#               (사무자동화 8건·CPPG 8건·OCP 9건이 전부 탈락). 비율을 맞춰 되돌린다.
 MAX_DF_RATIO = 0.35
 
 EN_TOKEN = re.compile(r"[A-Za-z][A-Za-z0-9+#./\-]{0,29}")
@@ -68,7 +70,15 @@ KO_HEAD_BLOCK = {
     "관리", "운영", "사업", "프로그램", "업무", "직무", "분야", "부문", "채용", "모집",
     "경력", "신입", "가능", "필요", "지원", "포함", "제외", "또는", "이나", "다음", "아래",
     "위와", "각종", "일부", "전체", "본인", "회사", "기관", "부서", "조직", "전형", "평가",
+    "직접", "최소", "하나", "여러", "다양", "수립", "이용", "활용", "기반", "체계", "통한", "통해", "위한",
 }
+
+# 2그램 앞 덩어리가 이런 어미로 끝나면 명사가 아니라 **문장 조각**이다.
+#   "자동화 구축을 통한 운영"  →  통한 운영   (X)
+#   "1개 이상의 프로그래밍 언어" →  이상의 프로그래밍 (X)
+#   "파운데이션 모델을 설계"    →  모델을 설계 (X)
+# 서(문서)·과(성과) 같은 글자는 명사 끝에도 흔해서 넣지 않는다.
+KO_HEAD_ENDINGS = ("한", "해", "의", "을", "를", "는", "며", "고")
 
 
 def load_onet_tools():
@@ -200,8 +210,12 @@ def ko_is_skill(term: str, ncs: dict) -> bool:
         return False
 
     parts = term.split()
-    if len(parts) == 2 and parts[0] in KO_SUFFIX:
-        return False                      # 구축 운영 · 기획 운영 · 개발 운영
+    if len(parts) == 2:
+        head = parts[0]
+        if head in KO_SUFFIX:
+            return False                  # 구축 운영 · 기획 운영 · 개발 운영
+        if head in KO_HEAD_BLOCK or head.endswith(KO_HEAD_ENDINGS):
+            return False                  # 통한 운영 · 이상의 프로그래밍 · 모델을 설계
     head = term[:-len(next(x for x in KO_SUFFIX if term.endswith(x)))].strip()
     return len(head) >= 2                 # 접미어 앞에 수식어가 있어야 한다
 
@@ -231,7 +245,7 @@ def extract_keys(text: str, tools: dict, ncs: dict, multiword: set) -> set:
     # 부분문자열로 찾으면 다른 말 안에 든 철자까지 세게 된다.
     low = text.lower()
     for k in multiword:
-        if k in low and re.search(r"(?<![a-z0-9가-힣])" + re.escape(k) + r"(?![a-z0-9])", low):
+        if k in low and word_pattern(k).search(low):
             out.add(k)
 
     if HANGUL.search(text):

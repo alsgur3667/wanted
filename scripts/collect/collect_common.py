@@ -8,6 +8,7 @@
 from __future__ import annotations
 
 import hashlib
+import re
 import json
 import os
 import time
@@ -197,3 +198,27 @@ def stats() -> dict:
 
 if __name__ == "__main__":
     print(json.dumps(stats(), ensure_ascii=False, indent=2))
+
+
+# ── 스킬 이름을 본문에서 찾는 경계 규칙 (한 곳에서만 정한다) ──────────────
+#
+# 세 곳(mine_vocab · build_roles · verify_guides)이 각자 같은 정규식을 적어 두고 있었다.
+# 한 곳을 고치면 다른 곳이 어긋나므로 여기로 모은다.
+#
+# 왜 이렇게 생겼나 — 세 번의 오탐을 겪고 나온 모양이다.
+#   ① 부분 문자열   "community" 안의 "unity" 가 Unity 로 잡혔다 (493건 중 97%가 거짓).
+#      → 좌우를 영문·숫자로 막는다.
+#   ② 한글 앞머리   "비트코인" 의 "코인" 처럼 한글 낱말 안에서도 잡힌다.
+#      → 왼쪽 lookbehind 에 가-힣 을 넣는다.
+#   ③ 한글 뒷머리   "자바스크립트" 가 자바(Java) 로, "한글타자능력검정" 이 한글(hwp) 로 잡혔다.
+#      → 오른쪽도 막아야 하는데, 전부 막으면 "파이썬을 다룬다" 의 조사가 걸린다.
+#        그래서 **조사·어미만 허용**한다.
+JOSA = "을를이가은는의에도와과로써만부터까지등및서라나거며고나"
+
+
+def word_pattern(name: str) -> "re.Pattern":
+    """본문에서 이 스킬 이름이 '낱말로' 쓰인 자리만 찾는 정규식."""
+    return re.compile(
+        r"(?<![A-Za-z0-9가-힣])" + re.escape(name)
+        + r"(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[" + JOSA + r"])|$)"
+    )

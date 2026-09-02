@@ -161,6 +161,10 @@ def collect_aliases(keys: set) -> dict:
     return seen
 
 
+# 필수/우대를 가르는 데 필요한 최소 관측 수. 1~2건으로 가르면 뒤집히기 쉽다.
+MIN_REQ_OBS = 3
+
+
 def run():
     skills_src = json.loads((RAW / "_skills.json").read_text(encoding="utf-8"))["skills"]
     roles_src = json.loads((RAW / "_roles.json").read_text(encoding="utf-8"))
@@ -193,13 +197,18 @@ def run():
     used, key2id, skills = set(), {}, []
     for s in sorted(skills_src, key=lambda x: -x["jd_doc_count"]):
         t = s["type"]
-        if s["name"] in rename:            # 흡수 후 대표 이름을 의도한 표기로
-            s = dict(s, name=rename[s["name"]])
+        # merge 는 **원래 이름**으로 등록돼 있다. 이름을 먼저 바꾸면 조회가 빗나가
+        # 흡수한 이름들이 별칭에서 통째로 사라진다 (AI 코딩 도구에 Claude·Cursor 가 없던 원인).
+        orig_name = s["name"]
+        if orig_name in rename:            # 흡수 후 대표 이름을 의도한 표기로
+            s = dict(s, name=rename[orig_name])
         sid = slug(s["name"], used)
         key2id[s["key"]] = sid
         variants = [v for v, _ in alias_counts.get(s["key"], Counter()).most_common()
                     if v != s["name"] and same_word(v, s["name"])][:6]
-        variants += merge.get(s["name"], [])                    # 흡수한 이름
+        variants += merge.get(orig_name, [])                    # 흡수한 이름 (원래 이름으로 조회)
+        if orig_name != s["name"]:
+            variants.append(orig_name)                          # 바뀌기 전 대표 이름도 별칭이다
         variants += synonyms.ALIAS.get(s["name"], [])           # 이력서에 나올 표기
         seen_v = set()
         dedup = []
@@ -260,8 +269,25 @@ def run():
                 "docFreq": x["posts"], "source": "JD",
             }
             pref = round(x["share"] * x["pref_share"] * r["posts"])
+            req = max(0, x["posts"] - pref)
             row["prefFreq"] = pref                       # 선택 항목
-            row["reqFreq"] = max(0, x["posts"] - pref)   # 선택 항목
+            row["reqFreq"] = req                         # 선택 항목
+
+            # ── 필수인가 우대인가 — 공고가 직접 적어 둔 것을 그대로 쓴다 ──────────
+            #
+            # 계약은 weight(공고 등장 비율) 로 필수(≥0.6)·우대(0.3~0.6)를 가르라고 한다.
+            # 그런데 weight 는 "몇 건에 나왔나"이지 "필수인가"가 아니다.
+            # 실측하면 매핑 580건 중 510건(88%)이 0.3 미만이라 화면에서 통째로 사라진다.
+            #   소프트웨어 엔지니어의 최고값이 Python 0.35, 프로덕트 매니저는 UX/UI 0.18 이다.
+            #   직무 24개 중 5개는 필수·우대가 **둘 다 비어** 추천이 아예 안 나온다.
+            #
+            # 공고는 이미 자격요건 절과 우대사항 절에 나눠 적어 두었다. 그것을 세면 된다.
+            # 같은 데이터로 필수·우대가 빈 직무는 24개 중 1개(표본 5건짜리)뿐이다.
+            #   소프트웨어 엔지니어 필수 = Python(72) · Java(40) · AWS(39) · TypeScript(37)
+            obs = req + pref
+            row["reqShare"] = round(req / obs, 3) if obs else None
+            row["requirement"] = (None if obs < MIN_REQ_OBS else
+                                  "required" if req > pref else "preferred")
             matrix.append(row)
 
     # ── 추가 제안: 인접 그래프 ────────────────────────────────────────
@@ -273,6 +299,49 @@ def run():
     } for e in roles_src["edges"] if e["a"] in jid_of and e["b"] in jid_of]
 
     OUT.mkdir(exist_ok=True)
+    # ── 해설 글 교차검증 결과를 선택 필드로 얹는다 ────────────────────────
+    #
+    # 공고는 "지금 그 회사가 원하는 것"만 적는다. 신입에게 무엇이 필요한지는 잘 안 적힌다.
+    # 그래서 현직자·교육기관이 쓴 직무 해설 글을 따로 모아(verify_guides.py) 대조했다.
+    #
+    # 무게를 섞지 않는다 — 블로그는 개인 의견이고 공고는 실제 수요다. weight 는 그대로 두고
+    # 옆에 등급만 붙인다. 쓸지 말지는 앱이 정한다.
+    #   confirmed     같은 직무의 공고에도 나온다 → 시장이 실제로 요구
+    #   corroborated  해설 글 2건 이상이 일치하거나 공인 체계(O*NET·ESCO·NCS)에 있다
+    #   unverified    해설 글 1건에서만 → 개인 의견일 수 있다. 그대로 쓰지 말 것
+    vf = RAW / "guides" / "verified.json"
+    if vf.exists():
+        vr = json.loads(vf.read_text(encoding="utf-8"))["rows"]
+        by_pair = {(r["jobId"], r["skillId"]): r for r in vr}
+        seen = set()
+        for m in matrix:
+            r = by_pair.get((m["jobId"], m["skillId"]))
+            if r:
+                m["guideMentions"] = r["guideMentions"]
+                m["verification"] = r["verification"]
+                seen.add((m["jobId"], m["skillId"]))
+        # 공고에는 없고 해설 글에만 있는 것은 matrix 에 넣지 않는다.
+        # weight 를 지어내야 하는데, 언급 횟수와 공고 빈도는 단위가 다르다.
+        # 대신 몇 건인지만 알려 두고 원본은 verified.json 에 남긴다.
+        only = [r for k, r in by_pair.items() if k not in seen]
+        print(f"해설 글 교차검증 — 계약에 등급 표시 {len(seen)}건 · "
+              f"해설에만 있어 보류 {len(only)}건 (data/raw/guides/verified.json)")
+
+    # ── 같은 기술이 두 스킬로 갈리지 않았는지 ──────────────────────────
+    #
+    # 어떤 스킬의 별칭이 **다른 스킬의 이름**이면, 같은 글자가 두 번 세어진다.
+    # 실제로 Airflow/Apache Airflow · Photoshop/Adobe Photoshop · Vue/Vue.js ·
+    # MSA/마이크로서비스 아키텍처 가 각각 둘로 갈려 있었다.
+    # validate-data.mjs 는 이름이 다르면 통과시키므로 여기서 잡는다.
+    #
+    # 고치는 곳은 synonyms.MERGE 다 — ALIAS 에만 적으면 코퍼스에 그 표기가 있을 때 별도 스킬로 남는다.
+    by_name = {x["name"].lower(): x["id"] for x in skills}
+    clash = [(x["name"], a) for x in skills for a in x.get("aliases", [])
+             if by_name.get(a.lower(), x["id"]) != x["id"]]
+    if clash:
+        lines = "\n".join(f"    '{a}' 는 [{n}] 의 별칭인데 그 자체로도 스킬이다" for n, a in clash)
+        raise SystemExit("같은 기술이 두 스킬로 갈렸다 — synonyms.MERGE 에 넣어 흡수하라:\n" + lines)
+
     (OUT / "skills.json").write_text(json.dumps(skills, ensure_ascii=False, indent=1), encoding="utf-8")
     (OUT / "jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
     (OUT / "job-skills.json").write_text(json.dumps(matrix, ensure_ascii=False, indent=1), encoding="utf-8")

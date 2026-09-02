@@ -13,6 +13,16 @@ sys.path.insert(0, str(Path(__file__).parent))
 from collect_common import RAW  # noqa: E402
 
 OUT = RAW / "_corpus.jsonl"
+
+# 등록일이 이보다 오래된 공고는 코퍼스에 넣지 않는다.
+#
+# 공공기관 채용정보 API 를 날짜 필터 없이 받아 2018년치까지 들어와 있었다.
+# 전체 6,516건 중 4,597건(70%)이 12개월을 넘겼고 거의 전부 공공기관 과거분이다.
+# 8년 전 공고의 요구 스킬로 지금의 커리어를 추천할 수는 없다.
+#
+# 12개월로 잡은 이유 — 기술 스택은 1~2년이면 바뀌고, 12개월이면 계절 채용이 한 바퀴 돈다.
+# 민간 공고는 97%가 이 안에 들어와 job-skills 에는 거의 영향이 없다.
+MIN_POSTED = "2025-09-01"
 TAG = re.compile(r"<[^>]+>")
 WS = re.compile(r"[ \t\xa0]+")
 
@@ -119,10 +129,17 @@ def run():
 
     jd = [m for m in man if m["id"].startswith("jd_")]
     n_empty = 0
+    n_old = 0
     with OUT.open("w", encoding="utf-8") as f:
         for m in jd:
             fp = RAW / m["raw_path"]
             if not fp.exists():
+                continue
+            # 등록일이 없으면(Lever 처럼 API 가 안 주는 경우) 수집일로 대신한다.
+            # 빈 문자열을 그대로 비교하면 "" < "2025-09-01" 이 참이라 통째로 잘려나간다.
+            when = m.get("posted_at") or (m.get("collected_at") or "")[:10]
+            if when and when < MIN_POSTED:
+                n_old += 1
                 continue
             p = json.loads(fp.read_text(encoding="utf-8"))
             title, body = text_of(m["source"], p)
@@ -144,7 +161,8 @@ def run():
                 "title": title, "text": body[:12000],
                 "req_text": req[:12000], "pref_text": pref[:12000],
             }, ensure_ascii=False) + "\n")
-    print(f"코퍼스 {len(jd):,}건 → {OUT.name} · 본문 30자 미만 {n_empty:,}건")
+    print(f"코퍼스 {len(jd) - n_old:,}건 → {OUT.name} "
+          f"· 본문 30자 미만 {n_empty:,}건 · {MIN_POSTED} 이전이라 제외 {n_old:,}건")
 
 
 if __name__ == "__main__":

@@ -104,6 +104,15 @@ TOO_BROAD = {
     # 프로토콜 — 누구나 쓰는 것이라 역량으로 구별되지 않는다.
     # (ssl·tls·ssh 는 보안 맥락에서 의미가 있어 남긴다)
     "http", "https", "tcp", "udp", "ip", "dns", "ftp", "smtp", "url", "uri",
+    # 공고 문구 — 대문자 비율 필터를 통과한다 ("Dein Profil", "GitHub profile")
+    "profile", "profiles", "portfolio", "resume", "cv",
+    # 실측으로 확인한 오탐
+    "ada",        # 원문은 ADA(Americans with Disabilities Act). 미국 공고의 법률 문구
+    "console",    # "Google Search Console" 의 일부일 뿐 단독으로는 뜻이 없다
+    "notebook",   # "Notebook-basierten Workflows" — 단독으로는 도구가 아니다
+    "hack",       # "individual productivity hack" 一 일반 단어
+    # 접두어일 뿐 단독으로는 뜻이 없다 ("Apache Airflow"·"Apache Kafka" 는 별도 항목으로 있다)
+    "apache",
 }
 
 # 회사·서비스 이름. 그 회사를 쓰는 것이 역량은 아니다.
@@ -113,7 +122,32 @@ NOT_SKILL = {
     "airbnb", "spotify", "twitter", "linkedin", "instagram", "youtube", "tiktok",
     "gmail", "zoom", "discord", "telegram", "whatsapp",
     "chrome", "safari", "firefox", "edge",
+    # 회사·서비스명 — 실측으로 확인한 오탐
+    "kununu",      # 독일 기업평가 사이트. "Kununu TOP Company" 수상 문구
+    "anthropic",   # 회사명. "About Anthropic"·"APIs (e.g., xAI, Anthropic)"
+    "salt",        # 19건 전부 "Salt Lake City" 지명이었다
+    # ── 아래는 본문 문맥을 하나씩 읽고 판별한 것이다. 목록에 있다고 무조건 뺀 것이 아니다.
+    # 고객사·투자사로 나열된 이름
+    "mastercard",  # "shareholders in the industry like Mastercard"
+    "headspace",   # "apps like Adobe, Headspace, and LEGO"
+    "paypal",      # "giants like PayPal, Stripe, and Microsoft"
+    "rakuten",     # "DoorDash, Match Group, Noom, Yahoo Sports, Rakuten"
+    "unilever",    # "companies including Lyft, Google X, HCA, Unilever"
+    "deliveroo",   # "DoorDash, Wolt, or Deliveroo"
+    "expedia",     # 복리후생 할인 브랜드 — "brands, e.g. Adidas, Apple, Expedia"
+    # 채용 회사 본인의 이름
+    "hellofresh", "reddit", "duckduckgo",
+    # 제품·단체 이름의 일부이거나 일반 단어
+    "tower",       # "Control Tower"
+    "black",       # "Black Socialists in America"
+    "fusion",      # "nuclear fusion"
+    "greenhouse",  # ATS 이름이 아니라 "greenhouse gases such as CO2" 였다
+    "siemens",     # 스킬은 "Siemens Teamcenter" 쪽이지 회사명이 아니다
 }
+# 판별해 **남긴** 것 — 목록에 있어도 문맥이 기술을 가리키면 지우지 않는다.
+#   IONOS     "Cloud (z. B. AWS, Azure, IONOS, Google)"  독일 클라우드 사업자
+#   Solana · Polkadot · Ethereum   "Blockchain (Ethereum/Ethers.js/Wagmi/Viem/Solana)"
+#   v0        "the team behind Next.js, v0, and AI SDK"  Vercel 의 AI UI 생성 도구
 
 
 def norm(s: str) -> str:
