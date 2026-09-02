@@ -1,0 +1,26 @@
+[
+  {
+    "id": "pm",
+    "title": "프로덕트 매니저",
+    "family": "기획",
+    "aliases": ["PM", "프로덕트매니저", "Product Manager", "프로덕트 오너"],
+    "sampleSize": 12,
+    "source": "JD"
+  },
+  {
+    "id": "fe_dev",
+    "title": "프론트엔드 개발자",
+    "family": "개발",
+    "aliases": ["프론트엔드", "FE 개발자", "Frontend Engineer", "웹 프론트엔드"],
+    "sampleSize": 18,
+    "source": "JD"
+  },
+  {
+    "id": "product_designer",
+    "title": "프로덕트 디자이너",
+    "family": "디자인",
+    "aliases": ["Product Designer", "프로덕트디자이너", "UX 디자이너"],
+    "sampleSize": 9,
+    "source": "JD"
+  }
+]
