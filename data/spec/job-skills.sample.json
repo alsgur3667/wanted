@@ -1,0 +1,9 @@
+[
+  { "jobId": "pm",               "skillId": "ab_test",        "weight": 0.75, "docFreq": 9,  "source": "JD" },
+  { "jobId": "pm",               "skillId": "sql",            "weight": 0.58, "docFreq": 7,  "source": "JD" },
+  { "jobId": "pm",               "skillId": "ia_design",      "weight": 0.42, "docFreq": 5,  "source": "JD" },
+  { "jobId": "fe_dev",           "skillId": "react",          "weight": 0.94, "docFreq": 17, "source": "JD" },
+  { "jobId": "fe_dev",           "skillId": "ab_test",        "weight": 0.11, "docFreq": 2,  "source": "JD" },
+  { "jobId": "product_designer", "skillId": "ia_design",      "weight": 0.89, "docFreq": 8,  "source": "JD" },
+  { "jobId": "product_designer", "skillId": "ab_test",        "weight": 0.33, "docFreq": 3,  "source": "JD" }
+]
