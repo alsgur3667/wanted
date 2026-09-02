@@ -227,9 +227,11 @@ def extract_keys(text: str, tools: dict, ncs: dict, multiword: set) -> set:
             else:
                 surface_hint.setdefault(k, tools.get(k, tok))
 
+    # 여러 단어짜리 도구명(Apache Kafka 등)도 경계를 본다.
+    # 부분문자열로 찾으면 다른 말 안에 든 철자까지 세게 된다.
     low = text.lower()
     for k in multiword:
-        if k in low:
+        if k in low and re.search(r"(?<![a-z0-9가-힣])" + re.escape(k) + r"(?![a-z0-9])", low):
             out.add(k)
 
     if HANGUL.search(text):

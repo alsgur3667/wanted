@@ -120,6 +120,7 @@ def run():
     skills = json.loads((RAW / "_skills.json").read_text(encoding="utf-8"))["skills"]
     sk_by_key = {s["key"]: s for s in skills}
     keys = set(sk_by_key)
+    key_name = {k: v["name"] for k, v in sk_by_key.items()}   # 매칭은 정규 표기로 한다
 
     # 역할별로 공고를 모은다 (민간 공고만 — 공공기관 제목은 직무명이 아니다)
     posts = defaultdict(list)
@@ -144,19 +145,30 @@ def run():
 
     print(f"민간 공고 {total_private:,}건 · 역할 배정 {total_private - skipped:,} · 미분류 {skipped:,}")
 
-    # 역할별 스킬 등장률을 먼저 센다
+    # ⚠️ 스킬을 셀 때 부분문자열로 찾으면 안 된다.
+    #    `if "unity" in text` 는 opportunity·community 에도 걸린다. 실제로 이 실수로
+    #    Unity 가 14건이 아니라 493건으로 집계됐다 — 97%가 오탐이었다.
+    #    scalable→Scala, location→OCA, storage→RAG, enterprise→ERP 도 같은 원인이다.
+    #
+    #    앞은 영문·숫자·한글 모두 막는다. '빅데이터 분석' 안의 '데이터 분석'을 세지 않기 위해서다.
+    #    뒤는 영문·숫자만 막는다. 한글 조사(분석을·개발이)가 붙는 것은 정상 등장이다.
+    #    대소문자는 구분한다 — 사전이 이미 대문자 사용 비율로 걸러졌는데
+    #    re.I 를 쓰면 그 판단이 무효가 된다 (소문자 sass 가 Sass 로 20건 오탐).
+    pat = {k: re.compile(r"(?<![A-Za-z0-9가-힣])" + re.escape(nm) + r"(?![A-Za-z0-9])")
+           for k, nm in key_name.items()}
+
     counted = {}
     for name, docs in posts.items():
         if len(docs) < MIN_POSTS:
             continue
         cnt, pref_cnt = Counter(), Counter()
         for d in docs:
-            blob = f"{d['title']} {d['text']}".lower()
-            pref = d.get("pref_text", "").lower()
+            blob = f"{d['title']} {d['text']}"
+            pref = d.get("pref_text", "")
             for k in keys:
-                if k in blob:
+                if pat[k].search(blob):
                     cnt[k] += 1
-                    if k in pref:
+                    if pat[k].search(pref):
                         pref_cnt[k] += 1
         counted[name] = (cnt, pref_cnt, len(docs))
 

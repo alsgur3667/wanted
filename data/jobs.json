@@ -12,19 +12,6 @@
   "source": "JD"
  },
  {
-  "id": "product_manager",
-  "title": "프로덕트 매니저",
-  "family": "기획",
-  "aliases": [
-   "product manager",
-   "product owner",
-   "서비스 기획",
-   "PM"
-  ],
-  "sampleSize": 109,
-  "source": "JD"
- },
- {
   "id": "be_dev",
   "title": "백엔드 개발자",
   "family": "개발",

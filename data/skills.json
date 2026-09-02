@@ -172,7 +172,7 @@
    "대규모 언어모델",
    "거대언어모델"
   ],
-  "learnDifficulty": 0.64,
+  "learnDifficulty": 0.65,
   "firstStep": "LLM 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
   "sourceType": "concept",
   "isCertification": false,
@@ -469,7 +469,7 @@
   "aliases": [
    "피그마"
   ],
-  "learnDifficulty": 0.38,
+  "learnDifficulty": 0.39,
   "firstStep": "Figma 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
@@ -654,6 +654,19 @@
   "learnDifficulty": 0.63,
   "firstStep": "NoSQL 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
   "sourceType": "concept",
+  "isCertification": false,
+  "onMap": true,
+  "firstStepSource": "template",
+  "difficultySource": "estimate:type+scarcity"
+ },
+ {
+  "id": "planning",
+  "name": "기획",
+  "type": "hard",
+  "aliases": [],
+  "learnDifficulty": 0.38,
+  "firstStep": "기획 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
+  "sourceType": "skill_ko",
   "isCertification": false,
   "onMap": true,
   "firstStepSource": "template",
@@ -1073,11 +1086,11 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "planning",
+  "id": "planning_2",
   "name": "교육기획",
   "type": "hard",
   "aliases": [],
-  "learnDifficulty": 0.5,
+  "learnDifficulty": 0.51,
   "firstStep": "교육기획 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
   "sourceType": "skill_ko",
   "isCertification": false,
@@ -1099,6 +1112,22 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
+  "id": "angular",
+  "name": "Angular",
+  "type": "tool",
+  "aliases": [
+   "angular",
+   "앵귤러"
+  ],
+  "learnDifficulty": 0.35,
+  "firstStep": "Angular 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "sourceType": "tool",
+  "isCertification": false,
+  "onMap": true,
+  "firstStepSource": "template",
+  "difficultySource": "estimate:type+scarcity"
+ },
+ {
   "id": "golang",
   "name": "Golang",
   "type": "tool",
@@ -1110,22 +1139,6 @@
   "learnDifficulty": 0.62,
   "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Golang 로 다시 써 보세요.",
   "sourceType": "language",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
-  "id": "angular",
-  "name": "Angular",
-  "type": "tool",
-  "aliases": [
-   "angular",
-   "앵귤러"
-  ],
-  "learnDifficulty": 0.35,
-  "firstStep": "Angular 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
   "firstStepSource": "template",
@@ -1451,12 +1464,12 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "planning_2",
-  "name": "기획",
+  "id": "planning_3",
+  "name": "전략기획",
   "type": "hard",
   "aliases": [],
   "learnDifficulty": 0.4,
-  "firstStep": "기획 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
+  "firstStep": "전략기획 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
   "sourceType": "skill_ko",
   "isCertification": false,
   "onMap": true,
@@ -1527,7 +1540,7 @@
   "name": "Gemini",
   "type": "tool",
   "aliases": [],
-  "learnDifficulty": 0.57,
+  "learnDifficulty": 0.58,
   "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Gemini 로 다시 써 보세요.",
   "sourceType": "language",
   "isCertification": false,
@@ -1581,7 +1594,7 @@
   "aliases": [
    "데이터 파이프라인"
   ],
-  "learnDifficulty": 0.61,
+  "learnDifficulty": 0.62,
   "firstStep": "ETL 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
   "sourceType": "concept",
   "isCertification": false,
@@ -1887,7 +1900,7 @@
   "aliases": [
    "Unix"
   ],
-  "learnDifficulty": 0.52,
+  "learnDifficulty": 0.51,
   "firstStep": "UNIX 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
@@ -2016,6 +2029,19 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
+  "id": "argocd",
+  "name": "ArgoCD",
+  "type": "tool",
+  "aliases": [],
+  "learnDifficulty": 0.38,
+  "firstStep": "ArgoCD 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "sourceType": "tool",
+  "isCertification": false,
+  "onMap": true,
+  "firstStepSource": "template",
+  "difficultySource": "estimate:type+scarcity"
+ },
+ {
   "id": "helm",
   "name": "Helm",
   "type": "tool",
@@ -2031,13 +2057,13 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "argocd",
-  "name": "ArgoCD",
-  "type": "tool",
+  "id": "siem",
+  "name": "SIEM",
+  "type": "hard",
   "aliases": [],
-  "learnDifficulty": 0.38,
-  "firstStep": "ArgoCD 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
+  "learnDifficulty": 0.54,
+  "firstStep": "SIEM 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
   "firstStepSource": "template",
@@ -2050,19 +2076,6 @@
   "aliases": [],
   "learnDifficulty": 0.54,
   "firstStep": "DevSecOps 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
-  "sourceType": "concept",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
-  "id": "siem",
-  "name": "SIEM",
-  "type": "hard",
-  "aliases": [],
-  "learnDifficulty": 0.54,
-  "firstStep": "SIEM 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
@@ -2558,12 +2571,12 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "oca",
-  "name": "OCA",
+  "id": "lpic",
+  "name": "LPIC",
   "type": "hard",
   "aliases": [],
-  "learnDifficulty": 0.76,
-  "firstStep": "OCA 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
+  "learnDifficulty": 0.68,
+  "firstStep": "LPIC 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
   "sourceType": "certification",
   "isCertification": true,
   "onMap": false,
@@ -2571,12 +2584,12 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "lpic",
-  "name": "LPIC",
+  "id": "oca",
+  "name": "OCA",
   "type": "hard",
   "aliases": [],
-  "learnDifficulty": 0.68,
-  "firstStep": "LPIC 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
+  "learnDifficulty": 0.76,
+  "firstStep": "OCA 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
   "sourceType": "certification",
   "isCertification": true,
   "onMap": false,

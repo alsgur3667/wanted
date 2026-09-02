@@ -29,20 +29,20 @@
  {
   "jobId": "sw_eng",
   "skillId": "sql",
-  "weight": 0.212,
-  "docFreq": 53,
+  "weight": 0.088,
+  "docFreq": 22,
   "source": "JD",
-  "prefFreq": 14,
-  "reqFreq": 39
+  "prefFreq": 4,
+  "reqFreq": 18
  },
  {
   "jobId": "sw_eng",
   "skillId": "redis",
-  "weight": 0.084,
-  "docFreq": 21,
+  "weight": 0.08,
+  "docFreq": 20,
   "source": "JD",
   "prefFreq": 9,
-  "reqFreq": 12
+  "reqFreq": 11
  },
  {
   "jobId": "sw_eng",
@@ -55,12 +55,30 @@
  },
  {
   "jobId": "sw_eng",
+  "skillId": "react",
+  "weight": 0.168,
+  "docFreq": 42,
+  "source": "JD",
+  "prefFreq": 15,
+  "reqFreq": 27
+ },
+ {
+  "jobId": "sw_eng",
   "skillId": "javascript",
   "weight": 0.092,
   "docFreq": 23,
   "source": "JD",
   "prefFreq": 3,
   "reqFreq": 20
+ },
+ {
+  "jobId": "sw_eng",
+  "skillId": "ios",
+  "weight": 0.068,
+  "docFreq": 17,
+  "source": "JD",
+  "prefFreq": 3,
+  "reqFreq": 14
  },
  {
   "jobId": "sw_eng",
@@ -73,21 +91,12 @@
  },
  {
   "jobId": "sw_eng",
-  "skillId": "react",
-  "weight": 0.18,
-  "docFreq": 45,
-  "source": "JD",
-  "prefFreq": 16,
-  "reqFreq": 29
- },
- {
-  "jobId": "sw_eng",
   "skillId": "typescript",
-  "weight": 0.14,
-  "docFreq": 35,
+  "weight": 0.128,
+  "docFreq": 32,
   "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 30
+  "prefFreq": 4,
+  "reqFreq": 28
  },
  {
   "jobId": "sw_eng",
@@ -101,29 +110,11 @@
  {
   "jobId": "sw_eng",
   "skillId": "docker",
-  "weight": 0.128,
-  "docFreq": 32,
+  "weight": 0.124,
+  "docFreq": 31,
   "source": "JD",
   "prefFreq": 15,
-  "reqFreq": 17
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "mos",
-  "weight": 0.38,
-  "docFreq": 95,
-  "source": "JD",
-  "prefFreq": 12,
-  "reqFreq": 83
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "linux",
-  "weight": 0.084,
-  "docFreq": 21,
-  "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 14
+  "reqFreq": 16
  },
  {
   "jobId": "sw_eng",
@@ -136,39 +127,21 @@
  },
  {
   "jobId": "sw_eng",
-  "skillId": "rust",
-  "weight": 0.296,
-  "docFreq": 74,
+  "skillId": "git",
+  "weight": 0.064,
+  "docFreq": 16,
   "source": "JD",
-  "prefFreq": 16,
-  "reqFreq": 58
+  "prefFreq": 5,
+  "reqFreq": 11
  },
  {
   "jobId": "sw_eng",
-  "skillId": "ios",
-  "weight": 0.204,
-  "docFreq": 51,
+  "skillId": "linux",
+  "weight": 0.084,
+  "docFreq": 21,
   "source": "JD",
   "prefFreq": 7,
-  "reqFreq": 44
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "seo",
-  "weight": 0.056,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 13
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "scala",
-  "weight": 0.428,
-  "docFreq": 107,
-  "source": "JD",
-  "prefFreq": 12,
-  "reqFreq": 95
+  "reqFreq": 14
  },
  {
   "jobId": "sw_eng",
@@ -178,33 +151,6 @@
   "source": "JD",
   "prefFreq": 24,
   "reqFreq": 69
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "java",
-  "weight": 0.236,
-  "docFreq": 59,
-  "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 51
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "unity",
-  "weight": 0.46,
-  "docFreq": 115,
-  "source": "JD",
-  "prefFreq": 15,
-  "reqFreq": 100
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "oca",
-  "weight": 0.572,
-  "docFreq": 143,
-  "source": "JD",
-  "prefFreq": 53,
-  "reqFreq": 90
  },
  {
   "jobId": "sw_eng",
@@ -235,93 +181,39 @@
  },
  {
   "jobId": "sw_eng",
-  "skillId": "bi",
-  "weight": 0.948,
-  "docFreq": 237,
+  "skillId": "llm",
+  "weight": 0.112,
+  "docFreq": 28,
   "source": "JD",
-  "prefFreq": 82,
-  "reqFreq": 155
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "sre",
-  "weight": 0.092,
-  "docFreq": 23,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 22
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "ux_ui",
-  "weight": 0.908,
-  "docFreq": 227,
-  "source": "JD",
-  "prefFreq": 92,
-  "reqFreq": 135
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "rag",
-  "weight": 0.496,
-  "docFreq": 124,
-  "source": "JD",
-  "prefFreq": 23,
-  "reqFreq": 101
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "git",
-  "weight": 0.356,
-  "docFreq": 89,
-  "source": "JD",
-  "prefFreq": 14,
-  "reqFreq": 75
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "github",
-  "weight": 0.052,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 10
+  "prefFreq": 12,
+  "reqFreq": 16
  },
  {
   "jobId": "sw_eng",
   "skillId": "aws",
-  "weight": 0.344,
-  "docFreq": 86,
+  "weight": 0.248,
+  "docFreq": 62,
   "source": "JD",
-  "prefFreq": 28,
-  "reqFreq": 58
+  "prefFreq": 27,
+  "reqFreq": 35
  },
  {
   "jobId": "sw_eng",
-  "skillId": "erp",
-  "weight": 0.256,
-  "docFreq": 64,
+  "skillId": "java",
+  "weight": 0.168,
+  "docFreq": 42,
   "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 57
+  "prefFreq": 6,
+  "reqFreq": 36
  },
  {
   "jobId": "sw_eng",
-  "skillId": "llm",
-  "weight": 0.156,
-  "docFreq": 39,
+  "skillId": "ux_ui",
+  "weight": 0.084,
+  "docFreq": 21,
   "source": "JD",
-  "prefFreq": 16,
-  "reqFreq": 23
- },
- {
-  "jobId": "sw_eng",
-  "skillId": "dap",
-  "weight": 0.056,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 12
+  "prefFreq": 3,
+  "reqFreq": 18
  },
  {
   "jobId": "sw_eng",
@@ -333,193 +225,31 @@
   "reqFreq": 9
  },
  {
-  "jobId": "product_manager",
-  "skillId": "jira",
-  "weight": 0.073,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "product_manager",
-  "skillId": "crm",
-  "weight": 0.083,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 7
- },
- {
-  "jobId": "product_manager",
-  "skillId": "mos",
-  "weight": 0.422,
-  "docFreq": 46,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 44
- },
- {
-  "jobId": "product_manager",
-  "skillId": "sass",
-  "weight": 0.092,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 6
- },
- {
-  "jobId": "product_manager",
-  "skillId": "ios",
-  "weight": 0.239,
-  "docFreq": 26,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 26
- },
- {
-  "jobId": "product_manager",
-  "skillId": "seo",
-  "weight": 0.064,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 7
- },
- {
-  "jobId": "product_manager",
-  "skillId": "bi",
-  "weight": 0.963,
-  "docFreq": 105,
-  "source": "JD",
-  "prefFreq": 27,
-  "reqFreq": 78
- },
- {
-  "jobId": "product_manager",
-  "skillId": "ux_ui",
-  "weight": 0.936,
-  "docFreq": 102,
-  "source": "JD",
-  "prefFreq": 36,
-  "reqFreq": 66
- },
- {
-  "jobId": "product_manager",
-  "skillId": "oca",
-  "weight": 0.541,
-  "docFreq": 59,
-  "source": "JD",
-  "prefFreq": 19,
-  "reqFreq": 40
- },
- {
-  "jobId": "product_manager",
-  "skillId": "git",
-  "weight": 0.349,
-  "docFreq": 38,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 34
- },
- {
-  "jobId": "product_manager",
-  "skillId": "llm",
-  "weight": 0.147,
+  "jobId": "be_dev",
+  "skillId": "sql",
+  "weight": 0.15,
   "docFreq": 16,
   "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 8
- },
- {
-  "jobId": "product_manager",
-  "skillId": "unity",
-  "weight": 0.367,
-  "docFreq": 40,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 40
- },
- {
-  "jobId": "product_manager",
-  "skillId": "dap",
-  "weight": 0.064,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 5
- },
- {
-  "jobId": "product_manager",
-  "skillId": "rag",
-  "weight": 0.404,
-  "docFreq": 44,
-  "source": "JD",
-  "prefFreq": 11,
-  "reqFreq": 33
- },
- {
-  "jobId": "product_manager",
-  "skillId": "erp",
-  "weight": 0.22,
-  "docFreq": 24,
-  "source": "JD",
-  "prefFreq": 9,
+  "prefFreq": 1,
   "reqFreq": 15
  },
  {
-  "jobId": "product_manager",
-  "skillId": "rust",
-  "weight": 0.193,
-  "docFreq": 21,
+  "jobId": "be_dev",
+  "skillId": "software_development",
+  "weight": 0.121,
+  "docFreq": 13,
   "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 17
- },
- {
-  "jobId": "product_manager",
-  "skillId": "sql",
-  "weight": 0.165,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 9,
-  "reqFreq": 9
- },
- {
-  "jobId": "product_manager",
-  "skillId": "scala",
-  "weight": 0.248,
-  "docFreq": 27,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 25
- },
- {
-  "jobId": "product_manager",
-  "skillId": "aws",
-  "weight": 0.183,
-  "docFreq": 20,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 19
- },
- {
-  "jobId": "product_manager",
-  "skillId": "python",
-  "weight": 0.083,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 2
+  "prefFreq": 5,
+  "reqFreq": 8
  },
  {
   "jobId": "be_dev",
-  "skillId": "sql",
-  "weight": 0.299,
-  "docFreq": 32,
+  "skillId": "msa",
+  "weight": 0.103,
+  "docFreq": 11,
   "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 25
+  "prefFreq": 3,
+  "reqFreq": 8
  },
  {
   "jobId": "be_dev",
@@ -533,11 +263,11 @@
  {
   "jobId": "be_dev",
   "skillId": "spring",
-  "weight": 0.505,
-  "docFreq": 54,
+  "weight": 0.495,
+  "docFreq": 53,
   "source": "JD",
   "prefFreq": 12,
-  "reqFreq": 42
+  "reqFreq": 41
  },
  {
   "jobId": "be_dev",
@@ -550,20 +280,38 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "jpa",
-  "weight": 0.084,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 4
- },
- {
-  "jobId": "be_dev",
   "skillId": "istio",
   "weight": 0.103,
   "docFreq": 11,
   "source": "JD",
   "prefFreq": 7,
+  "reqFreq": 4
+ },
+ {
+  "jobId": "be_dev",
+  "skillId": "system_architecture",
+  "weight": 0.065,
+  "docFreq": 7,
+  "source": "JD",
+  "prefFreq": 4,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "be_dev",
+  "skillId": "system_design",
+  "weight": 0.084,
+  "docFreq": 9,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 8
+ },
+ {
+  "jobId": "be_dev",
+  "skillId": "jpa",
+  "weight": 0.084,
+  "docFreq": 9,
+  "source": "JD",
+  "prefFreq": 5,
   "reqFreq": 4
  },
  {
@@ -578,20 +326,11 @@
  {
   "jobId": "be_dev",
   "skillId": "grpc",
-  "weight": 0.178,
-  "docFreq": 19,
+  "weight": 0.159,
+  "docFreq": 17,
   "source": "JD",
   "prefFreq": 8,
-  "reqFreq": 11
- },
- {
-  "jobId": "be_dev",
-  "skillId": "msa",
-  "weight": 0.103,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 8
+  "reqFreq": 9
  },
  {
   "jobId": "be_dev",
@@ -604,12 +343,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "kotlin",
-  "weight": 0.206,
-  "docFreq": 22,
+  "skillId": "system_build",
+  "weight": 0.056,
+  "docFreq": 6,
   "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 15
+  "prefFreq": 0,
+  "reqFreq": 6
  },
  {
   "jobId": "be_dev",
@@ -622,12 +361,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "rest_api",
-  "weight": 0.056,
-  "docFreq": 6,
+  "skillId": "kotlin",
+  "weight": 0.206,
+  "docFreq": 22,
   "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
+  "prefFreq": 7,
+  "reqFreq": 15
  },
  {
   "jobId": "be_dev",
@@ -640,12 +379,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "isms",
-  "weight": 0.103,
-  "docFreq": 11,
+  "skillId": "rest_api",
+  "weight": 0.056,
+  "docFreq": 6,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 11
+  "prefFreq": 1,
+  "reqFreq": 5
  },
  {
   "jobId": "be_dev",
@@ -667,6 +406,15 @@
  },
  {
   "jobId": "be_dev",
+  "skillId": "aws",
+  "weight": 0.626,
+  "docFreq": 67,
+  "source": "JD",
+  "prefFreq": 23,
+  "reqFreq": 44
+ },
+ {
+  "jobId": "be_dev",
   "skillId": "hwp",
   "weight": 0.084,
   "docFreq": 9,
@@ -676,30 +424,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "sass",
-  "weight": 0.15,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 14
- },
- {
-  "jobId": "be_dev",
   "skillId": "grafana",
   "weight": 0.075,
   "docFreq": 8,
   "source": "JD",
   "prefFreq": 8,
   "reqFreq": 0
- },
- {
-  "jobId": "be_dev",
-  "skillId": "aws",
-  "weight": 0.785,
-  "docFreq": 84,
-  "source": "JD",
-  "prefFreq": 23,
-  "reqFreq": 61
  },
  {
   "jobId": "be_dev",
@@ -730,24 +460,6 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "sre",
-  "weight": 0.15,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 16
- },
- {
-  "jobId": "be_dev",
-  "skillId": "scala",
-  "weight": 0.626,
-  "docFreq": 67,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 63
- },
- {
-  "jobId": "be_dev",
   "skillId": "docker",
   "weight": 0.15,
   "docFreq": 16,
@@ -763,15 +475,6 @@
   "source": "JD",
   "prefFreq": 7,
   "reqFreq": 11
- },
- {
-  "jobId": "be_dev",
-  "skillId": "oca",
-  "weight": 0.692,
-  "docFreq": 74,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 69
  },
  {
   "jobId": "be_dev",
@@ -802,33 +505,6 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "rag",
-  "weight": 0.505,
-  "docFreq": 54,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 49
- },
- {
-  "jobId": "be_dev",
-  "skillId": "ux_ui",
-  "weight": 0.916,
-  "docFreq": 98,
-  "source": "JD",
-  "prefFreq": 34,
-  "reqFreq": 64
- },
- {
-  "jobId": "be_dev",
-  "skillId": "bi",
-  "weight": 0.841,
-  "docFreq": 90,
-  "source": "JD",
-  "prefFreq": 31,
-  "reqFreq": 59
- },
- {
-  "jobId": "be_dev",
   "skillId": "linux",
   "weight": 0.056,
   "docFreq": 6,
@@ -847,48 +523,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "unity",
-  "weight": 0.308,
-  "docFreq": 33,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 33
- },
- {
-  "jobId": "be_dev",
   "skillId": "typescript",
   "weight": 0.065,
   "docFreq": 7,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 6
- },
- {
-  "jobId": "be_dev",
-  "skillId": "llm",
-  "weight": 0.103,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 7
- },
- {
-  "jobId": "be_dev",
-  "skillId": "rust",
-  "weight": 0.131,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 14
- },
- {
-  "jobId": "be_dev",
-  "skillId": "erp",
-  "weight": 0.14,
-  "docFreq": 15,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 15
  },
  {
   "jobId": "be_dev",
@@ -901,30 +541,12 @@
  },
  {
   "jobId": "be_dev",
-  "skillId": "git",
-  "weight": 0.159,
-  "docFreq": 17,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 11
- },
- {
-  "jobId": "be_dev",
-  "skillId": "mos",
-  "weight": 0.112,
-  "docFreq": 12,
+  "skillId": "llm",
+  "weight": 0.056,
+  "docFreq": 6,
   "source": "JD",
   "prefFreq": 3,
-  "reqFreq": 9
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "mlflow",
-  "weight": 0.136,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 5
+  "reqFreq": 3
  },
  {
   "jobId": "data_scientist",
@@ -956,11 +578,11 @@
  {
   "jobId": "data_scientist",
   "skillId": "tensorflow",
-  "weight": 0.182,
-  "docFreq": 12,
+  "weight": 0.167,
+  "docFreq": 11,
   "source": "JD",
   "prefFreq": 5,
-  "reqFreq": 7
+  "reqFreq": 6
  },
  {
   "jobId": "data_scientist",
@@ -983,11 +605,11 @@
  {
   "jobId": "data_scientist",
   "skillId": "llm",
-  "weight": 0.606,
-  "docFreq": 40,
+  "weight": 0.379,
+  "docFreq": 25,
   "source": "JD",
-  "prefFreq": 18,
-  "reqFreq": 22
+  "prefFreq": 11,
+  "reqFreq": 14
  },
  {
   "jobId": "data_scientist",
@@ -1009,21 +631,21 @@
  },
  {
   "jobId": "data_scientist",
+  "skillId": "rag",
+  "weight": 0.121,
+  "docFreq": 8,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 6
+ },
+ {
+  "jobId": "data_scientist",
   "skillId": "fastapi",
   "weight": 0.061,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 4
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "gpu",
-  "weight": 0.091,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 2
  },
  {
   "jobId": "data_scientist",
@@ -1054,12 +676,21 @@
  },
  {
   "jobId": "data_scientist",
-  "skillId": "seo",
-  "weight": 0.121,
-  "docFreq": 8,
+  "skillId": "gpu",
+  "weight": 0.061,
+  "docFreq": 4,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 8
+  "prefFreq": 3,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "data_scientist",
+  "skillId": "sql",
+  "weight": 0.409,
+  "docFreq": 27,
+  "source": "JD",
+  "prefFreq": 3,
+  "reqFreq": 24
  },
  {
   "jobId": "data_scientist",
@@ -1081,39 +712,12 @@
  },
  {
   "jobId": "data_scientist",
-  "skillId": "sql",
-  "weight": 0.424,
-  "docFreq": 28,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 25
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "sass",
-  "weight": 0.106,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 5
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "sre",
-  "weight": 0.136,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 9
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "ios",
+  "skillId": "java",
   "weight": 0.273,
   "docFreq": 18,
   "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 17
+  "prefFreq": 6,
+  "reqFreq": 12
  },
  {
   "jobId": "data_scientist",
@@ -1126,93 +730,30 @@
  },
  {
   "jobId": "data_scientist",
-  "skillId": "unity",
-  "weight": 0.606,
-  "docFreq": 40,
+  "skillId": "aws",
+  "weight": 0.333,
+  "docFreq": 22,
   "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 39
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "mos",
-  "weight": 0.409,
-  "docFreq": 27,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 25
+  "prefFreq": 12,
+  "reqFreq": 10
  },
  {
   "jobId": "data_scientist",
   "skillId": "github",
-  "weight": 0.076,
-  "docFreq": 5,
+  "weight": 0.061,
+  "docFreq": 4,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 5
+  "reqFreq": 4
  },
  {
   "jobId": "data_scientist",
-  "skillId": "aws",
-  "weight": 0.5,
-  "docFreq": 33,
-  "source": "JD",
-  "prefFreq": 13,
-  "reqFreq": 20
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "rag",
-  "weight": 0.682,
-  "docFreq": 45,
-  "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 38
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "java",
-  "weight": 0.273,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 12
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "oca",
-  "weight": 0.636,
-  "docFreq": 42,
-  "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 34
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "scala",
-  "weight": 0.439,
-  "docFreq": 29,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 27
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "erp",
-  "weight": 0.318,
-  "docFreq": 21,
+  "skillId": "bi",
+  "weight": 0.061,
+  "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 20
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "rust",
-  "weight": 0.288,
-  "docFreq": 19,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 19
+  "reqFreq": 3
  },
  {
   "jobId": "data_scientist",
@@ -1222,33 +763,6 @@
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 3
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "ux_ui",
-  "weight": 0.985,
-  "docFreq": 65,
-  "source": "JD",
-  "prefFreq": 30,
-  "reqFreq": 35
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "bi",
-  "weight": 0.97,
-  "docFreq": 64,
-  "source": "JD",
-  "prefFreq": 22,
-  "reqFreq": 42
- },
- {
-  "jobId": "data_scientist",
-  "skillId": "dap",
-  "weight": 0.076,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
  },
  {
   "jobId": "data_scientist",
@@ -1270,15 +784,6 @@
  },
  {
   "jobId": "data_scientist",
-  "skillId": "git",
-  "weight": 0.242,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 15
- },
- {
-  "jobId": "data_scientist",
   "skillId": "kubernetes",
   "weight": 0.106,
   "docFreq": 7,
@@ -1294,6 +799,24 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 3
+ },
+ {
+  "jobId": "architect",
+  "skillId": "sap",
+  "weight": 0.095,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "architect",
+  "skillId": "unity",
+  "weight": 0.071,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 2
  },
  {
   "jobId": "architect",
@@ -1324,30 +847,12 @@
  },
  {
   "jobId": "architect",
-  "skillId": "iot",
-  "weight": 0.071,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "architect",
-  "skillId": "sap",
+  "skillId": "rag",
   "weight": 0.095,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 3
- },
- {
-  "jobId": "architect",
-  "skillId": "erp",
-  "weight": 0.69,
-  "docFreq": 29,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 27
  },
  {
   "jobId": "architect",
@@ -1369,39 +874,12 @@
  },
  {
   "jobId": "architect",
-  "skillId": "sass",
-  "weight": 0.143,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 4
- },
- {
-  "jobId": "architect",
-  "skillId": "rust",
-  "weight": 0.5,
-  "docFreq": 21,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 17
- },
- {
-  "jobId": "architect",
   "skillId": "llm",
-  "weight": 0.238,
-  "docFreq": 10,
+  "weight": 0.214,
+  "docFreq": 9,
   "source": "JD",
   "prefFreq": 5,
-  "reqFreq": 5
- },
- {
-  "jobId": "architect",
-  "skillId": "git",
-  "weight": 0.524,
-  "docFreq": 22,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 20
+  "reqFreq": 4
  },
  {
   "jobId": "architect",
@@ -1414,30 +892,12 @@
  },
  {
   "jobId": "architect",
-  "skillId": "rag",
-  "weight": 0.69,
-  "docFreq": 29,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 25
- },
- {
-  "jobId": "architect",
   "skillId": "github",
   "weight": 0.071,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 2
- },
- {
-  "jobId": "architect",
-  "skillId": "scala",
-  "weight": 0.476,
-  "docFreq": 20,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 18
  },
  {
   "jobId": "architect",
@@ -1450,33 +910,6 @@
  },
  {
   "jobId": "architect",
-  "skillId": "ux_ui",
-  "weight": 1.0,
-  "docFreq": 42,
-  "source": "JD",
-  "prefFreq": 17,
-  "reqFreq": 25
- },
- {
-  "jobId": "architect",
-  "skillId": "bi",
-  "weight": 1.0,
-  "docFreq": 42,
-  "source": "JD",
-  "prefFreq": 15,
-  "reqFreq": 27
- },
- {
-  "jobId": "architect",
-  "skillId": "unity",
-  "weight": 0.452,
-  "docFreq": 19,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 17
- },
- {
-  "jobId": "architect",
   "skillId": "kubernetes",
   "weight": 0.167,
   "docFreq": 7,
@@ -1486,57 +919,30 @@
  },
  {
   "jobId": "architect",
-  "skillId": "oca",
-  "weight": 0.524,
-  "docFreq": 22,
-  "source": "JD",
-  "prefFreq": 9,
-  "reqFreq": 13
- },
- {
-  "jobId": "architect",
   "skillId": "aws",
-  "weight": 0.262,
-  "docFreq": 11,
+  "weight": 0.214,
+  "docFreq": 9,
   "source": "JD",
   "prefFreq": 4,
-  "reqFreq": 7
+  "reqFreq": 5
  },
  {
   "jobId": "architect",
   "skillId": "python",
-  "weight": 0.238,
-  "docFreq": 10,
+  "weight": 0.214,
+  "docFreq": 9,
   "source": "JD",
   "prefFreq": 2,
-  "reqFreq": 8
+  "reqFreq": 7
  },
  {
   "jobId": "architect",
-  "skillId": "mos",
-  "weight": 0.19,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 8
- },
- {
-  "jobId": "architect",
-  "skillId": "ios",
+  "skillId": "sql",
   "weight": 0.095,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 4
- },
- {
-  "jobId": "architect",
-  "skillId": "sql",
-  "weight": 0.119,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
  },
  {
   "jobId": "devops_sre",
@@ -1567,6 +973,15 @@
  },
  {
   "jobId": "devops_sre",
+  "skillId": "bash",
+  "weight": 0.273,
+  "docFreq": 9,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 7
+ },
+ {
+  "jobId": "devops_sre",
   "skillId": "ansible",
   "weight": 0.364,
   "docFreq": 12,
@@ -1585,30 +1000,12 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "bash",
-  "weight": 0.273,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 7
- },
- {
-  "jobId": "devops_sre",
   "skillId": "prometheus",
   "weight": 0.303,
   "docFreq": 10,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 10
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "sql",
-  "weight": 0.212,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 4
  },
  {
   "jobId": "devops_sre",
@@ -1630,6 +1027,24 @@
  },
  {
   "jobId": "devops_sre",
+  "skillId": "system_build",
+  "weight": 0.091,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "devops_sre",
+  "skillId": "system_operation",
+  "weight": 0.091,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "devops_sre",
   "skillId": "docker",
   "weight": 0.515,
   "docFreq": 17,
@@ -1639,21 +1054,30 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "hwp",
-  "weight": 0.182,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 0
- },
- {
-  "jobId": "devops_sre",
   "skillId": "iac",
   "weight": 0.121,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 3
+ },
+ {
+  "jobId": "devops_sre",
+  "skillId": "sre",
+  "weight": 0.121,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "devops_sre",
+  "skillId": "hwp",
+  "weight": 0.182,
+  "docFreq": 6,
+  "source": "JD",
+  "prefFreq": 6,
+  "reqFreq": 0
  },
  {
   "jobId": "devops_sre",
@@ -1711,15 +1135,6 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "powershell",
-  "weight": 0.061,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 0
- },
- {
-  "jobId": "devops_sre",
   "skillId": "ruby",
   "weight": 0.061,
   "docFreq": 2,
@@ -1738,12 +1153,12 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "ux_ui",
-  "weight": 0.727,
-  "docFreq": 24,
+  "skillId": "rust",
+  "weight": 0.061,
+  "docFreq": 2,
   "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 18
+  "prefFreq": 1,
+  "reqFreq": 1
  },
  {
   "jobId": "devops_sre",
@@ -1756,12 +1171,12 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "vue",
-  "weight": 0.061,
-  "docFreq": 2,
+  "skillId": "sql",
+  "weight": 0.091,
+  "docFreq": 3,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
+  "prefFreq": 2,
+  "reqFreq": 1
  },
  {
   "jobId": "devops_sre",
@@ -1774,30 +1189,30 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "sre",
-  "weight": 0.182,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "sass",
-  "weight": 0.121,
-  "docFreq": 4,
+  "skillId": "rag",
+  "weight": 0.061,
+  "docFreq": 2,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 4
+  "reqFreq": 2
  },
  {
   "jobId": "devops_sre",
   "skillId": "git",
-  "weight": 0.606,
-  "docFreq": 20,
+  "weight": 0.091,
+  "docFreq": 3,
   "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 18
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "devops_sre",
+  "skillId": "aws",
+  "weight": 0.455,
+  "docFreq": 15,
+  "source": "JD",
+  "prefFreq": 8,
+  "reqFreq": 7
  },
  {
   "jobId": "devops_sre",
@@ -1810,24 +1225,6 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "python",
-  "weight": 0.485,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 13
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "aws",
-  "weight": 0.515,
-  "docFreq": 17,
-  "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 9
- },
- {
-  "jobId": "devops_sre",
   "skillId": "llm",
   "weight": 0.182,
   "docFreq": 6,
@@ -1837,57 +1234,12 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "rag",
+  "skillId": "python",
   "weight": 0.485,
   "docFreq": 16,
   "source": "JD",
   "prefFreq": 3,
   "reqFreq": 13
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "bi",
-  "weight": 0.848,
-  "docFreq": 28,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 23
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "scala",
-  "weight": 0.333,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 11
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "unity",
-  "weight": 0.364,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 10
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "erp",
-  "weight": 0.242,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "dap",
-  "weight": 0.061,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
  },
  {
   "jobId": "devops_sre",
@@ -1900,39 +1252,12 @@
  },
  {
   "jobId": "devops_sre",
-  "skillId": "oca",
-  "weight": 0.394,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 8
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "ios",
-  "weight": 0.121,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "devops_sre",
   "skillId": "java",
-  "weight": 0.121,
-  "docFreq": 4,
+  "weight": 0.091,
+  "docFreq": 3,
   "source": "JD",
   "prefFreq": 2,
-  "reqFreq": 2
- },
- {
-  "jobId": "devops_sre",
-  "skillId": "rust",
-  "weight": 0.121,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
+  "reqFreq": 1
  },
  {
   "jobId": "designer",
@@ -1981,12 +1306,12 @@
  },
  {
   "jobId": "designer",
-  "skillId": "dap",
+  "skillId": "ux_ui",
   "weight": 0.152,
   "docFreq": 5,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
+  "prefFreq": 2,
+  "reqFreq": 3
  },
  {
   "jobId": "designer",
@@ -1999,138 +1324,12 @@
  },
  {
   "jobId": "designer",
-  "skillId": "sre",
-  "weight": 0.152,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "designer",
-  "skillId": "ios",
-  "weight": 0.212,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
- },
- {
-  "jobId": "designer",
-  "skillId": "rag",
-  "weight": 0.545,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 17
- },
- {
-  "jobId": "designer",
-  "skillId": "git",
-  "weight": 0.394,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 13
- },
- {
-  "jobId": "designer",
   "skillId": "bi",
-  "weight": 0.939,
-  "docFreq": 31,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 26
- },
- {
-  "jobId": "designer",
-  "skillId": "mos",
-  "weight": 0.303,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 10
- },
- {
-  "jobId": "designer",
-  "skillId": "ux_ui",
-  "weight": 0.848,
-  "docFreq": 28,
-  "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 20
- },
- {
-  "jobId": "designer",
-  "skillId": "rust",
-  "weight": 0.242,
-  "docFreq": 8,
+  "weight": 0.061,
+  "docFreq": 2,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "designer",
-  "skillId": "unity",
-  "weight": 0.333,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 9
- },
- {
-  "jobId": "designer",
-  "skillId": "erp",
-  "weight": 0.212,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
- },
- {
-  "jobId": "designer",
-  "skillId": "react",
-  "weight": 0.091,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "designer",
-  "skillId": "llm",
-  "weight": 0.121,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "designer",
-  "skillId": "oca",
-  "weight": 0.333,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 7
- },
- {
-  "jobId": "designer",
-  "skillId": "aws",
-  "weight": 0.182,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "designer",
-  "skillId": "scala",
-  "weight": 0.121,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
+  "reqFreq": 1
  },
  {
   "jobId": "designer",
@@ -2162,29 +1361,29 @@
  {
   "jobId": "eng_lead",
   "skillId": "llm",
-  "weight": 0.182,
-  "docFreq": 6,
+  "weight": 0.121,
+  "docFreq": 4,
   "source": "JD",
   "prefFreq": 3,
-  "reqFreq": 3
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "react",
-  "weight": 0.242,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 6
+  "reqFreq": 1
  },
  {
   "jobId": "eng_lead",
   "skillId": "rust",
-  "weight": 0.485,
-  "docFreq": 16,
+  "weight": 0.061,
+  "docFreq": 2,
   "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 12
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "eng_lead",
+  "skillId": "rag",
+  "weight": 0.061,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "eng_lead",
@@ -2197,47 +1396,29 @@
  },
  {
   "jobId": "eng_lead",
-  "skillId": "sql",
+  "skillId": "react",
   "weight": 0.152,
   "docFreq": 5,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "mos",
-  "weight": 0.424,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 12
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "unity",
-  "weight": 0.545,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 14
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "scala",
-  "weight": 0.485,
-  "docFreq": 16,
-  "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 15
+  "reqFreq": 4
  },
  {
   "jobId": "eng_lead",
-  "skillId": "typescript",
-  "weight": 0.121,
-  "docFreq": 4,
+  "skillId": "sql",
+  "weight": 0.091,
+  "docFreq": 3,
   "source": "JD",
-  "prefFreq": 2,
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "eng_lead",
+  "skillId": "ios",
+  "weight": 0.061,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
   "reqFreq": 2
  },
  {
@@ -2251,33 +1432,6 @@
  },
  {
   "jobId": "eng_lead",
-  "skillId": "dap",
-  "weight": 0.091,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "ios",
-  "weight": 0.212,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 7
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "oca",
-  "weight": 0.606,
-  "docFreq": 20,
-  "source": "JD",
-  "prefFreq": 11,
-  "reqFreq": 9
- },
- {
-  "jobId": "eng_lead",
   "skillId": "github",
   "weight": 0.061,
   "docFreq": 2,
@@ -2287,48 +1441,12 @@
  },
  {
   "jobId": "eng_lead",
-  "skillId": "erp",
-  "weight": 0.303,
-  "docFreq": 10,
+  "skillId": "typescript",
+  "weight": 0.091,
+  "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 9
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "rag",
-  "weight": 0.515,
-  "docFreq": 17,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 11
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "ux_ui",
-  "weight": 0.939,
-  "docFreq": 31,
-  "source": "JD",
-  "prefFreq": 14,
-  "reqFreq": 17
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "bi",
-  "weight": 0.939,
-  "docFreq": 31,
-  "source": "JD",
-  "prefFreq": 13,
-  "reqFreq": 18
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "git",
-  "weight": 0.364,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 12
+  "reqFreq": 2
  },
  {
   "jobId": "eng_lead",
@@ -2368,12 +1486,12 @@
  },
  {
   "jobId": "eng_lead",
-  "skillId": "sre",
-  "weight": 0.061,
-  "docFreq": 2,
+  "skillId": "aws",
+  "weight": 0.152,
+  "docFreq": 5,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 1
+  "reqFreq": 4
  },
  {
   "jobId": "eng_lead",
@@ -2383,15 +1501,6 @@
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 2
- },
- {
-  "jobId": "eng_lead",
-  "skillId": "aws",
-  "weight": 0.182,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
  },
  {
   "jobId": "eng_lead",
@@ -2413,6 +1522,24 @@
  },
  {
   "jobId": "program_manager",
+  "skillId": "data_analysis",
+  "weight": 0.129,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "program_manager",
+  "skillId": "erp",
+  "weight": 0.065,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "program_manager",
   "skillId": "tableau",
   "weight": 0.129,
   "docFreq": 4,
@@ -2431,15 +1558,6 @@
  },
  {
   "jobId": "program_manager",
-  "skillId": "isms",
-  "weight": 0.097,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "program_manager",
   "skillId": "gpu",
   "weight": 0.065,
   "docFreq": 2,
@@ -2449,93 +1567,12 @@
  },
  {
   "jobId": "program_manager",
-  "skillId": "sap",
-  "weight": 0.065,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "program_manager",
-  "skillId": "dap",
+  "skillId": "bi",
   "weight": 0.129,
   "docFreq": 4,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "program_manager",
-  "skillId": "sass",
-  "weight": 0.097,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "program_manager",
-  "skillId": "erp",
-  "weight": 0.387,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 11
- },
- {
-  "jobId": "program_manager",
-  "skillId": "scala",
-  "weight": 0.516,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 15
- },
- {
-  "jobId": "program_manager",
-  "skillId": "seo",
-  "weight": 0.065,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "program_manager",
-  "skillId": "oca",
-  "weight": 0.677,
-  "docFreq": 21,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 16
- },
- {
-  "jobId": "program_manager",
-  "skillId": "ios",
-  "weight": 0.226,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 7
- },
- {
-  "jobId": "program_manager",
-  "skillId": "unity",
-  "weight": 0.516,
-  "docFreq": 16,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 16
- },
- {
-  "jobId": "program_manager",
-  "skillId": "ux_ui",
-  "weight": 0.968,
-  "docFreq": 30,
-  "source": "JD",
-  "prefFreq": 10,
-  "reqFreq": 20
+  "prefFreq": 3,
+  "reqFreq": 1
  },
  {
   "jobId": "program_manager",
@@ -2547,76 +1584,13 @@
   "reqFreq": 3
  },
  {
-  "jobId": "program_manager",
-  "skillId": "bi",
-  "weight": 0.935,
-  "docFreq": 29,
-  "source": "JD",
-  "prefFreq": 12,
-  "reqFreq": 17
- },
- {
-  "jobId": "program_manager",
-  "skillId": "rust",
-  "weight": 0.258,
-  "docFreq": 8,
+  "jobId": "security_eng",
+  "skillId": "isms",
+  "weight": 0.133,
+  "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "program_manager",
-  "skillId": "git",
-  "weight": 0.323,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 9
- },
- {
-  "jobId": "program_manager",
-  "skillId": "rag",
-  "weight": 0.452,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 14
- },
- {
-  "jobId": "program_manager",
-  "skillId": "aws",
-  "weight": 0.323,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 10
- },
- {
-  "jobId": "program_manager",
-  "skillId": "sre",
-  "weight": 0.065,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "program_manager",
-  "skillId": "llm",
-  "weight": 0.065,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "program_manager",
-  "skillId": "mos",
-  "weight": 0.097,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
+  "reqFreq": 3
  },
  {
   "jobId": "security_eng",
@@ -2638,12 +1612,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "cfa",
-  "weight": 0.1,
-  "docFreq": 3,
+  "skillId": "powershell",
+  "weight": 0.2,
+  "docFreq": 6,
   "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 1
+  "prefFreq": 3,
+  "reqFreq": 3
  },
  {
   "jobId": "security_eng",
@@ -2656,15 +1630,6 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "owasp",
-  "weight": 0.3,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 6
- },
- {
-  "jobId": "security_eng",
   "skillId": "siem",
   "weight": 0.3,
   "docFreq": 9,
@@ -2674,12 +1639,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "powershell",
-  "weight": 0.267,
-  "docFreq": 8,
+  "skillId": "owasp",
+  "weight": 0.3,
+  "docFreq": 9,
   "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 4
+  "prefFreq": 3,
+  "reqFreq": 6
  },
  {
   "jobId": "security_eng",
@@ -2692,21 +1657,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "dart",
+  "skillId": "iot",
   "weight": 0.1,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "cpa",
-  "weight": 0.067,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
  },
  {
   "jobId": "security_eng",
@@ -2728,6 +1684,15 @@
  },
  {
   "jobId": "security_eng",
+  "skillId": "system_operation",
+  "weight": 0.067,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "security_eng",
   "skillId": "azure",
   "weight": 0.5,
   "docFreq": 15,
@@ -2738,42 +1703,6 @@
  {
   "jobId": "security_eng",
   "skillId": "iac",
-  "weight": 0.1,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "sass",
-  "weight": 0.267,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 8
- },
- {
-  "jobId": "security_eng",
-  "skillId": "iot",
-  "weight": 0.1,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "isms",
-  "weight": 0.133,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "swift",
   "weight": 0.067,
   "docFreq": 2,
   "source": "JD",
@@ -2782,21 +1711,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "bash",
-  "weight": 0.067,
-  "docFreq": 2,
+  "skillId": "aws",
+  "weight": 0.667,
+  "docFreq": 20,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "security_eng",
-  "skillId": "sap",
-  "weight": 0.1,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
+  "prefFreq": 5,
+  "reqFreq": 15
  },
  {
   "jobId": "security_eng",
@@ -2818,33 +1738,6 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "seo",
-  "weight": 0.1,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "aws",
-  "weight": 0.7,
-  "docFreq": 21,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 16
- },
- {
-  "jobId": "security_eng",
-  "skillId": "llm",
-  "weight": 0.233,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 5
- },
- {
-  "jobId": "security_eng",
   "skillId": "github",
   "weight": 0.1,
   "docFreq": 3,
@@ -2854,12 +1747,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "ux_ui",
-  "weight": 0.933,
-  "docFreq": 28,
+  "skillId": "llm",
+  "weight": 0.133,
+  "docFreq": 4,
   "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 21
+  "prefFreq": 1,
+  "reqFreq": 3
  },
  {
   "jobId": "security_eng",
@@ -2869,15 +1762,6 @@
   "source": "JD",
   "prefFreq": 4,
   "reqFreq": 14
- },
- {
-  "jobId": "security_eng",
-  "skillId": "rust",
-  "weight": 0.433,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 11
  },
  {
   "jobId": "security_eng",
@@ -2908,66 +1792,12 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "dap",
-  "weight": 0.1,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "security_eng",
-  "skillId": "erp",
-  "weight": 0.333,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 8
- },
- {
-  "jobId": "security_eng",
-  "skillId": "scala",
-  "weight": 0.367,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 11
- },
- {
-  "jobId": "security_eng",
   "skillId": "java",
-  "weight": 0.2,
-  "docFreq": 6,
+  "weight": 0.167,
+  "docFreq": 5,
   "source": "JD",
-  "prefFreq": 1,
+  "prefFreq": 0,
   "reqFreq": 5
- },
- {
-  "jobId": "security_eng",
-  "skillId": "bi",
-  "weight": 0.8,
-  "docFreq": 24,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 19
- },
- {
-  "jobId": "security_eng",
-  "skillId": "rag",
-  "weight": 0.433,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 13
- },
- {
-  "jobId": "security_eng",
-  "skillId": "git",
-  "weight": 0.3,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 9
  },
  {
   "jobId": "security_eng",
@@ -2980,48 +1810,21 @@
  },
  {
   "jobId": "security_eng",
-  "skillId": "sre",
-  "weight": 0.067,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "security_eng",
-  "skillId": "oca",
-  "weight": 0.4,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 9
- },
- {
-  "jobId": "security_eng",
-  "skillId": "unity",
-  "weight": 0.267,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 8
- },
- {
-  "jobId": "security_eng",
-  "skillId": "mos",
-  "weight": 0.167,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 4
- },
- {
-  "jobId": "security_eng",
   "skillId": "sql",
   "weight": 0.133,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 3
+ },
+ {
+  "jobId": "product_designer",
+  "skillId": "design_3",
+  "weight": 0.069,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "product_designer",
@@ -3034,12 +1837,30 @@
  },
  {
   "jobId": "product_designer",
+  "skillId": "design",
+  "weight": 0.069,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "product_designer",
   "skillId": "figma",
   "weight": 0.345,
   "docFreq": 10,
   "source": "JD",
   "prefFreq": 3,
   "reqFreq": 7
+ },
+ {
+  "jobId": "product_designer",
+  "skillId": "ux_ui",
+  "weight": 0.759,
+  "docFreq": 22,
+  "source": "JD",
+  "prefFreq": 6,
+  "reqFreq": 16
  },
  {
   "jobId": "product_designer",
@@ -3052,24 +1873,6 @@
  },
  {
   "jobId": "product_designer",
-  "skillId": "ux_ui",
-  "weight": 0.966,
-  "docFreq": 28,
-  "source": "JD",
-  "prefFreq": 12,
-  "reqFreq": 16
- },
- {
-  "jobId": "product_designer",
-  "skillId": "html",
-  "weight": 0.069,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
- },
- {
-  "jobId": "product_designer",
   "skillId": "claude",
   "weight": 0.207,
   "docFreq": 6,
@@ -3078,130 +1881,22 @@
   "reqFreq": 4
  },
  {
-  "jobId": "product_designer",
-  "skillId": "dap",
-  "weight": 0.172,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "product_designer",
-  "skillId": "css",
-  "weight": 0.069,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
- },
- {
-  "jobId": "product_designer",
-  "skillId": "unity",
-  "weight": 0.69,
-  "docFreq": 20,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 18
- },
- {
-  "jobId": "product_designer",
-  "skillId": "git",
-  "weight": 0.483,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 13
- },
- {
-  "jobId": "product_designer",
-  "skillId": "oca",
-  "weight": 0.69,
-  "docFreq": 20,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 14
- },
- {
-  "jobId": "product_designer",
-  "skillId": "rust",
-  "weight": 0.31,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 6
- },
- {
-  "jobId": "product_designer",
-  "skillId": "scala",
-  "weight": 0.379,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 10
- },
- {
-  "jobId": "product_designer",
-  "skillId": "mos",
-  "weight": 0.276,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 5
- },
- {
-  "jobId": "product_designer",
-  "skillId": "bi",
-  "weight": 0.862,
-  "docFreq": 25,
-  "source": "JD",
-  "prefFreq": 14,
-  "reqFreq": 11
- },
- {
-  "jobId": "product_designer",
-  "skillId": "rag",
-  "weight": 0.448,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 12
- },
- {
-  "jobId": "product_designer",
-  "skillId": "erp",
-  "weight": 0.241,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
- },
- {
-  "jobId": "product_designer",
-  "skillId": "ios",
-  "weight": 0.138,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "product_designer",
-  "skillId": "aws",
-  "weight": 0.069,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
   "jobId": "biz_strategy",
-  "skillId": "planning_2",
+  "skillId": "planning_3",
   "weight": 0.107,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 3
+ },
+ {
+  "jobId": "biz_strategy",
+  "skillId": "design_2",
+  "weight": 0.071,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "biz_strategy",
@@ -3223,15 +1918,6 @@
  },
  {
   "jobId": "biz_strategy",
-  "skillId": "looker",
-  "weight": 0.071,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "biz_strategy",
   "skillId": "crm",
   "weight": 0.143,
   "docFreq": 4,
@@ -3241,7 +1927,7 @@
  },
  {
   "jobId": "biz_strategy",
-  "skillId": "isms",
+  "skillId": "looker",
   "weight": 0.071,
   "docFreq": 2,
   "source": "JD",
@@ -3250,30 +1936,21 @@
  },
  {
   "jobId": "biz_strategy",
-  "skillId": "seo",
+  "skillId": "bi",
+  "weight": 0.179,
+  "docFreq": 5,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 5
+ },
+ {
+  "jobId": "biz_strategy",
+  "skillId": "data_analysis",
   "weight": 0.071,
   "docFreq": 2,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "dap",
-  "weight": 0.107,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "erp",
-  "weight": 0.357,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 10
+  "prefFreq": 1,
+  "reqFreq": 1
  },
  {
   "jobId": "biz_strategy",
@@ -3286,115 +1963,7 @@
  },
  {
   "jobId": "biz_strategy",
-  "skillId": "sass",
-  "weight": 0.071,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "ux_ui",
-  "weight": 0.893,
-  "docFreq": 25,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 23
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "rag",
-  "weight": 0.464,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 13
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "bi",
-  "weight": 0.786,
-  "docFreq": 22,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 19
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "ios",
-  "weight": 0.143,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "rust",
-  "weight": 0.179,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "git",
-  "weight": 0.25,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 7
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "unity",
-  "weight": 0.286,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "scala",
-  "weight": 0.214,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "oca",
-  "weight": 0.286,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 7
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "mos",
-  "weight": 0.143,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "biz_strategy",
   "skillId": "python",
-  "weight": 0.143,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "biz_strategy",
-  "skillId": "aws",
   "weight": 0.143,
   "docFreq": 4,
   "source": "JD",
@@ -3404,11 +1973,11 @@
  {
   "jobId": "fe_dev",
   "skillId": "html",
-  "weight": 0.286,
-  "docFreq": 8,
+  "weight": 0.214,
+  "docFreq": 6,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 8
+  "reqFreq": 6
  },
  {
   "jobId": "fe_dev",
@@ -3421,21 +1990,21 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "css",
-  "weight": 0.393,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 11
- },
- {
-  "jobId": "fe_dev",
   "skillId": "playwright",
   "weight": 0.107,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 2
+ },
+ {
+  "jobId": "fe_dev",
+  "skillId": "css",
+  "weight": 0.179,
+  "docFreq": 5,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 5
  },
  {
   "jobId": "fe_dev",
@@ -3449,11 +2018,20 @@
  {
   "jobId": "fe_dev",
   "skillId": "typescript",
-  "weight": 0.714,
-  "docFreq": 20,
+  "weight": 0.679,
+  "docFreq": 19,
   "source": "JD",
   "prefFreq": 2,
-  "reqFreq": 18
+  "reqFreq": 17
+ },
+ {
+  "jobId": "fe_dev",
+  "skillId": "react",
+  "weight": 0.75,
+  "docFreq": 21,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 19
  },
  {
   "jobId": "fe_dev",
@@ -3475,21 +2053,21 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "react",
-  "weight": 0.75,
-  "docFreq": 21,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 19
- },
- {
-  "jobId": "fe_dev",
   "skillId": "hwp",
   "weight": 0.179,
   "docFreq": 5,
   "source": "JD",
   "prefFreq": 5,
   "reqFreq": 0
+ },
+ {
+  "jobId": "fe_dev",
+  "skillId": "ux_ui",
+  "weight": 0.429,
+  "docFreq": 12,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 11
  },
  {
   "jobId": "fe_dev",
@@ -3511,12 +2089,12 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "ux_ui",
-  "weight": 0.893,
-  "docFreq": 25,
+  "skillId": "software_development",
+  "weight": 0.071,
+  "docFreq": 2,
   "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 22
+  "prefFreq": 1,
+  "reqFreq": 1
  },
  {
   "jobId": "fe_dev",
@@ -3538,21 +2116,12 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "java",
-  "weight": 0.464,
-  "docFreq": 13,
+  "skillId": "git",
+  "weight": 0.107,
+  "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 12
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "sre",
-  "weight": 0.179,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
+  "reqFreq": 2
  },
  {
   "jobId": "fe_dev",
@@ -3574,57 +2143,21 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "git",
-  "weight": 0.429,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 11
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "erp",
-  "weight": 0.25,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 7
- },
- {
-  "jobId": "fe_dev",
   "skillId": "spring",
   "weight": 0.071,
   "docFreq": 2,
   "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 0
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "scala",
-  "weight": 0.321,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 9
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "bi",
-  "weight": 0.75,
-  "docFreq": 21,
-  "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 20
+  "reqFreq": 1
  },
  {
   "jobId": "fe_dev",
-  "skillId": "oca",
-  "weight": 0.429,
-  "docFreq": 12,
+  "skillId": "llm",
+  "weight": 0.071,
+  "docFreq": 2,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 12
+  "reqFreq": 2
  },
  {
   "jobId": "fe_dev",
@@ -3637,30 +2170,12 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "llm",
+  "skillId": "java",
   "weight": 0.107,
   "docFreq": 3,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "rag",
-  "weight": 0.286,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 8
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "unity",
-  "weight": 0.214,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
+  "prefFreq": 1,
+  "reqFreq": 2
  },
  {
   "jobId": "fe_dev",
@@ -3673,30 +2188,12 @@
  },
  {
   "jobId": "fe_dev",
-  "skillId": "rust",
+  "skillId": "aws",
   "weight": 0.107,
   "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "aws",
-  "weight": 0.143,
-  "docFreq": 4,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "fe_dev",
-  "skillId": "mos",
-  "weight": 0.107,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
+  "reqFreq": 2
  },
  {
   "jobId": "fullstack_dev",
@@ -3745,29 +2242,20 @@
  },
  {
   "jobId": "fullstack_dev",
+  "skillId": "vue",
+  "weight": 0.222,
+  "docFreq": 6,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 6
+ },
+ {
+  "jobId": "fullstack_dev",
   "skillId": "ruby",
   "weight": 0.148,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 2,
-  "reqFreq": 2
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "vue",
-  "weight": 0.222,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "dart",
-  "weight": 0.074,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
   "reqFreq": 2
  },
  {
@@ -3781,21 +2269,21 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "sql",
-  "weight": 0.407,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 11
- },
- {
-  "jobId": "fullstack_dev",
   "skillId": "typescript",
   "weight": 0.593,
   "docFreq": 16,
   "source": "JD",
   "prefFreq": 4,
   "reqFreq": 12
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "sql",
+  "weight": 0.259,
+  "docFreq": 7,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 7
  },
  {
   "jobId": "fullstack_dev",
@@ -3808,21 +2296,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "msa",
-  "weight": 0.074,
-  "docFreq": 2,
+  "skillId": "react",
+  "weight": 0.593,
+  "docFreq": 16,
   "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 0
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "jpa",
-  "weight": 0.074,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
+  "prefFreq": 8,
+  "reqFreq": 8
  },
  {
   "jobId": "fullstack_dev",
@@ -3835,12 +2314,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "react",
-  "weight": 0.63,
-  "docFreq": 17,
+  "skillId": "jpa",
+  "weight": 0.074,
+  "docFreq": 2,
   "source": "JD",
-  "prefFreq": 8,
-  "reqFreq": 9
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "fullstack_dev",
@@ -3853,12 +2332,39 @@
  },
  {
   "jobId": "fullstack_dev",
+  "skillId": "css",
+  "weight": 0.111,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "html",
+  "weight": 0.074,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "fullstack_dev",
   "skillId": "golang",
   "weight": 0.111,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 1
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "erp",
+  "weight": 0.074,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "fullstack_dev",
@@ -3889,24 +2395,6 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "docker",
-  "weight": 0.333,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 7
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "css",
-  "weight": 0.111,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "fullstack_dev",
   "skillId": "grpc",
   "weight": 0.111,
   "docFreq": 3,
@@ -3916,12 +2404,21 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "github",
-  "weight": 0.185,
-  "docFreq": 5,
+  "skillId": "docker",
+  "weight": 0.333,
+  "docFreq": 9,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
+  "prefFreq": 2,
+  "reqFreq": 7
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "iac",
+  "weight": 0.074,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 1
  },
  {
   "jobId": "fullstack_dev",
@@ -3943,15 +2440,6 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "iac",
-  "weight": 0.074,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
- },
- {
-  "jobId": "fullstack_dev",
   "skillId": "django",
   "weight": 0.074,
   "docFreq": 2,
@@ -3961,21 +2449,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "html",
-  "weight": 0.074,
-  "docFreq": 2,
+  "skillId": "github",
+  "weight": 0.148,
+  "docFreq": 4,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "iot",
-  "weight": 0.074,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
+  "reqFreq": 4
  },
  {
   "jobId": "fullstack_dev",
@@ -3988,12 +2467,30 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "java",
-  "weight": 0.519,
-  "docFreq": 14,
+  "skillId": "ux_ui",
+  "weight": 0.259,
+  "docFreq": 7,
   "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 9
+  "prefFreq": 4,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "llm",
+  "weight": 0.296,
+  "docFreq": 8,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 6
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "rag",
+  "weight": 0.074,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "fullstack_dev",
@@ -4015,34 +2512,25 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "ux_ui",
-  "weight": 0.815,
-  "docFreq": 22,
-  "source": "JD",
-  "prefFreq": 9,
-  "reqFreq": 13
- },
- {
-  "jobId": "fullstack_dev",
   "skillId": "git",
-  "weight": 0.741,
-  "docFreq": 20,
+  "weight": 0.111,
+  "docFreq": 3,
   "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 15
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "llm",
-  "weight": 0.333,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 5
+  "prefFreq": 1,
+  "reqFreq": 2
  },
  {
   "jobId": "fullstack_dev",
   "skillId": "nosql",
+  "weight": 0.074,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "fullstack_dev",
+  "skillId": "ios",
   "weight": 0.074,
   "docFreq": 2,
   "source": "JD",
@@ -4069,12 +2557,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "dap",
-  "weight": 0.111,
-  "docFreq": 3,
+  "skillId": "aws",
+  "weight": 0.37,
+  "docFreq": 10,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
+  "prefFreq": 2,
+  "reqFreq": 8
  },
  {
   "jobId": "fullstack_dev",
@@ -4096,48 +2584,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "sre",
-  "weight": 0.111,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "ios",
-  "weight": 0.222,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "fullstack_dev",
   "skillId": "python",
   "weight": 0.407,
   "docFreq": 11,
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 9
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "erp",
-  "weight": 0.333,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 5
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "aws",
-  "weight": 0.407,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 8
  },
  {
   "jobId": "fullstack_dev",
@@ -4150,30 +2602,12 @@
  },
  {
   "jobId": "fullstack_dev",
-  "skillId": "bi",
-  "weight": 1.0,
-  "docFreq": 27,
+  "skillId": "java",
+  "weight": 0.185,
+  "docFreq": 5,
   "source": "JD",
-  "prefFreq": 11,
-  "reqFreq": 16
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "mos",
-  "weight": 0.296,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 3,
+  "prefFreq": 0,
   "reqFreq": 5
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "rust",
-  "weight": 0.259,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
  },
  {
   "jobId": "fullstack_dev",
@@ -4183,42 +2617,6 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 2
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "scala",
-  "weight": 0.333,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 8
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "rag",
-  "weight": 0.407,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 8
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "oca",
-  "weight": 0.37,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 5,
-  "reqFreq": 5
- },
- {
-  "jobId": "fullstack_dev",
-  "skillId": "unity",
-  "weight": 0.259,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 4
  },
  {
   "jobId": "data_eng",
@@ -4267,6 +2665,24 @@
  },
  {
   "jobId": "data_eng",
+  "skillId": "scala",
+  "weight": 0.12,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "unity",
+  "weight": 0.08,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "data_eng",
   "skillId": "apache",
   "weight": 0.24,
   "docFreq": 6,
@@ -4294,15 +2710,6 @@
  },
  {
   "jobId": "data_eng",
-  "skillId": "gitlab",
-  "weight": 0.08,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "data_eng",
   "skillId": "sql",
   "weight": 0.92,
   "docFreq": 23,
@@ -4312,11 +2719,29 @@
  },
  {
   "jobId": "data_eng",
-  "skillId": "c_2",
+  "skillId": "gitlab",
   "weight": 0.08,
   "docFreq": 2,
   "source": "JD",
   "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "git",
+  "weight": 0.16,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "bi",
+  "weight": 0.16,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 2,
   "reqFreq": 2
  },
  {
@@ -4327,6 +2752,15 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 3
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "c_2",
+  "weight": 0.08,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "data_eng",
@@ -4345,6 +2779,15 @@
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 5
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "aws",
+  "weight": 0.6,
+  "docFreq": 15,
+  "source": "JD",
+  "prefFreq": 3,
+  "reqFreq": 12
  },
  {
   "jobId": "data_eng",
@@ -4375,83 +2818,11 @@
  },
  {
   "jobId": "data_eng",
-  "skillId": "sap",
-  "weight": 0.08,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
- },
- {
-  "jobId": "data_eng",
   "skillId": "terraform",
   "weight": 0.16,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 2,
-  "reqFreq": 2
- },
- {
-  "jobId": "data_eng",
-  "skillId": "aws",
-  "weight": 0.72,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 15
- },
- {
-  "jobId": "data_eng",
-  "skillId": "sre",
-  "weight": 0.16,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "data_eng",
-  "skillId": "mos",
-  "weight": 0.52,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 12
- },
- {
-  "jobId": "data_eng",
-  "skillId": "rag",
-  "weight": 0.72,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 14
- },
- {
-  "jobId": "data_eng",
-  "skillId": "git",
-  "weight": 0.48,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 10
- },
- {
-  "jobId": "data_eng",
-  "skillId": "scala",
-  "weight": 0.48,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 11
- },
- {
-  "jobId": "data_eng",
-  "skillId": "typescript",
-  "weight": 0.12,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
   "reqFreq": 2
  },
  {
@@ -4465,88 +2836,7 @@
  },
  {
   "jobId": "data_eng",
-  "skillId": "unity",
-  "weight": 0.48,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 10
- },
- {
-  "jobId": "data_eng",
   "skillId": "llm",
-  "weight": 0.16,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
- },
- {
-  "jobId": "data_eng",
-  "skillId": "ios",
-  "weight": 0.2,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "data_eng",
-  "skillId": "ux_ui",
-  "weight": 0.96,
-  "docFreq": 24,
-  "source": "JD",
-  "prefFreq": 9,
-  "reqFreq": 15
- },
- {
-  "jobId": "data_eng",
-  "skillId": "bi",
-  "weight": 0.96,
-  "docFreq": 24,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 18
- },
- {
-  "jobId": "data_eng",
-  "skillId": "oca",
-  "weight": 0.56,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 12
- },
- {
-  "jobId": "data_eng",
-  "skillId": "dap",
-  "weight": 0.08,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "data_eng",
-  "skillId": "rust",
-  "weight": 0.24,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
- },
- {
-  "jobId": "data_eng",
-  "skillId": "erp",
-  "weight": 0.24,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "data_eng",
-  "skillId": "docker",
   "weight": 0.08,
   "docFreq": 2,
   "source": "JD",
@@ -4563,6 +2853,24 @@
   "reqFreq": 4
  },
  {
+  "jobId": "data_eng",
+  "skillId": "typescript",
+  "weight": 0.08,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "data_eng",
+  "skillId": "docker",
+  "weight": 0.08,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
   "jobId": "solutions_eng",
   "skillId": "flutter",
   "weight": 0.167,
@@ -4570,6 +2878,15 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 3
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "system_operation",
+  "weight": 0.111,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
  },
  {
   "jobId": "solutions_eng",
@@ -4588,15 +2905,6 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 2
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "cpa",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
  },
  {
   "jobId": "solutions_eng",
@@ -4627,33 +2935,6 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "rbac",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "nlp",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "fastapi",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
   "skillId": "siem",
   "weight": 0.056,
   "docFreq": 1,
@@ -4663,97 +2944,7 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "javascript",
-  "weight": 0.167,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "msa",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "erp",
-  "weight": 0.722,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 9
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "llm",
-  "weight": 0.167,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "angular",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "mos",
-  "weight": 0.722,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 10
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "ios",
-  "weight": 0.444,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 5
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "bash",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "kotlin",
-  "weight": 0.111,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "android",
-  "weight": 0.111,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "databricks",
+  "skillId": "rbac",
   "weight": 0.056,
   "docFreq": 1,
   "source": "JD",
@@ -4780,34 +2971,7 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "c_2",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "rust",
-  "weight": 0.5,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 7
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "snowflake",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "gpu",
+  "skillId": "erp",
   "weight": 0.056,
   "docFreq": 1,
   "source": "JD",
@@ -4816,7 +2980,7 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "pytorch",
+  "skillId": "nlp",
   "weight": 0.056,
   "docFreq": 1,
   "source": "JD",
@@ -4825,7 +2989,7 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "mlops",
+  "skillId": "fastapi",
   "weight": 0.056,
   "docFreq": 1,
   "source": "JD",
@@ -4834,7 +2998,34 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "grpc",
+  "skillId": "bash",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "javascript",
+  "weight": 0.167,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "llm",
+  "weight": 0.167,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 3
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "angular",
   "weight": 0.056,
   "docFreq": 1,
   "source": "JD",
@@ -4852,12 +3043,102 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "typescript",
-  "weight": 0.167,
-  "docFreq": 3,
+  "skillId": "rust",
+  "weight": 0.056,
+  "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 3
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "android",
+  "weight": 0.111,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "kotlin",
+  "weight": 0.111,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "gpu",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 0
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "databricks",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "c_2",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "snowflake",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "pytorch",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "grpc",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "rag",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "mlops",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "solutions_eng",
@@ -4867,15 +3148,6 @@
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 8
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "sap",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
  },
  {
   "jobId": "solutions_eng",
@@ -4897,12 +3169,21 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "unity",
-  "weight": 0.556,
-  "docFreq": 10,
+  "skillId": "typescript",
+  "weight": 0.111,
+  "docFreq": 2,
   "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 6
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "solutions_eng",
+  "skillId": "ios",
+  "weight": 0.056,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 0
  },
  {
   "jobId": "solutions_eng",
@@ -4924,33 +3205,6 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "rag",
-  "weight": 0.556,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 8
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "ux_ui",
-  "weight": 1.0,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 12
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "bi",
-  "weight": 1.0,
-  "docFreq": 18,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 14
- },
- {
-  "jobId": "solutions_eng",
   "skillId": "github",
   "weight": 0.056,
   "docFreq": 1,
@@ -4966,15 +3220,6 @@
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 2
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "java",
-  "weight": 0.222,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
  },
  {
   "jobId": "solutions_eng",
@@ -5005,33 +3250,6 @@
  },
  {
   "jobId": "solutions_eng",
-  "skillId": "git",
-  "weight": 0.278,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 4
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "oca",
-  "weight": 0.389,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 4
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "dap",
-  "weight": 0.056,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "solutions_eng",
   "skillId": "terraform",
   "weight": 0.056,
   "docFreq": 1,
@@ -5050,6 +3268,15 @@
  },
  {
   "jobId": "solutions_eng",
+  "skillId": "java",
+  "weight": 0.111,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "solutions_eng",
   "skillId": "react",
   "weight": 0.056,
   "docFreq": 1,
@@ -5060,20 +3287,11 @@
  {
   "jobId": "solutions_eng",
   "skillId": "aws",
-  "weight": 0.167,
-  "docFreq": 3,
+  "weight": 0.056,
+  "docFreq": 1,
   "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "solutions_eng",
-  "skillId": "scala",
-  "weight": 0.111,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
+  "reqFreq": 0
  },
  {
   "jobId": "biz_analyst",
@@ -5104,6 +3322,24 @@
  },
  {
   "jobId": "biz_analyst",
+  "skillId": "bi",
+  "weight": 0.667,
+  "docFreq": 10,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 10
+ },
+ {
+  "jobId": "biz_analyst",
+  "skillId": "data_analysis",
+  "weight": 0.267,
+  "docFreq": 4,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "biz_analyst",
   "skillId": "oracle",
   "weight": 0.067,
   "docFreq": 1,
@@ -5122,6 +3358,24 @@
  },
  {
   "jobId": "biz_analyst",
+  "skillId": "sql",
+  "weight": 0.867,
+  "docFreq": 13,
+  "source": "JD",
+  "prefFreq": 3,
+  "reqFreq": 10
+ },
+ {
+  "jobId": "biz_analyst",
+  "skillId": "sap",
+  "weight": 0.067,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "biz_analyst",
   "skillId": "hadoop",
   "weight": 0.067,
   "docFreq": 1,
@@ -5131,12 +3385,12 @@
  },
  {
   "jobId": "biz_analyst",
-  "skillId": "sql",
-  "weight": 0.867,
-  "docFreq": 13,
+  "skillId": "erp",
+  "weight": 0.067,
+  "docFreq": 1,
   "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 10
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "biz_analyst",
@@ -5158,21 +3412,12 @@
  },
  {
   "jobId": "biz_analyst",
-  "skillId": "sap",
+  "skillId": "ios",
   "weight": 0.067,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "erp",
-  "weight": 0.467,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
  },
  {
   "jobId": "biz_analyst",
@@ -5194,66 +3439,12 @@
  },
  {
   "jobId": "biz_analyst",
-  "skillId": "aws",
-  "weight": 0.4,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "bi",
-  "weight": 0.933,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 11
- },
- {
-  "jobId": "biz_analyst",
   "skillId": "llm",
   "weight": 0.067,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "ux_ui",
-  "weight": 0.8,
-  "docFreq": 12,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 8
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "oca",
-  "weight": 0.467,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "dap",
-  "weight": 0.067,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "rag",
-  "weight": 0.4,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
  },
  {
   "jobId": "biz_analyst",
@@ -5265,67 +3456,13 @@
   "reqFreq": 0
  },
  {
-  "jobId": "biz_analyst",
-  "skillId": "unity",
-  "weight": 0.333,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "sre",
-  "weight": 0.067,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "ios",
-  "weight": 0.133,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 1
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "git",
-  "weight": 0.2,
+  "jobId": "growth_marketing",
+  "skillId": "seo",
+  "weight": 0.214,
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 2
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "mos",
-  "weight": 0.067,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "biz_analyst",
-  "skillId": "scala",
-  "weight": 0.067,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "adsp",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
  },
  {
   "jobId": "growth_marketing",
@@ -5347,6 +3484,24 @@
  },
  {
   "jobId": "growth_marketing",
+  "skillId": "iot",
+  "weight": 0.071,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "growth_marketing",
+  "skillId": "html",
+  "weight": 0.071,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 0
+ },
+ {
+  "jobId": "growth_marketing",
   "skillId": "looker",
   "weight": 0.071,
   "docFreq": 1,
@@ -5356,25 +3511,16 @@
  },
  {
   "jobId": "growth_marketing",
-  "skillId": "seo",
-  "weight": 0.214,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "isms",
-  "weight": 0.143,
-  "docFreq": 2,
+  "skillId": "data_analysis",
+  "weight": 0.071,
+  "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 2
+  "reqFreq": 1
  },
  {
   "jobId": "growth_marketing",
-  "skillId": "msa",
+  "skillId": "css",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
@@ -5401,39 +3547,12 @@
  },
  {
   "jobId": "growth_marketing",
-  "skillId": "iot",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "html",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "growth_marketing",
   "skillId": "gpu",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "css",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
  },
  {
   "jobId": "growth_marketing",
@@ -5446,48 +3565,12 @@
  },
  {
   "jobId": "growth_marketing",
-  "skillId": "git",
-  "weight": 0.714,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 8
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "sap",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "mos",
-  "weight": 0.429,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 6
- },
- {
-  "jobId": "growth_marketing",
   "skillId": "bi",
-  "weight": 1.0,
-  "docFreq": 14,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 11
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "dap",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
+  "prefFreq": 1,
+  "reqFreq": 0
  },
  {
   "jobId": "growth_marketing",
@@ -5500,102 +3583,12 @@
  },
  {
   "jobId": "growth_marketing",
-  "skillId": "rag",
-  "weight": 0.429,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "sre",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "ux_ui",
-  "weight": 0.714,
-  "docFreq": 10,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 8
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "erp",
-  "weight": 0.214,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "unity",
-  "weight": 0.286,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "growth_marketing",
   "skillId": "sql",
   "weight": 0.143,
   "docFreq": 2,
   "source": "JD",
   "prefFreq": 2,
   "reqFreq": 0
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "rust",
-  "weight": 0.143,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "scala",
-  "weight": 0.214,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "oca",
-  "weight": 0.214,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
- },
- {
-  "jobId": "growth_marketing",
-  "skillId": "ios",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "android",
-  "weight": 0.929,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 9
  },
  {
   "jobId": "mobile_dev",
@@ -5608,6 +3601,24 @@
  },
  {
   "jobId": "mobile_dev",
+  "skillId": "android",
+  "weight": 0.929,
+  "docFreq": 13,
+  "source": "JD",
+  "prefFreq": 4,
+  "reqFreq": 9
+ },
+ {
+  "jobId": "mobile_dev",
+  "skillId": "software_development",
+  "weight": 0.071,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "mobile_dev",
   "skillId": "kotlin",
   "weight": 0.571,
   "docFreq": 8,
@@ -5617,7 +3628,25 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "adp",
+  "skillId": "ios",
+  "weight": 0.5,
+  "docFreq": 7,
+  "source": "JD",
+  "prefFreq": 3,
+  "reqFreq": 4
+ },
+ {
+  "jobId": "mobile_dev",
+  "skillId": "ux_ui",
+  "weight": 0.571,
+  "docFreq": 8,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 6
+ },
+ {
+  "jobId": "mobile_dev",
+  "skillId": "system_build",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
@@ -5635,21 +3664,21 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "flutter",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
   "skillId": "github",
   "weight": 0.286,
   "docFreq": 4,
   "source": "JD",
   "prefFreq": 4,
   "reqFreq": 0
+ },
+ {
+  "jobId": "mobile_dev",
+  "skillId": "flutter",
+  "weight": 0.071,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "mobile_dev",
@@ -5716,15 +3745,6 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "ios",
-  "weight": 0.643,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 5
- },
- {
-  "jobId": "mobile_dev",
   "skillId": "django",
   "weight": 0.071,
   "docFreq": 1,
@@ -5752,21 +3772,12 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "etl",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
   "skillId": "llm",
-  "weight": 0.357,
-  "docFreq": 5,
+  "weight": 0.214,
+  "docFreq": 3,
   "source": "JD",
   "prefFreq": 3,
-  "reqFreq": 2
+  "reqFreq": 0
  },
  {
   "jobId": "mobile_dev",
@@ -5789,24 +3800,15 @@
  {
   "jobId": "mobile_dev",
   "skillId": "sql",
-  "weight": 0.214,
-  "docFreq": 3,
+  "weight": 0.071,
+  "docFreq": 1,
   "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "mobile_dev",
   "skillId": "claude",
-  "weight": 0.143,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "sre",
   "weight": 0.143,
   "docFreq": 2,
   "source": "JD",
@@ -5824,21 +3826,12 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "unity",
-  "weight": 0.571,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 5
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "react",
-  "weight": 0.143,
-  "docFreq": 2,
+  "skillId": "git",
+  "weight": 0.071,
+  "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 2
+  "reqFreq": 1
  },
  {
   "jobId": "mobile_dev",
@@ -5851,111 +3844,12 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "aws",
-  "weight": 0.429,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "oca",
-  "weight": 0.571,
-  "docFreq": 8,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 6
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "sass",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "ux_ui",
-  "weight": 0.929,
-  "docFreq": 13,
-  "source": "JD",
-  "prefFreq": 7,
-  "reqFreq": 6
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "git",
-  "weight": 0.357,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 4,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "java",
-  "weight": 0.214,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "mos",
-  "weight": 0.286,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "dap",
-  "weight": 0.071,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
   "skillId": "terraform",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "bi",
-  "weight": 0.786,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 6,
-  "reqFreq": 5
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "rag",
-  "weight": 0.429,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 5
- },
- {
-  "jobId": "mobile_dev",
-  "skillId": "scala",
-  "weight": 0.286,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 4
  },
  {
   "jobId": "mobile_dev",
@@ -5968,12 +3862,21 @@
  },
  {
   "jobId": "mobile_dev",
-  "skillId": "rust",
+  "skillId": "react",
   "weight": 0.071,
   "docFreq": 1,
   "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "mobile_dev",
+  "skillId": "aws",
+  "weight": 0.143,
+  "docFreq": 2,
+  "source": "JD",
   "prefFreq": 1,
-  "reqFreq": 0
+  "reqFreq": 1
  },
  {
   "jobId": "mobile_dev",
@@ -5986,12 +3889,30 @@
  },
  {
   "jobId": "data_analyst",
+  "skillId": "system_operation",
+  "weight": 0.091,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 0
+ },
+ {
+  "jobId": "data_analyst",
   "skillId": "looker",
   "weight": 0.455,
   "docFreq": 5,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 4
+ },
+ {
+  "jobId": "data_analyst",
+  "skillId": "bi",
+  "weight": 0.636,
+  "docFreq": 7,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 6
  },
  {
   "jobId": "data_analyst",
@@ -6009,6 +3930,15 @@
   "docFreq": 3,
   "source": "JD",
   "prefFreq": 1,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "data_analyst",
+  "skillId": "data_analysis",
+  "weight": 0.182,
+  "docFreq": 2,
+  "source": "JD",
+  "prefFreq": 0,
   "reqFreq": 2
  },
  {
@@ -6040,12 +3970,39 @@
  },
  {
   "jobId": "data_analyst",
-  "skillId": "isms",
-  "weight": 0.182,
-  "docFreq": 2,
+  "skillId": "sql",
+  "weight": 1.0,
+  "docFreq": 11,
+  "source": "JD",
+  "prefFreq": 2,
+  "reqFreq": 9
+ },
+ {
+  "jobId": "data_analyst",
+  "skillId": "git",
+  "weight": 0.273,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "data_analyst",
+  "skillId": "erp",
+  "weight": 0.091,
+  "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
-  "reqFreq": 2
+  "reqFreq": 1
+ },
+ {
+  "jobId": "data_analyst",
+  "skillId": "software_development",
+  "weight": 0.091,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "data_analyst",
@@ -6058,30 +4015,12 @@
  },
  {
   "jobId": "data_analyst",
-  "skillId": "sql",
-  "weight": 1.0,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 9
- },
- {
-  "jobId": "data_analyst",
   "skillId": "iac",
   "weight": 0.091,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "dap",
-  "weight": 0.273,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 3
  },
  {
   "jobId": "data_analyst",
@@ -6094,7 +4033,7 @@
  },
  {
   "jobId": "data_analyst",
-  "skillId": "cursor",
+  "skillId": "rag",
   "weight": 0.091,
   "docFreq": 1,
   "source": "JD",
@@ -6112,12 +4051,12 @@
  },
  {
   "jobId": "data_analyst",
-  "skillId": "rust",
-  "weight": 0.636,
-  "docFreq": 7,
+  "skillId": "cursor",
+  "weight": 0.091,
+  "docFreq": 1,
   "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "data_analyst",
@@ -6148,88 +4087,7 @@
  },
  {
   "jobId": "data_analyst",
-  "skillId": "unity",
-  "weight": 0.818,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 8
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "rag",
-  "weight": 0.818,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 8
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "erp",
-  "weight": 0.455,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 5
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "oca",
-  "weight": 0.636,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 6
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "ux_ui",
-  "weight": 1.0,
-  "docFreq": 11,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 10
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "git",
-  "weight": 0.364,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 3
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "ios",
-  "weight": 0.182,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "bi",
-  "weight": 0.818,
-  "docFreq": 9,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 8
- },
- {
-  "jobId": "data_analyst",
   "skillId": "aws",
-  "weight": 0.273,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "data_analyst",
-  "skillId": "scala",
   "weight": 0.273,
   "docFreq": 3,
   "source": "JD",
@@ -6265,21 +4123,21 @@
  },
  {
   "jobId": "graphic_designer",
-  "skillId": "design",
-  "weight": 0.125,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "graphic_designer",
   "skillId": "illustrator",
   "weight": 0.625,
   "docFreq": 5,
   "source": "JD",
   "prefFreq": 1,
   "reqFreq": 4
+ },
+ {
+  "jobId": "graphic_designer",
+  "skillId": "design",
+  "weight": 0.125,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
  },
  {
   "jobId": "graphic_designer",
@@ -6346,15 +4204,6 @@
  },
  {
   "jobId": "graphic_designer",
-  "skillId": "sap",
-  "weight": 0.125,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "graphic_designer",
   "skillId": "claude",
   "weight": 0.25,
   "docFreq": 2,
@@ -6364,88 +4213,7 @@
  },
  {
   "jobId": "graphic_designer",
-  "skillId": "git",
-  "weight": 0.625,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 4
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "dap",
-  "weight": 0.125,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "ios",
-  "weight": 0.25,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "graphic_designer",
   "skillId": "ux_ui",
-  "weight": 0.875,
-  "docFreq": 7,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 4
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "mos",
-  "weight": 0.25,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "rag",
-  "weight": 0.375,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "bi",
-  "weight": 0.625,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 4
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "unity",
-  "weight": 0.25,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "oca",
-  "weight": 0.25,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "graphic_designer",
-  "skillId": "erp",
   "weight": 0.125,
   "docFreq": 1,
   "source": "JD",
@@ -6472,7 +4240,16 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "flutter",
+  "skillId": "system_development",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
+  "skillId": "system_build",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6490,7 +4267,16 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "php",
+  "skillId": "flutter",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
+  "skillId": "unity",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6508,7 +4294,16 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "msa",
+  "skillId": "php",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
+  "skillId": "swift",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6544,6 +4339,15 @@
  },
  {
   "jobId": "qa_eng",
+  "skillId": "scala",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
   "skillId": "gitlab",
   "weight": 0.143,
   "docFreq": 1,
@@ -6562,7 +4366,7 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "swift",
+  "skillId": "angular",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6571,7 +4375,7 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "angular",
+  "skillId": "rust",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6625,16 +4429,7 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "dap",
-  "weight": 0.286,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "android",
+  "skillId": "ios",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6643,7 +4438,7 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "seo",
+  "skillId": "android",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6661,16 +4456,16 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "ios",
-  "weight": 0.429,
-  "docFreq": 3,
+  "skillId": "c",
+  "weight": 0.143,
+  "docFreq": 1,
   "source": "JD",
-  "prefFreq": 2,
+  "prefFreq": 0,
   "reqFreq": 1
  },
  {
   "jobId": "qa_eng",
-  "skillId": "c",
+  "skillId": "ux_ui",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6688,6 +4483,15 @@
  },
  {
   "jobId": "qa_eng",
+  "skillId": "typescript",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
   "skillId": "docker",
   "weight": 0.143,
   "docFreq": 1,
@@ -6697,7 +4501,16 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "typescript",
+  "skillId": "react",
+  "weight": 0.143,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "qa_eng",
+  "skillId": "llm",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6724,60 +4537,6 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "react",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "erp",
-  "weight": 0.286,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "ux_ui",
-  "weight": 0.857,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 4
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "bi",
-  "weight": 0.857,
-  "docFreq": 6,
-  "source": "JD",
-  "prefFreq": 2,
-  "reqFreq": 4
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "llm",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "unity",
-  "weight": 0.286,
-  "docFreq": 2,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 2
- },
- {
-  "jobId": "qa_eng",
   "skillId": "java",
   "weight": 0.143,
   "docFreq": 1,
@@ -6787,52 +4546,7 @@
  },
  {
   "jobId": "qa_eng",
-  "skillId": "rust",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "git",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "qa_eng",
   "skillId": "aws",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "scala",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "rag",
-  "weight": 0.143,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "qa_eng",
-  "skillId": "oca",
   "weight": 0.143,
   "docFreq": 1,
   "source": "JD",
@@ -6868,6 +4582,24 @@
  },
  {
   "jobId": "embedded_dev",
+  "skillId": "iot",
+  "weight": 0.2,
+  "docFreq": 1,
+  "source": "JD",
+  "prefFreq": 0,
+  "reqFreq": 1
+ },
+ {
+  "jobId": "embedded_dev",
+  "skillId": "git",
+  "weight": 0.6,
+  "docFreq": 3,
+  "source": "JD",
+  "prefFreq": 1,
+  "reqFreq": 2
+ },
+ {
+  "jobId": "embedded_dev",
   "skillId": "gitlab",
   "weight": 0.2,
   "docFreq": 1,
@@ -6886,48 +4618,12 @@
  },
  {
   "jobId": "embedded_dev",
-  "skillId": "iot",
-  "weight": 0.2,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 0,
-  "reqFreq": 1
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "isms",
-  "weight": 0.2,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "ux_ui",
-  "weight": 1.0,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 2
- },
- {
-  "jobId": "embedded_dev",
   "skillId": "github",
   "weight": 0.2,
   "docFreq": 1,
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "dap",
-  "weight": 0.2,
-  "docFreq": 1,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 0
  },
  {
   "jobId": "embedded_dev",
@@ -6946,50 +4642,5 @@
   "source": "JD",
   "prefFreq": 0,
   "reqFreq": 1
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "rag",
-  "weight": 1.0,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 2
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "unity",
-  "weight": 0.8,
-  "docFreq": 4,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 1
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "git",
-  "weight": 0.6,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 1,
-  "reqFreq": 2
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "scala",
-  "weight": 0.6,
-  "docFreq": 3,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 0
- },
- {
-  "jobId": "embedded_dev",
-  "skillId": "bi",
-  "weight": 1.0,
-  "docFreq": 5,
-  "source": "JD",
-  "prefFreq": 3,
-  "reqFreq": 2
  }
 ]
