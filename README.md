@@ -20,7 +20,7 @@
 > 같은 일을 해 왔는데 **직함이 달라서 서로를 못 찾는다.**
 
 구직자는 자기 역량이 어떤 직무로 이어지는지 모르고, 기업은 직무명으로 검색해 맞는 사람을 놓칩니다.
-실제로 직종을 바꾸는 사람은 **연 5.9%** 뿐입니다. <sup>[KLIPS 89,337건 →](./docs/VALIDATION_LOG.md)</sup>
+실제로 직종을 바꾸는 사람은 **연 5.9%** 뿐입니다. <sup>KLIPS 18~27차 · 연속 차수 관측 89,337건 기준</sup>
 
 ---
 
@@ -106,7 +106,7 @@ node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.j
 # 오류 0건이어야 앱에 투입
 ```
 
-📄 [데이터 계약](./docs/DATA_SPEC.md) · [수집 방법](./docs/DATA_COLLECTION.md) · [검증 기록](./docs/VALIDATION_LOG.md)
+📄 [데이터 계약](./docs/DATA_SPEC.md) · [수집 방법](./docs/DATA_COLLECTION.md)
 
 ---
 
@@ -162,9 +162,7 @@ npm run dev
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
-| [**VALIDATION_LOG**](./docs/VALIDATION_LOG.md) | 무엇을 시도했고 왜 기각했는가 |
-| [**TROUBLESHOOTING**](./docs/TROUBLESHOOTING.md) | 문제 진단·해결 기록 |
-| [**TEAM**](./docs/TEAM.md) | 역할 분담과 협업 규칙 |
+| [**PLAN**](./docs/PLAN.md) | 개발 일정과 마일스톤 |
 
 ---
 
