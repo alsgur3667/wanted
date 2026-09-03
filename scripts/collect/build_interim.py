@@ -15,7 +15,11 @@
 두 출처를 섞되 구분은 남긴다 — source 필드로 JD 인지 manual 인지 항상 알 수 있다.
 """
 import json
+import sys
 from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from skill_groups import build as build_groups  # noqa: E402
 
 REPO = Path(__file__).resolve().parents[2]
 D = REPO / "data"
@@ -75,10 +79,28 @@ def run():
             seen.add((jid, sid))
             n_map += 1
 
+    # ④ 직무 간 인접 — 직군을 건너뛰는 경로("이 길도 있어요")의 근거로 쓴다.
+    #    개인 점수와 무관하게 "이 두 직무는 요구 역량이 겹친다"는 사실이라,
+    #    개인 적합도만으로는 히든 경로가 안 나올 때의 대안이 된다.
+    adj = json.loads((D / "job-adjacency.json").read_text(encoding="utf-8"))
+    edges = adj["edges"] if isinstance(adj, dict) else adj
+    edges = [e for e in edges if e["a"] in job_ids and e["b"] in job_ids]
+    n_cross = sum(1 for e in edges if e.get("crossFamily"))
+
+    # ⑤ 택일 관계 묶음 — "이 중 하나만 있으면 된다".
+    #    평평한 목록으로 두면 iOS 개발자에게 Kotlin 을 부족 역량으로 요구하게 된다.
+    groups = build_groups({s["name"] for s in skills})
+    print("택일 묶음 " + " · ".join(f"{g['label']}({len(g['skills'])})" for g in groups.values()))
+
     OUT.mkdir(parents=True, exist_ok=True)
+    (OUT / "skill-groups.json").write_text(
+        json.dumps(groups, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / "job-adjacency.json").write_text(
+        json.dumps(edges, ensure_ascii=False, indent=1), encoding="utf-8")
     for name, obj in (("jobs.json", jobs), ("skills.json", skills), ("job-skills.json", matrix)):
         (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    print(f"인접 {len(edges)}건 (직군 교차 {n_cross}건)")
     print(f"직무 {len(jobs)}개 (신입 비율 {n_ratio}개) · 스킬 {len(skills)}개 "
           f"(업무 역량 {len(added)}개 추가) · 매핑 {len(matrix)}건 (수기 {n_map}건)")
     if skipped:

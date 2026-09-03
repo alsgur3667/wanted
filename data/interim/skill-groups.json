@@ -1,0 +1,69 @@
+{
+ "mobile_platform": {
+  "label": "모바일 플랫폼",
+  "skills": [
+   "iOS",
+   "Swift",
+   "UIKit",
+   "SwiftUI",
+   "Xcode",
+   "Android",
+   "Kotlin",
+   "Jetpack",
+   "Flutter",
+   "React Native",
+   "Dart"
+  ]
+ },
+ "frontend_framework": {
+  "label": "프론트엔드 프레임워크",
+  "skills": [
+   "React",
+   "Vue",
+   "Angular",
+   "Svelte",
+   "Next.js",
+   "Nuxt"
+  ]
+ },
+ "backend_framework": {
+  "label": "백엔드 프레임워크",
+  "skills": [
+   "Spring",
+   "Spring Boot",
+   "Django",
+   "FastAPI",
+   "Node.js",
+   "Laravel",
+   "NestJS"
+  ]
+ },
+ "backend_language": {
+  "label": "서버 언어",
+  "skills": [
+   "Java",
+   "C#",
+   "Python",
+   "Golang",
+   "PHP",
+   "Ruby",
+   "Kotlin",
+   "Rust",
+   "Scala"
+  ]
+ },
+ "cloud": {
+  "label": "클라우드",
+  "skills": [
+   "AWS",
+   "Azure"
+  ]
+ },
+ "bi_tool": {
+  "label": "BI 도구",
+  "skills": [
+   "Tableau",
+   "Looker"
+  ]
+ }
+}
