@@ -1,6 +1,6 @@
 import type { AnalysisResult, GapSkill, Route, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
@@ -189,7 +189,37 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     .filter((s) => s.b.wide.length >= HIDDEN_MIN_WIDE_BRIDGES)
     .sort((a, b) => rank(b, b.b.wide.length) - rank(a, a.b.wide.length));
 
-  const hidden: (typeof crossJobs)[number] | undefined = byMust[0] ?? byWide[0];
+  let hidden: (typeof crossJobs)[number] | undefined = byMust[0] ?? byWide[0];
+
+  //  다리로 못 찾았으면 **같은 기술을 가진 사람들이 실제로 하는 직무**를 본다.
+  //  우리 공고 표본은 직무당 5~280건으로 좁아서 못 보는 경로가 있다.
+  //  이건 규칙이 아니라 사실이고, 화면에 근거를 그대로 보여줄 수 있다 —
+  //  "Swift 를 쓰는 3,235명 중 39%가 이 직무입니다".
+  //
+  //  ⚠️ 서구 설문이라 주 순위에는 쓰지 않는다. 여기서만 쓴다 (이슈 #14).
+  //  ⚠️ 배수 1.5 미만은 붙이지 않는다 — 기저와 다를 바 없으면 '몰랐던 길'이 아니다.
+  const PEER_MIN_LIFT = 1.5;
+  let peer: { jobId: string; lift: number; viaSkillId: string; share: number; n: number } | undefined;
+  if (!hidden) {
+    const already = new Set(eligible.slice(0, 3).map((s) => s.job.id));
+    //  ⚠️ 조건 셋을 모두 만족해야 붙인다. 처음엔 배수만 봤다가
+    //     ① 이미 프론트엔드인 사람에게 프론트엔드를 '몰랐던 길'로 붙였고
+    //     ② 적합도 9점짜리에 배지가 붙었다. 둘 다 근거 없는 배지다.
+    peer = peerPathsOf(have).find((p) => {
+      const cand = eligible.find((s) => s.job.id === p.jobId);
+      return p.lift >= PEER_MIN_LIFT
+        && !already.has(p.jobId)                       // 이미 앞에 나온 직무가 아니고
+        && cand !== undefined
+        && cand.fitScore >= HIDDEN_MIN_FIT             // 권할 만한 적합도는 되고
+        && cand.job.id !== scored[0]?.job.id;          // 지금 하고 있는 그 직무가 아니어야 한다
+    });
+    if (peer) {
+      const cand = eligible.find((s) => s.job.id === peer!.jobId)!;
+      hidden = { ...cand, cross: cand.job.family !== currentFamily,
+                 surpriseScore: Math.min(100, Math.round(40 + 0.6 * cand.fitScore)),
+                 b: bridgesOf(cand) };
+    }
+  }
   const hiddenBridges = hidden?.b;
 
   const picked = [
@@ -220,7 +250,11 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         ...s.niceHit.map((id) => getSkill(id)!.name),
       ].slice(0, 5),
       gapSkills: gaps.slice(0, 3),
-      reason: lowConfidence
+      reason: isHidden && peer && s.job.id === peer.jobId
+        ? `${getSkill(peer.viaSkillId)?.name} 를 쓰는 ${peer.n.toLocaleString()}명 중 `
+          + `${Math.round(peer.share * 100)}%가 이 직무를 하고 있습니다. `
+          + `전체 평균보다 ${peer.lift.toFixed(1)}배 높습니다 — 직무명으로는 잘 안 보이는 경로입니다.`
+        : lowConfidence
         ? `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개가 겹칩니다. 다만 뚜렷하게 맞는 직무를 찾지 못했습니다 — 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
         : isHidden
         ? `${s.job.family} 직군이지만 이 직무가 요구하는 것 중 ${(hiddenBridges?.must.length ?? 0) || (hiddenBridges?.wide.length ?? 0)}개를 이미 갖추고 있습니다 — ${[...new Set([...(hiddenBridges?.must ?? []), ...(hiddenBridges?.wide ?? [])])].slice(0, 3).map((id) => getSkill(id)?.name).filter(Boolean).join(' · ')}. 직군을 넘나드는 역량이라 옮겨도 그대로 쓰입니다.`

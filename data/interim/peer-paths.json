@@ -1,0 +1,1319 @@
+{
+ "note": "이 역량을 가진 사람들이 실제로 하는 직무의 분포. 「이 길도 있어요」의 근거로만 쓴다.",
+ "source": "Stack Overflow Developer Survey (ODbL 1.0) — 파생 데이터베이스",
+ "attribution": "Stack Overflow Developer Survey · https://survey.stackoverflow.co/",
+ "caveat": "응답자가 Stack Overflow 커뮤니티라 서구 비중이 높다. 주 순위에는 쓰지 않는다.",
+ "respondents": 62511,
+ "jobs": {
+  "fullstack_dev": 26699,
+  "be_dev": 14258,
+  "fe_dev": 4593,
+  "sw_eng": 4431,
+  "devops_sre": 2909,
+  "mobile_dev": 2833,
+  "embedded_dev": 2409,
+  "data_eng": 1761,
+  "data_scientist": 944,
+  "qa_eng": 723,
+  "data_analyst": 630,
+  "security_eng": 321
+ },
+ "minSupport": 30,
+ "skills": {
+  "sql": {
+   "n": 50614,
+   "jobs": {
+    "fullstack_dev": 0.4758,
+    "be_dev": 0.2476,
+    "sw_eng": 0.0591,
+    "fe_dev": 0.0497,
+    "devops_sre": 0.0469,
+    "data_eng": 0.0326,
+    "mobile_dev": 0.0273,
+    "embedded_dev": 0.0194,
+    "data_scientist": 0.0152,
+    "data_analyst": 0.0112,
+    "qa_eng": 0.0104,
+    "security_eng": 0.0047
+   }
+  },
+  "python": {
+   "n": 30492,
+   "jobs": {
+    "fullstack_dev": 0.386,
+    "be_dev": 0.232,
+    "sw_eng": 0.072,
+    "devops_sre": 0.0663,
+    "embedded_dev": 0.0626,
+    "data_eng": 0.0487,
+    "fe_dev": 0.0373,
+    "data_scientist": 0.0297,
+    "mobile_dev": 0.0273,
+    "data_analyst": 0.0153,
+    "qa_eng": 0.0147,
+    "security_eng": 0.0082
+   }
+  },
+  "mongodb": {
+   "n": 14036,
+   "jobs": {
+    "fullstack_dev": 0.5009,
+    "be_dev": 0.2397,
+    "fe_dev": 0.076,
+    "devops_sre": 0.0462,
+    "sw_eng": 0.0341,
+    "mobile_dev": 0.033,
+    "data_eng": 0.0232,
+    "embedded_dev": 0.0142,
+    "data_scientist": 0.0131,
+    "qa_eng": 0.0099,
+    "data_analyst": 0.0051,
+    "security_eng": 0.0046
+   }
+  },
+  "css": {
+   "n": 37058,
+   "jobs": {
+    "fullstack_dev": 0.5609,
+    "be_dev": 0.1572,
+    "fe_dev": 0.1025,
+    "sw_eng": 0.0543,
+    "devops_sre": 0.0361,
+    "mobile_dev": 0.0232,
+    "embedded_dev": 0.0213,
+    "data_eng": 0.0158,
+    "data_analyst": 0.0086,
+    "qa_eng": 0.0082,
+    "data_scientist": 0.0078,
+    "security_eng": 0.0041
+   }
+  },
+  "node_js": {
+   "n": 22856,
+   "jobs": {
+    "fullstack_dev": 0.5788,
+    "be_dev": 0.1574,
+    "fe_dev": 0.108,
+    "sw_eng": 0.0413,
+    "devops_sre": 0.0357,
+    "mobile_dev": 0.0251,
+    "embedded_dev": 0.0157,
+    "data_eng": 0.0129,
+    "qa_eng": 0.0095,
+    "data_scientist": 0.0066,
+    "data_analyst": 0.0049,
+    "security_eng": 0.0042
+   }
+  },
+  "next_js": {
+   "n": 10206,
+   "jobs": {
+    "fullstack_dev": 0.6045,
+    "fe_dev": 0.1608,
+    "be_dev": 0.1229,
+    "devops_sre": 0.0263,
+    "mobile_dev": 0.0249,
+    "sw_eng": 0.0241,
+    "data_eng": 0.0103,
+    "embedded_dev": 0.0088,
+    "qa_eng": 0.0058,
+    "data_scientist": 0.0053,
+    "data_analyst": 0.0034,
+    "security_eng": 0.0029
+   }
+  },
+  "java": {
+   "n": 19003,
+   "jobs": {
+    "fullstack_dev": 0.4259,
+    "be_dev": 0.2834,
+    "mobile_dev": 0.064,
+    "sw_eng": 0.0625,
+    "devops_sre": 0.0447,
+    "fe_dev": 0.0348,
+    "embedded_dev": 0.0254,
+    "data_eng": 0.0234,
+    "qa_eng": 0.0149,
+    "data_scientist": 0.0096,
+    "data_analyst": 0.0058,
+    "security_eng": 0.0056
+   }
+  },
+  "react": {
+   "n": 23050,
+   "jobs": {
+    "fullstack_dev": 0.5773,
+    "be_dev": 0.1546,
+    "fe_dev": 0.1342,
+    "sw_eng": 0.0324,
+    "mobile_dev": 0.0292,
+    "devops_sre": 0.0269,
+    "embedded_dev": 0.0128,
+    "data_eng": 0.0118,
+    "qa_eng": 0.0074,
+    "data_scientist": 0.0062,
+    "data_analyst": 0.004,
+    "security_eng": 0.0032
+   }
+  },
+  "kubernetes": {
+   "n": 13056,
+   "jobs": {
+    "fullstack_dev": 0.3889,
+    "be_dev": 0.359,
+    "devops_sre": 0.1006,
+    "data_eng": 0.0347,
+    "fe_dev": 0.0315,
+    "sw_eng": 0.0277,
+    "data_scientist": 0.0147,
+    "embedded_dev": 0.0123,
+    "mobile_dev": 0.0106,
+    "qa_eng": 0.0105,
+    "security_eng": 0.0066,
+    "data_analyst": 0.0029
+   }
+  },
+  "javascript": {
+   "n": 42460,
+   "jobs": {
+    "fullstack_dev": 0.5416,
+    "be_dev": 0.1793,
+    "fe_dev": 0.0997,
+    "sw_eng": 0.0519,
+    "devops_sre": 0.0363,
+    "mobile_dev": 0.0267,
+    "embedded_dev": 0.0204,
+    "data_eng": 0.0156,
+    "qa_eng": 0.0098,
+    "data_scientist": 0.0071,
+    "data_analyst": 0.0071,
+    "security_eng": 0.0044
+   }
+  },
+  "docker": {
+   "n": 34729,
+   "jobs": {
+    "fullstack_dev": 0.4474,
+    "be_dev": 0.2797,
+    "devops_sre": 0.0582,
+    "fe_dev": 0.0522,
+    "sw_eng": 0.0433,
+    "embedded_dev": 0.0343,
+    "data_eng": 0.0282,
+    "mobile_dev": 0.02,
+    "data_scientist": 0.0153,
+    "qa_eng": 0.0107,
+    "security_eng": 0.0058,
+    "data_analyst": 0.0048
+   }
+  },
+  "vite": {
+   "n": 13148,
+   "jobs": {
+    "fullstack_dev": 0.6358,
+    "fe_dev": 0.1552,
+    "be_dev": 0.1134,
+    "sw_eng": 0.0264,
+    "devops_sre": 0.0238,
+    "mobile_dev": 0.0134,
+    "embedded_dev": 0.0108,
+    "data_eng": 0.008,
+    "qa_eng": 0.0046,
+    "data_scientist": 0.0036,
+    "data_analyst": 0.0032,
+    "security_eng": 0.0017
+   }
+  },
+  "webpack": {
+   "n": 11696,
+   "jobs": {
+    "fullstack_dev": 0.6386,
+    "fe_dev": 0.1619,
+    "be_dev": 0.1176,
+    "sw_eng": 0.0233,
+    "devops_sre": 0.0221,
+    "mobile_dev": 0.013,
+    "embedded_dev": 0.0071,
+    "data_eng": 0.0057,
+    "qa_eng": 0.0042,
+    "data_scientist": 0.0027,
+    "security_eng": 0.0021,
+    "data_analyst": 0.0016
+   }
+  },
+  "aws": {
+   "n": 24726,
+   "jobs": {
+    "fullstack_dev": 0.4436,
+    "be_dev": 0.2818,
+    "devops_sre": 0.06,
+    "fe_dev": 0.0552,
+    "data_eng": 0.0364,
+    "sw_eng": 0.0361,
+    "mobile_dev": 0.0269,
+    "data_scientist": 0.018,
+    "embedded_dev": 0.018,
+    "qa_eng": 0.0116,
+    "data_analyst": 0.0068,
+    "security_eng": 0.0055
+   }
+  },
+  "bash": {
+   "n": 24111,
+   "jobs": {
+    "fullstack_dev": 0.4109,
+    "be_dev": 0.2364,
+    "devops_sre": 0.0805,
+    "sw_eng": 0.0656,
+    "embedded_dev": 0.0608,
+    "fe_dev": 0.0414,
+    "data_eng": 0.0356,
+    "mobile_dev": 0.0264,
+    "data_scientist": 0.0144,
+    "qa_eng": 0.0124,
+    "data_analyst": 0.0081,
+    "security_eng": 0.0076
+   }
+  },
+  "typescript": {
+   "n": 28387,
+   "jobs": {
+    "fullstack_dev": 0.5796,
+    "be_dev": 0.1665,
+    "fe_dev": 0.1199,
+    "sw_eng": 0.0378,
+    "devops_sre": 0.0305,
+    "mobile_dev": 0.0248,
+    "embedded_dev": 0.0134,
+    "data_eng": 0.0091,
+    "qa_eng": 0.0083,
+    "data_scientist": 0.0043,
+    "data_analyst": 0.003,
+    "security_eng": 0.0029
+   }
+  },
+  "php": {
+   "n": 12483,
+   "jobs": {
+    "fullstack_dev": 0.5816,
+    "be_dev": 0.1872,
+    "fe_dev": 0.064,
+    "devops_sre": 0.0518,
+    "sw_eng": 0.0429,
+    "mobile_dev": 0.0244,
+    "embedded_dev": 0.0156,
+    "data_eng": 0.0111,
+    "data_analyst": 0.0071,
+    "security_eng": 0.006,
+    "qa_eng": 0.0042,
+    "data_scientist": 0.004
+   }
+  },
+  "tensorflow": {
+   "n": 2755,
+   "jobs": {
+    "fullstack_dev": 0.3648,
+    "be_dev": 0.1757,
+    "data_scientist": 0.1474,
+    "devops_sre": 0.0595,
+    "sw_eng": 0.049,
+    "data_eng": 0.0468,
+    "embedded_dev": 0.0436,
+    "mobile_dev": 0.0396,
+    "fe_dev": 0.0305,
+    "data_analyst": 0.0218,
+    "qa_eng": 0.0116,
+    "security_eng": 0.0098
+   }
+  },
+  "c": {
+   "n": 12511,
+   "jobs": {
+    "fullstack_dev": 0.3276,
+    "be_dev": 0.1851,
+    "sw_eng": 0.1719,
+    "embedded_dev": 0.1428,
+    "devops_sre": 0.0428,
+    "mobile_dev": 0.0407,
+    "fe_dev": 0.0306,
+    "data_eng": 0.0173,
+    "data_scientist": 0.0169,
+    "qa_eng": 0.0098,
+    "security_eng": 0.0074,
+    "data_analyst": 0.0071
+   }
+  },
+  "wordpress": {
+   "n": 6237,
+   "jobs": {
+    "fullstack_dev": 0.5621,
+    "be_dev": 0.1294,
+    "fe_dev": 0.0895,
+    "devops_sre": 0.0648,
+    "sw_eng": 0.0489,
+    "mobile_dev": 0.0317,
+    "data_eng": 0.0183,
+    "embedded_dev": 0.0176,
+    "data_analyst": 0.0122,
+    "data_scientist": 0.0093,
+    "qa_eng": 0.009,
+    "security_eng": 0.0072
+   }
+  },
+  "github": {
+   "n": 23620,
+   "jobs": {
+    "fullstack_dev": 0.4468,
+    "be_dev": 0.2229,
+    "sw_eng": 0.0778,
+    "fe_dev": 0.0698,
+    "mobile_dev": 0.0467,
+    "embedded_dev": 0.0399,
+    "devops_sre": 0.0394,
+    "data_eng": 0.0262,
+    "qa_eng": 0.0107,
+    "data_analyst": 0.0099,
+    "data_scientist": 0.0075,
+    "security_eng": 0.0025
+   }
+  },
+  "rust": {
+   "n": 7569,
+   "jobs": {
+    "fullstack_dev": 0.3964,
+    "be_dev": 0.2662,
+    "sw_eng": 0.0865,
+    "embedded_dev": 0.0819,
+    "devops_sre": 0.0605,
+    "fe_dev": 0.0299,
+    "data_eng": 0.0221,
+    "mobile_dev": 0.0199,
+    "security_eng": 0.0114,
+    "data_scientist": 0.0111,
+    "qa_eng": 0.0089,
+    "data_analyst": 0.0053
+   }
+  },
+  "vercel": {
+   "n": 5862,
+   "jobs": {
+    "fullstack_dev": 0.5977,
+    "fe_dev": 0.1634,
+    "be_dev": 0.122,
+    "mobile_dev": 0.0281,
+    "devops_sre": 0.0271,
+    "sw_eng": 0.0217,
+    "data_eng": 0.0109,
+    "embedded_dev": 0.0102,
+    "qa_eng": 0.006,
+    "data_scientist": 0.0058,
+    "data_analyst": 0.0043,
+    "security_eng": 0.0027
+   }
+  },
+  "redis": {
+   "n": 13536,
+   "jobs": {
+    "fullstack_dev": 0.4869,
+    "be_dev": 0.3485,
+    "devops_sre": 0.0562,
+    "fe_dev": 0.0259,
+    "sw_eng": 0.0249,
+    "data_eng": 0.0185,
+    "mobile_dev": 0.0098,
+    "embedded_dev": 0.009,
+    "data_scientist": 0.0073,
+    "qa_eng": 0.006,
+    "security_eng": 0.004,
+    "data_analyst": 0.0029
+   }
+  },
+  "skill": {
+   "n": 18930,
+   "jobs": {
+    "fullstack_dev": 0.4474,
+    "be_dev": 0.2191,
+    "fe_dev": 0.0806,
+    "mobile_dev": 0.0601,
+    "sw_eng": 0.0528,
+    "devops_sre": 0.0416,
+    "data_eng": 0.0296,
+    "embedded_dev": 0.0256,
+    "data_scientist": 0.0169,
+    "data_analyst": 0.0111,
+    "qa_eng": 0.011,
+    "security_eng": 0.0042
+   }
+  },
+  "firebase": {
+   "n": 7919,
+   "jobs": {
+    "fullstack_dev": 0.4778,
+    "mobile_dev": 0.1772,
+    "be_dev": 0.128,
+    "fe_dev": 0.1065,
+    "sw_eng": 0.0389,
+    "devops_sre": 0.0264,
+    "embedded_dev": 0.0122,
+    "data_eng": 0.0101,
+    "qa_eng": 0.0082,
+    "data_scientist": 0.0066,
+    "data_analyst": 0.0045,
+    "security_eng": 0.0035
+   }
+  },
+  "ansible": {
+   "n": 4910,
+   "jobs": {
+    "fullstack_dev": 0.3589,
+    "be_dev": 0.2635,
+    "devops_sre": 0.2002,
+    "embedded_dev": 0.0381,
+    "data_eng": 0.0344,
+    "sw_eng": 0.0334,
+    "fe_dev": 0.0163,
+    "qa_eng": 0.0157,
+    "mobile_dev": 0.0132,
+    "security_eng": 0.0124,
+    "data_scientist": 0.0088,
+    "data_analyst": 0.0051
+   }
+  },
+  "terraform": {
+   "n": 7304,
+   "jobs": {
+    "fullstack_dev": 0.384,
+    "be_dev": 0.3193,
+    "devops_sre": 0.1583,
+    "data_eng": 0.0559,
+    "sw_eng": 0.0194,
+    "fe_dev": 0.0179,
+    "data_scientist": 0.0114,
+    "embedded_dev": 0.0101,
+    "mobile_dev": 0.0084,
+    "security_eng": 0.0068,
+    "qa_eng": 0.0062,
+    "data_analyst": 0.0023
+   }
+  },
+  "c_2": {
+   "n": 18287,
+   "jobs": {
+    "fullstack_dev": 0.5226,
+    "be_dev": 0.1892,
+    "sw_eng": 0.1281,
+    "devops_sre": 0.034,
+    "fe_dev": 0.031,
+    "embedded_dev": 0.029,
+    "mobile_dev": 0.0244,
+    "data_eng": 0.0161,
+    "qa_eng": 0.0095,
+    "data_analyst": 0.0066,
+    "data_scientist": 0.0051,
+    "security_eng": 0.0044
+   }
+  },
+  "azure": {
+   "n": 17481,
+   "jobs": {
+    "fullstack_dev": 0.4758,
+    "be_dev": 0.2032,
+    "sw_eng": 0.0754,
+    "devops_sre": 0.0579,
+    "fe_dev": 0.0511,
+    "data_eng": 0.0387,
+    "mobile_dev": 0.0286,
+    "embedded_dev": 0.0224,
+    "data_scientist": 0.018,
+    "qa_eng": 0.0121,
+    "data_analyst": 0.0105,
+    "security_eng": 0.0062
+   }
+  },
+  "apache_kafka": {
+   "n": 3467,
+   "jobs": {
+    "be_dev": 0.4549,
+    "fullstack_dev": 0.317,
+    "devops_sre": 0.071,
+    "data_eng": 0.0649,
+    "sw_eng": 0.0222,
+    "data_scientist": 0.0208,
+    "fe_dev": 0.0121,
+    "qa_eng": 0.0087,
+    "mobile_dev": 0.0081,
+    "embedded_dev": 0.0078,
+    "data_analyst": 0.0069,
+    "security_eng": 0.0058
+   }
+  },
+  "django": {
+   "n": 6037,
+   "jobs": {
+    "fullstack_dev": 0.4605,
+    "be_dev": 0.2644,
+    "devops_sre": 0.0669,
+    "fe_dev": 0.0412,
+    "data_eng": 0.0363,
+    "sw_eng": 0.0335,
+    "data_scientist": 0.0243,
+    "embedded_dev": 0.0219,
+    "mobile_dev": 0.0207,
+    "data_analyst": 0.0123,
+    "qa_eng": 0.0116,
+    "security_eng": 0.0065
+   }
+  },
+  "oracle": {
+   "n": 6466,
+   "jobs": {
+    "fullstack_dev": 0.4367,
+    "be_dev": 0.2555,
+    "sw_eng": 0.0795,
+    "devops_sre": 0.0617,
+    "data_eng": 0.0535,
+    "fe_dev": 0.0235,
+    "data_analyst": 0.0227,
+    "mobile_dev": 0.0186,
+    "data_scientist": 0.0158,
+    "qa_eng": 0.0135,
+    "embedded_dev": 0.0118,
+    "security_eng": 0.0073
+   }
+  },
+  "snowflake": {
+   "n": 1699,
+   "jobs": {
+    "fullstack_dev": 0.3167,
+    "be_dev": 0.2725,
+    "data_eng": 0.1942,
+    "devops_sre": 0.0571,
+    "data_scientist": 0.0441,
+    "data_analyst": 0.0412,
+    "sw_eng": 0.0283,
+    "fe_dev": 0.0165,
+    "mobile_dev": 0.0112,
+    "qa_eng": 0.0094,
+    "embedded_dev": 0.0065,
+    "security_eng": 0.0024
+   }
+  },
+  "xcode": {
+   "n": 5973,
+   "jobs": {
+    "fullstack_dev": 0.4149,
+    "mobile_dev": 0.2622,
+    "be_dev": 0.0944,
+    "fe_dev": 0.0735,
+    "sw_eng": 0.07,
+    "devops_sre": 0.0268,
+    "embedded_dev": 0.0228,
+    "qa_eng": 0.0116,
+    "data_eng": 0.0084,
+    "data_analyst": 0.0057,
+    "security_eng": 0.005,
+    "data_scientist": 0.0049
+   }
+  },
+  "apache_spark": {
+   "n": 1514,
+   "jobs": {
+    "data_eng": 0.2556,
+    "be_dev": 0.2543,
+    "fullstack_dev": 0.216,
+    "data_scientist": 0.1176,
+    "devops_sre": 0.074,
+    "sw_eng": 0.0244,
+    "data_analyst": 0.0238,
+    "security_eng": 0.0092,
+    "fe_dev": 0.0086,
+    "embedded_dev": 0.0073,
+    "mobile_dev": 0.0053,
+    "qa_eng": 0.004
+   }
+  },
+  "scala": {
+   "n": 1692,
+   "jobs": {
+    "be_dev": 0.4362,
+    "fullstack_dev": 0.2423,
+    "data_eng": 0.1448,
+    "devops_sre": 0.0461,
+    "sw_eng": 0.0349,
+    "data_scientist": 0.0266,
+    "mobile_dev": 0.0183,
+    "fe_dev": 0.0165,
+    "embedded_dev": 0.013,
+    "data_analyst": 0.0112,
+    "qa_eng": 0.0071,
+    "security_eng": 0.003
+   }
+  },
+  "perl": {
+   "n": 1648,
+   "jobs": {
+    "fullstack_dev": 0.3805,
+    "be_dev": 0.2191,
+    "devops_sre": 0.1195,
+    "sw_eng": 0.0928,
+    "embedded_dev": 0.071,
+    "data_eng": 0.0346,
+    "mobile_dev": 0.0231,
+    "fe_dev": 0.0146,
+    "security_eng": 0.014,
+    "qa_eng": 0.0109,
+    "data_analyst": 0.0109,
+    "data_scientist": 0.0091
+   }
+  },
+  "keras": {
+   "n": 1087,
+   "jobs": {
+    "fullstack_dev": 0.3008,
+    "data_scientist": 0.2567,
+    "be_dev": 0.1702,
+    "devops_sre": 0.0589,
+    "data_eng": 0.0524,
+    "embedded_dev": 0.0423,
+    "sw_eng": 0.0368,
+    "data_analyst": 0.0248,
+    "mobile_dev": 0.023,
+    "fe_dev": 0.0212,
+    "qa_eng": 0.011,
+    "security_eng": 0.0018
+   }
+  },
+  "angular": {
+   "n": 9986,
+   "jobs": {
+    "fullstack_dev": 0.6123,
+    "be_dev": 0.1544,
+    "fe_dev": 0.1066,
+    "sw_eng": 0.0434,
+    "devops_sre": 0.0276,
+    "mobile_dev": 0.0168,
+    "embedded_dev": 0.0114,
+    "data_eng": 0.0084,
+    "qa_eng": 0.0081,
+    "data_scientist": 0.0042,
+    "data_analyst": 0.0037,
+    "security_eng": 0.003
+   }
+  },
+  "elasticsearch": {
+   "n": 8110,
+   "jobs": {
+    "fullstack_dev": 0.4411,
+    "be_dev": 0.3492,
+    "devops_sre": 0.0794,
+    "data_eng": 0.0281,
+    "sw_eng": 0.025,
+    "fe_dev": 0.024,
+    "data_scientist": 0.0139,
+    "qa_eng": 0.01,
+    "mobile_dev": 0.0086,
+    "embedded_dev": 0.0086,
+    "security_eng": 0.0078,
+    "data_analyst": 0.0042
+   }
+  },
+  "nestjs": {
+   "n": 3539,
+   "jobs": {
+    "fullstack_dev": 0.6279,
+    "be_dev": 0.1888,
+    "fe_dev": 0.0969,
+    "devops_sre": 0.0263,
+    "mobile_dev": 0.0181,
+    "sw_eng": 0.0161,
+    "data_eng": 0.009,
+    "embedded_dev": 0.0051,
+    "qa_eng": 0.0045,
+    "data_scientist": 0.0034,
+    "data_analyst": 0.0028,
+    "security_eng": 0.0011
+   }
+  },
+  "cassandra": {
+   "n": 1398,
+   "jobs": {
+    "be_dev": 0.3934,
+    "fullstack_dev": 0.3333,
+    "devops_sre": 0.0815,
+    "data_eng": 0.0536,
+    "sw_eng": 0.0401,
+    "data_scientist": 0.0215,
+    "fe_dev": 0.0215,
+    "mobile_dev": 0.0172,
+    "qa_eng": 0.0129,
+    "embedded_dev": 0.0122,
+    "security_eng": 0.0064,
+    "data_analyst": 0.0064
+   }
+  },
+  "fastapi": {
+   "n": 5581,
+   "jobs": {
+    "fullstack_dev": 0.4202,
+    "be_dev": 0.2998,
+    "data_eng": 0.0661,
+    "devops_sre": 0.0584,
+    "data_scientist": 0.0452,
+    "fe_dev": 0.0308,
+    "sw_eng": 0.029,
+    "embedded_dev": 0.0161,
+    "mobile_dev": 0.0147,
+    "data_analyst": 0.0081,
+    "qa_eng": 0.007,
+    "security_eng": 0.0047
+   }
+  },
+  "pytorch": {
+   "n": 2628,
+   "jobs": {
+    "fullstack_dev": 0.3166,
+    "data_scientist": 0.2013,
+    "be_dev": 0.1895,
+    "devops_sre": 0.0597,
+    "sw_eng": 0.0548,
+    "embedded_dev": 0.0464,
+    "data_eng": 0.046,
+    "fe_dev": 0.0225,
+    "data_analyst": 0.0213,
+    "mobile_dev": 0.0202,
+    "security_eng": 0.011,
+    "qa_eng": 0.0107
+   }
+  },
+  "cuda": {
+   "n": 1425,
+   "jobs": {
+    "fullstack_dev": 0.3158,
+    "be_dev": 0.1747,
+    "data_scientist": 0.1614,
+    "sw_eng": 0.1053,
+    "devops_sre": 0.0814,
+    "embedded_dev": 0.0667,
+    "data_eng": 0.0365,
+    "mobile_dev": 0.0147,
+    "fe_dev": 0.0126,
+    "data_analyst": 0.0119,
+    "security_eng": 0.0098,
+    "qa_eng": 0.0091
+   }
+  },
+  "ruby": {
+   "n": 4111,
+   "jobs": {
+    "fullstack_dev": 0.4936,
+    "be_dev": 0.2515,
+    "devops_sre": 0.0739,
+    "mobile_dev": 0.0472,
+    "fe_dev": 0.0401,
+    "sw_eng": 0.0343,
+    "embedded_dev": 0.0192,
+    "data_eng": 0.0134,
+    "qa_eng": 0.0097,
+    "security_eng": 0.0075,
+    "data_analyst": 0.0049,
+    "data_scientist": 0.0046
+   }
+  },
+  "vue": {
+   "n": 8969,
+   "jobs": {
+    "fullstack_dev": 0.6061,
+    "be_dev": 0.1565,
+    "fe_dev": 0.1102,
+    "sw_eng": 0.0349,
+    "devops_sre": 0.0313,
+    "embedded_dev": 0.0166,
+    "mobile_dev": 0.0163,
+    "data_eng": 0.0106,
+    "qa_eng": 0.0055,
+    "data_scientist": 0.0051,
+    "data_analyst": 0.0036,
+    "security_eng": 0.0033
+   }
+  },
+  "rabbitmq": {
+   "n": 4136,
+   "jobs": {
+    "fullstack_dev": 0.4296,
+    "be_dev": 0.3789,
+    "devops_sre": 0.0658,
+    "sw_eng": 0.0351,
+    "data_eng": 0.0208,
+    "fe_dev": 0.0169,
+    "data_scientist": 0.0135,
+    "embedded_dev": 0.0128,
+    "mobile_dev": 0.0089,
+    "qa_eng": 0.008,
+    "security_eng": 0.006,
+    "data_analyst": 0.0036
+   }
+  },
+  "gradle": {
+   "n": 8795,
+   "jobs": {
+    "fullstack_dev": 0.4102,
+    "be_dev": 0.2629,
+    "mobile_dev": 0.1302,
+    "sw_eng": 0.0522,
+    "devops_sre": 0.0415,
+    "fe_dev": 0.0377,
+    "embedded_dev": 0.0243,
+    "data_eng": 0.0168,
+    "qa_eng": 0.0108,
+    "data_scientist": 0.0051,
+    "security_eng": 0.0049,
+    "data_analyst": 0.0033
+   }
+  },
+  "spring": {
+   "n": 8632,
+   "jobs": {
+    "fullstack_dev": 0.4541,
+    "be_dev": 0.3803,
+    "sw_eng": 0.0402,
+    "devops_sre": 0.0367,
+    "fe_dev": 0.0244,
+    "mobile_dev": 0.0189,
+    "data_eng": 0.0175,
+    "qa_eng": 0.0095,
+    "embedded_dev": 0.0067,
+    "data_scientist": 0.0042,
+    "security_eng": 0.0039,
+    "data_analyst": 0.0035
+   }
+  },
+  "unity": {
+   "n": 1976,
+   "jobs": {
+    "fullstack_dev": 0.4211,
+    "sw_eng": 0.2045,
+    "be_dev": 0.1427,
+    "mobile_dev": 0.0562,
+    "fe_dev": 0.0516,
+    "devops_sre": 0.042,
+    "embedded_dev": 0.0258,
+    "data_scientist": 0.0172,
+    "data_eng": 0.0127,
+    "qa_eng": 0.0106,
+    "data_analyst": 0.0106,
+    "security_eng": 0.0051
+   }
+  },
+  "clickhouse": {
+   "n": 1100,
+   "jobs": {
+    "be_dev": 0.4018,
+    "fullstack_dev": 0.2864,
+    "devops_sre": 0.0973,
+    "data_eng": 0.0955,
+    "data_scientist": 0.0227,
+    "sw_eng": 0.0227,
+    "data_analyst": 0.02,
+    "fe_dev": 0.0155,
+    "mobile_dev": 0.0136,
+    "embedded_dev": 0.0091,
+    "qa_eng": 0.0091,
+    "security_eng": 0.0064
+   }
+  },
+  "bigquery": {
+   "n": 2916,
+   "jobs": {
+    "fullstack_dev": 0.3203,
+    "be_dev": 0.3069,
+    "data_eng": 0.1217,
+    "devops_sre": 0.0597,
+    "data_scientist": 0.047,
+    "mobile_dev": 0.0364,
+    "data_analyst": 0.0302,
+    "sw_eng": 0.0278,
+    "fe_dev": 0.023,
+    "qa_eng": 0.0117,
+    "embedded_dev": 0.0093,
+    "security_eng": 0.0062
+   }
+  },
+  "electron": {
+   "n": 2108,
+   "jobs": {
+    "fullstack_dev": 0.6181,
+    "be_dev": 0.121,
+    "fe_dev": 0.0821,
+    "sw_eng": 0.0541,
+    "devops_sre": 0.0451,
+    "embedded_dev": 0.0228,
+    "mobile_dev": 0.0209,
+    "security_eng": 0.0123,
+    "data_eng": 0.009,
+    "data_scientist": 0.0062,
+    "qa_eng": 0.0047,
+    "data_analyst": 0.0038
+   }
+  },
+  "android": {
+   "n": 9503,
+   "jobs": {
+    "fullstack_dev": 0.4514,
+    "mobile_dev": 0.1907,
+    "be_dev": 0.131,
+    "fe_dev": 0.0658,
+    "sw_eng": 0.0583,
+    "embedded_dev": 0.0328,
+    "devops_sre": 0.0281,
+    "qa_eng": 0.0127,
+    "data_eng": 0.0094,
+    "data_scientist": 0.008,
+    "data_analyst": 0.0059,
+    "security_eng": 0.0059
+   }
+  },
+  "laravel": {
+   "n": 4710,
+   "jobs": {
+    "fullstack_dev": 0.6282,
+    "be_dev": 0.2098,
+    "fe_dev": 0.0516,
+    "devops_sre": 0.0346,
+    "mobile_dev": 0.0248,
+    "sw_eng": 0.0221,
+    "data_eng": 0.0072,
+    "embedded_dev": 0.0072,
+    "data_analyst": 0.0053,
+    "qa_eng": 0.0042,
+    "security_eng": 0.0028,
+    "data_scientist": 0.0021
+   }
+  },
+  "kotlin": {
+   "n": 6618,
+   "jobs": {
+    "fullstack_dev": 0.3669,
+    "be_dev": 0.2366,
+    "mobile_dev": 0.2233,
+    "sw_eng": 0.052,
+    "fe_dev": 0.0361,
+    "devops_sre": 0.0299,
+    "embedded_dev": 0.0261,
+    "data_eng": 0.0103,
+    "qa_eng": 0.0073,
+    "data_scientist": 0.0047,
+    "security_eng": 0.0036,
+    "data_analyst": 0.0032
+   }
+  },
+  "flutter": {
+   "n": 3162,
+   "jobs": {
+    "fullstack_dev": 0.4731,
+    "mobile_dev": 0.1866,
+    "be_dev": 0.1354,
+    "fe_dev": 0.0626,
+    "sw_eng": 0.0421,
+    "devops_sre": 0.0329,
+    "embedded_dev": 0.0237,
+    "data_eng": 0.0136,
+    "data_scientist": 0.0123,
+    "data_analyst": 0.0066,
+    "security_eng": 0.0063,
+    "qa_eng": 0.0047
+   }
+  },
+  "hadoop": {
+   "n": 758,
+   "jobs": {
+    "be_dev": 0.2348,
+    "fullstack_dev": 0.2256,
+    "data_eng": 0.2098,
+    "data_scientist": 0.124,
+    "devops_sre": 0.0871,
+    "data_analyst": 0.0264,
+    "sw_eng": 0.0264,
+    "fe_dev": 0.0158,
+    "qa_eng": 0.0158,
+    "mobile_dev": 0.0119,
+    "embedded_dev": 0.0119,
+    "security_eng": 0.0106
+   }
+  },
+  "svelte": {
+   "n": 3337,
+   "jobs": {
+    "fullstack_dev": 0.5999,
+    "be_dev": 0.1271,
+    "fe_dev": 0.1067,
+    "sw_eng": 0.0473,
+    "devops_sre": 0.0381,
+    "embedded_dev": 0.021,
+    "mobile_dev": 0.0189,
+    "data_eng": 0.0156,
+    "qa_eng": 0.0069,
+    "data_scientist": 0.0069,
+    "security_eng": 0.0069,
+    "data_analyst": 0.0048
+   }
+  },
+  "dart": {
+   "n": 3845,
+   "jobs": {
+    "fullstack_dev": 0.4793,
+    "mobile_dev": 0.2135,
+    "be_dev": 0.1306,
+    "fe_dev": 0.0609,
+    "sw_eng": 0.0421,
+    "devops_sre": 0.0234,
+    "embedded_dev": 0.0205,
+    "data_scientist": 0.0078,
+    "data_eng": 0.0073,
+    "qa_eng": 0.0057,
+    "data_analyst": 0.0047,
+    "security_eng": 0.0042
+   }
+  },
+  "symfony": {
+   "n": 1965,
+   "jobs": {
+    "fullstack_dev": 0.5628,
+    "be_dev": 0.2987,
+    "devops_sre": 0.0427,
+    "fe_dev": 0.0361,
+    "sw_eng": 0.0229,
+    "data_eng": 0.0097,
+    "embedded_dev": 0.0081,
+    "mobile_dev": 0.0071,
+    "data_analyst": 0.0056,
+    "security_eng": 0.0031,
+    "data_scientist": 0.0015,
+    "qa_eng": 0.0015
+   }
+  },
+  "swiftui": {
+   "n": 1459,
+   "jobs": {
+    "mobile_dev": 0.3756,
+    "fullstack_dev": 0.3352,
+    "be_dev": 0.0925,
+    "sw_eng": 0.0528,
+    "fe_dev": 0.0521,
+    "devops_sre": 0.0288,
+    "embedded_dev": 0.0178,
+    "data_analyst": 0.0103,
+    "data_scientist": 0.0089,
+    "security_eng": 0.0089,
+    "data_eng": 0.0089,
+    "qa_eng": 0.0082
+   }
+  },
+  "swift": {
+   "n": 3235,
+   "jobs": {
+    "mobile_dev": 0.3926,
+    "fullstack_dev": 0.3298,
+    "be_dev": 0.0844,
+    "sw_eng": 0.0637,
+    "fe_dev": 0.0507,
+    "devops_sre": 0.0272,
+    "embedded_dev": 0.0213,
+    "qa_eng": 0.0077,
+    "data_eng": 0.0062,
+    "data_analyst": 0.0059,
+    "security_eng": 0.0056,
+    "data_scientist": 0.0049
+   }
+  },
+  "databricks": {
+   "n": 697,
+   "jobs": {
+    "data_eng": 0.2611,
+    "fullstack_dev": 0.208,
+    "be_dev": 0.1779,
+    "data_scientist": 0.1621,
+    "devops_sre": 0.0832,
+    "data_analyst": 0.0445,
+    "sw_eng": 0.0172,
+    "qa_eng": 0.0129,
+    "security_eng": 0.01,
+    "mobile_dev": 0.0086,
+    "embedded_dev": 0.0086,
+    "fe_dev": 0.0057
+   }
+  },
+  "nuxt": {
+   "n": 2074,
+   "jobs": {
+    "fullstack_dev": 0.5931,
+    "fe_dev": 0.1813,
+    "be_dev": 0.1123,
+    "devops_sre": 0.0275,
+    "sw_eng": 0.0251,
+    "mobile_dev": 0.0198,
+    "data_eng": 0.0106,
+    "embedded_dev": 0.0096,
+    "qa_eng": 0.0072,
+    "data_scientist": 0.0058,
+    "security_eng": 0.0043,
+    "data_analyst": 0.0034
+   }
+  },
+  "apex": {
+   "n": 341,
+   "jobs": {
+    "fullstack_dev": 0.4399,
+    "be_dev": 0.173,
+    "sw_eng": 0.0909,
+    "data_eng": 0.0821,
+    "devops_sre": 0.0674,
+    "fe_dev": 0.0323,
+    "data_analyst": 0.0323,
+    "mobile_dev": 0.0264,
+    "data_scientist": 0.0235,
+    "qa_eng": 0.0147,
+    "embedded_dev": 0.0147,
+    "security_eng": 0.0029
+   }
+  },
+  "openstack": {
+   "n": 497,
+   "jobs": {
+    "fullstack_dev": 0.2857,
+    "devops_sre": 0.2616,
+    "be_dev": 0.2334,
+    "sw_eng": 0.0503,
+    "data_eng": 0.0423,
+    "embedded_dev": 0.0302,
+    "security_eng": 0.0262,
+    "fe_dev": 0.0201,
+    "mobile_dev": 0.0161,
+    "data_scientist": 0.0141,
+    "qa_eng": 0.0101,
+    "data_analyst": 0.0101
+   }
+  },
+  "zephyr": {
+   "n": 114,
+   "jobs": {
+    "embedded_dev": 0.4386,
+    "fullstack_dev": 0.1228,
+    "devops_sre": 0.1053,
+    "be_dev": 0.0965,
+    "qa_eng": 0.0789,
+    "mobile_dev": 0.0439,
+    "data_analyst": 0.0351,
+    "sw_eng": 0.0351,
+    "data_scientist": 0.0175,
+    "data_eng": 0.0088,
+    "fe_dev": 0.0088,
+    "security_eng": 0.0088
+   }
+  },
+  "gitlab": {
+   "n": 7048,
+   "jobs": {
+    "fullstack_dev": 0.4319,
+    "be_dev": 0.2317,
+    "sw_eng": 0.079,
+    "fe_dev": 0.067,
+    "embedded_dev": 0.0589,
+    "mobile_dev": 0.0465,
+    "devops_sre": 0.0359,
+    "data_eng": 0.0281,
+    "qa_eng": 0.014,
+    "data_analyst": 0.007
+   }
+  },
+  "datadog": {
+   "n": 1506,
+   "jobs": {
+    "fullstack_dev": 0.4223,
+    "be_dev": 0.3911,
+    "fe_dev": 0.0465,
+    "data_eng": 0.0392,
+    "devops_sre": 0.0385,
+    "mobile_dev": 0.0279,
+    "sw_eng": 0.0146,
+    "qa_eng": 0.012,
+    "embedded_dev": 0.0066,
+    "data_analyst": 0.0013
+   }
+  },
+  "slack": {
+   "n": 3107,
+   "jobs": {
+    "fullstack_dev": 0.4261,
+    "be_dev": 0.2642,
+    "mobile_dev": 0.0747,
+    "fe_dev": 0.0663,
+    "sw_eng": 0.0509,
+    "devops_sre": 0.037,
+    "data_eng": 0.0312,
+    "embedded_dev": 0.0225,
+    "qa_eng": 0.018,
+    "data_analyst": 0.009
+   }
+  },
+  "splunk": {
+   "n": 691,
+   "jobs": {
+    "be_dev": 0.3806,
+    "fullstack_dev": 0.3661,
+    "devops_sre": 0.0839,
+    "sw_eng": 0.0362,
+    "fe_dev": 0.0347,
+    "data_eng": 0.0318,
+    "mobile_dev": 0.0289,
+    "embedded_dev": 0.0174,
+    "qa_eng": 0.0145,
+    "data_analyst": 0.0058
+   }
+  },
+  "rag": {
+   "n": 1076,
+   "jobs": {
+    "fullstack_dev": 0.5232,
+    "be_dev": 0.2351,
+    "data_eng": 0.0669,
+    "sw_eng": 0.0381,
+    "fe_dev": 0.0353,
+    "devops_sre": 0.0344,
+    "mobile_dev": 0.0251,
+    "embedded_dev": 0.0158,
+    "data_analyst": 0.013,
+    "qa_eng": 0.013
+   }
+  },
+  "prometheus": {
+   "n": 1780,
+   "jobs": {
+    "be_dev": 0.4292,
+    "fullstack_dev": 0.3725,
+    "devops_sre": 0.0899,
+    "data_eng": 0.0281,
+    "sw_eng": 0.027,
+    "embedded_dev": 0.0185,
+    "qa_eng": 0.0118,
+    "fe_dev": 0.0112,
+    "mobile_dev": 0.0107,
+    "data_analyst": 0.0011
+   }
+  },
+  "langgraph": {
+   "n": 279,
+   "jobs": {
+    "fullstack_dev": 0.4767,
+    "be_dev": 0.2581,
+    "data_eng": 0.0717,
+    "mobile_dev": 0.0502,
+    "sw_eng": 0.0394,
+    "fe_dev": 0.0358,
+    "devops_sre": 0.0287,
+    "embedded_dev": 0.0179,
+    "qa_eng": 0.0143,
+    "data_analyst": 0.0072
+   }
+  }
+ }
+}

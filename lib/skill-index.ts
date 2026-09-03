@@ -3,6 +3,7 @@ import skillsRaw from '@/data/interim/skills.json';
 import matrixRaw from '@/data/interim/job-skills.json';
 import adjacencyRaw from '@/data/interim/job-adjacency.json';
 import groupsRaw from '@/data/interim/skill-groups.json';
+import peerRaw from '@/data/interim/peer-paths.json';
 import type { Quadrant } from '@/types';
 
 // ============================================================================
@@ -271,9 +272,60 @@ const JOB_ADJUST = new Map<string, number>();
     const u = hi > lo ? ((uniq.get(jid) ?? 0) - lo) / (hi - lo) : 0.5;
     JOB_ADJUST.set(jid, (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained));
   }
+  //  이 보정은 **직무끼리 견주는 데** 쓰는 값이다. 그대로 곱하면 모든 점수가 내려가
+  //  화면의 적합도가 통째로 낮아진다(iOS 8년차 67 → 41). 순위는 같은데 숫자만 나빠 보인다.
+  //  가장 높은 직무가 1.0 이 되도록 되돌린다 — 순위는 그대로고 눈금만 살아난다.
+  const mx = Math.max(...JOB_ADJUST.values(), 0) || 1;
+  for (const [k, v] of JOB_ADJUST) JOB_ADJUST.set(k, v / mx);
 }
 /** 그 직무가 얼마나 '그 직무다운가'. 넓고 남에게 흡수되는 직무일수록 낮다. */
 export const jobAdjustOf = (jobId: string) => JOB_ADJUST.get(jobId) ?? 1;
+
+// ── 같은 기술을 가진 사람들은 실제로 어떤 직무를 하나 ──────────────────
+//
+//  「이 길도 있어요」의 근거로만 쓴다. 주 순위에는 쓰지 않는다.
+//  응답자가 Stack Overflow 커뮤니티라 서구 비중이 높다 — 국내 시장과 다를 수 있다.
+//  다만 "몰랐던 길"을 보여주는 자리에서는 그 편중이 단점이 덜하다.
+//  국내 공고에 없는 경로가 나오면 그건 정보지 오류가 아니다. (이슈 #14)
+//
+//  ⚠️ 날 확률을 그대로 쓰면 안 된다. 응답자의 43%가 풀스택이라 어떤 기술을 넣어도
+//     풀스택이 1위가 된다. **기저 대비 배수(lift)** 로 봐야 한다.
+type PeerTable = {
+  respondents: number;
+  jobs: Record<string, number>;
+  skills: Record<string, { n: number; jobs: Record<string, number> }>;
+};
+const PEER = peerRaw as PeerTable;
+const PEER_BASE: Record<string, number> = Object.fromEntries(
+  Object.entries(PEER.jobs).map(([j, c]) => [j, c / PEER.respondents])
+);
+
+export type PeerPath = { jobId: string; lift: number; viaSkillId: string; share: number; n: number };
+
+/** 이 역량 묶음을 가진 사람들이 실제로 하는 직무 — 기저 대비 배수 순 */
+export function peerPathsOf(have: Set<string>): PeerPath[] {
+  const ids = [...have].filter((id) => PEER.skills[id]);
+  if (ids.length < 2) return [];
+  const score: Record<string, number> = {};
+  for (const j of Object.keys(PEER_BASE)) {
+    let lp = 0;
+    for (const id of ids) {
+      const p = PEER.skills[id].jobs[j] ?? 0.0005;   // 한 번도 안 나온 조합에도 바닥값
+      lp += Math.log(p / PEER_BASE[j]);
+    }
+    score[j] = Math.exp(lp / ids.length);            // 역량 수로 나눠 길이에 안 휘둘리게
+  }
+  return Object.entries(score)
+    .map(([jobId, lift]) => {
+      //  근거로 보여줄 역량 하나 — 이 직무를 가장 강하게 가리키는 것
+      const via = ids.reduce((a, b) =>
+        (PEER.skills[b].jobs[jobId] ?? 0) / PEER_BASE[jobId]
+        > (PEER.skills[a].jobs[jobId] ?? 0) / PEER_BASE[jobId] ? b : a);
+      return { jobId, lift, viaSkillId: via,
+               share: PEER.skills[via].jobs[jobId] ?? 0, n: PEER.skills[via].n };
+    })
+    .sort((a, b) => b.lift - a.lift);
+}
 
 /**
  * 요구 역량 중 **채워진 것**. 택일 관계를 여기서 푼다.
