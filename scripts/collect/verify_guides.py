@@ -116,6 +116,16 @@ def load_skills():
 
 WINDOW = 140          # 스킬 언급 좌우로 볼 글자 수
 
+# ── 필수인가 우대인가 ────────────────────────────────────────────────
+#  해설 글은 둘을 구분해서 말한다. 지금까지 세기만 하고 그 구분을 버리고 있었다.
+#    "데이터베이스(MySQL, MongoDB) 및 서버 관리 기술도 **필수**에요"
+#    "테스트 관련 자격증은 **가산점 정도의 역할**을 할 뿐, 꼭 필요한 조건은 아니므로"
+#  실측 — 글 104건 중 필수 계열 표현 86건(83%) · 우대 계열 41건(39%) · 둘 다 38건.
+REQ_CUE = re.compile(r"필수|반드시|꼭 |기본기|기본적으로|기본은|필요합니다|필요하다|필요해|"
+                     r"갖춰야|알아야|할 수 있어야|없으면 안|기본 소양|필수적")
+PRE_CUE = re.compile(r"우대|있으면 좋|가산|플러스|더 좋|유리|차별화|강점이 된|보너스|"
+                     r"필수는 아니|꼭 필요한 조건은 아니")
+
 # ── 배제 ① 사이트 메뉴·자습서 목록 ──────────────────────────────────
 # 원문을 읽어 확인한 실패 사례(Atlassian DevOps 문서):
 #   "Jira 유연한 프로젝트 관리 Confluence 모든 지식을 한곳에 보관 Trello 작업 캡처…"
@@ -214,17 +224,42 @@ def judge(text: str, m: re.Match, job: str):
     return win, None
 
 
+def tier_of(win: str) -> str:
+    """이 대목이 '필수'라고 말하나 '있으면 좋다'라고 말하나.
+
+    둘 다 있으면 가까운 쪽을 따른다 — "우대사항에는 … 필수는 아니다" 처럼
+    한 문단에 섞여 나오는 일이 흔하다.
+    """
+    r = REQ_CUE.search(win)
+    p = PRE_CUE.search(win)
+    if r and p:
+        mid = len(win) // 2
+        return "required" if abs(r.start() - mid) < abs(p.start() - mid) else "preferred"
+    if r:
+        return "required"
+    if p:
+        return "preferred"
+    return "neutral"
+
+
 def run():
     S, pats = load_skills()
     by_id = {s["id"]: s for s in S}
     matrix = json.loads((REPO / "data" / "job-skills.json").read_text(encoding="utf-8"))
-    jd_pairs = {(m["jobId"], m["skillId"]): m for m in matrix}
+    #  ⚠️ 채용공고에서 나온 행만 본다.
+    #
+    #  export_contract 가 해설 글 근거로 만든 행도 같은 파일에 들어간다. 그것까지 세면
+    #  "해설 글에 있으니 → 매핑에 있고 → 공고에도 있다고 판정" 하는 **되먹임 고리**가 된다.
+    #  실제로 그렇게 돌려 보니 394건이 전부 confirmed 로 나왔다. 검증이 아무것도 검증하지 않는다.
+    jd_pairs = {(m["jobId"], m["skillId"]): m for m in matrix
+                if m.get("source") == "JD" and (m.get("docFreq") or 0) > 0}
     jobs = {j["id"]: j for j in json.loads((REPO / "data" / "jobs.json").read_text(encoding="utf-8"))}
 
     guides = [json.loads(l) for l in GUIDES.open(encoding="utf-8") if l.strip()]
     print(f"해설 글 {len(guides)}건 · 스킬 사전 {len(S)}개\n")
 
     hits = defaultdict(lambda: defaultdict(set))
+    tiers = defaultdict(lambda: defaultdict(Counter))   # job -> skill -> {required, preferred, neutral}
     drop = Counter()
     for g in guides:
         banned = AMBIGUOUS.get(g["job_id"], set()) | vendor_products(g["url"])
@@ -239,6 +274,7 @@ def run():
                     win, why = judge(txt, m, g["job_id"])
                     if win:
                         ok = True
+                        tiers[g["job_id"]][sid][tier_of(win)] += 1
                         break
                     drop[why] += 1
                 if ok:
@@ -264,9 +300,12 @@ def run():
             else:
                 grade, why = "unverified", "해설 글 1건에서만 언급"
             tally[grade] += 1
+            t = tiers[job][sid]
             rows.append({
                 "jobId": job, "skillId": sid, "skill": by_id[sid]["name"],
                 "guideMentions": len(urls), "guideDocs": n_docs,
+                "guideRequired": t["required"], "guidePreferred": t["preferred"],
+                "guideNeutral": t["neutral"],
                 "verification": grade, "reason": why, "inJobPostings": in_jd,
                 "jdWeight": jd_pairs.get((job, sid), {}).get("weight"),
                 "sources": sorted(urls),
