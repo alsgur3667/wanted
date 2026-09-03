@@ -133,3 +133,55 @@ export interface SampleProfile {
   /** 사전 계산된 결과 (LLM 호출 없이 즉시 렌더) */
   cachedResult: AnalysisResult;
 }
+
+// ============================================================================
+//  기업 화면 (B2B) — 직무 → 지원자 매칭
+//
+//  개인 화면의 "이 길도 있어요"와 정확히 대칭이다.
+//  같은 스킬 어휘를 반대 방향으로 조회할 뿐.
+//    개인: 내 역량  → 갈 수 있는 직무
+//    기업: 요구 역량 → 맞는 사람 (직무명이 달라도)
+// ============================================================================
+
+/** 채용 직무의 요구 역량 */
+export interface JobRequirement {
+  id: string;
+  title: string;
+  jobFamily: string;
+  /** 필수 — 가중치 3 */
+  mustSkills: string[];
+  /** 우대 — 가중치 1 */
+  niceSkills: string[];
+}
+
+/** 지원자 (샘플 풀) */
+export interface Candidate {
+  id: string;
+  /** 익명 표기 — 실제 서비스에서는 지원자가 공개 동의한 범위만 노출 */
+  alias: string;
+  currentJobTitle: string;
+  jobFamily: string;
+  careerMonths: number;
+  industry: string | null;
+  /** 보유 역량 (Skill.name 과 같은 어휘를 쓴다) */
+  skills: string[];
+}
+
+/** 매칭 결과 — lib/matching.ts 가 계산한다. 하드코딩 금지. */
+export interface CandidateMatch {
+  candidate: Candidate;
+  /** 0~100 · must 커버율×3 + nice 커버율×1 */
+  fitScore: number;
+  /** 직군이 공고와 다름 = 직무명 필터로는 안 잡히는 사람 */
+  isCrossRole: boolean;
+  matchedSkills: string[];
+  gapSkills: GapSkill[];
+  /** 부족 역량의 학습 난이도 합으로 추정 */
+  onboardingMonths: number;
+}
+
+export interface EmployerResult {
+  requirement: JobRequirement;
+  /** fitScore 내림차순 */
+  matches: CandidateMatch[];
+}
