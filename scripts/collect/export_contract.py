@@ -479,6 +479,41 @@ def run():
         else:
             m["tier"] = "required" if (jd_req + g_req) >= (jd_pre + g_pre) else "preferred"
 
+    # ── 사람이 손으로 고친 것을 마지막에 얹는다 ──────────────────────────
+    #
+    #  데이터에서 자동으로 뽑은 값이 늘 맞지는 않는다. 실제로 모션·영상 디자이너의 Swift,
+    #  QA 의 Ruby·Scala, 모바일의 React 를 사람이 눈으로 찾아 코드를 고쳐 왔다.
+    #  같은 일이 반복되므로 **판단을 데이터로 남긴다** — docs/data-dashboard.html 에서 고치고
+    #  data/overrides.json 으로 저장하면 여기서 적용된다. 다시 돌려도 유지된다.
+    #
+    #  ⚠️ 원본 수치(weight·docFreq·evidence)는 건드리지 않는다. tier 와 강도 배수만 바꾼다.
+    #     어떤 값이 사람 손을 탔는지 언제나 구분할 수 있어야 한다.
+    ovf = REPO / "data" / "overrides.json"
+    n_ov = 0
+    if ovf.exists():
+        ov = json.loads(ovf.read_text(encoding="utf-8"))
+        by_pair2 = {(m["jobId"], m["skillId"]): m for m in matrix}
+        drop = set()
+        for k, v in ov.items():
+            jid, _, sid = k.partition("|")
+            row = by_pair2.get((jid, sid))
+            if not row:
+                continue
+            n_ov += 1
+            row["overridden"] = True
+            if v.get("tier") == "exclude":
+                drop.add((jid, sid))
+                continue
+            if v.get("tier") in ("required", "preferred"):
+                row["tier"] = v["tier"]
+            elif v.get("tier") == "other":
+                row["tier"] = None
+            if v.get("mul"):
+                row["importance"] = round(min(1.0, (row.get("importance") or 0) * v["mul"]), 4)
+        if drop:
+            matrix[:] = [m for m in matrix if (m["jobId"], m["skillId"]) not in drop]
+        print(f"사람 보정 {n_ov}건 적용 (제외 {len(drop)}건) — data/overrides.json")
+
     tc = Counter(m["tier"] for m in matrix)
     ac = Counter(m["agreement"] for m in matrix)
     print(f"판정 — 필수 {tc['required']:,} · 우대 {tc['preferred']:,} · 판정 보류 {tc[None]:,}")
