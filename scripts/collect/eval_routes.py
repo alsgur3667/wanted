@@ -1,0 +1,223 @@
+"""추천이 맞는지 **독립 자료로** 채점한다.
+
+무엇을 재나
+  Stack Overflow 개발자 설문 응답자의 (실제 쓰는 기술 → 본인 직무) 쌍을 넣고,
+  우리 로직이 그 사람의 직무를 1위로 맞히는지 본다.
+
+왜 이 자료인가
+  우리가 요구 역량을 만든 자료(채용공고 · 직무 해설 글 · O*NET/NCS)와 **독립**이다.
+  같은 자료로 만들고 같은 자료로 채점하면 자기 채점이라 아무것도 증명하지 못한다.
+
+⚠️ 이 파일은 앱(lib/scoring.ts)의 계산을 **파이썬으로 옮겨 적은 것**이다.
+   앱을 고치면 여기도 고쳐야 한다. 어긋나면 채점이 거짓말을 한다.
+   상수는 아래 한곳에 모아 두었으니 앱의 값과 대조할 것.
+
+⚠️ 설문 원본과 파생 표본은 재배포하지 않는다(ODbL). data/raw/ 에만 두고 커밋하지 않는다.
+"""
+import json
+import math
+import random
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from collect_common import RAW, word_pattern  # noqa: E402
+
+REPO = Path(__file__).resolve().parents[2]
+D = REPO / "data" / "interim"
+
+# ── 앱과 맞춰야 하는 상수 (lib/scoring.ts · lib/skill-index.ts) ──────────
+MUST_W, NICE_W, STRENGTH_W = 3, 1, 2
+MUST_REL = 0.4               # 그 직무 최고 강도 대비 이 이상이면 필수
+MUST_MIN, MUST_MAX, NICE_MAX = 3, 8, 6
+LIFT_CAP = 3.0
+CONFIDENCE_N = 20
+
+MAX_PER_JOB = 300      # 직무마다 이만큼만 뽑는다. 응답 수가 많은 직무가 채점을 지배하지 않도록.
+
+# ── 이 자료로 채점할 수 있는 직무 ────────────────────────────────────
+#
+#  설문은 "업무에 필요한 기술"이 아니라 **"써 본 기술 전부"**를 묻는다.
+#  응답자도 개발자 커뮤니티라 PM·디자이너도 대부분 코딩을 한다. 그래서 프로필이 갈리지 않는다.
+#
+#  실측 — 프로덕트 디자이너 171명의 상위 기술이 Figma 가 아니라 JavaScript(64%)·HTML/CSS(65%) 였다.
+#         풀스택과의 상위 기술 겹침: 프로그램 매니저 71% · QA 67% · PM 62% · 디자이너 54%
+#         **백엔드 개발자(58%)보다도 높다.** 어떤 로직으로도 갈라낼 수 없다 — 정보가 없다.
+#
+#  그래서 이 자료로는 **개발 직무의 변별력만** 잰다. 비개발 직무 점수는 로직의 실패가 아니라
+#  자료의 한계다. 0% 를 우리 성적표에 올리면 그 자체가 거짓말이 된다.
+SCORABLE = {
+    "be_dev", "fe_dev", "fullstack_dev", "mobile_dev", "embedded_dev", "sw_eng",
+    "data_eng", "data_scientist", "data_analyst", "devops_sre", "security_eng", "qa_eng",
+}
+
+#  직무를 가리지 않는 도구는 채점에서 뺀다. 남겨 두면 모든 프로필이 서로 닮는다.
+#  (설문 상위에 VS Code·ChatGPT·Teams·Discord·Zoom 이 공통으로 올라온다)
+UBIQUITOUS = {
+    "Visual Studio Code", "Visual Studio", "Notepad++", "IntelliJ IDEA", "Vim", "Neovim",
+    "ChatGPT", "GitHub Copilot", "Microsoft Teams", "Slack", "Discord", "Zoom", "Google Meet",
+    "Jira", "Confluence", "Notion", "Markdown File", "npm", "Pip", "Homebrew",
+    "Windows", "MacOS", "Google Workspace", "Whatsapp", "Telegram",
+}
+
+
+def load():
+    J = {j["id"]: j for j in json.loads((D / "jobs.json").read_text(encoding="utf-8"))}
+    S = {s["id"]: s for s in json.loads((D / "skills.json").read_text(encoding="utf-8"))}
+    M = json.loads((D / "job-skills.json").read_text(encoding="utf-8"))
+    G = json.loads((D / "skill-groups.json").read_text(encoding="utf-8"))
+    return J, S, M, G
+
+
+def build_index(S, M, G):
+    per_job, per_skill = defaultdict(list), defaultdict(list)
+    for m in M:
+        per_job[m["jobId"]].append(m)
+        per_skill[m["skillId"]].append(m)
+
+    def imp(m):
+        return m.get("importance") or m.get("evidence") or m["weight"]
+    for v in per_job.values():
+        v.sort(key=lambda m: -imp(m))
+
+    claim = {}
+    for sid, rows in per_skill.items():
+        tot = sum(r["weight"] for r in rows) or 1
+        for r in rows:
+            claim[(r["jobId"], sid)] = r["weight"] / tot
+
+    name2id = {s["name"]: i for i, s in S.items()}
+    grp = {name2id[n]: k for k, g in G.items() for n in g["skills"] if n in name2id}
+    return per_job, claim, grp
+
+
+def resolver(S):
+    """설문의 기술 이름 → 우리 skillId.
+
+    표기가 다르다 — 설문은 "Amazon Web Services (AWS)", 우리는 "AWS".
+    낱말 단위로 찾는다. 부분 문자열로 맞추면 community 안의 unity 를 잡는다.
+    """
+    pats = []
+    for s in S.values():
+        for t in [s["name"]] + list(s.get("aliases") or []):
+            if len(t) >= 2:
+                pats.append((word_pattern(t), s["id"]))
+
+    cache = {}
+
+    def resolve(name: str):
+        if name in cache:
+            return cache[name]
+        hit = next((sid for p, sid in pats if p.search(name)), None)
+        cache[name] = hit
+        return hit
+    return resolve
+
+
+def evaluate(profiles, J, S, M, G, verbose=True):
+    per_job, claim, grp = build_index(S, M, G)
+    resolve = resolver(S)
+
+    def imp(m):
+        return m.get("importance") or m.get("evidence") or m["weight"]
+
+    def reqs(jid):
+        rows = per_job[jid]                      # 이미 강도 순
+        top = max((imp(r) for r in rows), default=0) or 1
+        must = [r for r in rows if r.get("tier") == "required" and imp(r) >= top * MUST_REL]
+        if len(must) < MUST_MIN:
+            must = rows[:MUST_MIN]
+        must = must[:MUST_MAX]
+        ms = {r["skillId"] for r in must}
+        nice = [r for r in rows
+                if r["skillId"] not in ms and (r.get("tier") == "preferred" or imp(r) >= top * 0.2)]
+        return [r["skillId"] for r in must], [r["skillId"] for r in nice[:NICE_MAX]]
+
+    def covered(req, have):
+        ok = {grp[i] for i in have if i in grp}
+        return [i for i in req if i in have or (i in grp and grp[i] in ok)]
+
+    def fit_all(have):
+        st = {j: (sum(claim.get((j, s), 0) for s in have) / len(have) if have else 0)
+              for j in per_job}
+        mx = max(st.values(), default=0)
+        out = []
+        for jid in per_job:
+            must, nice = reqs(jid)
+            mc = len(covered(must, have)) / len(must) if must else 0
+            nc = len(covered(nice, have)) / len(nice) if nice else 0
+            rel = st[jid] / mx if mx else 0
+            raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
+            conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
+            out.append((round(raw * conf), jid))
+        out.sort(reverse=True)
+        return out
+
+    top1 = top3 = 0
+    by_job = defaultdict(lambda: [0, 0, 0])       # [건수, top1, top3]
+    confusion = Counter()
+    unresolved = Counter()
+    for p in profiles:
+        have = set()
+        for nm in p["skills"]:
+            sid = resolve(nm)
+            if sid:
+                have.add(sid)
+            else:
+                unresolved[nm] += 1
+        if len(have) < 3:
+            continue
+        ranked = fit_all(have)
+        got = [j for _, j in ranked[:3]]
+        want = p["jobId"]
+        by_job[want][0] += 1
+        if got and got[0] == want:
+            top1 += 1
+            by_job[want][1] += 1
+        else:
+            confusion[(want, got[0] if got else None)] += 1
+        if want in got:
+            top3 += 1
+            by_job[want][2] += 1
+
+    n = sum(v[0] for v in by_job.values())
+    if verbose and n:
+        print(f"\n채점 표본 {n:,}건 — 1위 정답 {top1 / n:.1%} · 3위 안 {top3 / n:.1%}\n")
+        print(f"  {'직무':20}{'표본':>7}{'1위':>8}{'3위 안':>9}")
+        for jid, (c, t1, t3) in sorted(by_job.items(), key=lambda x: -x[1][0]):
+            print(f"  {J[jid]['title'][:18]:20}{c:>7,}{t1 / c:>8.0%}{t3 / c:>9.0%}")
+        print("\n  자주 틀리는 방향 (정답 → 우리가 고른 것)")
+        for (w, g), c in confusion.most_common(8):
+            print(f"    {J[w]['title'][:16]:18} → {J[g]['title'][:16] if g else '없음':18}{c:>6,}건")
+        print(f"\n  사전에 없어 버린 설문 기술 상위: "
+              f"{', '.join(k for k, _ in unresolved.most_common(12))}")
+    return {"n": n, "top1": top1 / n if n else 0, "top3": top3 / n if n else 0}
+
+
+def run():
+    src = RAW / "survey" / "profiles.jsonl"
+    if not src.exists():
+        raise SystemExit("profiles.jsonl 이 없다. 먼저 collect_survey.py 를 실행할 것.")
+    rows = [json.loads(l) for l in src.open(encoding="utf-8") if l.strip()]
+    J, S, M, G = load()
+    rows = [r for r in rows if r["jobId"] in J and r["jobId"] in SCORABLE]
+    for r in rows:
+        r["skills"] = [x for x in r["skills"] if x not in UBIQUITOUS]
+
+    by = defaultdict(list)
+    for r in rows:
+        by[r["jobId"]].append(r)
+    rnd = random.Random(20260903)          # 고정 씨앗 — 돌릴 때마다 점수가 흔들리면 비교가 안 된다
+    sample = []
+    for jid, v in by.items():
+        rnd.shuffle(v)
+        sample.extend(v[:MAX_PER_JOB])
+    print(f"설문 응답 {len(rows):,}건 (채점 가능 직무 {len(SCORABLE)}개로 한정) "
+          f"→ 직무당 최대 {MAX_PER_JOB}건 추출 {len(sample):,}건")
+    print("  ⚠️ 비개발 직무(PM·디자이너·매니저)는 이 자료로 채점하지 않는다 — 위 주석 참조")
+    evaluate(sample, J, S, M, G)
+
+
+if __name__ == "__main__":
+    run()
