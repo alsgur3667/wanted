@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# 수집 원본 — 커밋하지 않는다 (타사 저작물, 85MB). 방법은 docs/DATA_COLLECTION.md
+/data/raw/
+
+# 파이썬
+__pycache__/
+*.pyc

@@ -1,0 +1,364 @@
+"""수집 결과를 팀 데이터 계약(docs/DATA_SPEC.md) 형식으로 변환한다.
+
+만드는 것
+  data/jobs.json          직무 마스터
+  data/skills.json        스킬 온톨로지
+  data/job-skills.json    직무 × 스킬 (long format)
+
+추가로 제안하는 것 (계약에 없는 선택 항목 — 검증 스크립트는 모르는 필드를 무시한다)
+  job-skills 의 reqFreq / prefFreq   자격요건·우대사항 절에 각각 몇 건 등장했는지
+  data/job-adjacency.json            역할 간 인접도와 직군 교차 여부
+
+왜 reqFreq / prefFreq 를 제안하나
+  계약은 scarcity 를 log(전체 직무수 / 이 스킬이 있는 직무수) 로 계산한다. 그런데 그것은 IDF 이고
+  spread(직무 분포 엔트로피)의 역수와 사실상 같은 값이다 — 이 데이터에서 실측 r = -0.991 이었다.
+  두 축이 같은 것을 재면 2×2 가 대각선으로 눌려 leverage(피벗 무기) 사분면이 0개가 된다.
+  공고는 스킬을 자격요건과 우대사항 두 칸에 나눠 적는다. '드물어서 있으면 좋은 것'을
+  채용담당자가 우대에 적는다 — 추정이 아니라 문서에 적힌 구분이다. 쓸지 말지는 앱이 정하면 된다.
+"""
+import json
+import re
+import sys
+from collections import Counter, defaultdict
+from pathlib import Path
+
+sys.path.insert(0, str(Path(__file__).parent))
+from collect_common import RAW  # noqa: E402
+import synonyms  # noqa: E402
+
+REPO = Path(__file__).resolve().parents[2]
+OUT = REPO / "data"
+
+MIN_CHARACTERISTIC = 5      # 계약: 한 직무당 스킬 5개 이상이어야 적합도가 의미 있다
+
+# 역할 id 와 별칭 — 공고 제목에서 이 역할을 찾을 때 쓴 표현들이 그대로 별칭이 된다.
+ROLE_ID = {
+    "백엔드 개발자": ("be_dev", ["backend", "back-end", "서버 개발", "백엔드"]),
+    "프론트엔드 개발자": ("fe_dev", ["frontend", "front-end", "프론트엔드", "웹 퍼블리셔"]),
+    "풀스택 개발자": ("fullstack_dev", ["full stack", "fullstack", "풀스택"]),
+    "모바일 개발자": ("mobile_dev", ["android", "iOS developer", "mobile engineer", "안드로이드"]),
+    "데이터 엔지니어": ("data_eng", ["data engineer", "데이터 엔지니어", "data platform engineer"]),
+    "데이터 사이언티스트": ("data_scientist", ["data scientist", "ML engineer", "AI engineer", "머신러닝"]),
+    "데이터 분석가": ("data_analyst", ["data analyst", "데이터 분석", "analytics engineer", "BI analyst"]),
+    "DevOps·SRE": ("devops_sre", ["DevOps", "site reliability", "SRE", "platform engineer", "인프라"]),
+    "보안 엔지니어": ("security_eng", ["security engineer", "penetration", "정보보안", "보안"]),
+    "QA 엔지니어": ("qa_eng", ["QA engineer", "quality assurance", "test engineer", "SDET", "품질"]),
+    "임베디드·펌웨어": ("embedded_dev", ["embedded", "firmware", "임베디드", "펌웨어"]),
+    "게임 개발자": ("game_dev", ["game developer", "Unity", "Unreal", "게임 개발"]),
+    "아키텍트": ("architect", ["architect", "아키텍트"]),
+    "솔루션·세일즈 엔지니어": ("solutions_eng", ["solutions engineer", "sales engineer", "presales"]),
+    "IT 지원·헬프데스크": ("it_support", ["service desk", "help desk", "IT support", "기술지원"]),
+    "엔지니어링 리더": ("eng_lead", ["engineering manager", "tech lead", "principal engineer", "테크리드"]),
+    "소프트웨어 엔지니어": ("sw_eng", ["software engineer", "software developer", "개발자"]),
+    "프로덕트 디자이너": ("product_designer", ["product designer", "UX designer", "UI designer", "프로덕트 디자이너"]),
+    "그래픽·브랜드 디자이너": ("graphic_designer", ["graphic designer", "brand designer", "그래픽 디자이너"]),
+    "모션·영상 디자이너": ("motion_designer", ["motion designer", "video editor", "모션", "영상"]),
+    "UX 리서처": ("ux_researcher", ["UX researcher", "user researcher", "리서처"]),
+    "디자이너(일반)": ("designer", ["designer", "디자이너"]),
+    "프로덕트 매니저": ("product_manager", ["product manager", "product owner", "서비스 기획", "PM"]),
+    "프로젝트·프로그램 매니저": ("program_manager", ["project manager", "program manager", "PMO"]),
+    "사업·전략 기획": ("biz_strategy", ["strategy", "business development", "사업 기획", "전략 기획"]),
+    "마케팅·그로스": ("growth_marketing", ["growth", "marketing", "마케팅", "그로스"]),
+    "데이터·비즈니스 기획": ("biz_analyst", ["business analyst", "비즈니스 분석", "경영기획"]),
+}
+
+# 계약의 type 은 hard | tool | domain | soft 넷뿐이다. 우리 7종을 여기에 맞춘다.
+TYPE_MAP = {
+    "language": "tool",         # 프로그래밍 언어도 도구다
+    "tool": "tool",
+    "office": "tool",
+    "concept": "hard",          # REST · MSA · TDD
+    "domain": "domain",         # UX · SEO · ERP
+    "certification": "hard",    # + isCertification 표시
+    "skill_ko": "hard",
+}
+
+# 학습 난이도 기본값. 실측이 아니라 유형별 추정이라는 점을 파일에 명시한다.
+BASE_DIFFICULTY = {
+    "certification": 0.70, "concept": 0.60, "language": 0.60,
+    "skill_ko": 0.50, "tool": 0.45, "domain": 0.40, "office": 0.20,
+}
+
+# firstStep 템플릿. 계약이 "추상어 금지, 오늘 당장 할 수 있는 행동"을 요구한다.
+# 템플릿은 그 수준에 못 미치므로 firstStepSource 로 표시해 두고 나중에 LLM 으로 다시 쓴다.
+FIRST_STEP = {
+    "certification": "{n} 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
+    "language": "지금 다른 언어로 만든 작은 스크립트 하나를 {n} 로 다시 써 보세요.",
+    "tool": "{n} 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+    "office": "{n} 로 지금 쓰는 문서 한 장을 다시 만들어 보세요.",
+    "concept": "{n} 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+    "domain": "{n} 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+    "skill_ko": "{n} 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
+}
+
+# 한국어 스킬 id 를 만들 때 쓰는 형태소 대응.
+KO_ROMAN = {
+    "데이터": "data", "빅데이터": "bigdata", "정보시스템": "info_system", "시스템": "system",
+    "소프트웨어": "software", "네트워크": "network", "서버": "server", "클라우드": "cloud",
+    "분석": "analysis", "설계": "design", "개발": "development", "구축": "build",
+    "운영": "operation", "기획": "planning", "관리": "management", "디자인": "design",
+    "마케팅": "marketing", "테스트": "test", "검증": "verification", "자동화": "automation",
+    "모델링": "modeling", "시각화": "visualization", "최적화": "optimization",
+    "아키텍처": "architecture", "프로그래밍": "programming", "엔지니어링": "engineering",
+    "보안": "security", "품질": "quality", "통계": "statistics", "조사": "survey",
+    "시각": "visual", "영상": "video", "촬영": "shooting", "편집": "editing",
+    "사무": "office", "경영": "business", "전시": "exhibition", "홍보": "pr",
+    "서비스": "service", "플랫폼": "platform", "사전": "pre", "포토샵": "photoshop",
+    "일러스트": "illustrator", "개인정보": "privacy", "보호법": "protection_act",
+    "콘텐츠": "content", "모니터링": "monitoring", "배포": "deployment",
+}
+
+
+def slug(name: str, used: set) -> str:
+    """계약 규칙: 영소문자·숫자·밑줄만, 중복 금지."""
+    s = name.strip()
+    if re.search(r"[가-힣]", s):
+        parts, rest = [], s.replace(" ", "")
+        while rest:
+            for k in sorted(KO_ROMAN, key=len, reverse=True):
+                if rest.startswith(k):
+                    parts.append(KO_ROMAN[k]); rest = rest[len(k):]; break
+            else:
+                rest = rest[1:]
+        s = "_".join(parts) if parts else ""
+    s = re.sub(r"[^a-zA-Z0-9]+", "_", s).strip("_").lower()
+    s = re.sub(r"_+", "_", s) or "skill"
+    base, i = s, 2
+    while s in used:
+        s = f"{base}_{i}"; i += 1
+    used.add(s)
+    return s
+
+
+def same_word(variant: str, name: str) -> bool:
+    """단순한 대소문자 차이인가.
+
+    소문자로 같다고 다 같은 말은 아니다. 'ReAct'(LLM 추론 기법)가 'React' 의
+    표기 변형으로 잡히면 안 된다. 전부 소문자 · 전부 대문자 · 첫 글자만 대문자,
+    이 셋만 같은 말의 표기 차이로 본다.
+    """
+    if variant.lower() != name.lower():
+        return False
+    return variant in (name.lower(), name.upper(), name.lower().capitalize())
+
+
+def collect_aliases(keys: set) -> dict:
+    """코퍼스에서 실제로 쓰인 표기 변형을 모은다. 이력서 매칭에 쓰인다."""
+    seen = defaultdict(Counter)
+    tok = re.compile(r"[A-Za-z][A-Za-z0-9+#./\-]{0,29}|[가-힣]{2,}(?: [가-힣]{2,})?")
+    with (RAW / "_corpus.jsonl").open(encoding="utf-8") as f:
+        for line in f:
+            if not line.strip():
+                continue
+            d = json.loads(line)
+            for t in tok.findall(f"{d['title']} {d['text']}"):
+                t = t.strip(".-/")
+                k = t.lower()
+                if k in keys:
+                    seen[k][t] += 1
+                elif k.replace(" ", "") in keys:
+                    seen[k.replace(" ", "")][t] += 1
+    return seen
+
+
+# 필수/우대를 가르는 데 필요한 최소 관측 수. 1~2건으로 가르면 뒤집히기 쉽다.
+MIN_REQ_OBS = 3
+
+
+def run():
+    skills_src = json.loads((RAW / "_skills.json").read_text(encoding="utf-8"))["skills"]
+    roles_src = json.loads((RAW / "_roles.json").read_text(encoding="utf-8"))
+
+    skills_src = [s for s in skills_src if s.get("scarcity") is not None]
+
+    # ── 잡음 제거 ────────────────────────────────────────────────────
+    before = len(skills_src)
+    skills_src = [s for s in skills_src if s["name"].lower() not in synonyms.DROP
+                  and s["name"] not in synonyms.DROP]
+    print(f"잡음 제거 {before - len(skills_src)}개")
+
+    # ── 표기 통합 ────────────────────────────────────────────────────
+    # 흡수되는 쪽은 사전에서 빼고, 그 이름을 대표 표기의 aliases 로 옮긴다.
+    # 직무 매핑도 대표 쪽으로 합친다.
+    merge, to_canon, rename = synonyms.build([s["name"] for s in skills_src])
+    absorbed = set(to_canon)
+    print(f"표기 통합 {len(merge)}묶음 · 흡수 {len(absorbed)}개")
+    for head, subs in sorted(merge.items()):
+        print(f"   {head} ← {', '.join(subs)}")
+    name2key = {s["name"]: s["key"] for s in skills_src}
+    canon_key = {name2key[n]: name2key[c] for n, c in to_canon.items() if n in name2key and c in name2key}
+    skills_src = [s for s in skills_src if s["name"] not in absorbed]
+
+    keys = {s["key"] for s in skills_src} | set(canon_key)
+    print(f"스킬 {len(skills_src)}개 · 표기 변형 수집 중…")
+    alias_counts = collect_aliases(keys)
+
+    # ── skills.json ──────────────────────────────────────────────────
+    used, key2id, skills = set(), {}, []
+    for s in sorted(skills_src, key=lambda x: -x["jd_doc_count"]):
+        t = s["type"]
+        # merge 는 **원래 이름**으로 등록돼 있다. 이름을 먼저 바꾸면 조회가 빗나가
+        # 흡수한 이름들이 별칭에서 통째로 사라진다 (AI 코딩 도구에 Claude·Cursor 가 없던 원인).
+        orig_name = s["name"]
+        if orig_name in rename:            # 흡수 후 대표 이름을 의도한 표기로
+            s = dict(s, name=rename[orig_name])
+        sid = slug(s["name"], used)
+        key2id[s["key"]] = sid
+        variants = [v for v, _ in alias_counts.get(s["key"], Counter()).most_common()
+                    if v != s["name"] and same_word(v, s["name"])][:6]
+        variants += merge.get(orig_name, [])                    # 흡수한 이름 (원래 이름으로 조회)
+        if orig_name != s["name"]:
+            variants.append(orig_name)                          # 바뀌기 전 대표 이름도 별칭이다
+        variants += synonyms.ALIAS.get(s["name"], [])           # 이력서에 나올 표기
+        seen_v = set()
+        dedup = []
+        for v in variants:
+            if v.lower() not in seen_v:
+                seen_v.add(v.lower()); dedup.append(v)
+        variants = dedup
+        diff = BASE_DIFFICULTY.get(t, 0.5)
+        # 희소할수록 배우기 어렵다고 본다. ±0.15 안에서만 움직인다.
+        diff = round(min(0.95, max(0.05, diff + (s["scarcity"] - 0.5) * 0.3)), 2)
+        rec = {
+            "id": sid,
+            "name": s["name"],
+            "type": TYPE_MAP.get(t, "hard"),
+            "aliases": variants,
+            "learnDifficulty": diff,
+            "firstStep": FIRST_STEP.get(t, FIRST_STEP["skill_ko"]).format(n=s["name"]),
+            # ── 아래는 계약에 없는 선택 항목 ──
+            "sourceType": t,
+            "isCertification": t == "certification",
+            "onMap": s["on_map"],
+            "firstStepSource": "template",
+            "difficultySource": "estimate:type+scarcity",
+        }
+        skills.append(rec)
+
+    # ── jobs.json · job-skills.json ──────────────────────────────────
+    jobs, matrix, dropped = [], [], []
+    for r in sorted(roles_src["roles"], key=lambda x: -x["posts"]):
+        ch = [x for x in r["required_skills"] if x["characteristic"]]
+        if len(ch) < MIN_CHARACTERISTIC:
+            dropped.append((r["role"], r["posts"], len(ch)))
+            continue
+        jid, aliases = ROLE_ID.get(r["role"], (slug(r["role"], used), []))
+        jobs.append({
+            "id": jid, "title": r["role"], "family": r["family"],
+            "aliases": aliases, "sampleSize": r["posts"], "source": "JD",
+        })
+        # ⚠️ 매핑은 '변별력 있는 것'이 아니라 **등장한 것 전부**를 넣는다.
+        #    계약의 weight 는 "공고 18건 중 17건 = 0.94" 그대로이지 변별력이 아니다.
+        #    lift 로 거르면 Python·SQL 처럼 두루 쓰이는 스킬이 어느 직무에도 안 붙어
+        #    248개 중 146개가 고아가 된다.
+        merged_rows = {}
+        for x in r["required_skills"]:
+            k = canon_key.get(x["key"], x["key"])
+            prev = merged_rows.get(k)
+            # 합칠 때 weight 는 큰 쪽을 쓴다. 두 표기가 같은 공고에 함께 나올 수 있어
+            # 단순히 더하면 실제보다 커진다. max 는 안전한 하한이다.
+            if prev is None or x["share"] > prev["share"]:
+                merged_rows[k] = dict(x, key=k)
+        for x in merged_rows.values():
+            sid = key2id.get(x["key"])
+            if not sid:
+                continue
+            row = {
+                "jobId": jid, "skillId": sid,
+                "weight": round(min(1.0, x["share"]), 3),
+                "docFreq": x["posts"], "source": "JD",
+            }
+            pref = round(x["share"] * x["pref_share"] * r["posts"])
+            req = max(0, x["posts"] - pref)
+            row["prefFreq"] = pref                       # 선택 항목
+            row["reqFreq"] = req                         # 선택 항목
+
+            # ── 필수인가 우대인가 — 공고가 직접 적어 둔 것을 그대로 쓴다 ──────────
+            #
+            # 계약은 weight(공고 등장 비율) 로 필수(≥0.6)·우대(0.3~0.6)를 가르라고 한다.
+            # 그런데 weight 는 "몇 건에 나왔나"이지 "필수인가"가 아니다.
+            # 실측하면 매핑 580건 중 510건(88%)이 0.3 미만이라 화면에서 통째로 사라진다.
+            #   소프트웨어 엔지니어의 최고값이 Python 0.35, 프로덕트 매니저는 UX/UI 0.18 이다.
+            #   직무 24개 중 5개는 필수·우대가 **둘 다 비어** 추천이 아예 안 나온다.
+            #
+            # 공고는 이미 자격요건 절과 우대사항 절에 나눠 적어 두었다. 그것을 세면 된다.
+            # 같은 데이터로 필수·우대가 빈 직무는 24개 중 1개(표본 5건짜리)뿐이다.
+            #   소프트웨어 엔지니어 필수 = Python(72) · Java(40) · AWS(39) · TypeScript(37)
+            obs = req + pref
+            row["reqShare"] = round(req / obs, 3) if obs else None
+            row["requirement"] = (None if obs < MIN_REQ_OBS else
+                                  "required" if req > pref else "preferred")
+            matrix.append(row)
+
+    # ── 추가 제안: 인접 그래프 ────────────────────────────────────────
+    jid_of = {j["title"]: j["id"] for j in jobs}
+    adjacency = [{
+        "a": jid_of[e["a"]], "b": jid_of[e["b"]],
+        "similarity": e["jaccard"], "crossFamily": e["cross_family"],
+        "shared": e["shared"][:10],
+    } for e in roles_src["edges"] if e["a"] in jid_of and e["b"] in jid_of]
+
+    OUT.mkdir(exist_ok=True)
+    # ── 해설 글 교차검증 결과를 선택 필드로 얹는다 ────────────────────────
+    #
+    # 공고는 "지금 그 회사가 원하는 것"만 적는다. 신입에게 무엇이 필요한지는 잘 안 적힌다.
+    # 그래서 현직자·교육기관이 쓴 직무 해설 글을 따로 모아(verify_guides.py) 대조했다.
+    #
+    # 무게를 섞지 않는다 — 블로그는 개인 의견이고 공고는 실제 수요다. weight 는 그대로 두고
+    # 옆에 등급만 붙인다. 쓸지 말지는 앱이 정한다.
+    #   confirmed     같은 직무의 공고에도 나온다 → 시장이 실제로 요구
+    #   corroborated  해설 글 2건 이상이 일치하거나 공인 체계(O*NET·ESCO·NCS)에 있다
+    #   unverified    해설 글 1건에서만 → 개인 의견일 수 있다. 그대로 쓰지 말 것
+    vf = RAW / "guides" / "verified.json"
+    if vf.exists():
+        vr = json.loads(vf.read_text(encoding="utf-8"))["rows"]
+        by_pair = {(r["jobId"], r["skillId"]): r for r in vr}
+        seen = set()
+        for m in matrix:
+            r = by_pair.get((m["jobId"], m["skillId"]))
+            if r:
+                m["guideMentions"] = r["guideMentions"]
+                m["verification"] = r["verification"]
+                seen.add((m["jobId"], m["skillId"]))
+        # 공고에는 없고 해설 글에만 있는 것은 matrix 에 넣지 않는다.
+        # weight 를 지어내야 하는데, 언급 횟수와 공고 빈도는 단위가 다르다.
+        # 대신 몇 건인지만 알려 두고 원본은 verified.json 에 남긴다.
+        only = [r for k, r in by_pair.items() if k not in seen]
+        print(f"해설 글 교차검증 — 계약에 등급 표시 {len(seen)}건 · "
+              f"해설에만 있어 보류 {len(only)}건 (data/raw/guides/verified.json)")
+
+    # ── 같은 기술이 두 스킬로 갈리지 않았는지 ──────────────────────────
+    #
+    # 어떤 스킬의 별칭이 **다른 스킬의 이름**이면, 같은 글자가 두 번 세어진다.
+    # 실제로 Airflow/Apache Airflow · Photoshop/Adobe Photoshop · Vue/Vue.js ·
+    # MSA/마이크로서비스 아키텍처 가 각각 둘로 갈려 있었다.
+    # validate-data.mjs 는 이름이 다르면 통과시키므로 여기서 잡는다.
+    #
+    # 고치는 곳은 synonyms.MERGE 다 — ALIAS 에만 적으면 코퍼스에 그 표기가 있을 때 별도 스킬로 남는다.
+    by_name = {x["name"].lower(): x["id"] for x in skills}
+    clash = [(x["name"], a) for x in skills for a in x.get("aliases", [])
+             if by_name.get(a.lower(), x["id"]) != x["id"]]
+    if clash:
+        lines = "\n".join(f"    '{a}' 는 [{n}] 의 별칭인데 그 자체로도 스킬이다" for n, a in clash)
+        raise SystemExit("같은 기술이 두 스킬로 갈렸다 — synonyms.MERGE 에 넣어 흡수하라:\n" + lines)
+
+    (OUT / "skills.json").write_text(json.dumps(skills, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / "jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / "job-skills.json").write_text(json.dumps(matrix, ensure_ascii=False, indent=1), encoding="utf-8")
+    (OUT / "job-adjacency.json").write_text(json.dumps({
+        "note": "계약에 없는 추가 제안. 역할 간 요구 스킬 겹침. "
+                "crossFamily 가 true 면 직군을 건너뛰는 경로이고 Route.isHiddenRoute 의 근거가 된다.",
+        "edges": adjacency,
+    }, ensure_ascii=False, indent=1), encoding="utf-8")
+
+    print(f"\n직무 {len(jobs)}개 · 스킬 {len(skills)}개 · 매핑 {len(matrix)}건 · 인접 {len(adjacency)}건")
+    if dropped:
+        print(f"제외한 직무 {len(dropped)}개 (변별력 스킬 {MIN_CHARACTERISTIC}개 미만):")
+        for name, posts, n in dropped:
+            print(f"   {name}  공고 {posts}건인데 변별력 {n}개")
+    for f in ("jobs.json", "skills.json", "job-skills.json", "job-adjacency.json"):
+        print(f"  data/{f:22} {(OUT / f).stat().st_size / 1024:7.1f} KB")
+
+
+if __name__ == "__main__":
+    run()
