@@ -40,8 +40,10 @@ export interface Skill {
 
 /** 현재 위치 */
 export interface CurrentPosition {
+  /** 경력자면 최근 직무명, 신입/취준생이면 "신입" 또는 준비 중인 직무 */
   jobTitle: string;
   jobFamily: string;
+  /** 신입·취준생은 0. 화면에서는 "신입"으로 표시된다 */
   careerMonths: number;
   /** 산업 (전환 성공률의 최강 단일 변수). 판단 불가 시 null */
   industry: string | null;
@@ -161,11 +163,16 @@ export interface Candidate {
   alias: string;
   currentJobTitle: string;
   jobFamily: string;
+  /** 12개월 미만이면 신입으로 표시된다 */
   careerMonths: number;
   industry: string | null;
   /** 보유 역량 (Skill.name 과 같은 어휘를 쓴다) */
   skills: string[];
 }
+
+/** 신입 판정 기준 — 화면·필터에서 공통으로 쓴다 */
+export const NEWCOMER_MONTHS = 12;
+export const isNewcomer = (careerMonths: number) => careerMonths < NEWCOMER_MONTHS;
 
 /** 매칭 결과 — lib/matching.ts 가 계산한다. 하드코딩 금지. */
 export interface CandidateMatch {

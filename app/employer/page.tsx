@@ -5,21 +5,31 @@ import Link from 'next/link';
 import { JOB_REQUIREMENTS } from '@/data/job-requirements';
 import { CANDIDATES } from '@/data/candidates';
 import { buildEmployerResult } from '@/lib/matching';
+import { isNewcomer } from '@/types';
 import CandidateCard from '@/components/CandidateCard';
 
 export default function EmployerPage() {
   const [jobId, setJobId] = useState(JOB_REQUIREMENTS[0].id);
   const [includeCrossRole, setIncludeCrossRole] = useState(true);
+  const [seniority, setSeniority] = useState<'all' | 'exp' | 'new'>('all');
 
   const req = JOB_REQUIREMENTS.find((j) => j.id === jobId)!;
 
+  const pool = useMemo(
+    () =>
+      CANDIDATES.filter((c) =>
+        seniority === 'all' ? true : seniority === 'new' ? isNewcomer(c.careerMonths) : !isNewcomer(c.careerMonths)
+      ),
+    [seniority]
+  );
+
   const result = useMemo(
-    () => buildEmployerResult(req, CANDIDATES, { includeCrossRole }),
-    [req, includeCrossRole]
+    () => buildEmployerResult(req, pool, { includeCrossRole }),
+    [req, pool, includeCrossRole]
   );
   const sameRoleCount = useMemo(
-    () => buildEmployerResult(req, CANDIDATES, { includeCrossRole: false }).matches.length,
-    [req]
+    () => buildEmployerResult(req, pool, { includeCrossRole: false }).matches.length,
+    [req, pool]
   );
   const hiddenCount = result.matches.filter((m) => m.isCrossRole).length;
 
@@ -67,7 +77,28 @@ export default function EmployerPage() {
         </div>
       </section>
 
-      <section className="mt-8">
+      <section className="mt-6">
+        <span className="text-xs font-medium opacity-55">경력 구분</span>
+        <div className="mt-2 inline-flex rounded-xl border border-black/10 p-1 dark:border-white/12">
+          {([
+            ['all', '전체'],
+            ['exp', '경력'],
+            ['new', '신입'],
+          ] as const).map(([v, label]) => (
+            <button
+              key={v}
+              onClick={() => setSeniority(v)}
+              className={`rounded-lg px-4 py-1.5 text-sm transition ${
+                seniority === v ? 'bg-amber-400/15 font-medium text-amber-700 dark:text-amber-300' : 'opacity-60 hover:opacity-100'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+      </section>
+
+      <section className="mt-4">
         <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-black/10 p-4 dark:border-white/10">
           <input
             type="checkbox"

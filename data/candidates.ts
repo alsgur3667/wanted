@@ -64,4 +64,19 @@ export const CANDIDATES: Candidate[] = [
     careerMonths: 55, industry: '금융',
     skills: ['요구사항 정의', '데이터 해석', 'SQL', '우선순위 관리'],
   },
+  {
+    id: 'c13', alias: '지원자 M', currentJobTitle: '신입 (부트캠프 수료)', jobFamily: '개발',
+    careerMonths: 0, industry: null,
+    skills: ['React', 'TypeScript', '컴포넌트 설계', '접근성(A11y)'],
+  },
+  {
+    id: 'c14', alias: '지원자 N', currentJobTitle: '신입 (비전공)', jobFamily: '기획',
+    careerMonths: 0, industry: null,
+    skills: ['요구사항 정의', '사용자 인터뷰', '정보 구조 설계', '우선순위 관리'],
+  },
+  {
+    id: 'c15', alias: '지원자 O', currentJobTitle: '신입 (인턴 6개월)', jobFamily: '디자인',
+    careerMonths: 6, industry: 'IT/서비스',
+    skills: ['프로토타이핑', '시각 위계 설계', '정보 구조 설계', '사용성 테스트'],
+  },
 ];

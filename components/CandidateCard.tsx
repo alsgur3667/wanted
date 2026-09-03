@@ -1,4 +1,4 @@
-import type { CandidateMatch } from '@/types';
+import { isNewcomer, type CandidateMatch } from '@/types';
 
 export default function CandidateCard({ match, rank }: { match: CandidateMatch; rank: number }) {
   const { candidate: c, fitScore, isCrossRole, matchedSkills, gapSkills, onboardingMonths } = match;
@@ -24,9 +24,15 @@ export default function CandidateCard({ match, rank }: { match: CandidateMatch; 
                 직무 전환 후보
               </span>
             )}
+            {isNewcomer(c.careerMonths) && (
+              <span className="rounded-full bg-sky-400/20 px-2 py-0.5 text-[11px] font-semibold text-sky-600 dark:text-sky-300">
+                신입
+              </span>
+            )}
           </div>
           <p className="mt-1 text-sm opacity-70">
-            {c.currentJobTitle} · {Math.floor(c.careerMonths / 12)}년차
+            {c.currentJobTitle}
+            {!isNewcomer(c.careerMonths) && ` · ${Math.floor(c.careerMonths / 12)}년차`}
             {c.industry && ` · ${c.industry}`}
           </p>
         </div>

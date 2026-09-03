@@ -36,6 +36,14 @@ export const EXTRACT_SYSTEM_PROMPT = `당신은 커리어 전환을 돕는 역�
 4. **평가하지 않는다.**
    "훌륭한", "뛰어난" 같은 수식어를 쓰지 마세요. 사실만 기술합니다.
 
+5. **경력이 없어도 똑같이 처리한다.**
+   취업준비생·신입은 직장 경력 대신 팀 프로젝트, 인턴, 전공 수업, 동아리, 개인 작업이 있습니다.
+   이것도 전부 동일한 방식으로 행위 단위로 추출하세요.
+   - careerMonths 는 **0** 으로 둡니다 (인턴 기간을 경력으로 환산하지 마세요)
+   - jobTitle 은 최근 직함이 없으면 **"신입"** 으로, 준비 중인 직무가 명시되어 있으면 그 직무명으로
+   - jobFamily 는 한 활동 내용을 기준으로 추정합니다
+   - 학점, 자격증, 어학 점수는 행위가 아니므로 스킬로 만들지 마세요
+
 ## 추출 방법
 
 이력서를 문장(bullet) 단위로 쪼갠 뒤, 각 문장에서 다음을 뽑습니다.
@@ -59,9 +67,10 @@ export const EXTRACT_SYSTEM_PROMPT = `당신은 커리어 전환을 돕는 역�
   "currentPosition": {
     "jobTitle": string,        // 가장 최근 직무명 (원문 기준)
     "jobFamily": string,       // 마케팅 | 기획/PM | 개발 | 데이터 | 디자인 | 영업 | 고객성공 | 인사 | 재무 | 기타
-    "careerMonths": number,    // 총 경력 개월수. 계산 불가하면 0
+    "careerMonths": number,    // 총 직장 경력 개월수. 신입·취준생은 0
     "industry": string | null, // 판단 불가하면 null
-    "summary": string          // 한 문장. 직함 나열이 아니라 '무엇을 해 온 사람인지'
+    "summary": string          // 한 문장. 직함 나열이 아니라 '무엇을 해 온 사람인지'.
+                               // 경력이 없으면 "무엇을 만들어 본 사람인지"로 씁니다
   },
   "bullets": [
     {
@@ -86,7 +95,29 @@ export const EXTRACT_SYSTEM_PROMPT = `당신은 커리어 전환을 돕는 역�
   ]
 }`;
 
-export function buildExtractUserPrompt(resumeText: string, targetJob?: string): string {
+/**
+ * 온톨로지 어휘를 프롬프트에 넣어 '자유 서술' 대신 '선택'하게 한다.
+ *
+ * 왜 필요한가 —
+ *   LLM 은 "컴포넌트 설계 표준화", "디자인 시스템 구축" 처럼 서술형으로 스킬명을 뽑는다.
+ *   우리 온톨로지는 "컴포넌트 설계", "디자인 시스템" 같은 정규화된 명사라 매칭에 실패한다.
+ *   실측: 이력서에 명시된 역량 3개(컴포넌트 설계·디자인 시스템·개발 핸드오프)를 전부 놓쳤다.
+ *   → 선택지를 주면 표기가 일치해 매칭률이 올라간다.
+ */
+export function buildVocabularySection(skillNames: string[]): string {
+  return `
+
+## 사용할 역량 어휘
+
+아래 목록에 있는 표기를 **그대로** 사용하세요. 목록에 없는 역량은 넣지 마세요.
+표현이 달라도 뜻이 같으면 목록의 표기로 바꿔 적습니다.
+  예) "컴포넌트 설계를 표준화" → "컴포넌트 설계"
+      "디자인 시스템을 구축"   → "디자인 시스템"
+
+${skillNames.join(' · ')}`;
+}
+
+export function buildExtractUserPrompt(resumeText: string, targetJob?: string, vocabulary?: string): string {
   const target = targetJob
     ? `\n\n## 참고\n사용자가 관심 있다고 밝힌 직무: ${targetJob}\n(이 정보로 추출 결과를 왜곡하지 마세요. 없는 스킬을 만들어내면 안 됩니다.)`
     : '';
@@ -96,7 +127,7 @@ export function buildExtractUserPrompt(resumeText: string, targetJob?: string): 
 ## 이력서
 """
 ${resumeText}
-"""${target}
+"""${target}${vocabulary ?? ''}
 
 JSON만 출력하세요.`;
 }
@@ -152,6 +183,7 @@ export const LLM_CONFIG = {
 
 /** 입력 가드 — LLM 호출 전에 먼저 거른다 (비용 방어) */
 export const INPUT_GUARD = {
-  minChars: 200,
+  // 취준생은 프로젝트 2~3개면 200자를 못 채우는 경우가 있어 120자로 완화
+  minChars: 120,
   maxChars: 12000,
 } as const;

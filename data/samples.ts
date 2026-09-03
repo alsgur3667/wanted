@@ -124,6 +124,66 @@ const designerResult: AnalysisResult = {
   generatedAt: '2026-09-01T09:00:00.000Z',
 };
 
+const jobseekerResult: AnalysisResult = {
+  version: '1.0',
+  currentPosition: {
+    jobTitle: '신입',
+    jobFamily: '기획',
+    careerMonths: 0,
+    industry: null,
+    summary: '사람들이 어디서 막히는지 직접 물어보고 글과 구조로 풀어 온 취업준비생',
+  },
+  skills: [
+    { id: 'n1', name: '사용자 인터뷰', quadrant: 'leverage', spread: 0.74, scarcity: 0.62, proficiency: 0.55, evidence: '교내 커뮤니티 앱 개선 과제에서 이용자 12명을 인터뷰해 불편 지점을 정리' },
+    { id: 'n2', name: '정보 구조 설계', quadrant: 'leverage', spread: 0.75, scarcity: 0.68, proficiency: 0.5, evidence: '학과 학회 홈페이지의 메뉴를 다시 짜서 자료 찾는 단계를 줄임' },
+    { id: 'n3', name: '요구사항 정의', quadrant: 'leverage', spread: 0.79, scarcity: 0.58, proficiency: 0.45, evidence: '팀 프로젝트에서 기능 명세서를 작성해 개발 담당 팀원과 조율' },
+    { id: 'n4', name: '설문 설계', quadrant: 'leverage', spread: 0.66, scarcity: 0.64, proficiency: 0.6, evidence: '학회 행사 만족도 설문을 직접 설계해 응답 210건 수집' },
+    { id: 'n5', name: '문서 작성', quadrant: 'leverage', spread: 0.83, scarcity: 0.52, proficiency: 0.75, evidence: '국문학 전공 과정에서 장문 보고서를 반복 작성' },
+    { id: 'n6', name: '데이터 정리', quadrant: 'common', spread: 0.86, scarcity: 0.3, proficiency: 0.5, evidence: '설문 응답 210건을 스프레드시트로 집계해 항목별 비교표 작성' },
+    { id: 'n7', name: '콘텐츠 기획', quadrant: 'lockin', spread: 0.36, scarcity: 0.55, proficiency: 0.65, evidence: '학회 SNS 콘텐츠를 6개월간 주 2회 기획·발행' },
+    { id: 'n8', name: '협업 커뮤니케이션', quadrant: 'common', spread: 0.92, scarcity: 0.11, proficiency: 0.6, evidence: '4인 팀 프로젝트에서 일정과 역할 분배를 조율' },
+  ],
+  routes: [
+    {
+      id: 'nr1', destination: '서비스 기획자', jobFamily: '기획',
+      fitScore: 68, surpriseScore: 24, isHiddenRoute: false,
+      difficulty: 'moderate', estimatedMonths: 5,
+      bridgeSkills: ['요구사항 정의', '정보 구조 설계', '사용자 인터뷰', '문서 작성'],
+      gapSkills: [
+        { name: '정책·예외 설계', difficulty: 0.55, firstStep: '만든 프로젝트의 예외 상황을 전부 적어 정책표로 만들어 보세요.' },
+        { name: '지표 설계', difficulty: 0.6, firstStep: '프로젝트에 성공 지표를 하나 정하고 측정 방법까지 문서로 써 보세요.' },
+      ],
+      reason: '기능 명세서를 쓰고 사용자에게 직접 물어본 과정이 서비스 기획 업무의 앞단과 같습니다. 직장 경력이 없어도 과정 자체는 동일합니다.',
+      marketNote: '신입 채용이 꾸준한 직무입니다.',
+    },
+    {
+      id: 'nr2', destination: 'UX 라이터', jobFamily: '디자인',
+      fitScore: 64, surpriseScore: 87, isHiddenRoute: true,
+      difficulty: 'easy', estimatedMonths: 4,
+      bridgeSkills: ['문서 작성', '사용자 인터뷰', '정보 구조 설계', '콘텐츠 기획'],
+      gapSkills: [
+        { name: '마이크로카피 원칙', difficulty: 0.4, firstStep: '자주 쓰는 앱의 오류 메시지 5개를 골라 더 나은 문구로 고쳐 써 보세요.' },
+        { name: '디자인 도구 기초', difficulty: 0.35, firstStep: 'Figma로 화면 하나를 그려 문구를 직접 얹어 보세요.' },
+      ],
+      reason: '글로 구조를 만드는 일을 이미 해 왔습니다. 화면 안의 문구를 설계하는 직무가 따로 있는데, 전공이 국문학이면 오히려 강점이 되는데도 채용공고에 잘 노출되지 않아 모르고 지나치기 쉽습니다.',
+      marketNote: null,
+    },
+    {
+      id: 'nr3', destination: '데이터 분석가', jobFamily: '기획',
+      fitScore: 52, surpriseScore: 46, isHiddenRoute: false,
+      difficulty: 'challenging', estimatedMonths: 9,
+      bridgeSkills: ['설문 설계', '데이터 정리'],
+      gapSkills: [
+        { name: 'SQL', difficulty: 0.5, firstStep: '공개 데이터셋 하나를 받아 조건에 맞는 행을 뽑는 쿼리를 써 보세요.' },
+        { name: '통계적 유의성 검정', difficulty: 0.6, firstStep: '설문 결과에서 두 집단 차이가 우연인지 직접 계산해 보세요.' },
+      ],
+      reason: '설문을 설계하고 210건을 직접 집계한 경험이 분석 업무의 출발점과 같습니다. 도구를 익히는 기간이 필요합니다.',
+      marketNote: null,
+    },
+  ],
+  generatedAt: '2026-09-02T09:00:00.000Z',
+};
+
 export const SAMPLE_PROFILES: SampleProfile[] = [
   {
     id: 'sp_marketer',
@@ -138,6 +198,13 @@ export const SAMPLE_PROFILES: SampleProfile[] = [
     hint: '개발 외 다른 길이 있는지 궁금',
     resumeText: '프론트엔드 개발자 3년차입니다. 재사용 컴포넌트 40여 개를 정리해 사내 UI 라이브러리로 배포했고, 온보딩 애니메이션을 직접 설계해 이탈률을 9% 줄였습니다. 번들 크기를 절반으로 줄여 초기 로딩을 2.1초 단축했습니다.',
     cachedResult: devResult,
+  },
+  {
+    id: 'sp_jobseeker',
+    label: '취업준비생 · 비전공',
+    hint: '경력은 없지만 만들어 본 건 있음',
+    resumeText: '국문학과를 졸업하고 취업을 준비하고 있습니다. 교내 커뮤니티 앱 개선 과제에서 이용자 12명을 인터뷰해 불편 지점을 정리했고, 학과 학회 홈페이지의 메뉴를 다시 짜서 자료 찾는 단계를 줄였습니다. 팀 프로젝트에서 기능 명세서를 작성해 개발 담당 팀원과 조율했고, 학회 행사 만족도 설문을 직접 설계해 응답 210건을 수집·집계했습니다.',
+    cachedResult: jobseekerResult,
   },
   {
     id: 'sp_designer',

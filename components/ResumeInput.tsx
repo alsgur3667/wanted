@@ -19,7 +19,7 @@ export default function ResumeInput({
   async function analyze() {
     setError(null);
     if (text.trim().length < INPUT_GUARD.minChars) {
-      setError(`경력 내용을 ${INPUT_GUARD.minChars}자 이상 붙여넣어 주세요.`);
+      setError(`경험을 ${INPUT_GUARD.minChars}자 이상 적어주세요. 프로젝트·인턴 경험도 괜찮습니다.`);
       return;
     }
     setLoading(true);
@@ -44,7 +44,7 @@ export default function ResumeInput({
     <div>
       <section>
         <h2 className="text-sm font-medium opacity-70">예시로 바로 보기</h2>
-        <div className="mt-3 grid gap-2.5 sm:grid-cols-3">
+        <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
           {SAMPLE_PROFILES.map((s) => (
             <button
               key={s.id}
@@ -59,13 +59,16 @@ export default function ResumeInput({
       </section>
 
       <section className="mt-10">
-        <h2 className="text-sm font-medium opacity-70">내 이력서로 보기</h2>
+        <h2 className="text-sm font-medium opacity-70">내 경험으로 보기</h2>
+        <p className="mt-1 text-xs leading-relaxed opacity-55">
+          경력이 없어도 괜찮아요. <strong className="font-medium opacity-80">팀 프로젝트 · 인턴 · 전공 수업 · 동아리</strong> 경험도 그대로 분석됩니다.
+        </p>
         <textarea
           value={text}
           onChange={(e) => setText(e.target.value)}
           rows={9}
           maxLength={INPUT_GUARD.maxChars}
-          placeholder={'경력 사항을 붙여넣어 주세요.\n\n예) 그로스 마케터 5년차입니다. 결제 퍼널 A/B 테스트를 설계해 전환율을 12% 개선했고...'}
+          placeholder={'무엇을 해 봤는지 적어주세요. 직함보다 \u0027한 일\u0027이 중요합니다.\n\n예) 팀 프로젝트에서 기능 명세서를 작성해 개발 팀원과 조율했고,\n    이용자 12명을 인터뷰해 불편 지점을 정리했습니다.'}
           className="mt-3 w-full resize-y rounded-xl border border-black/10 bg-transparent p-4 text-sm leading-relaxed outline-none transition placeholder:opacity-35 focus:border-amber-400/60 dark:border-white/12"
         />
 

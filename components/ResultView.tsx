@@ -1,6 +1,7 @@
-import type { AnalysisResult } from '@/types';
+import { isNewcomer, type AnalysisResult } from '@/types';
 import SkillMap from './SkillMap';
 import RouteCard from './RouteCard';
+import ShareButton from './ShareButton';
 
 export default function ResultView({
   result,
@@ -20,7 +21,9 @@ export default function ResultView({
             <p className="mt-2 text-lg font-semibold">
               {currentPosition.jobTitle}
               <span className="ml-2 text-sm font-normal opacity-55">
-                {Math.floor(currentPosition.careerMonths / 12)}년차
+                {isNewcomer(currentPosition.careerMonths)
+                  ? '신입'
+                  : `${Math.floor(currentPosition.careerMonths / 12)}년차`}
                 {currentPosition.industry && ` · ${currentPosition.industry}`}
               </span>
             </p>
@@ -55,6 +58,8 @@ export default function ResultView({
           ))}
         </div>
       </section>
+
+      <ShareButton result={result} />
     </div>
   );
 }

@@ -1,0 +1,31 @@
+{
+  "note": "직무별 신입 채용 비율(0~1). 공고의 경력 요건에서 산출하는 것이 원칙이나 원문 corpus 미확보로 직무 성격 기준 추정치다. ratioSource=manual 로 표기하며, 실측값 확보 시 교체한다.",
+  "ratios": {
+    "sw_eng":           0.35,
+    "fe_dev":           0.34,
+    "be_dev":           0.30,
+    "fullstack_dev":    0.22,
+    "mobile_dev":       0.28,
+    "qa_eng":           0.45,
+    "data_analyst":     0.38,
+    "data_eng":         0.18,
+    "data_scientist":   0.20,
+    "devops_sre":       0.10,
+    "security_eng":     0.12,
+    "solutions_eng":    0.20,
+    "embedded_dev":     0.25,
+    "architect":        0.03,
+    "eng_lead":         0.02,
+
+    "product_manager":  0.18,
+    "program_manager":  0.10,
+    "biz_strategy":     0.30,
+    "biz_analyst":      0.32,
+    "growth_marketing": 0.40,
+
+    "designer":         0.40,
+    "product_designer": 0.25,
+    "graphic_designer": 0.45,
+    "motion_designer":  0.42
+  }
+}
