@@ -20,6 +20,8 @@ DROP = {
     # 문장 첫 단어가 대문자로 굳어진 경우
     "star", "rest", "inc", "md", "al", "abl", "flux", "flex", "box", "metro",
     "rocket", "ros", "temporal", "vault", "ray", "pulsar", "canva",
+    # 두 글자라 뜻이 갈린다 — 위 Photoshop 주석 참조
+    "ps",
     # 회사명 — 그 회사를 쓰는 것이 역량은 아니다
     "doordash", "coca-cola", "nvidia", "shopify", "stripe", "salesforce", "hubspot",
     # 기관·법령 — 공공기관 공고 상용구
@@ -46,6 +48,9 @@ MERGE = {
     #    ALIAS 는 "코퍼스에 없지만 이력서에 나올 표기", MERGE 는 "코퍼스에 있어 흡수할 표기"다.
     "MSA": ["Microservices Architecture", "마이크로서비스", "마이크로서비스 아키텍처"],
     "Airflow": ["Apache Airflow"],
+    #  코퍼스에 실제로 있는 표기라 ALIAS 로는 못 막는다 — 흡수해야 한 스킬이 된다
+    "JavaScript": ["JS"],
+    "Illustrator": ["Adobe Illustrator"],
     "Photoshop": ["Adobe Photoshop"],
     "Vue": ["Vue.js", "VueJS"],
     # 한국어 — '정보시스템'과 '시스템'은 공고에서 같은 뜻으로 쓰인다
@@ -98,7 +103,10 @@ ALIAS = {
     "Git": ["깃"],
     "GitHub": ["깃허브"],
     "Figma": ["피그마"],
-    "Photoshop": ["포토샵", "PS", "Adobe Photoshop"],
+    #  ⚠️ "PS" 를 뺐다. 코퍼스에서 이 두 글자가 포토샵인 경우가 **한 건도 없었다** —
+    #     독일어 공고의 추신("PS: auch in Teilzeit möglich"), Professional Services (PS),
+    #     침입탐지 ID/PS 였다. 별칭으로 두면 그 공고들이 디자이너 쪽으로 세어진다.
+    "Photoshop": ["포토샵", "Adobe Photoshop"],
     "Illustrator": ["일러스트레이터", "일러스트", "AI(일러스트)", "Adobe Illustrator"],
     "Golang": ["Go 언어", "고랭"],
     "Kotlin": ["코틀린"],
