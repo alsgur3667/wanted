@@ -1,6 +1,8 @@
 import jobsRaw from '@/data/interim/jobs.json';
 import skillsRaw from '@/data/interim/skills.json';
 import matrixRaw from '@/data/interim/job-skills.json';
+import adjacencyRaw from '@/data/interim/job-adjacency.json';
+import groupsRaw from '@/data/interim/skill-groups.json';
 import type { Quadrant } from '@/types';
 
 // ============================================================================
@@ -20,6 +22,18 @@ export type MatrixRow = {
   jobId: string; skillId: string; weight: number; docFreq?: number;
   /** 이 직무에서 유난히 많이 요구되는가 = 이 직무 등장률 / 전체 평균 등장률 */
   lift?: number;
+  /** 공고 + 직무 해설 글을 합친 근거 비율. 해설 글은 0.5배로 할인해 더한다. */
+  evidence?: number;
+  /** 여러 출처가 함께 말할수록 높다. evidence 에 합의 가산을 곱한 값. */
+  importance?: number;
+  /** 이 역량을 말한 출처 수 (공고·해설 글·공인 체계) */
+  agreement?: number;
+  /** 출처들이 '필수'로 말했나 '있으면 좋다'로 말했나 */
+  tier?: 'required' | 'preferred' | null;
+  /** 이 직무의 해설 글 중 몇 건이 이 역량을 말했나 */
+  guideMentions?: number;
+  guideDocs?: number;
+  verification?: 'confirmed' | 'corroborated' | 'unverified';
   /** 공고가 자격요건 절에 적었나(required) 우대사항 절에 적었나(preferred) */
   requirement?: 'required' | 'preferred' | null;
 };
@@ -27,6 +41,43 @@ export type MatrixRow = {
 export const JOBS = jobsRaw as JobRow[];
 export const SKILLS = skillsRaw as SkillRow[];
 export const MATRIX = matrixRaw as MatrixRow[];
+
+/** 직무 간 인접 — 요구 역량이 얼마나 겹치는가. 개인 점수와 무관한 사실이다. */
+export type AdjacencyEdge = {
+  a: string; b: string; similarity: number; crossFamily: boolean; shared: string[];
+};
+export const ADJACENCY = adjacencyRaw as AdjacencyEdge[];
+
+// ── 택일 관계 묶음 ──────────────────────────────────────────────────
+//  "이 중 하나만 있으면 된다". 근거는 scripts/collect/skill_groups.py 에 적어 두었다.
+//  묶지 않으면 iOS 개발자에게 Kotlin 을 부족 역량으로 요구하게 된다.
+type SkillGroup = { label: string; skills: string[] };
+const GROUPS = groupsRaw as Record<string, SkillGroup>;
+const GROUP_OF = new Map<string, string>();     // skillId -> groupKey
+const GROUP_LABEL = new Map<string, string>();
+{
+  const idByName = new Map(SKILLS.map((s) => [s.name, s.id]));
+  for (const [key, g] of Object.entries(GROUPS)) {
+    GROUP_LABEL.set(key, g.label);
+    for (const n of g.skills) {
+      const id = idByName.get(n);
+      if (id) GROUP_OF.set(id, key);
+    }
+  }
+}
+export const groupLabelOf = (key: string) => GROUP_LABEL.get(key);
+export const groupOf = (skillId: string) => GROUP_OF.get(skillId);
+
+
+
+/** 이 직무와 인접한 직무들 (유사도 내림차순). cross 를 주면 직군이 다른 것만. */
+export function neighborsOf(jobId: string, opts?: { crossFamilyOnly?: boolean }) {
+  return ADJACENCY
+    .filter((e) => (e.a === jobId || e.b === jobId)
+      && (!opts?.crossFamilyOnly || e.crossFamily))
+    .map((e) => ({ jobId: e.a === jobId ? e.b : e.a, similarity: e.similarity, shared: e.shared }))
+    .sort((x, y) => y.similarity - x.similarity);
+}
 
 // ── 필수/우대 구분 ──────────────────────────────────────────────────
 //  절대 임계값(weight ≥ 0.6)을 쓰지 않는다.
@@ -141,30 +192,115 @@ export const SKILL_STATS: Map<string, SkillStat> = (() => {
 /** 변별력 상한. 표본이 작은 직무에서 lift 가 10배 넘게 튀어 순위를 뒤집는 것을 막는다. */
 const LIFT_CAP = 3;
 
+/** 필수로 삼는 문턱 — 그 직무 최고 강도 대비. 개수를 고정하지 않기 위한 값이다. */
+const MUST_REL = 0.4;
+const MUST_MIN = 3, MUST_MAX = 8, NICE_MAX = 6;
+
 export function requirementsOf(jobId: string) {
-  // ⚠️ weight 만으로 정렬하면 안 된다.
+  //  ⚠️ "상위 5개 자르기"를 쓰지 않는다.
   //
-  //  weight 는 '이 직무 공고 몇 %에 나왔나'다. 그래서 어느 직무를 보든 Git·Python·Linux 가
-  //  위로 온다. 표본이 작은 직무는 그것만으로 상위 5개가 채워져, 요구 역량이
-  //  **'개발자인가?'를 묻는 문항**이 되어 버린다.
+  //  그렇게 하면 어느 직무든 필수가 정확히 5개가 된다. 정의가 넓은 직무는 그 5칸이
+  //  범용 스택으로 채워져 **남의 직무 사람까지 흡수**한다.
+  //  실측 — 독립 표본(설문 4,878건)에서 자주 틀리는 8개 방향이 전부 '→ 풀스택 개발자'였다.
+  //         풀스택 필수가 TypeScript·React·JavaScript·Node.js·Docker 라 웹 개발자면 다 채운다.
   //
-  //  실측 — 임베디드·펌웨어(공고 7건)의 필수 5개가 Linux·C++·Python·Git·Jenkins 였다.
-  //         8년차 iOS 개발자가 이 5개를 다 갖고 있어 적합도 75로 1순위가 됐고,
-  //         정작 모바일 개발자는 35로 3위였다.
-  //         "특별한 도메인 경험은 없습니다"라고 쓴 이력서도 임베디드가 1순위로 나왔다.
-  //
-  //  → lift(변별력)를 곱해 '이 직무에서 유난히 많이 요구되는' 것을 위로 올린다.
-  //    weight 를 버리지는 않는다. lift 만 쓰면 공고 1건짜리 희귀 스킬이 필수가 된다.
-  const score = (r: MatrixRow) => r.weight * Math.min(LIFT_CAP, r.lift ?? 1);
-  const rows = MATRIX.filter((r) => r.jobId === jobId).sort((a, b) => score(b) - score(a));
+  //  대신 **출처가 뭐라고 말했는지**(tier)와 **얼마나 여러 곳이 말했는지**(importance)로 고른다.
+  //    필수 = 자격요건 절 · 해설 글의 "필수·기본기" 대목 · 공인 체계가 가리킨 것
+  //    우대 = 우대사항 절 · 해설 글의 "있으면 좋다·가산점" 대목
+  //  개수는 직무마다 다르게 나온다 — 근거가 있는 만큼만 요구한다.
+  const rows = MATRIX.filter((r) => r.jobId === jobId);
   if (!rows.length) return { must: [], nice: [] };
 
-  // 스킬이 적은 직무에서 상위 5개가 곧 전부가 되는 것을 막는다
-  const mustCount = Math.max(1, Math.min(MUST_TOP_N, Math.ceil(rows.length * MUST_MAX_RATIO)));
-  return {
-    must: rows.slice(0, mustCount).map((r) => r.skillId),
-    nice: rows.slice(mustCount, mustCount + NICE_TOP_N).map((r) => r.skillId),
-  };
+  const imp = (r: MatrixRow) => r.importance ?? r.evidence ?? r.weight;
+  const top = Math.max(...rows.map(imp), 0) || 1;
+  const byImp = [...rows].sort((a, b) => imp(b) - imp(a));
+
+  let must = byImp.filter((r) => r.tier === 'required' && imp(r) >= top * MUST_REL);
+  if (must.length < MUST_MIN) must = byImp.slice(0, MUST_MIN);       // 근거가 얇은 직무 보호
+  must = must.slice(0, MUST_MAX);
+
+  const mustSet = new Set(must.map((r) => r.skillId));
+  const nice = byImp
+    .filter((r) => !mustSet.has(r.skillId) && (r.tier === 'preferred' || imp(r) >= top * 0.2))
+    .slice(0, NICE_MAX);
+
+  return { must: must.map((r) => r.skillId), nice: nice.map((r) => r.skillId) };
+}
+
+// ── 직무 자체의 성격 보정 ────────────────────────────────────────────
+//
+//  정의가 넓은 직무는 남의 직무 사람까지 흡수한다.
+//  실측 — 독립 표본(설문 3,404건)에서 자주 틀리는 방향이 거의 전부 '→ 풀스택 개발자'였다.
+//  풀스택은 정의상 프론트+백엔드의 합집합이라 웹 개발자면 누구나 요구를 상당수 채운다.
+//
+//  두 가지로 보정한다. 실측으로 골랐다 (같은 표본, 같은 조건).
+//      현재      1위 28.6%  3위 안 51.6%
+//      고유성만   1위 30.3%  3위 안 53.6%
+//      포함만     1위 30.1%  3위 안 52.7%
+//      둘 다     1위 31.2%  3위 안 53.8%   ← 채택. 효과가 거의 더해진다 = 서로 다른 것을 잡는다
+//
+//  ⚠️ 포함은 **방향**이 있어야 한다. 단순히 "남과 겹치는 비율"로 재면
+//     프론트엔드(100%)가 풀스택(83%)보다 포함형으로 나와 거꾸로다.
+//     "다른 **한** 직무의 필수+우대에 얼마나 통째로 흡수되는가"로 재야 맞다.
+const UNIQ_FLOOR = 0.6;       // 고유성이 0이어도 이만큼은 남긴다
+const CONT_PENALTY = 0.35;
+
+const JOB_ADJUST = new Map<string, number>();
+{
+  const reqs = new Map(JOBS.map((j) => [j.id, requirementsOf(j.id)]));
+  const inMust = new Map<string, number>();
+  for (const [, r] of reqs) {
+    for (const s of r.must) inMust.set(s, (inMust.get(s) ?? 0) + 1);
+  }
+  const uniq = new Map<string, number>();
+  for (const [jid, r] of reqs) {
+    uniq.set(jid, r.must.length
+      ? r.must.reduce((a, s) => a + 1 / (inMust.get(s) || 1), 0) / r.must.length
+      : 0);
+  }
+  const vals = [...uniq.values()];
+  const lo = Math.min(...vals), hi = Math.max(...vals);
+
+  for (const [jid, r] of reqs) {
+    let contained = 0;
+    for (const [other, o] of reqs) {
+      if (other === jid || !r.must.length) continue;
+      const cover = new Set([...o.must, ...o.nice]);
+      contained = Math.max(contained, r.must.filter((s) => cover.has(s)).length / r.must.length);
+    }
+    const u = hi > lo ? ((uniq.get(jid) ?? 0) - lo) / (hi - lo) : 0.5;
+    JOB_ADJUST.set(jid, (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained));
+  }
+}
+/** 그 직무가 얼마나 '그 직무다운가'. 넓고 남에게 흡수되는 직무일수록 낮다. */
+export const jobAdjustOf = (jobId: string) => JOB_ADJUST.get(jobId) ?? 1;
+
+/**
+ * 요구 역량 중 **채워진 것**. 택일 관계를 여기서 푼다.
+ *
+ * 묶어서 한 칸으로 세는 방식은 실패했다 — 모바일 개발자의 Android·Kotlin·iOS·Swift 를
+ * 한 칸으로 압축했더니, 그 사람의 강점이 한 칸으로 줄어들고 대신 UX/UI·MVVM 이
+ * 상대적으로 커져서 8년차 iOS 개발자에게 모바일 개발자가 아예 순위에서 사라졌다.
+ *
+ * 그래서 칸은 그대로 두고 **대체 가능한 것만 면제**한다.
+ *   iOS 개발자가 Android 계열 요구를 만족한 것으로 본다 — 같은 '모바일 플랫폼' 묶음이고
+ *   그 사람이 그 묶음의 다른 것(iOS·Swift)을 이미 갖고 있기 때문이다.
+ *   Kotlin 이 없는 것은 결함이 아니라 다른 길을 간 것이다.
+ */
+export function satisfied(required: string[], have: Set<string>) {
+  const okGroups = new Set<string>();
+  for (const id of have) {
+    const g = GROUP_OF.get(id);
+    if (g) okGroups.add(g);
+  }
+  const hit: string[] = [];       // 실제로 가진 것 (화면에 보여줄 것)
+  const covered: string[] = [];   // 채워진 것으로 치는 요구 (점수 분자)
+  for (const id of required) {
+    if (have.has(id)) { hit.push(id); covered.push(id); continue; }
+    const g = GROUP_OF.get(id);
+    if (g && okGroups.has(g)) covered.push(id);   // 대체재를 갖고 있다
+  }
+  return { hit, covered };
 }
 
 /** 이 직무가 그 스킬의 수요에서 차지하는 몫. iOS·Swift 처럼 한 직무에 몰린 스킬은 1에 가깝다. */
@@ -182,10 +318,80 @@ const CLAIM = new Map<string, number>();
 }
 export const claimOf = (jobId: string, skillId: string) => CLAIM.get(`${jobId}|${skillId}`) ?? 0;
 
-/** 표본이 작은 직무는 요구 역량 자체를 믿기 어렵다. 30건이면 1.0, 7건이면 0.59. */
+/** 표본이 작은 직무는 요구 역량 자체를 믿기 어렵다. 20건이면 1.0, 7건이면 0.59. */
 export const CONFIDENCE_N = 20;
 export const confidenceOf = (jobId: string) =>
   Math.min(1, Math.sqrt((jobById.get(jobId)?.sampleSize ?? 0) / CONFIDENCE_N));
+
+/** 직군을 넘나드는 역량 — 2개 이상 직군의 직무가 요구한다.
+ *
+ *  "이 길도 있어요"의 근거다. Swift·React 는 개발 직군에만 나오지만
+ *  요구사항 정의·지표 설계·UX/UI 는 개발·기획·디자인에 모두 나온다.
+ *  spread(전이성)로 대신 재면 안 된다 — 사용자 인터뷰·정보 구조 설계처럼
+ *  직무 수가 적어 spread 는 낮은데 직군은 건너뛰는 역량을 놓친다.
+ */
+const CROSS_FAMILY = new Set<string>();
+{
+  const fams = new Map<string, Set<string>>();
+  for (const r of MATRIX) {
+    const f = jobById.get(r.jobId)?.family;
+    if (!f) continue;
+    if (!fams.has(r.skillId)) fams.set(r.skillId, new Set());
+    fams.get(r.skillId)!.add(f);
+  }
+  for (const [id, f] of fams) if (f.size >= 2) CROSS_FAMILY.add(id);
+}
+export const isCrossFamilySkill = (id: string) => CROSS_FAMILY.has(id);
+
+// ── 1단계: 이력서에서 후보를 **빠짐없이** 찾아낸다 ──────────────────────
+//
+//  왜 코드가 먼저 하나
+//    LLM 하나에게 '누락 방지'와 '의미 판단'을 동시에 시키면 둘 다 놓친다.
+//    실측 — 나열형 이력서에서 iOS 를 빠뜨렸다. 상위 모델로 바꿔도 이번엔 Swift 를 빠뜨렸다.
+//    사전에 있는 이름을 원문에서 찾는 일은 판단이 아니라 대조다. 코드가 하면 절대 빠뜨리지 않는다.
+//
+//  판단은 하지 않는다 — 남의 얘기인지, 희망사항인지, 회사 소개인지는 2단계에서 LLM 이 본다.
+const LOOKUP_PATTERNS: { id: string; name: string; re: RegExp }[] = [];
+{
+  const seen = new Set<string>();
+  for (const s of SKILLS) {
+    for (const t of [s.name, ...(s.aliases ?? [])]) {
+      const k = `${s.id}|${t.toLowerCase()}`;
+      if (t.length < 2 || seen.has(k)) continue;
+      seen.add(k);
+      //  낱말 경계. 부분 문자열로 찾으면 community 안의 unity 가 잡힌다.
+      //  한글은 조사가 붙으므로 오른쪽을 조사·어미로만 연다.
+      const esc = t.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+      //  대소문자 — 이력서는 "Language  swift, java, python" 처럼 소문자로 적는 일이 흔하다.
+      //  코퍼스 채굴 때는 대소문자를 구분해야 했지만(소문자 sass 가 Sass 로 20건 오탐),
+      //  여기는 사람이 쓴 짧은 글이고 **2단계에서 LLM 이 걸러 준다.** 넓게 잡는 편이 맞다.
+      //  다만 3글자 이하는 구분한다 — Go·R·C·IT·AI 는 영어 문장에 그대로 섞인다.
+      const flags = t.length >= 4 ? 'ui' : 'u';
+      LOOKUP_PATTERNS.push({
+        id: s.id, name: s.name,
+        re: new RegExp(
+          `(?<![A-Za-z0-9가-힣])${esc}(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[을를이가은는의에도와과로써만부터까지등및])|$)`,
+          flags),
+      });
+    }
+  }
+}
+
+export type Mention = { id: string; name: string; matched: string; context: string };
+
+/** 이력서에서 사전에 있는 역량 이름을 전부 찾는다. 순서는 원문 등장 순. */
+export function findMentions(text: string, maxContext = 60): Mention[] {
+  const out = new Map<string, Mention>();
+  for (const { id, name, re } of LOOKUP_PATTERNS) {
+    if (out.has(id)) continue;
+    const m = re.exec(text);
+    if (!m || m.index === undefined) continue;
+    const a = Math.max(0, m.index - maxContext);
+    const b = Math.min(text.length, m.index + m[0].length + maxContext);
+    out.set(id, { id, name, matched: m[0], context: text.slice(a, b).replace(/\s+/g, ' ').trim() });
+  }
+  return [...out.values()];
+}
 
 export const getSkill = (id: string) => skillById.get(id);
 export const getJob = (id: string) => jobById.get(id);

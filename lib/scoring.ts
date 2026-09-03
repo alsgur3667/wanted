@@ -1,6 +1,6 @@
 import type { AnalysisResult, GapSkill, Route, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, requirementsOf, resolveSkill } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
@@ -78,18 +78,23 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   const maxStrength = Math.max(...rawStrength.values(), 0);
 
   const scored = JOBS.map((job) => {
+    //  택일 관계는 면제한다 — iOS 개발자에게 Kotlin 을 부족 역량으로 요구하지 않는다.
+    //  covered 는 '채워진 것으로 치는 요구', hit 은 '실제로 가진 것'이다.
     const { must, nice } = requirementsOf(job.id);
-    const mustHit = must.filter((s) => have.has(s));
-    const niceHit = nice.filter((s) => have.has(s));
-    const mustCov = must.length ? mustHit.length / must.length : 0;
-    const niceCov = nice.length ? niceHit.length / nice.length : 0;
+    const m = satisfied(must, have);
+    const n = satisfied(nice, have);
+    const mustHit = m.hit, niceHit = n.hit;
+    const mustCov = must.length ? m.covered.length / must.length : 0;
+    const niceCov = nice.length ? n.covered.length / nice.length : 0;
     const strength = maxStrength ? (rawStrength.get(job.id) ?? 0) / maxStrength : 0;
     // 표본이 7건인 직무의 요구 역량을 280건인 직무와 같은 확신으로 말할 수 없다.
     // 곱하는 이유 — 걸러내지는 않는다. 진짜 그 직무인 사람에게는 여전히 1순위로 나와야 한다.
     const raw = (100 * (mustCov * MUST_W + niceCov * NICE_W + strength * STRENGTH_W))
       / (MUST_W + NICE_W + STRENGTH_W);
-    const fitScore = Math.round(raw * confidenceOf(job.id));
-    return { job, must, nice, mustHit, niceHit, fitScore };
+    //  직무 자체의 성격도 반영한다 — 정의가 넓고 남에게 흡수되는 직무는 낮춘다.
+    const fitScore = Math.round(raw * confidenceOf(job.id) * jobAdjustOf(job.id));
+    return { job, must, nice, mustHit, niceHit,
+             mustCovered: m.covered, niceCovered: n.covered, fitScore };
   }).sort((a, b) => b.fitScore - a.fitScore);
 
   const currentFamily = ex.currentPosition.jobFamily || scored[0]?.job.family || '기획';
@@ -122,20 +127,80 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       return { ...s, cross, surpriseScore };
     });
 
-  // "이 길도 있어요" 배지는 강조 장치다. 적합도가 낮은 경로에 붙이면 신뢰를 잃는다.
-  //  실측: 취준생 입력에 아키텍트(적합도 30)가 hidden 으로 잡혀 신입에게 시니어 직무를 권하는 결과가 나왔다.
-  //  → 직군을 넘더라도 최소 적합도를 넘겨야 배지를 준다. 못 넘기면 일반 경로로만 노출된다.
+  // ── "이 길도 있어요" — 적합도가 아니라 '다리'로 뽑는다 ─────────────────
+  //
+  //  적합도(fitScore)로 뽑으면 히든 경로가 사실상 안 나온다. 실측이다.
+  //    프로필 6개 중 1개에서만 나왔다. HIDDEN_MIN_FIT 이 40 인데
+  //    직군을 건너뛴 직무의 적합도는 대개 22 이하였다(프론트엔드 개발자는 9).
+  //
+  //  당연한 결과다. 기술 스킬은 직군을 건너지 않는다 — Swift·React 는 기획·디자인
+  //  공고에 나오지 않는다. 개발자가 디자이너 직무에 '적합'할 수는 없다.
+  //
+  //  정직한 주장은 다르다.
+  //    "그 직무가 요구하는 것 중 **배우기 어렵고 여러 직무에 통하는 것**을 이미 갖고 있다"
+  //  그래서 적합도가 아니라 **다리 역량의 개수와 전이성**으로 뽑는다.
+  //
+  //  문턱을 그냥 낮추지 않는 이유 — 낮추면 예전 사고가 재발한다.
+  //  (취준생 입력에 아키텍트(적합도 30)가 hidden 으로 잡혀 신입에게 시니어 직무를 권했다)
+  //  기준 두 개. 실측으로 골랐다 — 프로필 7개를 넣어 보고 오탐이 없는 쪽을 택했다.
+  //    ① 그 직무의 **필수** 중 직군을 넘나드는 역량 2개 이상   ← 주 기준. 오탐 0
+  //    ② ①이 없으면, 필수+우대 중 직군을 넘나들면서 쉽지 않은 역량 3개 이상
+  //
+  //  '필수'로 제한하는 것이 핵심이다. 우대까지 세면 Slack·HTML 같은 게 다리로 잡힌다.
+  //  실측 — 기술만 적은 8년차 iOS 개발자가 Slack·HTML·CSS 를 다리로 그래픽 디자이너에 연결됐다.
+  //  Slack 은 어느 직군에나 있지만 그것 때문에 디자이너가 되지는 않는다.
+  //  다리가 있어도 적합도가 너무 낮으면 붙이지 않는다.
+  //  실측 — 8년차 iOS 개발자에게 HTML·CSS 두 개를 다리로 그래픽 디자이너(적합도 30)가 붙었다.
+  //  둘 다 직군을 넘나드는 역량인 것은 맞지만, 그것만으로 디자이너를 권할 수는 없다.
+  //  40 은 도달 가능한 값이다 — 진짜 전환 후보는 79·51 로 나온다.
   const HIDDEN_MIN_FIT = 40;
-  const hidden = withSurprise
+  const HIDDEN_MIN_MUST_BRIDGES = 2;
+  const HIDDEN_MIN_WIDE_BRIDGES = 3;
+  const EASY_SKILL = 0.3;   // 이보다 쉬우면 다리로 세지 않는다
+
+  const bridgesOf = (s: (typeof scored)[number]) => {
+    const must = s.mustHit.filter(isCrossFamilySkill);
+    const wide = [...s.mustHit, ...s.niceHit]
+      .filter((id) => isCrossFamilySkill(id) && (getSkill(id)?.learnDifficulty ?? 0) >= EASY_SKILL);
+    return { must, wide };
+  };
+
+  const crossJobs = withSurprise
     .filter((s) => s.cross && s.fitScore >= HIDDEN_MIN_FIT)
-    .sort((a, b) => b.surpriseScore - a.surpriseScore)[0];
+    .map((s) => ({ ...s, b: bridgesOf(s) }));
+
+  //  ③ 직무 간 인접은 **문턱을 낮추는 데 쓰지 않는다.** 자격을 갖춘 것들 사이의 우선순위에만 쓴다.
+  //
+  //  처음에는 "다리가 없으면 인접한 직무를 대신 붙이자"로 만들었는데, 적합도 6점짜리에
+  //  "이 길도 있어요"가 붙었다. 근거 없는 배지는 안 붙이는 편이 낫다 —
+  //  팀원이 이미 같은 사고를 겪었다(취준생에게 적합도 30짜리 아키텍트를 hidden 으로 권함).
+  //
+  //  다리가 하나도 없다는 것은 **정말로 건너갈 길이 없다**는 뜻이다. 그때는 붙이지 않는다.
+  const anchor = scored[0]?.job.id;
+  const nearby = new Set(
+    anchor ? neighborsOf(anchor, { crossFamilyOnly: true }).map((n) => n.jobId) : []
+  );
+  const rank = (s: (typeof crossJobs)[number], n: number) => n * 10 + (nearby.has(s.job.id) ? 1 : 0);
+
+  const byMust = crossJobs
+    .filter((s) => s.b.must.length >= HIDDEN_MIN_MUST_BRIDGES)
+    .sort((a, b) => rank(b, b.b.must.length) - rank(a, a.b.must.length));
+  const byWide = crossJobs
+    .filter((s) => s.b.wide.length >= HIDDEN_MIN_WIDE_BRIDGES)
+    .sort((a, b) => rank(b, b.b.wide.length) - rank(a, a.b.wide.length));
+
+  const hidden: (typeof crossJobs)[number] | undefined = byMust[0] ?? byWide[0];
+  const hiddenBridges = hidden?.b;
+
   const picked = [
     ...withSurprise.filter((s) => s.job.id !== hidden?.job.id).slice(0, hidden ? 2 : 3),
     ...(hidden ? [hidden] : []),
   ].sort((a, b) => b.fitScore - a.fitScore);
 
   const routes: Route[] = picked.map((s, i) => {
-    const gaps = s.must.filter((m) => !have.has(m)).map(toGap);
+    //  대체재를 가진 요구는 부족 역량에서 뺀다. iOS 개발자에게 Kotlin 을 권하지 않는다.
+    const covered = new Set(s.mustCovered);
+    const gaps = s.must.filter((id) => !covered.has(id)).map(toGap);
     const total = gaps.reduce((a, g) => a + g.difficulty, 0);
     const isHidden = !!hidden && s.job.id === hidden.job.id;
     return {
@@ -147,13 +212,31 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       isHiddenRoute: isHidden,
       difficulty: total <= 1 ? 'easy' : total <= 2 ? 'moderate' : 'challenging',
       estimatedMonths: Math.max(1, Math.round(total * 3)),
-      bridgeSkills: [...s.mustHit, ...s.niceHit].map((id) => getSkill(id)!.name).slice(0, 5),
+      //  ⚠️ 근거 문구와 같은 것을 세야 한다.
+      //  예전에는 문구가 '필수 5개 중 2개'인데 옆의 '이미 가진 무기'에는 3개가 떴다.
+      //  문구는 필수만, 목록은 필수+우대를 세고 있었다. 이제 둘 다 필수 칸을 기준으로 한다.
+      bridgeSkills: [
+        ...s.mustHit.map((id) => getSkill(id)!.name),
+        ...s.niceHit.map((id) => getSkill(id)!.name),
+      ].slice(0, 5),
       gapSkills: gaps.slice(0, 3),
       reason: lowConfidence
         ? `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개가 겹칩니다. 다만 뚜렷하게 맞는 직무를 찾지 못했습니다 — 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
         : isHidden
-        ? `${s.job.family} 직군이지만 필요한 역량 ${s.mustHit.length}개를 이미 갖추고 있습니다. 직무명이 달라 검색으로는 잘 드러나지 않는 경로입니다.`
-        : `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개를 이미 보유하고 있습니다.`,
+        ? `${s.job.family} 직군이지만 이 직무가 요구하는 것 중 ${(hiddenBridges?.must.length ?? 0) || (hiddenBridges?.wide.length ?? 0)}개를 이미 갖추고 있습니다 — ${[...new Set([...(hiddenBridges?.must ?? []), ...(hiddenBridges?.wide ?? [])])].slice(0, 3).map((id) => getSkill(id)?.name).filter(Boolean).join(' · ')}. 직군을 넘나드는 역량이라 옮겨도 그대로 쓰입니다.`
+        : (() => {
+            //  대체재로 충족한 것이 있으면 그렇게 밝힌다.
+            //  안 밝히면 "5가지 중 3가지"라는데 옆의 무기는 1개로 보여 또 어긋난다.
+            const held = new Set(s.mustHit);
+            const bySub = s.mustCovered.filter((id) => !held.has(id));
+            const labels = [...new Set(bySub.map((id) => groupLabelOf(groupOf(id) ?? '')).filter(Boolean))];
+            const base = `요구 역량 ${s.must.length}가지 중 ${s.mustCovered.length}가지를 갖추고 있습니다`;
+            const sub = labels.length
+              ? ` — ${s.mustHit.map((id) => getSkill(id)!.name).slice(0, 2).join('·')} 으로 ${labels.join('·')} 요구를 충족합니다`
+              : '';
+            const nice = s.niceCovered.length ? ` (우대 ${s.niceCovered.length}가지 추가)` : '';
+            return base + sub + nice + '.';
+          })(),
       marketNote:
         isJobseeker && s.job.newcomerRatio !== undefined
           ? `공고 ${s.job.sampleSize}건 기준 · 신입 지원 가능 공고 ${Math.round(s.job.newcomerRatio * 100)}%`
