@@ -1,4 +1,4 @@
-import type { AnalysisResult, GapSkill, Route, Skill } from '@/types';
+import type { AnalysisResult, GapSkill, Route, RouteRequirement, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
 import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
@@ -114,34 +114,24 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   //  왜 그러나 — 문턱만 두면 '역량을 충분히 찾지 못했습니다' 오류가 난다.
   //  역량은 찾았는데 어느 직무에도 확신 있게 맞지 않는 경우가 있다.
   //  그때 "못 찾았다"고 말하는 것은 거짓이다. 낮은 점수를 낮은 대로 보여주는 편이 정직하다.
+  //  ⚠️ 계약은 routes 를 **정확히 3개**로 정한다(types.ts). 문턱으로 잘라내면 안 된다.
+  //
+  //  전에는 적합도 30 미만을 버렸는데, 요구 역량을 3~8개로 늘리면서 커버율이 낮아져
+  //  경로가 2개만 나오는 일이 생겼다. 계약 위반이고, 화면도 3개를 기대하고 그려져 있다.
+  //
+  //  문턱은 **자르는 데 쓰지 않고 확신이 낮다고 알리는 데**만 쓴다.
+  //  낮은 점수를 낮은 대로 보여주는 편이, 아무것도 안 보여주는 것보다 정직하다.
   const MIN_FIT = 30;
   const eligible = scored.filter((s) => openToNewcomer(s.job));
-  const passing = eligible.filter((s) => s.fitScore >= MIN_FIT);
-  const lowConfidence = passing.length === 0;
-  const withSurprise = (lowConfidence ? eligible.slice(0, 3) : passing)
-    .map((s) => {
-      const cross = s.job.family !== currentFamily;
-      const surpriseScore = cross
-        ? Math.min(100, Math.round(40 + 0.6 * s.fitScore))
-        : Math.round(0.3 * s.fitScore);
-      return { ...s, cross, surpriseScore };
-    });
+  const lowConfidence = !eligible.some((s) => s.fitScore >= MIN_FIT);
+  const withSurprise = eligible.map((s) => {
+    const cross = s.job.family !== currentFamily;
+    const surpriseScore = cross
+      ? Math.min(100, Math.round(40 + 0.6 * s.fitScore))
+      : Math.round(0.3 * s.fitScore);
+    return { ...s, cross, surpriseScore };
+  });
 
-  // ── "이 길도 있어요" — 적합도가 아니라 '다리'로 뽑는다 ─────────────────
-  //
-  //  적합도(fitScore)로 뽑으면 히든 경로가 사실상 안 나온다. 실측이다.
-  //    프로필 6개 중 1개에서만 나왔다. HIDDEN_MIN_FIT 이 40 인데
-  //    직군을 건너뛴 직무의 적합도는 대개 22 이하였다(프론트엔드 개발자는 9).
-  //
-  //  당연한 결과다. 기술 스킬은 직군을 건너지 않는다 — Swift·React 는 기획·디자인
-  //  공고에 나오지 않는다. 개발자가 디자이너 직무에 '적합'할 수는 없다.
-  //
-  //  정직한 주장은 다르다.
-  //    "그 직무가 요구하는 것 중 **배우기 어렵고 여러 직무에 통하는 것**을 이미 갖고 있다"
-  //  그래서 적합도가 아니라 **다리 역량의 개수와 전이성**으로 뽑는다.
-  //
-  //  문턱을 그냥 낮추지 않는 이유 — 낮추면 예전 사고가 재발한다.
-  //  (취준생 입력에 아키텍트(적합도 30)가 hidden 으로 잡혀 신입에게 시니어 직무를 권했다)
   //  기준 두 개. 실측으로 골랐다 — 프로필 7개를 넣어 보고 오탐이 없는 쪽을 택했다.
   //    ① 그 직무의 **필수** 중 직군을 넘나드는 역량 2개 이상   ← 주 기준. 오탐 0
   //    ② ①이 없으면, 필수+우대 중 직군을 넘나들면서 쉽지 않은 역량 3개 이상
@@ -227,6 +217,16 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     ...(hidden ? [hidden] : []),
   ].sort((a, b) => b.fitScore - a.fitScore);
 
+  //  요구 역량 한 줄을 만든다. 대체재로 충족한 것은 어느 묶음으로 충족했는지 밝힌다.
+  const reqRow = (id: string, tier: 'required' | 'preferred'): RouteRequirement => {
+    const name = getSkill(id)?.name ?? id;
+    if (have.has(id)) return { name, tier, met: true };
+    const g = groupOf(id);
+    const viaGroup = g && [...have].some((h) => groupOf(h) === g)
+      ? groupLabelOf(g) : undefined;
+    return { name, tier, met: !!viaGroup, ...(viaGroup ? { viaGroup } : {}) };
+  };
+
   const routes: Route[] = picked.map((s, i) => {
     //  대체재를 가진 요구는 부족 역량에서 뺀다. iOS 개발자에게 Kotlin 을 권하지 않는다.
     const covered = new Set(s.mustCovered);
@@ -250,6 +250,12 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         ...s.niceHit.map((id) => getSkill(id)!.name),
       ].slice(0, 5),
       gapSkills: gaps.slice(0, 3),
+      //  요구 역량 전부를 상태와 함께 싣는다.
+      //  "8가지 중 5가지"만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
+      requirements: [
+        ...s.must.map((id) => reqRow(id, 'required')),
+        ...s.nice.map((id) => reqRow(id, 'preferred')),
+      ],
       reason: isHidden && peer && s.job.id === peer.jobId
         ? `${getSkill(peer.viaSkillId)?.name} 를 쓰는 ${peer.n.toLocaleString()}명 중 `
           + `${Math.round(peer.share * 100)}%가 이 직무를 하고 있습니다. `

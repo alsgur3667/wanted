@@ -63,8 +63,12 @@ GROUPS = {
     #      프론트 개발자가 백엔드 언어 요구까지 채운 것으로 잡힌다.
     "backend_language": {
         "label": "서버 언어",
+        #  ⚠️ Kotlin 을 넣지 않는다. 서버에도 쓰이지만 우리 사전에서는 **안드로이드의 표지**다.
+        #     두 묶음에 함께 넣었더니 나중 것이 이겨서, Java 를 가진 사람이
+        #     모바일 개발자의 Kotlin 요구를 '서버 언어' 자격으로 채웠다.
+        #     화면 문구도 "Android·iOS 으로 서버 언어 요구를 충족" 이라는 말이 안 되는 문장이 됐다.
         "skills": ["Java", "C#", "Python", "Go", "Golang", "PHP", "Ruby",
-                   "Kotlin", "Rust", "Scala", "Elixir"],
+                   "Rust", "Scala", "Elixir"],
     },
     # 클라우드 — 한 곳을 주로 쓴다. 겹치는 공고는 멀티클라우드거나 마이그레이션이다.
     #   우리 공고: AWS↔Azure 31% · AWS↔GCP 29%
@@ -89,6 +93,18 @@ GROUPS = {
 
 def build(skill_names: set[str]) -> dict:
     """사전에 실제로 있는 이름만 남겨 내보낸다."""
+    #  한 역량이 두 묶음에 들면 안 된다. 앱은 skillId→묶음을 Map 하나로 만들어서
+    #  나중에 넣은 쪽이 이긴다 — 조용히 엉뚱한 묶음으로 판정된다.
+    seen = {}
+    dup = []
+    for key, g in GROUPS.items():
+        for n in g["skills"]:
+            if n in seen:
+                dup.append(f"{n}: {seen[n]} · {key}")
+            seen[n] = key
+    if dup:
+        raise SystemExit("한 역량이 두 묶음에 들어 있다 — 하나만 남겨라:\n  " + "\n  ".join(dup))
+
     out = {}
     for key, g in GROUPS.items():
         have = [s for s in g["skills"] if s in skill_names]

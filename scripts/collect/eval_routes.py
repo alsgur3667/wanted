@@ -77,7 +77,7 @@ def build_index(S, M, G):
         per_skill[m["skillId"]].append(m)
 
     def imp(m):
-        return m.get("importance") or m.get("evidence") or m["weight"]
+        return (m.get("importance") or m.get("evidence") or m["weight"])             * min(LIFT_CAP, m.get("lift") or 1)
     for v in per_job.values():
         v.sort(key=lambda m: -imp(m))
 
@@ -120,7 +120,7 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     resolve = resolver(S)
 
     def imp(m):
-        return m.get("importance") or m.get("evidence") or m["weight"]
+        return (m.get("importance") or m.get("evidence") or m["weight"])             * min(LIFT_CAP, m.get("lift") or 1)
 
     def reqs(jid):
         rows = per_job[jid]                      # 이미 강도 순

@@ -212,7 +212,12 @@ export function requirementsOf(jobId: string) {
   const rows = MATRIX.filter((r) => r.jobId === jobId);
   if (!rows.length) return { must: [], nice: [] };
 
-  const imp = (r: MatrixRow) => r.importance ?? r.evidence ?? r.weight;
+  //  ⚠️ 변별력(lift)을 곱한다. 재설계하면서 이 곱을 잃어버렸더니
+  //     모바일 개발자 필수에 React(lift 0.65 — 그 직무에서 평균 이하)가 올라오고,
+  //     임베디드의 RTOS(lift 157)·C++(lift 11.7)는 우대로 밀렸다.
+  //     강도만 보면 어느 직무에서나 범용 도구가 위로 온다. 그것을 막으려고 lift 를 쓴다.
+  const imp = (r: MatrixRow) =>
+    (r.importance ?? r.evidence ?? r.weight) * Math.min(LIFT_CAP, r.lift ?? 1);
   const top = Math.max(...rows.map(imp), 0) || 1;
   const byImp = [...rows].sort((a, b) => imp(b) - imp(a));
 

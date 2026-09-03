@@ -444,10 +444,34 @@ def run():
 
         #  필수/우대 — 출처들이 각각 어느 쪽으로 말했는지 표를 센다.
         #  공고 절 구분은 실제 문서에 적힌 것이라 무게를 크게 준다.
-        req_vote = (2 if jd_req > jd_pre else 0) + (1 if g_req > g_pre else 0) + onto
+        #  ⚠️ 공인 체계는 표를 던지지 않는다.
+        #     O*NET·NCS 는 "이 직업이 이 도구를 쓴다"고만 말하지 **필수인지 우대인지는 말하지 않는다.**
+        #     필수 쪽 표로 세었더니 공고 1건짜리 GitHub·Docker 가 임베디드의 필수가 되고,
+        #     정작 공고 3건인 RTOS·FreeRTOS 는 우대로 밀렸다.
+        #     공인 체계는 importance(강도)에만 반영하고 필수/우대 판정에서는 뺀다.
+        req_vote = (2 if jd_req > jd_pre else 0) + (1 if g_req > g_pre else 0)
         pre_vote = (2 if jd_pre > jd_req else 0) + (1 if g_pre > g_req else 0)
+        #  ── 필수가 되려면 근거가 얇아선 안 된다 ─────────────────────────
+        #
+        #  전 직무 요구 목록을 사람이 읽어 보고 넣은 조건이다. 두 가지가 반복해서 잘못 올라왔다.
+        #
+        #  ① 공고 1건짜리 — 표본이 작은 직무는 최고 강도도 낮아 문턱을 쉽게 넘는다.
+        #     모바일 개발자 필수에 React·TypeScript(각 공고 1건), QA 에 Swift·Ruby·Scala·C#(각 1건)이
+        #     올라왔다. 그 회사 스택을 적어 둔 것이지 그 직무의 요구가 아니다.
+        #
+        #  ② 공인 체계만 근거인 것 — O*NET 의 직업별 소프트웨어는
+        #     "그 직업 사람이 만질 수 있는 것"이라 요구가 아니다. 목록이 넓다.
+        #     모션·영상 디자이너 필수가 Swift·Vue·CSS·HTML·AutoCAD 가 됐다 (공고 0건).
+        #     보조 근거로만 쓰고, 그것만으로 필수가 되지는 못하게 한다.
+        #
+        #  근거가 얇으면 요구에서 빼는 것이 아니라 **우대로 내린다** — 사실이 아닌 게 아니라
+        #  필수라고 말할 만큼 확실하지 않은 것이다.
+        jd_any = jd_req + jd_pre
+        thin = (jd_any + g_any) < 2      # 공고·해설을 합쳐 2건 미만이면 얇다
         if agree == 0:
             m["tier"] = None
+        elif thin or (onto and jd_any == 0 and g_any == 0):
+            m["tier"] = "preferred"
         elif req_vote > pre_vote:
             m["tier"] = "required"
         elif pre_vote > req_vote:

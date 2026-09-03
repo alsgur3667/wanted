@@ -60,6 +60,39 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
         </ul>
       </section>
 
+      {/*
+        요구 역량 전부를 펼쳐 볼 수 있게 한다.
+        "8가지 중 5가지"라는 숫자만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
+        대체재로 충족한 것은 어느 묶음으로 충족했는지 함께 적는다 —
+        iOS 개발자가 Kotlin 을 안 가졌는데 충족으로 나오면 그 이유가 보여야 한다.
+      */}
+      {route.requirements?.length ? (
+        <details className="mt-4 group">
+          <summary className="cursor-pointer list-none text-xs font-medium opacity-55 hover:opacity-80">
+            요구 역량 {route.requirements.filter((r) => r.tier === 'required').length}가지 전체 보기
+            <span className="ml-1 inline-block transition-transform group-open:rotate-90">›</span>
+          </summary>
+          <ul className="mt-2 space-y-1">
+            {route.requirements.map((r) => (
+              <li key={`${r.tier}-${r.name}`} className="flex items-baseline gap-2 text-xs">
+                <span aria-hidden className={r.met ? 'text-emerald-600 dark:text-emerald-400' : 'opacity-30'}>
+                  {r.met ? '✓' : '·'}
+                </span>
+                <span className={r.met ? 'font-medium' : 'opacity-60'}>{r.name}</span>
+                <span className="rounded px-1 py-px text-[10px] opacity-45">
+                  {r.tier === 'required' ? '필수' : '우대'}
+                </span>
+                {r.viaGroup ? (
+                  <span className="text-[10px] text-emerald-700/70 dark:text-emerald-300/70">
+                    {r.viaGroup} 대체 충족
+                  </span>
+                ) : null}
+              </li>
+            ))}
+          </ul>
+        </details>
+      ) : null}
+
       <section className="mt-4">
         <h4 className="text-xs font-medium opacity-55">채워야 할 것</h4>
         <ul className="mt-2 space-y-2.5">

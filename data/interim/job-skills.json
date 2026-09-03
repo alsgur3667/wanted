@@ -8422,7 +8422,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -8557,7 +8557,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -8689,7 +8689,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -8862,7 +8862,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -8930,7 +8930,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9004,7 +9004,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9028,7 +9028,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9045,7 +9045,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9082,7 +9082,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9133,7 +9133,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9167,7 +9167,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -9418,7 +9418,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9462,7 +9462,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9486,7 +9486,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9503,7 +9503,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9527,7 +9527,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9571,7 +9571,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9659,7 +9659,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9700,7 +9700,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9748,7 +9748,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9772,7 +9772,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9796,7 +9796,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9813,7 +9813,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9830,7 +9830,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9929,7 +9929,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -9953,7 +9953,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -10014,7 +10014,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -10163,7 +10163,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10180,7 +10180,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10288,7 +10288,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10329,7 +10329,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10366,7 +10366,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10390,7 +10390,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10431,7 +10431,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10485,7 +10485,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10509,7 +10509,7 @@
   "evidence": 0.2632,
   "agreement": 2,
   "importance": 0.329,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10526,7 +10526,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10543,7 +10543,7 @@
   "evidence": 0.067,
   "agreement": 1,
   "importance": 0.067,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -10648,7 +10648,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10682,7 +10682,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10699,7 +10699,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10733,7 +10733,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10750,7 +10750,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10767,7 +10767,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10784,7 +10784,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10821,7 +10821,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10855,7 +10855,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10872,7 +10872,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10906,7 +10906,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10923,7 +10923,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10947,7 +10947,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10964,7 +10964,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -10981,7 +10981,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11032,7 +11032,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11056,7 +11056,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11073,7 +11073,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11124,7 +11124,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11141,7 +11141,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11158,7 +11158,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11182,7 +11182,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11199,7 +11199,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11223,7 +11223,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11274,7 +11274,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11298,7 +11298,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11315,7 +11315,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11332,7 +11332,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11356,7 +11356,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11417,7 +11417,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11441,7 +11441,7 @@
   "evidence": 0.4545,
   "agreement": 2,
   "importance": 0.5681,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11515,7 +11515,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -11624,7 +11624,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "graphic_designer",
@@ -11641,7 +11641,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "graphic_designer",
@@ -11895,7 +11895,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -11986,7 +11986,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -12003,7 +12003,7 @@
   "evidence": 0.143,
   "agreement": 1,
   "importance": 0.143,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -12094,7 +12094,7 @@
   "evidence": 0.2,
   "agreement": 1,
   "importance": 0.2,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -12118,7 +12118,7 @@
   "evidence": 0.5556,
   "agreement": 2,
   "importance": 0.6945,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -12142,7 +12142,7 @@
   "evidence": 0.5556,
   "agreement": 2,
   "importance": 0.6945,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -12166,7 +12166,7 @@
   "evidence": 0.5556,
   "agreement": 2,
   "importance": 0.6945,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -12297,7 +12297,7 @@
   },
   "agreement": 2,
   "importance": 0.0886,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12324,7 +12324,7 @@
   },
   "agreement": 2,
   "importance": 0.0492,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12351,7 +12351,7 @@
   },
   "agreement": 2,
   "importance": 0.0886,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12371,7 +12371,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12391,7 +12391,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12411,7 +12411,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12431,7 +12431,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12451,7 +12451,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12471,7 +12471,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -12491,7 +12491,7 @@
   "evidence": 0.0084,
   "agreement": 1,
   "importance": 0.0084,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12793,7 +12793,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12813,7 +12813,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12833,7 +12833,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12860,7 +12860,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12887,7 +12887,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12907,7 +12907,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12934,7 +12934,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12954,7 +12954,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -12981,7 +12981,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13001,7 +13001,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13028,7 +13028,7 @@
   },
   "agreement": 2,
   "importance": 0.0272,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13055,7 +13055,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13075,7 +13075,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13095,7 +13095,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13122,7 +13122,7 @@
   },
   "agreement": 2,
   "importance": 0.0272,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13149,7 +13149,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13176,7 +13176,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13203,7 +13203,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13223,7 +13223,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13250,7 +13250,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13277,7 +13277,7 @@
   },
   "agreement": 2,
   "importance": 0.0491,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13297,7 +13297,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13317,7 +13317,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13337,7 +13337,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13357,7 +13357,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13377,7 +13377,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13397,7 +13397,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13417,7 +13417,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13437,7 +13437,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13464,7 +13464,7 @@
   },
   "agreement": 2,
   "importance": 0.0076,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13484,7 +13484,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13504,7 +13504,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -13524,7 +13524,7 @@
   "evidence": 0.0045,
   "agreement": 1,
   "importance": 0.0045,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -13551,7 +13551,7 @@
   },
   "agreement": 2,
   "importance": 0.1525,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -13571,7 +13571,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -13591,7 +13591,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -13611,7 +13611,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -13631,7 +13631,7 @@
   "evidence": 0.0145,
   "agreement": 1,
   "importance": 0.0145,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -13651,7 +13651,7 @@
   "evidence": 0.0145,
   "agreement": 1,
   "importance": 0.0145,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -13671,7 +13671,7 @@
   "evidence": 0.0145,
   "agreement": 1,
   "importance": 0.0145,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -13691,7 +13691,7 @@
   "evidence": 0.0145,
   "agreement": 1,
   "importance": 0.0145,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -13711,7 +13711,7 @@
   "evidence": 0.0286,
   "agreement": 1,
   "importance": 0.0286,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -13731,7 +13731,7 @@
   "evidence": 0.0286,
   "agreement": 1,
   "importance": 0.0286,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -13751,7 +13751,7 @@
   "evidence": 0.0286,
   "agreement": 1,
   "importance": 0.0286,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -13771,7 +13771,7 @@
   "evidence": 0.0286,
   "agreement": 1,
   "importance": 0.0286,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -13818,7 +13818,7 @@
   "evidence": 0.0159,
   "agreement": 1,
   "importance": 0.0159,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -13838,7 +13838,7 @@
   "evidence": 0.0159,
   "agreement": 1,
   "importance": 0.0159,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -13858,7 +13858,7 @@
   "evidence": 0.0159,
   "agreement": 1,
   "importance": 0.0159,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -13878,7 +13878,7 @@
   "evidence": 0.0159,
   "agreement": 1,
   "importance": 0.0159,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -13898,7 +13898,7 @@
   "evidence": 0.0159,
   "agreement": 1,
   "importance": 0.0159,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14052,7 +14052,7 @@
   "evidence": 0.0069,
   "agreement": 1,
   "importance": 0.0069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14079,7 +14079,7 @@
   },
   "agreement": 2,
   "importance": 0.0409,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14099,7 +14099,7 @@
   "evidence": 0.0069,
   "agreement": 1,
   "importance": 0.0069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14126,7 +14126,7 @@
   },
   "agreement": 2,
   "importance": 0.0735,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14146,7 +14146,7 @@
   "evidence": 0.0069,
   "agreement": 1,
   "importance": 0.0069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -14166,7 +14166,7 @@
   "evidence": 0.0069,
   "agreement": 1,
   "importance": 0.0069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14213,7 +14213,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14240,7 +14240,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14267,7 +14267,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14287,7 +14287,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14307,7 +14307,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14327,7 +14327,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14347,7 +14347,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14367,7 +14367,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14394,7 +14394,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14421,7 +14421,7 @@
   },
   "agreement": 2,
   "importance": 0.1222,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14441,7 +14441,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14468,7 +14468,7 @@
   },
   "agreement": 2,
   "importance": 0.1222,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14488,7 +14488,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14508,7 +14508,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14535,7 +14535,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14555,7 +14555,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14575,7 +14575,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14595,7 +14595,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14615,7 +14615,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14642,7 +14642,7 @@
   },
   "agreement": 2,
   "importance": 0.0679,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -14662,7 +14662,7 @@
   "evidence": 0.0119,
   "agreement": 1,
   "importance": 0.0119,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14702,7 +14702,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14722,7 +14722,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14742,7 +14742,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14769,7 +14769,7 @@
   },
   "agreement": 2,
   "importance": 0.0344,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14789,7 +14789,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14816,7 +14816,7 @@
   },
   "agreement": 2,
   "importance": 0.1196,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14843,7 +14843,7 @@
   },
   "agreement": 2,
   "importance": 0.0217,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14870,7 +14870,7 @@
   },
   "agreement": 2,
   "importance": 0.0175,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14890,7 +14890,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14910,7 +14910,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14937,7 +14937,7 @@
   },
   "agreement": 2,
   "importance": 0.0175,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14957,7 +14957,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14977,7 +14977,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -14997,7 +14997,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -15084,7 +15084,7 @@
   "evidence": 0.0588,
   "agreement": 1,
   "importance": 0.0588,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -15111,7 +15111,7 @@
   },
   "agreement": 2,
   "importance": 0.45,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -15138,7 +15138,7 @@
   },
   "agreement": 2,
   "importance": 0.0994,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -15158,7 +15158,7 @@
   "evidence": 0.0123,
   "agreement": 1,
   "importance": 0.0123,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -15178,7 +15178,7 @@
   "evidence": 0.0123,
   "agreement": 1,
   "importance": 0.0123,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -15218,7 +15218,7 @@
   "evidence": 0.0179,
   "agreement": 1,
   "importance": 0.0179,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -15238,7 +15238,7 @@
   "evidence": 0.0179,
   "agreement": 1,
   "importance": 0.0179,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -15265,7 +15265,7 @@
   },
   "agreement": 2,
   "importance": 0.1758,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "graphic_designer",
@@ -15285,7 +15285,7 @@
   "evidence": 0.0526,
   "agreement": 1,
   "importance": 0.0526,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15325,7 +15325,7 @@
   "evidence": 0.0278,
   "agreement": 1,
   "importance": 0.0278,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15345,7 +15345,7 @@
   "evidence": 0.0278,
   "agreement": 1,
   "importance": 0.0278,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15365,7 +15365,7 @@
   "evidence": 0.0278,
   "agreement": 1,
   "importance": 0.0278,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15385,7 +15385,7 @@
   "evidence": 0.0278,
   "agreement": 1,
   "importance": 0.0278,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15405,7 +15405,7 @@
   "evidence": 0.0278,
   "agreement": 1,
   "importance": 0.0278,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -15432,7 +15432,7 @@
   },
   "agreement": 2,
   "importance": 0.1799,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15506,7 +15506,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15526,7 +15526,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15546,7 +15546,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15566,7 +15566,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15593,7 +15593,7 @@
   },
   "agreement": 2,
   "importance": 0.2744,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15620,7 +15620,7 @@
   },
   "agreement": 2,
   "importance": 0.2744,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15640,7 +15640,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15667,7 +15667,7 @@
   },
   "agreement": 2,
   "importance": 0.2744,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15687,7 +15687,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15707,7 +15707,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15734,7 +15734,7 @@
   },
   "agreement": 2,
   "importance": 0.2744,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15754,7 +15754,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15774,7 +15774,7 @@
   "evidence": 0.0303,
   "agreement": 1,
   "importance": 0.0303,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -15801,7 +15801,7 @@
   },
   "agreement": 2,
   "importance": 0.2744,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -15962,7 +15962,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -15982,7 +15982,7 @@
   "evidence": 0.0116,
   "agreement": 1,
   "importance": 0.0116,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -16022,7 +16022,7 @@
   "evidence": 0.0041,
   "agreement": 1,
   "importance": 0.0041,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -16042,7 +16042,7 @@
   "evidence": 0.0041,
   "agreement": 1,
   "importance": 0.0041,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -16062,7 +16062,7 @@
   "evidence": 0.0041,
   "agreement": 1,
   "importance": 0.0041,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -16082,7 +16082,7 @@
   "evidence": 0.0041,
   "agreement": 1,
   "importance": 0.0041,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -16102,7 +16102,7 @@
   "evidence": 0.013,
   "agreement": 1,
   "importance": 0.013,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -16176,7 +16176,7 @@
   },
   "agreement": 2,
   "importance": 0.4328,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -16203,7 +16203,7 @@
   },
   "agreement": 2,
   "importance": 0.4328,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -16230,7 +16230,7 @@
   },
   "agreement": 2,
   "importance": 0.4328,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -16250,7 +16250,7 @@
   "evidence": 0.0556,
   "agreement": 1,
   "importance": 0.0556,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -16270,7 +16270,7 @@
   "evidence": 0.0556,
   "agreement": 1,
   "importance": 0.0556,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -16290,7 +16290,7 @@
   "evidence": 0.0137,
   "agreement": 1,
   "importance": 0.0137,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -16317,7 +16317,7 @@
   },
   "agreement": 2,
   "importance": 0.0978,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -16344,7 +16344,7 @@
   },
   "agreement": 2,
   "importance": 0.1389,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -16364,7 +16364,7 @@
   "evidence": 0.0137,
   "agreement": 1,
   "importance": 0.0137,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -16404,7 +16404,7 @@
   "evidence": 0.0189,
   "agreement": 1,
   "importance": 0.0189,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16431,7 +16431,7 @@
   },
   "agreement": 2,
   "importance": 0.0196,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16458,7 +16458,7 @@
   },
   "agreement": 2,
   "importance": 0.0196,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16478,7 +16478,7 @@
   "evidence": 0.0018,
   "agreement": 1,
   "importance": 0.0018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16502,7 +16502,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16526,7 +16526,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16550,7 +16550,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16574,7 +16574,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16598,7 +16598,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16622,7 +16622,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16646,7 +16646,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16670,7 +16670,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16694,7 +16694,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16718,7 +16718,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16742,7 +16742,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16766,7 +16766,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16790,7 +16790,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16814,7 +16814,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16838,7 +16838,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16862,7 +16862,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16886,7 +16886,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16910,7 +16910,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16934,7 +16934,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16958,7 +16958,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -16982,7 +16982,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17006,7 +17006,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17030,7 +17030,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17054,7 +17054,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17078,7 +17078,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17102,7 +17102,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17126,7 +17126,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17150,7 +17150,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17174,7 +17174,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17198,7 +17198,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17222,7 +17222,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17246,7 +17246,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17270,7 +17270,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17294,7 +17294,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17318,7 +17318,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17342,7 +17342,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17366,7 +17366,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17390,7 +17390,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17414,7 +17414,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17438,7 +17438,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17462,7 +17462,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17486,7 +17486,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17510,7 +17510,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17534,7 +17534,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17558,7 +17558,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17582,7 +17582,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17606,7 +17606,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17630,7 +17630,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17654,7 +17654,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17678,7 +17678,7 @@
   "evidence": 0.0141,
   "agreement": 1,
   "importance": 0.0141,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17702,7 +17702,7 @@
   "evidence": 0.0039,
   "agreement": 1,
   "importance": 0.0039,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "sw_eng",
@@ -17726,7 +17726,7 @@
   "evidence": 0.001,
   "agreement": 1,
   "importance": 0.001,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17750,7 +17750,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17774,7 +17774,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17798,7 +17798,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17822,7 +17822,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17846,7 +17846,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17870,7 +17870,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17894,7 +17894,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17918,7 +17918,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17942,7 +17942,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17966,7 +17966,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -17990,7 +17990,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18014,7 +18014,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18038,7 +18038,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18062,7 +18062,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18086,7 +18086,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18110,7 +18110,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18134,7 +18134,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18158,7 +18158,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18182,7 +18182,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18206,7 +18206,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18230,7 +18230,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18254,7 +18254,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18278,7 +18278,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18302,7 +18302,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18326,7 +18326,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18350,7 +18350,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18374,7 +18374,7 @@
   "evidence": 0.036,
   "agreement": 1,
   "importance": 0.036,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18398,7 +18398,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18422,7 +18422,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "be_dev",
@@ -18446,7 +18446,7 @@
   "evidence": 0.018,
   "agreement": 1,
   "importance": 0.018,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18470,7 +18470,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18494,7 +18494,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18518,7 +18518,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18542,7 +18542,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18566,7 +18566,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18590,7 +18590,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18614,7 +18614,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18638,7 +18638,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18662,7 +18662,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18686,7 +18686,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18710,7 +18710,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18734,7 +18734,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18758,7 +18758,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18782,7 +18782,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18806,7 +18806,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18830,7 +18830,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18854,7 +18854,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18878,7 +18878,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18902,7 +18902,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18926,7 +18926,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18950,7 +18950,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18974,7 +18974,7 @@
   "evidence": 0.0093,
   "agreement": 1,
   "importance": 0.0093,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -18998,7 +18998,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19022,7 +19022,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19046,7 +19046,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19070,7 +19070,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19094,7 +19094,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19118,7 +19118,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19142,7 +19142,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19166,7 +19166,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19190,7 +19190,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19214,7 +19214,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19238,7 +19238,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19262,7 +19262,7 @@
   "evidence": 0.1333,
   "agreement": 1,
   "importance": 0.1333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19286,7 +19286,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19310,7 +19310,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19334,7 +19334,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fe_dev",
@@ -19358,7 +19358,7 @@
   "evidence": 0.0093,
   "agreement": 1,
   "importance": 0.0093,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19382,7 +19382,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19406,7 +19406,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19430,7 +19430,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19454,7 +19454,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19478,7 +19478,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19502,7 +19502,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19526,7 +19526,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19550,7 +19550,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19574,7 +19574,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19598,7 +19598,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19622,7 +19622,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19646,7 +19646,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19670,7 +19670,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19694,7 +19694,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19718,7 +19718,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19742,7 +19742,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19766,7 +19766,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19790,7 +19790,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19814,7 +19814,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19838,7 +19838,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19862,7 +19862,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19886,7 +19886,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19910,7 +19910,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19934,7 +19934,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19958,7 +19958,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -19982,7 +19982,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20006,7 +20006,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20030,7 +20030,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20054,7 +20054,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20078,7 +20078,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20102,7 +20102,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20126,7 +20126,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20150,7 +20150,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20174,7 +20174,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20198,7 +20198,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20222,7 +20222,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20246,7 +20246,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20270,7 +20270,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20294,7 +20294,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "fullstack_dev",
@@ -20318,7 +20318,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20342,7 +20342,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20366,7 +20366,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20390,7 +20390,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20414,7 +20414,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20438,7 +20438,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20462,7 +20462,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20486,7 +20486,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20510,7 +20510,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20534,7 +20534,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20558,7 +20558,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20582,7 +20582,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20606,7 +20606,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20630,7 +20630,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20654,7 +20654,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20678,7 +20678,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20702,7 +20702,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20726,7 +20726,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20750,7 +20750,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20774,7 +20774,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20798,7 +20798,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20822,7 +20822,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20846,7 +20846,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20870,7 +20870,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20894,7 +20894,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20918,7 +20918,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20942,7 +20942,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20966,7 +20966,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -20990,7 +20990,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21014,7 +21014,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21038,7 +21038,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21062,7 +21062,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21086,7 +21086,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21110,7 +21110,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21134,7 +21134,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21158,7 +21158,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21182,7 +21182,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21206,7 +21206,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21230,7 +21230,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21254,7 +21254,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "mobile_dev",
@@ -21278,7 +21278,7 @@
   "evidence": 0.0094,
   "agreement": 1,
   "importance": 0.0094,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21302,7 +21302,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21326,7 +21326,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21350,7 +21350,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21374,7 +21374,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21398,7 +21398,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21422,7 +21422,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21446,7 +21446,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21470,7 +21470,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21494,7 +21494,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21518,7 +21518,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21542,7 +21542,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21566,7 +21566,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21590,7 +21590,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21614,7 +21614,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21638,7 +21638,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21662,7 +21662,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21686,7 +21686,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21710,7 +21710,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21734,7 +21734,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21758,7 +21758,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21782,7 +21782,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21806,7 +21806,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21830,7 +21830,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21854,7 +21854,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21878,7 +21878,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21902,7 +21902,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21926,7 +21926,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21950,7 +21950,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21974,7 +21974,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -21998,7 +21998,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -22022,7 +22022,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -22046,7 +22046,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "embedded_dev",
@@ -22070,7 +22070,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22094,7 +22094,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22118,7 +22118,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22142,7 +22142,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22166,7 +22166,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22190,7 +22190,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22214,7 +22214,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22238,7 +22238,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22262,7 +22262,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22286,7 +22286,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22310,7 +22310,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22334,7 +22334,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22358,7 +22358,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22382,7 +22382,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22406,7 +22406,7 @@
   "evidence": 0.0392,
   "agreement": 1,
   "importance": 0.0392,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22430,7 +22430,7 @@
   "evidence": 0.1176,
   "agreement": 1,
   "importance": 0.1176,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22454,7 +22454,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22478,7 +22478,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22502,7 +22502,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22526,7 +22526,7 @@
   "evidence": 0.0784,
   "agreement": 1,
   "importance": 0.0784,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22550,7 +22550,7 @@
   "evidence": 0.0082,
   "agreement": 1,
   "importance": 0.0082,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22574,7 +22574,7 @@
   "evidence": 0.0165,
   "agreement": 1,
   "importance": 0.0165,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22598,7 +22598,7 @@
   "evidence": 0.0082,
   "agreement": 1,
   "importance": 0.0082,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_eng",
@@ -22622,7 +22622,7 @@
   "evidence": 0.0082,
   "agreement": 1,
   "importance": 0.0082,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22646,7 +22646,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22670,7 +22670,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22694,7 +22694,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22718,7 +22718,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22742,7 +22742,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22766,7 +22766,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22790,7 +22790,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22814,7 +22814,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22838,7 +22838,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22862,7 +22862,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22886,7 +22886,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22910,7 +22910,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22934,7 +22934,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22958,7 +22958,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -22982,7 +22982,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23006,7 +23006,7 @@
   "evidence": 0.0541,
   "agreement": 1,
   "importance": 0.0541,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23030,7 +23030,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23054,7 +23054,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23078,7 +23078,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23102,7 +23102,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23126,7 +23126,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_scientist",
@@ -23150,7 +23150,7 @@
   "evidence": 0.027,
   "agreement": 1,
   "importance": 0.027,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23174,7 +23174,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23198,7 +23198,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23222,7 +23222,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23246,7 +23246,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23270,7 +23270,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23294,7 +23294,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23318,7 +23318,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23342,7 +23342,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "data_analyst",
@@ -23366,7 +23366,7 @@
   "evidence": 0.1053,
   "agreement": 1,
   "importance": 0.1053,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23390,7 +23390,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23414,7 +23414,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23438,7 +23438,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23462,7 +23462,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23486,7 +23486,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23510,7 +23510,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23534,7 +23534,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23558,7 +23558,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23582,7 +23582,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23606,7 +23606,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23630,7 +23630,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23654,7 +23654,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23678,7 +23678,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23702,7 +23702,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23726,7 +23726,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23750,7 +23750,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23774,7 +23774,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23798,7 +23798,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23822,7 +23822,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23846,7 +23846,7 @@
   "evidence": 0.0889,
   "agreement": 1,
   "importance": 0.0889,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23870,7 +23870,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23894,7 +23894,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "devops_sre",
@@ -23918,7 +23918,7 @@
   "evidence": 0.0444,
   "agreement": 1,
   "importance": 0.0444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -23942,7 +23942,7 @@
   "evidence": 0.1026,
   "agreement": 1,
   "importance": 0.1026,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -23966,7 +23966,7 @@
   "evidence": 0.1026,
   "agreement": 1,
   "importance": 0.1026,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -23990,7 +23990,7 @@
   "evidence": 0.0684,
   "agreement": 1,
   "importance": 0.0684,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -24014,7 +24014,7 @@
   "evidence": 0.0342,
   "agreement": 1,
   "importance": 0.0342,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -24038,7 +24038,7 @@
   "evidence": 0.0684,
   "agreement": 1,
   "importance": 0.0684,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -24062,7 +24062,7 @@
   "evidence": 0.0342,
   "agreement": 1,
   "importance": 0.0342,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "security_eng",
@@ -24086,7 +24086,7 @@
   "evidence": 0.0342,
   "agreement": 1,
   "importance": 0.0342,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24110,7 +24110,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24134,7 +24134,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24158,7 +24158,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24182,7 +24182,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24206,7 +24206,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24230,7 +24230,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24254,7 +24254,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24278,7 +24278,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24302,7 +24302,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24326,7 +24326,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24350,7 +24350,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24374,7 +24374,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24398,7 +24398,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24422,7 +24422,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24446,7 +24446,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24470,7 +24470,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24494,7 +24494,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24518,7 +24518,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24542,7 +24542,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24566,7 +24566,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24590,7 +24590,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24614,7 +24614,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24638,7 +24638,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24662,7 +24662,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24686,7 +24686,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24710,7 +24710,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24734,7 +24734,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "qa_eng",
@@ -24758,7 +24758,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24782,7 +24782,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24806,7 +24806,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24830,7 +24830,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24854,7 +24854,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24878,7 +24878,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24902,7 +24902,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24926,7 +24926,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24950,7 +24950,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24974,7 +24974,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -24998,7 +24998,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25022,7 +25022,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25046,7 +25046,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25070,7 +25070,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25094,7 +25094,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25118,7 +25118,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25142,7 +25142,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25166,7 +25166,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25190,7 +25190,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25214,7 +25214,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25238,7 +25238,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25262,7 +25262,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25286,7 +25286,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25310,7 +25310,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25334,7 +25334,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25358,7 +25358,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25382,7 +25382,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25406,7 +25406,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25430,7 +25430,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25454,7 +25454,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25478,7 +25478,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25502,7 +25502,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25526,7 +25526,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25550,7 +25550,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25574,7 +25574,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25598,7 +25598,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25622,7 +25622,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25646,7 +25646,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25670,7 +25670,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25694,7 +25694,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25718,7 +25718,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25742,7 +25742,7 @@
   "evidence": 0.0667,
   "agreement": 1,
   "importance": 0.0667,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25766,7 +25766,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25790,7 +25790,7 @@
   "evidence": 0.0333,
   "agreement": 1,
   "importance": 0.0333,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25814,7 +25814,7 @@
   "evidence": 0.0034,
   "agreement": 1,
   "importance": 0.0034,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "architect",
@@ -25838,7 +25838,7 @@
   "evidence": 0.0034,
   "agreement": 1,
   "importance": 0.0034,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25862,7 +25862,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25886,7 +25886,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25910,7 +25910,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25934,7 +25934,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25958,7 +25958,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -25982,7 +25982,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26006,7 +26006,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26030,7 +26030,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26054,7 +26054,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26078,7 +26078,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26102,7 +26102,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "eng_lead",
@@ -26126,7 +26126,7 @@
   "evidence": 0.0952,
   "agreement": 1,
   "importance": 0.0952,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26150,7 +26150,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26174,7 +26174,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26198,7 +26198,7 @@
   "evidence": 0.069,
   "agreement": 1,
   "importance": 0.069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26222,7 +26222,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26246,7 +26246,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26270,7 +26270,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26294,7 +26294,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26318,7 +26318,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26342,7 +26342,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26366,7 +26366,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26390,7 +26390,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26414,7 +26414,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26438,7 +26438,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26462,7 +26462,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26486,7 +26486,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26510,7 +26510,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26534,7 +26534,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26558,7 +26558,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26582,7 +26582,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26606,7 +26606,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26630,7 +26630,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26654,7 +26654,7 @@
   "evidence": 0.069,
   "agreement": 1,
   "importance": 0.069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26678,7 +26678,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26702,7 +26702,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26726,7 +26726,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26750,7 +26750,7 @@
   "evidence": 0.069,
   "agreement": 1,
   "importance": 0.069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26774,7 +26774,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26798,7 +26798,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26822,7 +26822,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26846,7 +26846,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26870,7 +26870,7 @@
   "evidence": 0.1379,
   "agreement": 1,
   "importance": 0.1379,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26894,7 +26894,7 @@
   "evidence": 0.069,
   "agreement": 1,
   "importance": 0.069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "solutions_eng",
@@ -26918,7 +26918,7 @@
   "evidence": 0.069,
   "agreement": 1,
   "importance": 0.069,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -26942,7 +26942,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -26966,7 +26966,7 @@
   "evidence": 0.05,
   "agreement": 1,
   "importance": 0.05,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -26990,7 +26990,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27014,7 +27014,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27038,7 +27038,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27062,7 +27062,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27086,7 +27086,7 @@
   "evidence": 0.1,
   "agreement": 1,
   "importance": 0.1,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27110,7 +27110,7 @@
   "evidence": 0.05,
   "agreement": 1,
   "importance": 0.05,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27134,7 +27134,7 @@
   "evidence": 0.05,
   "agreement": 1,
   "importance": 0.05,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27158,7 +27158,7 @@
   "evidence": 0.05,
   "agreement": 1,
   "importance": 0.05,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "program_manager",
@@ -27182,7 +27182,7 @@
   "evidence": 0.0123,
   "agreement": 1,
   "importance": 0.0123,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27206,7 +27206,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27230,7 +27230,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27254,7 +27254,7 @@
   "evidence": 0.0165,
   "agreement": 1,
   "importance": 0.0165,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27278,7 +27278,7 @@
   "evidence": 0.0165,
   "agreement": 1,
   "importance": 0.0165,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27302,7 +27302,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27326,7 +27326,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27350,7 +27350,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27374,7 +27374,7 @@
   "evidence": 0.0165,
   "agreement": 1,
   "importance": 0.0165,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27398,7 +27398,7 @@
   "evidence": 0.0331,
   "agreement": 1,
   "importance": 0.0331,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27422,7 +27422,7 @@
   "evidence": 0.0165,
   "agreement": 1,
   "importance": 0.0165,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
@@ -27446,7 +27446,7 @@
   "evidence": 0.002,
   "agreement": 1,
   "importance": 0.002,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27470,7 +27470,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27494,7 +27494,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27518,7 +27518,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27542,7 +27542,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27566,7 +27566,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27590,7 +27590,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27614,7 +27614,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27638,7 +27638,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27662,7 +27662,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27686,7 +27686,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27710,7 +27710,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27734,7 +27734,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27758,7 +27758,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27782,7 +27782,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27806,7 +27806,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27830,7 +27830,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27854,7 +27854,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27878,7 +27878,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27902,7 +27902,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27926,7 +27926,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27950,7 +27950,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27974,7 +27974,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -27998,7 +27998,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28022,7 +28022,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28046,7 +28046,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28070,7 +28070,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28094,7 +28094,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28118,7 +28118,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28142,7 +28142,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28166,7 +28166,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28190,7 +28190,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28214,7 +28214,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28238,7 +28238,7 @@
   "evidence": 0.1081,
   "agreement": 1,
   "importance": 0.1081,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28262,7 +28262,7 @@
   "evidence": 0.0063,
   "agreement": 1,
   "importance": 0.0063,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28286,7 +28286,7 @@
   "evidence": 0.0126,
   "agreement": 1,
   "importance": 0.0126,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_strategy",
@@ -28310,7 +28310,7 @@
   "evidence": 0.019,
   "agreement": 1,
   "importance": 0.019,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28334,7 +28334,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28358,7 +28358,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28382,7 +28382,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28406,7 +28406,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28430,7 +28430,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28454,7 +28454,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28478,7 +28478,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28502,7 +28502,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28526,7 +28526,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28550,7 +28550,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28574,7 +28574,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28598,7 +28598,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28622,7 +28622,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28646,7 +28646,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28670,7 +28670,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28694,7 +28694,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28718,7 +28718,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28742,7 +28742,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28766,7 +28766,7 @@
   "evidence": 0.1053,
   "agreement": 1,
   "importance": 0.1053,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28790,7 +28790,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28814,7 +28814,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "biz_analyst",
@@ -28838,7 +28838,7 @@
   "evidence": 0.1053,
   "agreement": 1,
   "importance": 0.1053,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -28862,7 +28862,7 @@
   "evidence": 0.1404,
   "agreement": 1,
   "importance": 0.1404,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -28886,7 +28886,7 @@
   "evidence": 0.2105,
   "agreement": 1,
   "importance": 0.2105,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "growth_marketing",
@@ -28910,7 +28910,7 @@
   "evidence": 0.0702,
   "agreement": 1,
   "importance": 0.0702,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -28934,7 +28934,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -28958,7 +28958,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -28982,7 +28982,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29006,7 +29006,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29030,7 +29030,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29054,7 +29054,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29078,7 +29078,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29102,7 +29102,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29126,7 +29126,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29150,7 +29150,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29174,7 +29174,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29198,7 +29198,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29222,7 +29222,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29246,7 +29246,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29270,7 +29270,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29294,7 +29294,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29318,7 +29318,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29342,7 +29342,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29366,7 +29366,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29390,7 +29390,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29414,7 +29414,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29438,7 +29438,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29462,7 +29462,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29486,7 +29486,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29510,7 +29510,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29534,7 +29534,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29558,7 +29558,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29582,7 +29582,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29606,7 +29606,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29630,7 +29630,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29654,7 +29654,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29678,7 +29678,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29702,7 +29702,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29726,7 +29726,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29750,7 +29750,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29774,7 +29774,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29798,7 +29798,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_designer",
@@ -29822,7 +29822,7 @@
   "evidence": 0.0909,
   "agreement": 1,
   "importance": 0.0909,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -29846,7 +29846,7 @@
   "evidence": 0.0465,
   "agreement": 1,
   "importance": 0.0465,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -29870,7 +29870,7 @@
   "evidence": 0.0465,
   "agreement": 1,
   "importance": 0.0465,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "designer",
@@ -29894,7 +29894,7 @@
   "evidence": 0.0465,
   "agreement": 1,
   "importance": 0.0465,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "graphic_designer",
@@ -29918,7 +29918,7 @@
   "evidence": 0.1818,
   "agreement": 1,
   "importance": 0.1818,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "graphic_designer",
@@ -29942,7 +29942,7 @@
   "evidence": 0.3636,
   "agreement": 1,
   "importance": 0.3636,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -29966,7 +29966,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -29990,7 +29990,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -30014,7 +30014,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -30038,7 +30038,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -30062,7 +30062,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "motion_designer",
@@ -30086,7 +30086,7 @@
   "evidence": 0.4444,
   "agreement": 1,
   "importance": 0.4444,
-  "tier": "required"
+  "tier": "preferred"
  },
  {
   "jobId": "product_manager",
