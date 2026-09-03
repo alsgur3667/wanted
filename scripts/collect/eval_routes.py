@@ -128,10 +128,12 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     def reqs(jid):
         rows = per_job[jid]                      # 이미 강도 순
         top = max((imp(r) for r in rows), default=0) or 1
-        must = [r for r in rows if r.get("tier") == "required" and imp(r) >= top * MUST_REL]
+        #  pinned = 사람이 점검판에서 필수로 못 박은 줄. 앱과 같게 문턱을 면제한다.
+        must = [r for r in rows
+                if r.get("tier") == "required" and (r.get("pinned") or imp(r) >= top * MUST_REL)]
         if len(must) < MUST_MIN:
             must = rows[:MUST_MIN]
-        must = must[:MUST_MAX]
+        must = sorted(must, key=lambda r: not r.get("pinned"))[:MUST_MAX]
         ms = {r["skillId"] for r in must}
         nice = [r for r in rows
                 if r["skillId"] not in ms and (r.get("tier") == "preferred" or imp(r) >= top * 0.2)]

@@ -298,6 +298,107 @@ def run():
                                   "required" if req > pref else "preferred")
             matrix.append(row)
 
+    # ── 사람이 손으로 고친 것 (1) — 이름·삭제·줄 추가·공고 건수 ──────────
+    #
+    #  docs/data-dashboard.html 에서 고쳐 내려받은 data/overrides.json 을 읽는다.
+    #  판단을 코드가 아니라 데이터로 남기려는 것이다. 다시 돌려도 유지된다.
+    #
+    #  ⚠️ 세 번에 나눠 적용한다. 순서가 중요하다.
+    #     (1) 여기      — 이름·삭제·줄 추가·공고 건수. 이 값들이 뒤의 계산에 들어가야 한다.
+    #     (2) 판정 직전 — 해설 필수/우대. 해설 합산이 이 칸을 덮어쓰므로 그 뒤에 얹는다.
+    #     (3) 맨 끝     — 필수/우대 판정과 강도 배수. 사람의 최종 판단이라 마지막에 이긴다.
+    OV = {}
+    _ovf = REPO / "data" / "overrides.json"
+    if _ovf.exists():
+        OV = json.loads(_ovf.read_text(encoding="utf-8"))
+    ov_skills = OV.get("_skills") or {}
+    ov_jobs = OV.get("_jobs") or {}
+    n_ov1 = 0
+
+    #  역량 이름 고치기 / 지우기
+    drop_sids = {sid for sid, v in ov_skills.items() if v.get("drop")}
+    for rec in skills:
+        v = ov_skills.get(rec["id"])
+        if v and v.get("name") and v["name"] != rec["name"]:
+            #  바뀌기 전 이름도 별칭으로 남긴다 — 이력서에 옛 표기가 나올 수 있다.
+            if rec["name"] not in rec["aliases"]:
+                rec["aliases"].append(rec["name"])
+            rec["name"] = v["name"]
+            rec["overridden"] = True
+            n_ov1 += 1
+    if drop_sids:
+        skills[:] = [x for x in skills if x["id"] not in drop_sids]
+        matrix[:] = [m for m in matrix if m["skillId"] not in drop_sids]
+        n_ov1 += len(drop_sids)
+
+    #  직무 이름 고치기 / 지우기
+    drop_jids = {jid for jid, v in ov_jobs.items() if v.get("drop")}
+    for rec in jobs:
+        v = ov_jobs.get(rec["id"])
+        if v and v.get("title") and v["title"] != rec["title"]:
+            rec.setdefault("aliases", []).append(rec["title"])
+            rec["title"] = v["title"]
+            rec["overridden"] = True
+            n_ov1 += 1
+    if drop_jids:
+        jobs[:] = [x for x in jobs if x["id"] not in drop_jids]
+        matrix[:] = [m for m in matrix if m["jobId"] not in drop_jids]
+        n_ov1 += len(drop_jids)
+
+    #  없던 줄 넣기 — 사전에 없는 이름이면 역량을 새로 만든다
+    by_name = {x["name"].lower(): x for x in skills}
+    have_pair = {(m["jobId"], m["skillId"]) for m in matrix}
+    job_ids = {j["id"] for j in jobs}
+    for a in OV.get("_add") or []:
+        jid, nm = a.get("job"), (a.get("skill") or "").strip()
+        if not nm or jid not in job_ids:
+            continue
+        rec = by_name.get(nm.lower())
+        if rec is None:
+            sid = slug(nm, used)
+            rec = {"id": sid, "name": nm, "type": "hard", "aliases": [],
+                   "learnDifficulty": 0.5,
+                   "firstStep": FIRST_STEP["skill_ko"].format(n=nm),
+                   "sourceType": "manual", "isCertification": False, "onMap": False,
+                   "firstStepSource": "template", "difficultySource": "manual",
+                   "overridden": True}
+            skills.append(rec)
+            by_name[nm.lower()] = rec
+        if (jid, rec["id"]) in have_pair:
+            continue
+        jd_req, jd_pre = int(a.get("jdReq") or 0), int(a.get("jdPre") or 0)
+        n_post = next((j.get("sampleSize") or 0 for j in jobs if j["id"] == jid), 0)
+        matrix.append({
+            "jobId": jid, "skillId": rec["id"],
+            "weight": round((jd_req + jd_pre) / n_post, 4) if n_post else 0.0,
+            "docFreq": jd_req + jd_pre, "source": "override",
+            "prefFreq": jd_pre, "reqFreq": jd_req,
+            "lift": None, "characteristic": False, "reqShare": None,
+            "requirement": a.get("tier") if a.get("tier") in ("required", "preferred") else None,
+            "overridden": True,
+        })
+        have_pair.add((jid, rec["id"]))
+        n_ov1 += 1
+
+    #  공고 자격요건/우대 건수를 사람이 다시 적은 것
+    _bp = {(m["jobId"], m["skillId"]): m for m in matrix}
+    for k, v in OV.items():
+        if k.startswith("_") or not isinstance(v, dict):
+            continue
+        st_ = v.get("set") or {}
+        row = _bp.get(tuple(k.split("|", 1)))
+        if row is None or not ("jdReq" in st_ or "jdPre" in st_):
+            continue
+        row["reqFreq"] = int(st_.get("jdReq", row.get("reqFreq") or 0))
+        row["prefFreq"] = int(st_.get("jdPre", row.get("prefFreq") or 0))
+        #  docFreq 는 '이 역량이 나온 공고 수'다. 절별 합계보다 작을 수 없다.
+        row["docFreq"] = max(row.get("docFreq") or 0, row["reqFreq"] + row["prefFreq"])
+        row["overridden"] = True
+        n_ov1 += 1
+
+    if n_ov1:
+        print(f"사람 보정(1) 이름·삭제·줄 추가·공고 건수 {n_ov1}건")
+
     # ── 추가 제안: 인접 그래프 ────────────────────────────────────────
     jid_of = {j["title"]: j["id"] for j in jobs}
     adjacency = [{
@@ -435,6 +536,22 @@ def run():
     #
     #  그리고 **여러 출처가 함께 말한 것**을 올린다. 회사마다 공고에 적는 것이 다르니
     #  한 곳만 말한 것보다 여러 곳이 말한 것이 믿을 만하다.
+    #  사람이 손으로 고친 것 (2) — 해설 글의 필수/우대.
+    #  해설 합산이 이 두 칸을 덮어쓰므로 그 뒤, 판정 앞에서 얹는다.
+    _bp2 = {(m["jobId"], m["skillId"]): m for m in matrix}
+    for _k, _v in OV.items():
+        if _k.startswith("_") or not isinstance(_v, dict):
+            continue
+        _st = _v.get("set") or {}
+        _row = _bp2.get(tuple(_k.split("|", 1)))
+        if _row is None or not ("gReq" in _st or "gPre" in _st):
+            continue
+        _row["guideRequired"] = int(_st.get("gReq", _row.get("guideRequired") or 0))
+        _row["guidePreferred"] = int(_st.get("gPre", _row.get("guidePreferred") or 0))
+        _row["guideMentions"] = max(_row.get("guideMentions") or 0,
+                                    _row["guideRequired"] + _row["guidePreferred"])
+        _row["overridden"] = True
+
     AGREE_BONUS = 0.25          # 출처가 하나 늘 때마다 importance 를 이만큼 올린다
     MUST_MIN_SHARE = 0.15       # 필수는 그 직무 공고의 이 비율 이상에 나와야 한다
     for m in matrix:
@@ -474,6 +591,15 @@ def run():
         #
         #  근거가 얇으면 요구에서 빼는 것이 아니라 **우대로 내린다** — 사실이 아닌 게 아니라
         #  필수라고 말할 만큼 확실하지 않은 것이다.
+        #  손으로 넣은 줄은 아래 규칙들을 타지 않는다. 사람이 직접 넣은 것이 근거다.
+        #  실제로 "테스트 설계(공고 4건)"를 QA 에 넣었더니 표본 20건 미만 규칙에 걸려
+        #  우대로 내려갔다. 사람의 입력을 기계가 되물어보는 꼴이다.
+        if m.get("source") == "override" and m.get("requirement") in ("required", "preferred"):
+            m["tier"] = m["requirement"]
+            if m["tier"] == "required":
+                m["pinned"] = True
+            continue
+
         jd_any = jd_req + jd_pre
         thin = (jd_any + g_any) < 2      # 공고·해설을 합쳐 2건 미만이면 얇다
         #  ③ 표본이 아주 작은 직무는 공고만으로 필수를 정하지 않는다.
@@ -530,13 +656,13 @@ def run():
     #
     #  ⚠️ 원본 수치(weight·docFreq·evidence)는 건드리지 않는다. tier 와 강도 배수만 바꾼다.
     #     어떤 값이 사람 손을 탔는지 언제나 구분할 수 있어야 한다.
-    ovf = REPO / "data" / "overrides.json"
     n_ov = 0
-    if ovf.exists():
-        ov = json.loads(ovf.read_text(encoding="utf-8"))
+    if OV:
         by_pair2 = {(m["jobId"], m["skillId"]): m for m in matrix}
         drop = set()
-        for k, v in ov.items():
+        for k, v in OV.items():
+            if k.startswith("_") or not isinstance(v, dict):
+                continue
             jid, _, sid = k.partition("|")
             row = by_pair2.get((jid, sid))
             if not row:
@@ -548,13 +674,19 @@ def run():
                 continue
             if v.get("tier") in ("required", "preferred"):
                 row["tier"] = v["tier"]
+                #  사람이 '필수'라고 한 줄은 강도 문턱(1위 대비 40%)을 타지 않는다.
+                #  실제로 임베디드의 RTOS 를 필수로 지정했는데 강도 1.05 가 문턱 1.2 에
+                #  못 미쳐 목록에 안 나왔다. 손으로 고치는 의미가 없어진다.
+                row["pinned"] = v["tier"] == "required" or None
+                if row["pinned"] is None:
+                    del row["pinned"]
             elif v.get("tier") == "other":
                 row["tier"] = None
             if v.get("mul"):
                 row["importance"] = round(min(1.0, (row.get("importance") or 0) * v["mul"]), 4)
         if drop:
             matrix[:] = [m for m in matrix if (m["jobId"], m["skillId"]) not in drop]
-        print(f"사람 보정 {n_ov}건 적용 (제외 {len(drop)}건) — data/overrides.json")
+        print(f"사람 보정(3) 판정·강도 {n_ov}건 (제외 {len(drop)}건) — data/overrides.json")
 
     tc = Counter(m["tier"] for m in matrix)
     ac = Counter(m["agreement"] for m in matrix)

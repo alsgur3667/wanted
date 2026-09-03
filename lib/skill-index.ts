@@ -37,6 +37,8 @@ export type MatrixRow = {
   verification?: 'confirmed' | 'corroborated' | 'unverified';
   /** 공고가 자격요건 절에 적었나(required) 우대사항 절에 적었나(preferred) */
   requirement?: 'required' | 'preferred' | null;
+  /** 사람이 점검판에서 '필수'로 못 박은 줄 — 강도 문턱을 타지 않는다 */
+  pinned?: boolean;
 };
 
 export const JOBS = jobsRaw as JobRow[];
@@ -221,9 +223,13 @@ export function requirementsOf(jobId: string) {
   const top = Math.max(...rows.map(imp), 0) || 1;
   const byImp = [...rows].sort((a, b) => imp(b) - imp(a));
 
-  let must = byImp.filter((r) => r.tier === 'required' && imp(r) >= top * MUST_REL);
+  //  pinned = 사람이 점검판에서 '필수'라고 못 박은 줄. 강도 문턱을 타지 않는다.
+  //  실제로 임베디드의 RTOS 를 필수로 지정했는데 강도가 문턱에 조금 못 미쳐 안 나왔다.
+  //  손으로 고치는 의미가 없어지므로 앞에 세운다.
+  let must = byImp.filter((r) => r.tier === 'required'
+    && (r.pinned || imp(r) >= top * MUST_REL));
   if (must.length < MUST_MIN) must = byImp.slice(0, MUST_MIN);       // 근거가 얇은 직무 보호
-  must = must.slice(0, MUST_MAX);
+  must = [...must].sort((a, b) => (b.pinned ? 1 : 0) - (a.pinned ? 1 : 0)).slice(0, MUST_MAX);
 
   const mustSet = new Set(must.map((r) => r.skillId));
   const nice = byImp
