@@ -75,7 +75,12 @@ def run():
         for sid, w in rows.items():
             if sid not in skill_ids or (jid, sid) in seen:
                 continue
-            matrix.append({"jobId": jid, "skillId": sid, "weight": w, "source": "manual"})
+            #  tier 를 반드시 넣는다. 안 넣으면 앱의 '필수' 필터(tier === "required")에서
+            #  통째로 빠진다. 실제로 그래서 엔지니어링 리더의 필수가 Ruby·Python·React 가 되고
+            #  강도 1위인 '이해관계자 조율'(0.71)이 목록에 못 들었다.
+            #  이 표는 사람이 직무 정의를 보고 "이 직무는 이걸 한다"고 적은 것이라 필수로 본다.
+            matrix.append({"jobId": jid, "skillId": sid, "weight": w, "source": "manual",
+                           "tier": "required", "importance": round(w, 4), "agreement": 1})
             seen.add((jid, sid))
             n_map += 1
 

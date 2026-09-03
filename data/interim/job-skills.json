@@ -30092,426 +30092,639 @@
   "jobId": "product_manager",
   "skillId": "ws_requirement",
   "weight": 0.86,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.86,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_priority",
   "weight": 0.79,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.79,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_metric",
   "weight": 0.72,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.72,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_stakeholder",
   "weight": 0.65,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.65,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_interview",
   "weight": 0.52,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.52,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_ia",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_abtest",
   "weight": 0.34,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.34,
+  "agreement": 1
  },
  {
   "jobId": "product_manager",
   "skillId": "ws_policy",
   "weight": 0.31,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.31,
+  "agreement": 1
  },
  {
   "jobId": "program_manager",
   "skillId": "ws_priority",
   "weight": 0.83,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.83,
+  "agreement": 1
  },
  {
   "jobId": "program_manager",
   "skillId": "ws_stakeholder",
   "weight": 0.78,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.78,
+  "agreement": 1
  },
  {
   "jobId": "program_manager",
   "skillId": "ws_requirement",
   "weight": 0.61,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.61,
+  "agreement": 1
  },
  {
   "jobId": "program_manager",
   "skillId": "ws_policy",
   "weight": 0.39,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.39,
+  "agreement": 1
  },
  {
   "jobId": "program_manager",
   "skillId": "ws_metric",
   "weight": 0.33,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.33,
+  "agreement": 1
  },
  {
   "jobId": "biz_strategy",
   "skillId": "ws_metric",
   "weight": 0.64,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.64,
+  "agreement": 1
  },
  {
   "jobId": "biz_strategy",
   "skillId": "ws_stakeholder",
   "weight": 0.61,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.61,
+  "agreement": 1
  },
  {
   "jobId": "biz_strategy",
   "skillId": "ws_requirement",
   "weight": 0.42,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.42,
+  "agreement": 1
  },
  {
   "jobId": "biz_strategy",
   "skillId": "ws_priority",
   "weight": 0.36,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.36,
+  "agreement": 1
  },
  {
   "jobId": "biz_analyst",
   "skillId": "ws_metric",
   "weight": 0.73,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.73,
+  "agreement": 1
  },
  {
   "jobId": "biz_analyst",
   "skillId": "ws_requirement",
   "weight": 0.53,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.53,
+  "agreement": 1
  },
  {
   "jobId": "biz_analyst",
   "skillId": "ws_funnel",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "biz_analyst",
   "skillId": "ws_stakeholder",
   "weight": 0.33,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.33,
+  "agreement": 1
  },
  {
   "jobId": "growth_marketing",
   "skillId": "ws_abtest",
   "weight": 0.8,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.8,
+  "agreement": 1
  },
  {
   "jobId": "growth_marketing",
   "skillId": "ws_funnel",
   "weight": 0.73,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.73,
+  "agreement": 1
  },
  {
   "jobId": "growth_marketing",
   "skillId": "ws_metric",
   "weight": 0.6,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.6,
+  "agreement": 1
  },
  {
   "jobId": "growth_marketing",
   "skillId": "ws_interview",
   "weight": 0.33,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.33,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_ia",
   "weight": 0.82,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.82,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_prototype",
   "weight": 0.75,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.75,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_usability",
   "weight": 0.68,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.68,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_interview",
   "weight": 0.55,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.55,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_visual",
   "weight": 0.48,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.48,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_requirement",
   "weight": 0.31,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.31,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_designsystem",
   "weight": 0.55,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.55,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_handoff",
   "weight": 0.5,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.5,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_interaction",
   "weight": 0.38,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.38,
+  "agreement": 1
  },
  {
   "jobId": "product_designer",
   "skillId": "ws_component",
   "weight": 0.35,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.35,
+  "agreement": 1
  },
  {
   "jobId": "designer",
   "skillId": "ws_visual",
   "weight": 0.71,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.71,
+  "agreement": 1
  },
  {
   "jobId": "designer",
   "skillId": "ws_prototype",
   "weight": 0.52,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.52,
+  "agreement": 1
  },
  {
   "jobId": "designer",
   "skillId": "ws_ia",
   "weight": 0.38,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.38,
+  "agreement": 1
  },
  {
   "jobId": "designer",
   "skillId": "ws_designsystem",
   "weight": 0.41,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.41,
+  "agreement": 1
  },
  {
   "jobId": "designer",
   "skillId": "ws_handoff",
   "weight": 0.36,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.36,
+  "agreement": 1
  },
  {
   "jobId": "graphic_designer",
   "skillId": "ws_visual",
   "weight": 0.79,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.79,
+  "agreement": 1
  },
  {
   "jobId": "graphic_designer",
   "skillId": "ws_interaction",
   "weight": 0.29,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.29,
+  "agreement": 1
  },
  {
   "jobId": "motion_designer",
   "skillId": "ws_visual",
   "weight": 0.6,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.6,
+  "agreement": 1
  },
  {
   "jobId": "motion_designer",
   "skillId": "ws_prototype",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "motion_designer",
   "skillId": "ws_interaction",
   "weight": 0.8,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.8,
+  "agreement": 1
  },
  {
   "jobId": "qa_eng",
   "skillId": "ws_requirement",
   "weight": 0.71,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.71,
+  "agreement": 1
  },
  {
   "jobId": "qa_eng",
   "skillId": "ws_policy",
   "weight": 0.57,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.57,
+  "agreement": 1
  },
  {
   "jobId": "qa_eng",
   "skillId": "ws_stakeholder",
   "weight": 0.43,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.43,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_ia",
   "weight": 0.31,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.31,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_visual",
   "weight": 0.31,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.31,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_component",
   "weight": 0.77,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.77,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_a11y",
   "weight": 0.5,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.5,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_interaction",
   "weight": 0.46,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.46,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_designsystem",
   "weight": 0.42,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.42,
+  "agreement": 1
  },
  {
   "jobId": "fe_dev",
   "skillId": "ws_handoff",
   "weight": 0.35,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.35,
+  "agreement": 1
  },
  {
   "jobId": "solutions_eng",
   "skillId": "ws_stakeholder",
   "weight": 0.72,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.72,
+  "agreement": 1
  },
  {
   "jobId": "solutions_eng",
   "skillId": "ws_requirement",
   "weight": 0.48,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.48,
+  "agreement": 1
  },
  {
   "jobId": "eng_lead",
   "skillId": "ws_priority",
   "weight": 0.66,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.66,
+  "agreement": 1
  },
  {
   "jobId": "eng_lead",
   "skillId": "ws_stakeholder",
   "weight": 0.71,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.71,
+  "agreement": 1
  },
  {
   "jobId": "eng_lead",
   "skillId": "ws_requirement",
   "weight": 0.42,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.42,
+  "agreement": 1
  },
  {
   "jobId": "architect",
   "skillId": "ws_stakeholder",
   "weight": 0.55,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.55,
+  "agreement": 1
  },
  {
   "jobId": "architect",
   "skillId": "ws_requirement",
   "weight": 0.45,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.45,
+  "agreement": 1
  },
  {
   "jobId": "data_analyst",
   "skillId": "ws_metric",
   "weight": 0.67,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.67,
+  "agreement": 1
  },
  {
   "jobId": "data_analyst",
   "skillId": "ws_abtest",
   "weight": 0.47,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.47,
+  "agreement": 1
  },
  {
   "jobId": "data_analyst",
   "skillId": "ws_funnel",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "data_scientist",
   "skillId": "ws_metric",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "data_scientist",
   "skillId": "ws_abtest",
   "weight": 0.33,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.33,
+  "agreement": 1
  },
  {
   "jobId": "fullstack_dev",
   "skillId": "ws_component",
   "weight": 0.54,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.54,
+  "agreement": 1
  },
  {
   "jobId": "mobile_dev",
   "skillId": "ws_component",
   "weight": 0.53,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.53,
+  "agreement": 1
  },
  {
   "jobId": "mobile_dev",
   "skillId": "ws_interaction",
   "weight": 0.4,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.4,
+  "agreement": 1
  },
  {
   "jobId": "sw_eng",
   "skillId": "ws_component",
   "weight": 0.31,
-  "source": "manual"
+  "source": "manual",
+  "tier": "required",
+  "importance": 0.31,
+  "agreement": 1
  }
 ]
