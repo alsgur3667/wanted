@@ -307,6 +307,160 @@ def run():
     } for e in roles_src["edges"] if e["a"] in jid_of and e["b"] in jid_of]
 
     OUT.mkdir(exist_ok=True)
+    # ── 해설 글을 요구 역량의 근거로 합친다 ────────────────────────────
+    #
+    #  "JD 에 없다 = 틀렸다"가 아니다. 회사마다 공고에 적는 것이 다르고,
+    #  여러 출처가 공통으로 말하는 것은 그 자체가 근거다.
+    #  다만 무게는 같을 수 없다 — 공고는 실제 수요이고 해설 글은 통념이다.
+    #
+    #  그래서 **표본을 합치되 해설 글은 할인**한다. 공고 1건과 해설 글 1건을 같게 보지 않는다.
+    #
+    #      evidence = (공고 등장수 + α×해설 언급수) / (공고 표본 + α×해설 글 수)
+    #
+    #  α = 0.5 — 해설 글 1건을 공고 0.5건으로 친다.
+    #  이 식은 저절로 옳게 움직인다. 공고가 280건인 직무에서는 해설 글 몇 건이 거의
+    #  영향을 못 주고, 공고가 7건뿐인 직무에서는 해설 글이 실제로 빈자리를 메운다.
+    #  표본이 얇은 곳일수록 도움이 필요하다는 사실과 맞는다.
+    #
+    #  ⚠️ weight 는 건드리지 않는다. 계약이 정의한 "공고 등장 비율" 그대로 둔다.
+    #     evidence 는 요구 역량을 **고르는 순서**에만 쓴다.
+    GUIDE_ALPHA = 0.5
+    gv = RAW / "guides" / "verified.json"
+    guide_rows, guide_docs = {}, {}
+    if gv.exists():
+        vr = json.loads(gv.read_text(encoding="utf-8"))["rows"]
+        for r in vr:
+            guide_rows[(r["jobId"], r["skillId"])] = r
+            guide_docs[r["jobId"]] = r["guideDocs"]
+
+    id2name = {x["id"]: x["name"] for x in skills}
+    n_only, n_boost = 0, 0
+    by_pair_m = {(m["jobId"], m["skillId"]): m for m in matrix}
+    job_n = {j["id"]: j["sampleSize"] for j in jobs}
+
+    for (jid, sid), r in guide_rows.items():
+        if jid not in job_n or sid not in id2name:
+            continue
+        g_n, g_docs = r["guideMentions"], max(1, guide_docs.get(jid, 1))
+        row = by_pair_m.get((jid, sid))
+        if row is None:
+            # 공고에는 없고 해설 글에만 있는 것. 버리지 않는다 — 다만 근거가 약하다고 적는다.
+            row = {"jobId": jid, "skillId": sid, "weight": 0.0, "docFreq": 0,
+                   "source": "guide", "prefFreq": 0, "reqFreq": 0,
+                   "lift": None, "characteristic": False,
+                   "reqShare": None, "requirement": None}
+            matrix.append(row)
+            by_pair_m[(jid, sid)] = row
+            n_only += 1
+        else:
+            n_boost += 1
+        row["guideMentions"] = g_n
+        row["guideDocs"] = g_docs
+        row["verification"] = r["verification"]
+        row["evidence"] = round(
+            (row["docFreq"] + GUIDE_ALPHA * g_n) / (job_n[jid] + GUIDE_ALPHA * g_docs), 4)
+
+    # ── 세 번째 근거: 공인 직업 분석 체계 (O*NET · NCS) ──────────────────
+    #
+    #  회사마다 공고에 적는 것이 다르다. 어느 회사도 안 적었다고 필요 없는 것은 아니다.
+    #  O*NET(미 노동부)·NCS(고용노동부)는 직업을 조사해 놓은 공인 자료다. 개인 의견이 아니다.
+    #
+    #  ⚠️ 그대로 쓰면 안 된다. O*NET 의 직업별 소프트웨어 목록은 넓어서
+    #     Software Developers 에 Photoshop 이 실려 있다. 변별력으로 거른 것만 쓴다
+    #     (build_ontology_reqs.py). 무게도 해설 글보다 낮게 잡는다 — 미국 조사이고 갱신이 느리다.
+    #  ⚠️ 표본에 비례해 더하면 안 된다. 처음에 표본의 30%를 가상 공고로 줬더니
+    #     소프트웨어 엔지니어(280건)에 가상 공고가 84건이나 붙어, 공고 19건짜리 Django 가
+    #     1순위가 됐다. O*NET 은 직업 1~3개를 본 것이지 공고 84건이 아니다.
+    #     **고정된 소수의 가상 공고**로 더한다. 표본이 큰 직무에서는 거의 영향이 없고,
+    #     표본이 5건뿐인 직무에서는 실제로 빈자리를 메운다 — 도움이 필요한 곳에만 작용한다.
+    ONTO_VIRT = 4
+    of = RAW / "_ontology_reqs.json"
+    n_onto_only = n_onto_boost = 0
+    if of.exists():
+        od = json.loads(of.read_text(encoding="utf-8"))["jobs"]
+        for jid, rows in od.items():
+            if jid not in job_n:
+                continue
+            for sid, v in rows.items():
+                if sid not in id2name:
+                    continue
+                # 근거의 세기를 0~1 로 만든다. O*NET 은 대응 직업 중 몇 개가 쓰는가,
+                # NCS 는 능력단위 중 몇 개가 언급하는가.
+                o = v["onet"] / max(1, v.get("onetOf") or 1) if v.get("onet") else 0
+                n = min(1.0, v["ncs"] / max(1, v.get("ncsOf") or 1) * 10) if v.get("ncs") else 0
+                strength = max(o, n)
+                if strength <= 0:
+                    continue
+                row = by_pair_m.get((jid, sid))
+                if row is None:
+                    row = {"jobId": jid, "skillId": sid, "weight": 0.0, "docFreq": 0,
+                           "source": "ontology", "prefFreq": 0, "reqFreq": 0,
+                           "lift": None, "characteristic": False,
+                           "reqShare": None, "requirement": None}
+                    matrix.append(row)
+                    by_pair_m[(jid, sid)] = row
+                    n_onto_only += 1
+                else:
+                    n_onto_boost += 1
+                row["ontology"] = {"onet": v.get("onet", 0), "onetOf": v.get("onetOf", 0),
+                                   "onetHot": v.get("onetHot", False), "onetLift": v.get("onetLift"),
+                                   "ncs": v.get("ncs", 0)}
+                # 표본에 가상 공고로 더한다. 해설 글과 같은 방식이되 할인율이 더 크다.
+                virt = ONTO_VIRT
+                num = row["docFreq"] + GUIDE_ALPHA * row.get("guideMentions", 0) + strength * virt
+                den = (job_n[jid] + GUIDE_ALPHA * row.get("guideDocs", 0) + virt)
+                row["evidence"] = round(num / den, 4)
+        print(f"공인 체계 합산 — 기존 근거 보강 {n_onto_boost}건 · 새로 추가 {n_onto_only}건")
+
+    # 해설 글·공인 체계 근거가 없는 것도 evidence 를 채워 둔다 (= weight 와 같다)
+    for m in matrix:
+        m.setdefault("evidence", round(m["weight"], 4))
+
+    # ── 합의(agreement)와 필수/우대 판정 ─────────────────────────────────
+    #
+    #  왜 바꾸나 — 지금까지 필수는 "상위 5개 자르기"였다. 그래서 어느 직무든 필수가 정확히 5개다.
+    #  정의가 넓은 직무(풀스택)는 그 5칸이 범용 웹 스택으로 채워져 **남의 직무 사람까지 흡수**한다.
+    #  독립 표본(설문 4,878건)으로 재 보니 자주 틀리는 8개 방향이 전부 '→ 풀스택'이었다.
+    #
+    #  대신 **출처가 뭐라고 말했는지**로 가른다.
+    #    필수 : 공고 자격요건 절 · 해설 글의 "필수·반드시·기본기" 대목 · 공인 체계
+    #    우대 : 공고 우대사항 절 · 해설 글의 "우대·있으면 좋다·가산점" 대목
+    #
+    #  그리고 **여러 출처가 함께 말한 것**을 올린다. 회사마다 공고에 적는 것이 다르니
+    #  한 곳만 말한 것보다 여러 곳이 말한 것이 믿을 만하다.
+    AGREE_BONUS = 0.25          # 출처가 하나 늘 때마다 importance 를 이만큼 올린다
+    for m in matrix:
+        jd_req = m.get("reqFreq") or 0
+        jd_pre = m.get("prefFreq") or 0
+        g_req = m.get("guideRequired") or 0
+        g_pre = m.get("guidePreferred") or 0
+        g_any = m.get("guideMentions") or 0
+        onto = 1 if m.get("ontology") else 0
+
+        # 몇 개 출처가 이 역량을 말했나 (0~3)
+        agree = (1 if (jd_req + jd_pre) > 0 else 0) + (1 if g_any > 0 else 0) + onto
+        m["agreement"] = agree
+        m["importance"] = round(min(1.0, (m["evidence"] or 0) * (1 + AGREE_BONUS * max(0, agree - 1))), 4)
+
+        #  필수/우대 — 출처들이 각각 어느 쪽으로 말했는지 표를 센다.
+        #  공고 절 구분은 실제 문서에 적힌 것이라 무게를 크게 준다.
+        req_vote = (2 if jd_req > jd_pre else 0) + (1 if g_req > g_pre else 0) + onto
+        pre_vote = (2 if jd_pre > jd_req else 0) + (1 if g_pre > g_req else 0)
+        if agree == 0:
+            m["tier"] = None
+        elif req_vote > pre_vote:
+            m["tier"] = "required"
+        elif pre_vote > req_vote:
+            m["tier"] = "preferred"
+        else:
+            m["tier"] = "required" if (jd_req + g_req) >= (jd_pre + g_pre) else "preferred"
+
+    tc = Counter(m["tier"] for m in matrix)
+    ac = Counter(m["agreement"] for m in matrix)
+    print(f"판정 — 필수 {tc['required']:,} · 우대 {tc['preferred']:,} · 판정 보류 {tc[None]:,}")
+    print(f"출처 합의 — 1곳 {ac[1]:,} · 2곳 {ac[2]:,} · 3곳 {ac[3]:,} · 근거 없음 {ac[0]:,}")
+    print(f"해설 글 합산 — 공고에도 있던 것 {n_boost}건 보강 · 해설에만 있던 것 {n_only}건 추가")
+
     # ── 해설 글 교차검증 결과를 선택 필드로 얹는다 ────────────────────────
     #
     # 공고는 "지금 그 회사가 원하는 것"만 적는다. 신입에게 무엇이 필요한지는 잘 안 적힌다.
