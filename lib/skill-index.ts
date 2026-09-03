@@ -16,7 +16,13 @@ export type JobRow = {
   ratioSource?: string;
 };
 export type SkillRow = { id: string; name: string; type: string; aliases: string[]; learnDifficulty: number; firstStep: string };
-export type MatrixRow = { jobId: string; skillId: string; weight: number; docFreq?: number };
+export type MatrixRow = {
+  jobId: string; skillId: string; weight: number; docFreq?: number;
+  /** 이 직무에서 유난히 많이 요구되는가 = 이 직무 등장률 / 전체 평균 등장률 */
+  lift?: number;
+  /** 공고가 자격요건 절에 적었나(required) 우대사항 절에 적었나(preferred) */
+  requirement?: 'required' | 'preferred' | null;
+};
 
 export const JOBS = jobsRaw as JobRow[];
 export const SKILLS = skillsRaw as SkillRow[];
@@ -132,8 +138,25 @@ export const SKILL_STATS: Map<string, SkillStat> = (() => {
  * 직무의 요구 역량 — weight 내림차순 상위 N개를 필수, 그다음 N개를 우대로 본다.
  * 반환값의 순서가 곧 중요도 순서다.
  */
+/** 변별력 상한. 표본이 작은 직무에서 lift 가 10배 넘게 튀어 순위를 뒤집는 것을 막는다. */
+const LIFT_CAP = 3;
+
 export function requirementsOf(jobId: string) {
-  const rows = MATRIX.filter((r) => r.jobId === jobId).sort((a, b) => b.weight - a.weight);
+  // ⚠️ weight 만으로 정렬하면 안 된다.
+  //
+  //  weight 는 '이 직무 공고 몇 %에 나왔나'다. 그래서 어느 직무를 보든 Git·Python·Linux 가
+  //  위로 온다. 표본이 작은 직무는 그것만으로 상위 5개가 채워져, 요구 역량이
+  //  **'개발자인가?'를 묻는 문항**이 되어 버린다.
+  //
+  //  실측 — 임베디드·펌웨어(공고 7건)의 필수 5개가 Linux·C++·Python·Git·Jenkins 였다.
+  //         8년차 iOS 개발자가 이 5개를 다 갖고 있어 적합도 75로 1순위가 됐고,
+  //         정작 모바일 개발자는 35로 3위였다.
+  //         "특별한 도메인 경험은 없습니다"라고 쓴 이력서도 임베디드가 1순위로 나왔다.
+  //
+  //  → lift(변별력)를 곱해 '이 직무에서 유난히 많이 요구되는' 것을 위로 올린다.
+  //    weight 를 버리지는 않는다. lift 만 쓰면 공고 1건짜리 희귀 스킬이 필수가 된다.
+  const score = (r: MatrixRow) => r.weight * Math.min(LIFT_CAP, r.lift ?? 1);
+  const rows = MATRIX.filter((r) => r.jobId === jobId).sort((a, b) => score(b) - score(a));
   if (!rows.length) return { must: [], nice: [] };
 
   // 스킬이 적은 직무에서 상위 5개가 곧 전부가 되는 것을 막는다
@@ -143,6 +166,26 @@ export function requirementsOf(jobId: string) {
     nice: rows.slice(mustCount, mustCount + NICE_TOP_N).map((r) => r.skillId),
   };
 }
+
+/** 이 직무가 그 스킬의 수요에서 차지하는 몫. iOS·Swift 처럼 한 직무에 몰린 스킬은 1에 가깝다. */
+const CLAIM = new Map<string, number>();
+{
+  const bySkill = new Map<string, MatrixRow[]>();
+  for (const r of MATRIX) {
+    if (!bySkill.has(r.skillId)) bySkill.set(r.skillId, []);
+    bySkill.get(r.skillId)!.push(r);
+  }
+  for (const [, rows] of bySkill) {
+    const tot = rows.reduce((a, r) => a + r.weight, 0) || 1;
+    for (const r of rows) CLAIM.set(`${r.jobId}|${r.skillId}`, r.weight / tot);
+  }
+}
+export const claimOf = (jobId: string, skillId: string) => CLAIM.get(`${jobId}|${skillId}`) ?? 0;
+
+/** 표본이 작은 직무는 요구 역량 자체를 믿기 어렵다. 30건이면 1.0, 7건이면 0.59. */
+export const CONFIDENCE_N = 20;
+export const confidenceOf = (jobId: string) =>
+  Math.min(1, Math.sqrt((jobById.get(jobId)?.sampleSize ?? 0) / CONFIDENCE_N));
 
 export const getSkill = (id: string) => skillById.get(id);
 export const getJob = (id: string) => jobById.get(id);

@@ -1,17 +1,35 @@
 import type { AnalysisResult, GapSkill, Route, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, getSkill, requirementsOf, resolveSkill } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, requirementsOf, resolveSkill } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
 //  점수 계산 — 여기서만 숫자가 만들어진다. LLM 은 '무엇을 했는가'만 뽑는다.
 //
-//  fitScore      = 100 × (필수 커버율×3 + 우대 커버율×1) / 4
+//  fitScore      = 100 × (필수 커버율×3 + 우대 커버율×1 + 강점 반영×2) / 6 × 표본 신뢰도
 //  surpriseScore = 직군이 다른데 적합도가 높을수록 높다 (= 직무명으로는 안 보이는 경로)
 //  estimatedMonths = 부족 역량의 학습 난이도 합 × 3
 // ============================================================================
 
 const MUST_W = 3, NICE_W = 1;
+
+// ── 강점 반영 ────────────────────────────────────────────────────────
+//
+//  기존 점수는 "이 직무가 원하는 것을 후보가 가졌나"만 물었다.
+//  "후보의 강점을 이 직무가 쓰는가"는 묻지 않아서, 8년차 iOS 개발자의
+//  iOS·Swift·Android 가 점수에 거의 반영되지 않았다(모바일 개발자 3순위, 적합도 35).
+//
+//  claim = 이 직무가 그 스킬의 수요에서 차지하는 몫. iOS 0.52 · Swift 0.54 · Android 0.61 처럼
+//  한 직무에 몰린 스킬은 그 직무를 강하게 가리킨다.
+const STRENGTH_W = 2;
+
+/** 후보의 강점을 이 직무가 얼마나 설명하는가 (0~1, 절대값) */
+function strengthOf(jobId: string, have: Set<string>): number {
+  if (!have.size) return 0;
+  let sum = 0;
+  for (const s of have) sum += claimOf(jobId, s);
+  return sum / have.size;
+}
 
 function toGap(skillId: string): GapSkill {
   const s = getSkill(skillId)!;
@@ -53,13 +71,24 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   });
 
   // 3) 현재 직군 추정 — 보유 역량이 가장 많이 겹치는 직무의 직군
+  //
+  //  강점 반영은 '가장 잘 맞는 직무 대비'로 잰다. 절대값은 0.1~0.5 라 그대로 더하면
+  //  총점이 통째로 눌려 아래 fitScore 문턱(30)에 전부 걸린다.
+  const rawStrength = new Map(JOBS.map((j) => [j.id, strengthOf(j.id, have)]));
+  const maxStrength = Math.max(...rawStrength.values(), 0);
+
   const scored = JOBS.map((job) => {
     const { must, nice } = requirementsOf(job.id);
     const mustHit = must.filter((s) => have.has(s));
     const niceHit = nice.filter((s) => have.has(s));
     const mustCov = must.length ? mustHit.length / must.length : 0;
     const niceCov = nice.length ? niceHit.length / nice.length : 0;
-    const fitScore = Math.round((100 * (mustCov * MUST_W + niceCov * NICE_W)) / (MUST_W + NICE_W));
+    const strength = maxStrength ? (rawStrength.get(job.id) ?? 0) / maxStrength : 0;
+    // 표본이 7건인 직무의 요구 역량을 280건인 직무와 같은 확신으로 말할 수 없다.
+    // 곱하는 이유 — 걸러내지는 않는다. 진짜 그 직무인 사람에게는 여전히 1순위로 나와야 한다.
+    const raw = (100 * (mustCov * MUST_W + niceCov * NICE_W + strength * STRENGTH_W))
+      / (MUST_W + NICE_W + STRENGTH_W);
+    const fitScore = Math.round(raw * confidenceOf(job.id));
     return { job, must, nice, mustHit, niceHit, fitScore };
   }).sort((a, b) => b.fitScore - a.fitScore);
 
@@ -75,9 +104,16 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     !isJobseeker || job.newcomerRatio === undefined || job.newcomerRatio >= NEWCOMER_MIN_RATIO;
 
   // 4) 경로 3선 — 직군이 다른데 적합한 경로를 최소 1개 보장
-  const withSurprise = scored
-    .filter((s) => s.fitScore >= 30)
-    .filter((s) => openToNewcomer(s.job))
+  //  적합도 문턱 — 넘는 것이 하나도 없으면 문턱을 버리고 상위 3개를 그대로 보여준다.
+  //
+  //  왜 그러나 — 문턱만 두면 '역량을 충분히 찾지 못했습니다' 오류가 난다.
+  //  역량은 찾았는데 어느 직무에도 확신 있게 맞지 않는 경우가 있다.
+  //  그때 "못 찾았다"고 말하는 것은 거짓이다. 낮은 점수를 낮은 대로 보여주는 편이 정직하다.
+  const MIN_FIT = 30;
+  const eligible = scored.filter((s) => openToNewcomer(s.job));
+  const passing = eligible.filter((s) => s.fitScore >= MIN_FIT);
+  const lowConfidence = passing.length === 0;
+  const withSurprise = (lowConfidence ? eligible.slice(0, 3) : passing)
     .map((s) => {
       const cross = s.job.family !== currentFamily;
       const surpriseScore = cross
@@ -113,7 +149,9 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       estimatedMonths: Math.max(1, Math.round(total * 3)),
       bridgeSkills: [...s.mustHit, ...s.niceHit].map((id) => getSkill(id)!.name).slice(0, 5),
       gapSkills: gaps.slice(0, 3),
-      reason: isHidden
+      reason: lowConfidence
+        ? `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개가 겹칩니다. 다만 뚜렷하게 맞는 직무를 찾지 못했습니다 — 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
+        : isHidden
         ? `${s.job.family} 직군이지만 필요한 역량 ${s.mustHit.length}개를 이미 갖추고 있습니다. 직무명이 달라 검색으로는 잘 드러나지 않는 경로입니다.`
         : `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개를 이미 보유하고 있습니다.`,
       marketNote:

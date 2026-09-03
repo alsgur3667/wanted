@@ -285,6 +285,14 @@ def run():
             # 같은 데이터로 필수·우대가 빈 직무는 24개 중 1개(표본 5건짜리)뿐이다.
             #   소프트웨어 엔지니어 필수 = Python(72) · Java(40) · AWS(39) · TypeScript(37)
             obs = req + pref
+            # 변별력 — 이 직무에서 유난히 많이 요구되는가.
+            #
+            # weight 만 보면 어느 직무에서나 Git·Python 이 위로 온다. 그래서 표본이 작은 직무는
+            # 요구 스킬이 범용 도구로만 채워지고, **아무 개발자나 100% 적합**하게 나온다.
+            # 실제로 8년차 iOS 개발자에게 임베디드·펌웨어가 1순위(적합도 75)로 추천됐다.
+            # lift = 이 직무 등장률 / 전체 평균 등장률. 1보다 크면 이 직무의 특징이다.
+            row["lift"] = x.get("lift")
+            row["characteristic"] = bool(x.get("characteristic"))
             row["reqShare"] = round(req / obs, 3) if obs else None
             row["requirement"] = (None if obs < MIN_REQ_OBS else
                                   "required" if req > pref else "preferred")

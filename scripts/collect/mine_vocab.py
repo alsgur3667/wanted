@@ -122,12 +122,23 @@ def load_allowlist():
     if not p.exists():
         raise SystemExit("allowlist.json 이 없다. 먼저 build_allowlist.py 를 실행할 것.")
     d = json.loads(p.read_text(encoding="utf-8"))
-    return d["types"], set(d["too_broad"]), set(d["not_skill"]), set(d["map_types"])
+    return (d["types"], set(d["too_broad"]), set(d["not_skill"]), set(d["map_types"]),
+            set(d.get("curated", [])))
 
 
 ALLOW: dict = {}
 BLOCK: set = set()
 MAP_TYPES: set = set()
+# 손으로 확인해 넣은 소수 분야 어휘. 자동 목록과 달리 노이즈가 없다.
+CURATED: set = set()
+# 그래서 최소 등장 문서 수를 낮춰 잡는다.
+#
+# 왜 낮추나 — 표본이 작은 직무의 고유 스킬은 코퍼스 전체에서 df 가 낮을 수밖에 없다.
+#   임베디드 공고는 7건뿐이라 RTOS 가 4건에 나와도 df=4 다. MIN_DF=5 에 걸려 통째로 빠졌고,
+#   그 결과 임베디드 직무의 요구 스킬이 Linux·C++·Python·Git·Jenkins 만 남았다.
+#   범용 도구뿐이라 아무 개발자나 그 직무에 100% 적합하게 나온다.
+# MIN_DF 는 자동 목록의 노이즈를 막으려고 둔 값이다. 사람이 확인한 어휘에는 그 이유가 없다.
+CURATED_MIN_DF = 2
 
 
 # 일반 영단어와 철자가 겹치는 약어·개념어.
@@ -271,11 +282,12 @@ tok_cap: Counter = Counter()
 
 
 def run():
-    global ALLOW, BLOCK, MAP_TYPES
-    types_, broad, notskill, map_types = load_allowlist()
+    global ALLOW, BLOCK, MAP_TYPES, CURATED
+    types_, broad, notskill, map_types, curated = load_allowlist()
     ALLOW = types_
     BLOCK = broad | notskill
     MAP_TYPES = map_types
+    CURATED = curated
     print(f"허용 어휘 {len(ALLOW):,}개 · 제외어 {len(BLOCK)}개 · 지도 유형 {sorted(MAP_TYPES)}")
 
     tools, hot = load_onet_tools()
@@ -330,7 +342,10 @@ def run():
                 df_pref[cn(k)] += 1
 
     hi = int(n_doc * MAX_DF_RATIO)
-    keep = {k: c for k, c in df.items() if MIN_DF <= c <= hi}
+    keep = {k: c for k, c in df.items()
+            if (CURATED_MIN_DF if cn(k) in CURATED or k.lower() in CURATED else MIN_DF) <= c <= hi}
+    n_cur = sum(1 for k in keep if cn(k) in CURATED or k.lower() in CURATED)
+    print(f"손으로 넣은 어휘 통과 {n_cur}개 (df {CURATED_MIN_DF} 이상)")
 
     # 대문자 사용 비율로 거른다.
     #   Python  거의 항상 대문자        → 고유명사, 남긴다
