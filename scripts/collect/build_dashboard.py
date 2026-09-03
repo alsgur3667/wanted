@@ -161,7 +161,12 @@ button.primary{background:var(--ok);border-color:var(--ok);color:#fff;font-weigh
 .sep{width:1px;height:20px;background:var(--line);margin:0 4px}
 .count{color:var(--ink3);font-size:12px;margin-left:auto}
 table{width:100%;border-collapse:collapse;font-size:12.5px}
-th{position:sticky;top:52px;background:var(--bg);text-align:left;font-weight:600;color:var(--ink2);
+/*  ⚠️ th 를 sticky 로 두면 안 된다.
+    .wrap 이 overflow-x:auto 라 세로도 스크롤 컨테이너가 된다(한 축이 visible 이 아니면
+    다른 축의 visible 은 auto 로 계산된다). 그러면 sticky 의 기준이 그 상자가 되어
+    top:52px 만큼 **표 안에서 아래로 밀리고**, 머리글이 첫 행들을 덮는다. 실제로 그랬다.
+    직무마다 카드가 따로 있어 표가 길지 않으니 머리글은 그냥 제자리에 둔다.  */
+th{position:static;background:var(--chip);text-align:left;font-weight:600;color:var(--ink2);
    padding:7px 8px;border-bottom:1px solid var(--line);white-space:nowrap;font-size:11.5px}
 td{padding:6px 8px;border-bottom:1px solid var(--line);vertical-align:top}
 tr:hover td{background:var(--chip)}
