@@ -14,37 +14,9 @@
   ]
  },
  {
-  "a": "graphic_designer",
-  "b": "motion_designer",
-  "similarity": 0.3571,
-  "crossFamily": false,
-  "shared": [
-   "Figma",
-   "Illustrator",
-   "Photoshop",
-   "PowerPoint",
-   "UX"
-  ]
- },
- {
-  "a": "designer",
-  "b": "graphic_designer",
-  "similarity": 0.35,
-  "crossFamily": false,
-  "shared": [
-   "Canva",
-   "Claude",
-   "Figma",
-   "Illustrator",
-   "Photoshop",
-   "PowerPoint",
-   "UX"
-  ]
- },
- {
   "a": "program_manager",
   "b": "biz_strategy",
-  "similarity": 0.35,
+  "similarity": 0.4,
   "crossFamily": false,
   "shared": [
    "BI",
@@ -52,162 +24,141 @@
    "SQL",
    "Salesforce",
    "Tableau",
-   "개인정보 보호법",
-   "데이터 분석"
+   "개인정보 보호법"
   ]
  },
  {
   "a": "fullstack_dev",
   "b": "fe_dev",
-  "similarity": 0.3051,
+  "similarity": 0.3731,
   "crossFamily": false,
   "shared": [
+   "Android",
    "Angular",
    "CSS",
    "Git",
    "GitHub",
    "GraphQL",
    "HTML",
+   "JS",
    "JavaScript",
-   "Jira",
-   "Next.js",
-   "Node.js"
-  ]
- },
- {
-  "a": "product_designer",
-  "b": "designer",
-  "similarity": 0.2778,
-  "crossFamily": false,
-  "shared": [
-   "Claude",
-   "Cursor",
-   "Figma",
-   "UI",
-   "UX"
+   "Jira"
   ]
  },
  {
   "a": "fullstack_dev",
   "b": "qa_eng",
-  "similarity": 0.274,
+  "similarity": 0.3409,
   "crossFamily": false,
   "shared": [
    "Android",
    "Angular",
    "C#",
-   "Docker",
+   "Claude",
+   "Cursor",
+   "Cypress",
+   "DynamoDB",
+   "GitHub",
    "Golang",
-   "JavaScript",
-   "LLM",
-   "Next.js",
-   "Node.js",
-   "PHP"
+   "Java"
   ]
  },
  {
-  "a": "sw_eng",
-  "b": "fullstack_dev",
-  "similarity": 0.26,
+  "a": "designer",
+  "b": "graphic_designer",
+  "similarity": 0.3333,
+  "crossFamily": false,
+  "shared": [
+   "Adobe Illustrator",
+   "Canva",
+   "Claude",
+   "Figma",
+   "Illustrator",
+   "Photoshop",
+   "PowerPoint"
+  ]
+ },
+ {
+  "a": "fullstack_dev",
+  "b": "mobile_dev",
+  "similarity": 0.284,
   "crossFamily": false,
   "shared": [
    "Android",
-   "C#",
+   "Claude",
    "Cursor",
-   "Docker",
+   "DynamoDB",
    "Git",
-   "JavaScript",
-   "Linux",
-   "MySQL",
-   "PostgreSQL",
-   "React"
+   "GitHub",
+   "GraphQL",
+   "JSON",
+   "LLM",
+   "MySQL"
   ]
  },
  {
-  "a": "data_scientist",
-  "b": "architect",
-  "similarity": 0.2571,
+  "a": "biz_strategy",
+  "b": "data_analyst",
+  "similarity": 0.28,
+  "crossFamily": true,
+  "shared": [
+   "BI",
+   "CRM",
+   "Looker",
+   "SQL",
+   "Salesforce",
+   "Tableau",
+   "개인정보 보호법"
+  ]
+ },
+ {
+  "a": "architect",
+  "b": "solutions_eng",
+  "similarity": 0.2778,
   "crossFamily": false,
   "shared": [
    "Azure",
+   "Bricks",
+   "Databricks",
    "GPU",
    "LLM",
    "LLMs",
-   "LangChain",
    "LangGraph",
    "MLOps",
    "RAG",
-   "Snowflake"
-  ]
- },
- {
-  "a": "product_manager",
-  "b": "designer",
-  "similarity": 0.25,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Figma",
-   "Jira",
-   "UX"
-  ]
- },
- {
-  "a": "product_designer",
-  "b": "motion_designer",
-  "similarity": 0.25,
-  "crossFamily": false,
-  "shared": [
-   "Figma",
-   "UI",
-   "UX"
-  ]
- },
- {
-  "a": "data_analyst",
-  "b": "biz_analyst",
-  "similarity": 0.2449,
-  "crossFamily": true,
-  "shared": [
-   "Airflow",
-   "Android",
-   "BI",
-   "ERP",
-   "ETL",
-   "Git",
-   "Looker",
-   "Python",
-   "SQL",
-   "Tableau"
+   "Unity"
   ]
  },
  {
   "a": "data_eng",
   "b": "data_analyst",
-  "similarity": 0.2364,
+  "similarity": 0.2708,
   "crossFamily": false,
   "shared": [
    "Airflow",
-   "Apache Airflow",
    "BI",
    "BigQuery",
    "Databricks",
    "ELT",
    "ETL",
    "Git",
-   "Prefect",
+   "Hive",
+   "Looker",
    "Python"
   ]
  },
  {
-  "a": "program_manager",
+  "a": "data_analyst",
   "b": "biz_analyst",
-  "similarity": 0.2333,
-  "crossFamily": false,
+  "similarity": 0.2703,
+  "crossFamily": true,
   "shared": [
+   "Airflow",
    "BI",
-   "ERP",
-   "Rocket",
+   "ETL",
+   "Hive",
+   "Looker",
+   "Python",
    "SQL",
    "Tableau",
    "개인정보 보호법",
@@ -215,117 +166,38 @@
   ]
  },
  {
-  "a": "fullstack_dev",
+  "a": "fe_dev",
   "b": "mobile_dev",
-  "similarity": 0.2319,
+  "similarity": 0.2571,
   "crossFamily": false,
   "shared": [
    "Android",
-   "Cursor",
    "Git",
    "GitHub",
    "GraphQL",
-   "JSON",
-   "LLM",
-   "MySQL",
-   "NoSQL",
-   "Node.js"
+   "Next.js",
+   "Node.js",
+   "RESTful",
+   "React",
+   "React Native",
+   "Redux"
   ]
  },
  {
-  "a": "growth_marketing",
-  "b": "graphic_designer",
-  "similarity": 0.2222,
-  "crossFamily": true,
-  "shared": [
-   "CSS",
-   "Canva",
-   "Claude",
-   "Figma",
-   "HTML",
-   "Photoshop"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "solutions_eng",
-  "similarity": 0.2203,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "Cursor",
-   "Docker",
-   "GitHub",
-   "JavaScript",
-   "Kubernetes",
-   "LLM",
-   "LLMs",
-   "Linux",
-   "PostgreSQL"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "solutions_eng",
-  "similarity": 0.2162,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "Claude",
-   "Cursor",
-   "Docker",
-   "JavaScript",
-   "Linux",
-   "PostgreSQL",
-   "Redis"
-  ]
- },
- {
-  "a": "biz_strategy",
-  "b": "data_analyst",
-  "similarity": 0.2143,
-  "crossFamily": true,
-  "shared": [
-   "BI",
-   "CRM",
-   "Looker",
-   "SQL",
-   "Salesforce",
-   "Tableau",
-   "개인정보 보호법",
-   "데이터 분석",
-   "성과 분석"
-  ]
- },
- {
-  "a": "biz_strategy",
-  "b": "biz_analyst",
-  "similarity": 0.2121,
-  "crossFamily": false,
-  "shared": [
-   "BI",
-   "Looker",
-   "Rocket",
-   "SQL",
-   "Tableau",
-   "개인정보 보호법",
-   "데이터 분석"
-  ]
- },
- {
-  "a": "product_manager",
+  "a": "product_designer",
   "b": "motion_designer",
-  "similarity": 0.2,
-  "crossFamily": true,
+  "similarity": 0.25,
+  "crossFamily": false,
   "shared": [
    "Figma",
+   "UI",
    "UX"
   ]
  },
  {
   "a": "data_scientist",
   "b": "data_eng",
-  "similarity": 0.2,
+  "similarity": 0.2453,
   "crossFamily": false,
   "shared": [
    "AWS",
@@ -334,74 +206,145 @@
    "Azure",
    "BI",
    "BigQuery",
+   "Looker",
    "MLOps",
-   "Python",
-   "SQL",
-   "Snowflake"
+   "PyTorch",
+   "Python"
   ]
  },
  {
-  "a": "security_eng",
-  "b": "solutions_eng",
-  "similarity": 0.2,
+  "a": "program_manager",
+  "b": "biz_analyst",
+  "similarity": 0.2414,
   "crossFamily": false,
   "shared": [
-   "Docker",
-   "Gemini",
-   "GitHub",
-   "JavaScript",
-   "Kubernetes",
-   "LLM",
-   "LLMs",
-   "Linux",
-   "Python",
-   "Vue"
+   "BI",
+   "ERP",
+   "Rocket",
+   "SQL",
+   "Tableau",
+   "개인정보 보호법",
+   "데이터 분석"
   ]
  },
  {
-  "a": "devops_sre",
-  "b": "security_eng",
-  "similarity": 0.1964,
+  "a": "be_dev",
+  "b": "fullstack_dev",
+  "similarity": 0.2368,
   "crossFamily": false,
   "shared": [
    "AWS",
-   "Azure",
+   "Claude",
    "Docker",
-   "ELK",
+   "DynamoDB",
+   "Git",
    "GitHub",
-   "IaC",
+   "Java",
+   "Jenkins",
    "Kubernetes",
-   "Linux",
-   "Python",
-   "SRE"
+   "MySQL"
   ]
  },
  {
-  "a": "solutions_eng",
-  "b": "mobile_dev",
-  "similarity": 0.1964,
+  "a": "product_designer",
+  "b": "designer",
+  "similarity": 0.2353,
+  "crossFamily": false,
+  "shared": [
+   "Claude",
+   "Figma",
+   "UI",
+   "UX"
+  ]
+ },
+ {
+  "a": "mobile_dev",
+  "b": "qa_eng",
+  "similarity": 0.2258,
   "crossFamily": false,
   "shared": [
    "Android",
-   "CRM",
    "Claude",
    "Cursor",
+   "DynamoDB",
    "Flutter",
-   "GPU",
    "GitHub",
+   "GitLab",
+   "JUnit",
    "Kotlin",
-   "LLM",
-   "Redis"
+   "LLM"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "data_analyst",
+  "similarity": 0.225,
+  "crossFamily": false,
+  "shared": [
+   "Airflow",
+   "BI",
+   "BigQuery",
+   "Claude",
+   "Looker",
+   "Python",
+   "SQL",
+   "Snowflake",
+   "Tableau"
+  ]
+ },
+ {
+  "a": "program_manager",
+  "b": "data_analyst",
+  "similarity": 0.2222,
+  "crossFamily": true,
+  "shared": [
+   "BI",
+   "SQL",
+   "Salesforce",
+   "Tableau",
+   "개인정보 보호법",
+   "데이터 분석"
+  ]
+ },
+ {
+  "a": "graphic_designer",
+  "b": "motion_designer",
+  "similarity": 0.2222,
+  "crossFamily": false,
+  "shared": [
+   "Figma",
+   "Illustrator",
+   "Photoshop",
+   "PowerPoint"
+  ]
+ },
+ {
+  "a": "sw_eng",
+  "b": "fullstack_dev",
+  "similarity": 0.2203,
+  "crossFamily": false,
+  "shared": [
+   "Android",
+   "C#",
+   "Docker",
+   "Git",
+   "Golang",
+   "Java",
+   "JavaScript",
+   "MySQL",
+   "PostgreSQL",
+   "React"
   ]
  },
  {
   "a": "data_scientist",
   "b": "solutions_eng",
-  "similarity": 0.1957,
+  "similarity": 0.2083,
   "crossFamily": false,
   "shared": [
+   "Azure",
    "Claude",
-   "GPU",
+   "GenAI",
    "LLM",
    "LLMs",
    "LangGraph",
@@ -412,241 +355,67 @@
   ]
  },
  {
-  "a": "be_dev",
-  "b": "fullstack_dev",
-  "similarity": 0.1884,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "Docker",
-   "GitHub",
-   "Kubernetes",
-   "MySQL",
-   "NoSQL",
-   "Node.js",
-   "PostgreSQL",
-   "RESTful",
-   "Redis"
-  ]
- },
- {
-  "a": "devops_sre",
-  "b": "embedded_dev",
-  "similarity": 0.1842,
-  "crossFamily": false,
-  "shared": [
-   "Bash",
-   "Docker",
-   "Git",
-   "GitHub",
-   "GitLab",
-   "Linux",
-   "Python"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "mobile_dev",
-  "similarity": 0.1803,
-  "crossFamily": false,
-  "shared": [
-   "Claude",
-   "Git",
-   "GitHub",
-   "GraphQL",
-   "Node.js",
-   "RESTful",
-   "Redux",
-   "UI",
-   "UX",
-   "hwp"
-  ]
- },
- {
-  "a": "devops_sre",
-  "b": "data_eng",
-  "similarity": 0.1765,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "Ansible",
-   "Azure",
-   "Git",
-   "GitHub",
-   "GitLab",
-   "Grafana",
-   "Python",
-   "Terraform"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "qa_eng",
-  "similarity": 0.1765,
-  "crossFamily": false,
-  "shared": [
-   "Angular",
-   "JavaScript",
-   "Next.js",
-   "Node.js",
-   "Nuxt",
-   "Playwright",
-   "React",
-   "TypeScript",
-   "UI",
-   "UX"
-  ]
- },
- {
-  "a": "designer",
-  "b": "growth_marketing",
-  "similarity": 0.1724,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Canva",
-   "Claude",
-   "Figma",
-   "Photoshop"
-  ]
- },
- {
-  "a": "program_manager",
-  "b": "data_analyst",
-  "similarity": 0.1707,
-  "crossFamily": true,
-  "shared": [
-   "BI",
-   "ERP",
-   "SQL",
-   "Salesforce",
-   "Tableau",
-   "개인정보 보호법",
-   "데이터 분석"
-  ]
- },
- {
   "a": "biz_strategy",
-  "b": "growth_marketing",
-  "similarity": 0.1667,
-  "crossFamily": false,
-  "shared": [
-   "BI",
-   "CRM",
-   "Looker",
-   "Tableau",
-   "데이터 분석"
-  ]
- },
- {
-  "a": "solutions_eng",
-  "b": "data_analyst",
-  "similarity": 0.1667,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "CRM",
-   "Claude",
-   "Cursor",
-   "ERP",
-   "Gemini",
-   "Python",
-   "RAG",
-   "서비스 운영"
-  ]
- },
- {
-  "a": "data_scientist",
-  "b": "data_analyst",
-  "similarity": 0.1636,
-  "crossFamily": false,
-  "shared": [
-   "Airflow",
-   "BI",
-   "BigQuery",
-   "Claude",
-   "Python",
-   "RAG",
-   "SQL",
-   "Snowflake",
-   "Tableau"
-  ]
- },
- {
-  "a": "data_eng",
   "b": "biz_analyst",
-  "similarity": 0.1633,
-  "crossFamily": true,
+  "similarity": 0.2069,
+  "crossFamily": false,
   "shared": [
-   "Airflow",
    "BI",
-   "ETL",
-   "Git",
-   "Hadoop",
-   "Hive",
-   "Python",
-   "SQL"
+   "Looker",
+   "Rocket",
+   "SQL",
+   "Tableau",
+   "개인정보 보호법"
   ]
  },
  {
   "a": "data_scientist",
-  "b": "eng_lead",
-  "similarity": 0.1622,
+  "b": "architect",
+  "similarity": 0.2,
   "crossFamily": false,
   "shared": [
-   "Airflow",
-   "GenAI",
+   "Azure",
    "LLM",
-   "PyTorch",
+   "LLMs",
+   "LangGraph",
+   "MLOps",
    "RAG",
    "Snowflake"
   ]
  },
  {
-  "a": "architect",
-  "b": "solutions_eng",
-  "similarity": 0.1622,
-  "crossFamily": false,
-  "shared": [
-   "GPU",
-   "LLM",
-   "LLMs",
-   "LangGraph",
-   "MLOps",
-   "RAG"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "mobile_dev",
-  "similarity": 0.16,
+  "a": "fe_dev",
+  "b": "qa_eng",
+  "similarity": 0.2,
   "crossFamily": false,
   "shared": [
    "Android",
-   "Claude",
-   "Cursor",
-   "Django",
-   "Git",
-   "MySQL",
-   "Redis",
-   "iOS"
+   "Angular",
+   "GitHub",
+   "JavaScript",
+   "Jest",
+   "Jira",
+   "Next.js",
+   "Node.js",
+   "Nuxt",
+   "Playwright"
   ]
  },
  {
-  "a": "product_designer",
-  "b": "graphic_designer",
-  "similarity": 0.1579,
-  "crossFamily": false,
+  "a": "product_manager",
+  "b": "designer",
+  "similarity": 0.1875,
+  "crossFamily": true,
   "shared": [
-   "Claude",
    "Figma",
+   "Jira",
    "UX"
   ]
  },
  {
   "a": "product_manager",
-  "b": "product_designer",
-  "similarity": 0.1538,
+  "b": "motion_designer",
+  "similarity": 0.1818,
   "crossFamily": true,
   "shared": [
    "Figma",
@@ -654,284 +423,74 @@
   ]
  },
  {
-  "a": "fullstack_dev",
-  "b": "eng_lead",
-  "similarity": 0.1538,
-  "crossFamily": false,
+  "a": "growth_marketing",
+  "b": "graphic_designer",
+  "similarity": 0.1818,
+  "crossFamily": true,
   "shared": [
-   "LLM",
-   "NoSQL",
-   "Node.js",
-   "PostgreSQL",
-   "RAG",
-   "React",
-   "Ruby",
-   "TypeScript"
+   "CSS",
+   "Canva",
+   "Claude",
+   "Figma",
+   "HTML",
+   "Photoshop"
   ]
  },
  {
-  "a": "be_dev",
-  "b": "data_eng",
-  "similarity": 0.15,
+  "a": "fullstack_dev",
+  "b": "solutions_eng",
+  "similarity": 0.1806,
+  "crossFamily": false,
+  "shared": [
+   "Android",
+   "Claude",
+   "Cursor",
+   "JavaScript",
+   "Kubernetes",
+   "LLM",
+   "LLMs",
+   "MLOps",
+   "MongoDB",
+   "Oracle"
+  ]
+ },
+ {
+  "a": "devops_sre",
+  "b": "security_eng",
+  "similarity": 0.1803,
   "crossFamily": false,
   "shared": [
    "AWS",
-   "Airflow",
    "Azure",
+   "BMW",
+   "DevSecOps",
+   "ELK",
    "GitHub",
-   "Grafana",
-   "Hadoop",
-   "NoSQL",
-   "PostgreSQL",
-   "Python"
+   "IaC",
+   "IoT",
+   "Kubernetes",
+   "Linux"
   ]
  },
  {
-  "a": "program_manager",
+  "a": "data_analyst",
   "b": "growth_marketing",
-  "similarity": 0.1429,
-  "crossFamily": false,
-  "shared": [
-   "BI",
-   "GPU",
-   "Tableau",
-   "데이터 분석"
-  ]
- },
- {
-  "a": "growth_marketing",
-  "b": "data_analyst",
-  "similarity": 0.1429,
+  "similarity": 0.1795,
   "crossFamily": true,
   "shared": [
-   "BI",
    "CRM",
    "Claude",
    "Looker",
+   "Salesforce",
    "Stripe",
    "Tableau",
    "데이터 분석"
   ]
  },
  {
-  "a": "sw_eng",
-  "b": "eng_lead",
-  "similarity": 0.1379,
-  "crossFamily": false,
-  "shared": [
-   "C++",
-   "PostgreSQL",
-   "React",
-   "TypeScript"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "qa_eng",
-  "similarity": 0.1379,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "C#",
-   "C++",
-   "Docker",
-   "JavaScript",
-   "React",
-   "TypeScript",
-   "iOS"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "security_eng",
-  "similarity": 0.1351,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "C#",
-   "Docker",
-   "GitHub",
-   "JavaScript",
-   "Kubernetes",
-   "LLM",
-   "LLMs",
-   "Linux",
-   "Vue"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "embedded_dev",
-  "similarity": 0.129,
-  "crossFamily": false,
-  "shared": [
-   "C++",
-   "Docker",
-   "Git",
-   "Linux"
-  ]
- },
- {
-  "a": "solutions_eng",
-  "b": "embedded_dev",
-  "similarity": 0.1282,
-  "crossFamily": false,
-  "shared": [
-   "CRM",
-   "Docker",
-   "GitHub",
-   "Linux",
-   "Python"
-  ]
- },
- {
-  "a": "mobile_dev",
-  "b": "qa_eng",
-  "similarity": 0.1282,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "Flutter",
-   "GitLab",
-   "LLM",
-   "Node.js",
-   "React Native",
-   "Swift",
-   "UI",
-   "UX",
-   "iOS"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "product_designer",
-  "similarity": 0.125,
-  "crossFamily": true,
-  "shared": [
-   "Claude",
-   "Cursor",
-   "iOS"
-  ]
- },
- {
-  "a": "eng_lead",
-  "b": "qa_eng",
-  "similarity": 0.125,
-  "crossFamily": false,
-  "shared": [
-   "C++",
-   "LLM",
-   "Node.js",
-   "React",
-   "Ruby",
-   "Rust",
-   "TypeScript"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "graphic_designer",
-  "similarity": 0.125,
-  "crossFamily": true,
-  "shared": [
-   "CSS",
-   "Claude",
-   "HTML",
-   "UX",
-   "개인정보 보호법"
-  ]
- },
- {
-  "a": "growth_marketing",
-  "b": "biz_analyst",
-  "similarity": 0.125,
-  "crossFamily": false,
-  "shared": [
-   "BI",
-   "Looker",
-   "Tableau",
-   "데이터 분석",
-   "원인 분석"
-  ]
- },
- {
-  "a": "be_dev",
-  "b": "solutions_eng",
-  "similarity": 0.1228,
-  "crossFamily": false,
-  "shared": [
-   "Docker",
-   "GitHub",
-   "Kotlin",
-   "Kubernetes",
-   "PostgreSQL",
-   "Python",
-   "Redis"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "be_dev",
-  "similarity": 0.1224,
-  "crossFamily": false,
-  "shared": [
-   "C++",
-   "Docker",
-   "MySQL",
-   "PostgreSQL",
-   "RabbitMQ",
-   "Redis"
-  ]
- },
- {
-  "a": "devops_sre",
-  "b": "solutions_eng",
-  "similarity": 0.1224,
-  "crossFamily": false,
-  "shared": [
-   "Docker",
-   "GitHub",
-   "Kubernetes",
-   "Linux",
-   "Python",
-   "서비스 운영"
-  ]
- },
- {
-  "a": "be_dev",
-  "b": "devops_sre",
-  "similarity": 0.1207,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "Azure",
-   "Docker",
-   "GitHub",
-   "Grafana",
-   "Kubernetes",
-   "Python"
-  ]
- },
- {
-  "a": "solutions_eng",
-  "b": "qa_eng",
-  "similarity": 0.1194,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "Docker",
-   "Flutter",
-   "JavaScript",
-   "LLM",
-   "MLOps",
-   "Swift",
-   "Vue"
-  ]
- },
- {
   "a": "product_manager",
-  "b": "graphic_designer",
-  "similarity": 0.1176,
+  "b": "product_designer",
+  "similarity": 0.1667,
   "crossFamily": true,
   "shared": [
    "Figma",
@@ -939,38 +498,110 @@
   ]
  },
  {
-  "a": "data_scientist",
-  "b": "growth_marketing",
-  "similarity": 0.1163,
+  "a": "data_eng",
+  "b": "biz_analyst",
+  "similarity": 0.1636,
   "crossFamily": true,
   "shared": [
+   "Airflow",
    "BI",
+   "ETL",
+   "Hadoop",
+   "Hive",
+   "Looker",
+   "Presto",
+   "Python",
+   "SQL"
+  ]
+ },
+ {
+  "a": "solutions_eng",
+  "b": "mobile_dev",
+  "similarity": 0.1571,
+  "crossFamily": false,
+  "shared": [
+   "Android",
+   "CRM",
    "Claude",
+   "Cursor",
+   "Flutter",
    "GPU",
-   "GenAI",
-   "Tableau"
+   "Kotlin",
+   "LLM",
+   "Redis",
+   "Swift"
+  ]
+ },
+ {
+  "a": "designer",
+  "b": "growth_marketing",
+  "similarity": 0.1562,
+  "crossFamily": true,
+  "shared": [
+   "Canva",
+   "Claude",
+   "Figma",
+   "IoT",
+   "Photoshop"
+  ]
+ },
+ {
+  "a": "devops_sre",
+  "b": "data_eng",
+  "similarity": 0.1493,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Ansible",
+   "Azure",
+   "Datadog",
+   "Git",
+   "GitLab",
+   "Grafana",
+   "IoT",
+   "Prometheus",
+   "Terraform"
   ]
  },
  {
   "a": "architect",
   "b": "data_eng",
-  "similarity": 0.1163,
+  "similarity": 0.1489,
   "crossFamily": false,
   "shared": [
    "Azure",
    "Databricks",
+   "IoT",
    "MLOps",
+   "Salesforce",
    "Snowflake",
    "Unity"
   ]
  },
  {
-  "a": "be_dev",
-  "b": "mobile_dev",
-  "similarity": 0.1159,
+  "a": "sw_eng",
+  "b": "fe_dev",
+  "similarity": 0.1429,
   "crossFamily": false,
   "shared": [
+   "Android",
+   "Git",
+   "JavaScript",
+   "PostgreSQL",
+   "React",
+   "TypeScript",
+   "iOS"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "mobile_dev",
+  "similarity": 0.1392,
+  "crossFamily": false,
+  "shared": [
+   "Claude",
    "DynamoDB",
+   "Git",
    "GitHub",
    "Kotlin",
    "MySQL",
@@ -981,220 +612,191 @@
   ]
  },
  {
-  "a": "product_designer",
-  "b": "growth_marketing",
-  "similarity": 0.1154,
-  "crossFamily": true,
+  "a": "sw_eng",
+  "b": "qa_eng",
+  "similarity": 0.1389,
+  "crossFamily": false,
   "shared": [
-   "Claude",
-   "Figma",
-   "IoT"
-  ]
- },
- {
-  "a": "product_designer",
-  "b": "mobile_dev",
-  "similarity": 0.1136,
-  "crossFamily": true,
-  "shared": [
-   "Claude",
-   "Cursor",
-   "UI",
-   "UX",
+   "Android",
+   "C#",
+   "C++",
+   "Golang",
+   "Java",
+   "JavaScript",
+   "React",
+   "Rust",
+   "TypeScript",
    "iOS"
   ]
  },
  {
-  "a": "data_eng",
-  "b": "embedded_dev",
-  "similarity": 0.1136,
+  "a": "sw_eng",
+  "b": "be_dev",
+  "similarity": 0.1373,
   "crossFamily": false,
   "shared": [
+   "C++",
+   "Docker",
    "Git",
-   "GitHub",
-   "GitLab",
-   "IoT",
-   "Python"
+   "Java",
+   "MySQL",
+   "PostgreSQL",
+   "Redis"
   ]
  },
  {
   "a": "sw_eng",
-  "b": "fe_dev",
-  "similarity": 0.1111,
+  "b": "mobile_dev",
+  "similarity": 0.1333,
   "crossFamily": false,
   "shared": [
-   "Claude",
+   "Android",
+   "Django",
    "Git",
+   "MySQL",
+   "React",
+   "Redis",
+   "TypeScript",
+   "iOS"
+  ]
+ },
+ {
+  "a": "eng_lead",
+  "b": "embedded_dev",
+  "similarity": 0.1333,
+  "crossFamily": false,
+  "shared": [
+   "C++",
+   "IoT",
+   "Python",
+   "Ubuntu"
+  ]
+ },
+ {
+  "a": "biz_strategy",
+  "b": "growth_marketing",
+  "similarity": 0.1333,
+  "crossFamily": false,
+  "shared": [
+   "CRM",
+   "Looker",
+   "Salesforce",
+   "Tableau"
+  ]
+ },
+ {
+  "a": "solutions_eng",
+  "b": "qa_eng",
+  "similarity": 0.131,
+  "crossFamily": false,
+  "shared": [
+   "Android",
+   "Claude",
+   "Cursor",
+   "Flutter",
    "JavaScript",
+   "Kotlin",
+   "LLM",
+   "MLOps",
+   "Swift",
+   "Unity"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "biz_analyst",
+  "similarity": 0.1304,
+  "crossFamily": true,
+  "shared": [
+   "Airflow",
+   "BI",
+   "Looker",
+   "Python",
+   "SQL",
+   "Tableau"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "data_eng",
+  "similarity": 0.1286,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Airflow",
+   "Azure",
+   "Git",
+   "Grafana",
+   "Hadoop",
+   "NoSQL",
+   "PostgreSQL",
+   "Prometheus"
+  ]
+ },
+ {
+  "a": "sw_eng",
+  "b": "eng_lead",
+  "similarity": 0.125,
+  "crossFamily": false,
+  "shared": [
+   "C++",
    "React",
    "TypeScript"
   ]
  },
  {
   "a": "data_scientist",
-  "b": "program_manager",
-  "similarity": 0.1111,
+  "b": "biz_strategy",
+  "similarity": 0.1212,
   "crossFamily": true,
   "shared": [
    "BI",
-   "GPU",
+   "Looker",
    "SQL",
    "Tableau"
   ]
  },
  {
-  "a": "architect",
-  "b": "eng_lead",
-  "similarity": 0.1071,
+  "a": "security_eng",
+  "b": "solutions_eng",
+  "similarity": 0.1207,
   "crossFamily": false,
   "shared": [
+   "Azure",
+   "JavaScript",
+   "Kubernetes",
    "LLM",
-   "RAG",
-   "Snowflake"
+   "LLMs",
+   "Python",
+   "Vue"
   ]
  },
  {
   "a": "be_dev",
-  "b": "eng_lead",
-  "similarity": 0.1064,
-  "crossFamily": false,
-  "shared": [
-   "Airflow",
-   "C++",
-   "NoSQL",
-   "Node.js",
-   "PostgreSQL"
-  ]
- },
- {
-  "a": "architect",
-  "b": "data_analyst",
-  "similarity": 0.1064,
-  "crossFamily": false,
-  "shared": [
-   "Coca-Cola",
-   "Databricks",
-   "RAG",
-   "Salesforce",
-   "Snowflake"
-  ]
- },
- {
-  "a": "data_scientist",
-  "b": "biz_analyst",
-  "similarity": 0.1042,
-  "crossFamily": true,
-  "shared": [
-   "Airflow",
-   "BI",
-   "Python",
-   "SQL",
-   "Tableau"
-  ]
- },
- {
-  "a": "devops_sre",
-  "b": "data_analyst",
-  "similarity": 0.1034,
-  "crossFamily": false,
-  "shared": [
-   "Git",
-   "IaC",
-   "Python",
-   "Terraform",
-   "Vault",
-   "서비스 운영"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "data_analyst",
-  "similarity": 0.102,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "Claude",
-   "Cursor",
-   "Git",
-   "Terraform"
-  ]
- },
- {
-  "a": "designer",
-  "b": "mobile_dev",
-  "similarity": 0.102,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Claude",
-   "Cursor",
-   "UI",
-   "UX"
-  ]
- },
- {
-  "a": "be_dev",
-  "b": "security_eng",
-  "similarity": 0.1014,
+  "b": "devops_sre",
+  "similarity": 0.1143,
   "crossFamily": false,
   "shared": [
    "AWS",
    "Azure",
    "Docker",
+   "Git",
    "GitHub",
+   "Grafana",
    "Kubernetes",
-   "Python",
-   "개인정보 보호법"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "data_eng",
-  "similarity": 0.1,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "BI",
-   "C#",
-   "Git",
-   "GitHub",
-   "NoSQL",
-   "PostgreSQL"
-  ]
- },
- {
-  "a": "security_eng",
-  "b": "embedded_dev",
-  "similarity": 0.098,
-  "crossFamily": false,
-  "shared": [
-   "Docker",
-   "GitHub",
-   "IoT",
-   "Linux",
-   "Python"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "devops_sre",
-  "similarity": 0.0952,
-  "crossFamily": false,
-  "shared": [
-   "Docker",
-   "Git",
-   "Linux",
-   "Terraform"
+   "Prometheus"
   ]
  },
  {
   "a": "be_dev",
   "b": "fe_dev",
-  "similarity": 0.0952,
+  "similarity": 0.1143,
   "crossFamily": false,
   "shared": [
+   "Git",
    "GitHub",
    "Node.js",
+   "PostgreSQL",
    "RESTful",
    "gRPC",
    "개인정보 보호법",
@@ -1202,60 +804,501 @@
   ]
  },
  {
-  "a": "designer",
-  "b": "fe_dev",
-  "similarity": 0.0952,
-  "crossFamily": true,
+  "a": "growth_marketing",
+  "b": "biz_analyst",
+  "similarity": 0.1136,
+  "crossFamily": false,
   "shared": [
-   "Claude",
-   "Jira",
-   "UI",
-   "UX"
+   "Looker",
+   "Tableau",
+   "ros",
+   "데이터 분석",
+   "원인 분석"
+  ]
+ },
+ {
+  "a": "devops_sre",
+  "b": "embedded_dev",
+  "similarity": 0.1053,
+  "crossFamily": false,
+  "shared": [
+   "Bash",
+   "Git",
+   "GitHub",
+   "GitLab",
+   "IoT",
+   "Linux"
   ]
  },
  {
   "a": "eng_lead",
-  "b": "data_eng",
-  "similarity": 0.093,
+  "b": "security_eng",
+  "similarity": 0.1026,
   "crossFamily": false,
   "shared": [
-   "Airflow",
-   "NoSQL",
-   "PostgreSQL",
-   "Snowflake"
+   "IoT",
+   "Python",
+   "Staffbase",
+   "flex"
   ]
  },
  {
   "a": "fullstack_dev",
-  "b": "designer",
-  "similarity": 0.0926,
+  "b": "security_eng",
+  "similarity": 0.1,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "C#",
+   "GitHub",
+   "JavaScript",
+   "Kubernetes",
+   "LLM",
+   "LLMs",
+   "Vue"
+  ]
+ },
+ {
+  "a": "solutions_eng",
+  "b": "growth_marketing",
+  "similarity": 0.1,
   "crossFamily": true,
   "shared": [
+   "CRM",
+   "Claude",
+   "GPU",
+   "GenAI",
+   "PS"
+  ]
+ },
+ {
+  "a": "sw_eng",
+  "b": "devops_sre",
+  "similarity": 0.098,
+  "crossFamily": false,
+  "shared": [
+   "Docker",
+   "Git",
+   "Linux",
+   "Rust",
+   "Terraform"
+  ]
+ },
+ {
+  "a": "product_designer",
+  "b": "graphic_designer",
+  "similarity": 0.0952,
+  "crossFamily": false,
+  "shared": [
+   "Claude",
+   "Figma"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "qa_eng",
+  "similarity": 0.0947,
+  "crossFamily": false,
+  "shared": [
+   "C++",
+   "Claude",
+   "DynamoDB",
+   "GitHub",
+   "Java",
+   "Jenkins",
+   "Kotlin",
+   "Node.js",
+   "Spring"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "fullstack_dev",
+  "similarity": 0.0946,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Claude",
+   "Java",
+   "LLM",
+   "LLMs",
+   "MLOps",
+   "RAG"
+  ]
+ },
+ {
+  "a": "product_designer",
+  "b": "mobile_dev",
+  "similarity": 0.0943,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
    "Cursor",
-   "Jira",
-   "Shopify",
    "UI",
-   "UX"
+   "UX",
+   "iOS"
+  ]
+ },
+ {
+  "a": "program_manager",
+  "b": "growth_marketing",
+  "similarity": 0.0938,
+  "crossFamily": false,
+  "shared": [
+   "Salesforce",
+   "Tableau",
+   "데이터 분석"
+  ]
+ },
+ {
+  "a": "data_analyst",
+  "b": "mobile_dev",
+  "similarity": 0.0909,
+  "crossFamily": false,
+  "shared": [
+   "Binance",
+   "CRM",
+   "Claude",
+   "Git",
+   "Stripe",
+   "Web3"
   ]
  },
  {
   "a": "security_eng",
   "b": "data_eng",
-  "similarity": 0.0923,
+  "similarity": 0.0896,
   "crossFamily": false,
   "shared": [
    "AWS",
    "Azure",
    "C#",
+   "IoT",
+   "Python",
+   "flex"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "security_eng",
+  "similarity": 0.0893,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Azure",
+   "LLM",
+   "LLMs",
+   "Python"
+  ]
+ },
+ {
+  "a": "architect",
+  "b": "security_eng",
+  "similarity": 0.0889,
+  "crossFamily": false,
+  "shared": [
+   "Azure",
+   "IoT",
+   "LLM",
+   "LLMs"
+  ]
+ },
+ {
+  "a": "biz_strategy",
+  "b": "data_eng",
+  "similarity": 0.0889,
+  "crossFamily": true,
+  "shared": [
+   "BI",
+   "Looker",
+   "SQL",
+   "Salesforce"
+  ]
+ },
+ {
+  "a": "architect",
+  "b": "data_analyst",
+  "similarity": 0.0882,
+  "crossFamily": false,
+  "shared": [
+   "Databricks",
+   "Salesforce",
+   "Snowflake"
+  ]
+ },
+ {
+  "a": "fullstack_dev",
+  "b": "product_designer",
+  "similarity": 0.0877,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "Cursor",
+   "UI",
+   "UX",
+   "iOS"
+  ]
+ },
+ {
+  "a": "biz_strategy",
+  "b": "graphic_designer",
+  "similarity": 0.087,
+  "crossFamily": true,
+  "shared": [
+   "PowerPoint",
+   "개인정보 보호법"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "program_manager",
+  "similarity": 0.0857,
+  "crossFamily": true,
+  "shared": [
+   "BI",
+   "SQL",
+   "Tableau"
+  ]
+ },
+ {
+  "a": "data_scientist",
+  "b": "growth_marketing",
+  "similarity": 0.0851,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "GenAI",
+   "Looker",
+   "Tableau"
+  ]
+ },
+ {
+  "a": "data_eng",
+  "b": "embedded_dev",
+  "similarity": 0.0847,
+  "crossFamily": false,
+  "shared": [
+   "Git",
+   "GitLab",
+   "IoT",
+   "Python",
+   "Samsung"
+  ]
+ },
+ {
+  "a": "designer",
+  "b": "qa_eng",
+  "similarity": 0.0845,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "IoT",
+   "Jira",
+   "UI",
+   "UX",
+   "WordPress"
+  ]
+ },
+ {
+  "a": "architect",
+  "b": "growth_marketing",
+  "similarity": 0.0833,
+  "crossFamily": true,
+  "shared": [
+   "GPU",
+   "IoT",
+   "Salesforce"
+  ]
+ },
+ {
+  "a": "fullstack_dev",
+  "b": "devops_sre",
+  "similarity": 0.0824,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Docker",
+   "Git",
+   "GitHub",
+   "Jira",
+   "Kubernetes",
+   "Ruby"
+  ]
+ },
+ {
+  "a": "solutions_eng",
+  "b": "data_analyst",
+  "similarity": 0.0816,
+  "crossFamily": false,
+  "shared": [
+   "CRM",
+   "Claude",
+   "Databricks",
+   "Python"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "data_scientist",
+  "similarity": 0.0806,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Airflow",
+   "Azure",
+   "Claude",
+   "Java"
+  ]
+ },
+ {
+  "a": "security_eng",
+  "b": "qa_eng",
+  "similarity": 0.0769,
+  "crossFamily": false,
+  "shared": [
+   "C#",
+   "DevSecOps",
    "GitHub",
    "IoT",
+   "JavaScript",
+   "LLM",
+   "Vue"
+  ]
+ },
+ {
+  "a": "data_eng",
+  "b": "solutions_eng",
+  "similarity": 0.0769,
+  "crossFamily": false,
+  "shared": [
+   "Azure",
+   "Databricks",
+   "MLOps",
+   "Python",
+   "Unity"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "solutions_eng",
+  "similarity": 0.0758,
+  "crossFamily": false,
+  "shared": [
+   "Azure",
+   "Claude",
+   "Kotlin",
+   "Kubernetes",
+   "Redis"
+  ]
+ },
+ {
+  "a": "sw_eng",
+  "b": "data_eng",
+  "similarity": 0.0755,
+  "crossFamily": false,
+  "shared": [
+   "C#",
+   "Git",
+   "PostgreSQL",
+   "Terraform"
+  ]
+ },
+ {
+  "a": "sw_eng",
+  "b": "embedded_dev",
+  "similarity": 0.075,
+  "crossFamily": false,
+  "shared": [
+   "C++",
+   "Git",
+   "Linux"
+  ]
+ },
+ {
+  "a": "product_designer",
+  "b": "qa_eng",
+  "similarity": 0.0746,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "Cursor",
+   "UI",
+   "UX",
+   "iOS"
+  ]
+ },
+ {
+  "a": "devops_sre",
+  "b": "qa_eng",
+  "similarity": 0.0737,
+  "crossFamily": false,
+  "shared": [
+   "DevSecOps",
+   "GitHub",
+   "GitLab",
+   "IoT",
+   "Jira",
+   "Ruby",
+   "Rust"
+  ]
+ },
+ {
+  "a": "eng_lead",
+  "b": "qa_eng",
+  "similarity": 0.0735,
+  "crossFamily": false,
+  "shared": [
+   "C++",
+   "IoT",
+   "React",
+   "Ruby",
+   "TypeScript"
+  ]
+ },
+ {
+  "a": "data_eng",
+  "b": "qa_eng",
+  "similarity": 0.0729,
+  "crossFamily": false,
+  "shared": [
+   "C#",
+   "GitLab",
+   "IoT",
+   "MLOps",
+   "Salesforce",
+   "Scala",
+   "Unity"
+  ]
+ },
+ {
+  "a": "security_eng",
+  "b": "embedded_dev",
+  "similarity": 0.0727,
+  "crossFamily": false,
+  "shared": [
+   "GitHub",
+   "IoT",
+   "Linux",
    "Python"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "security_eng",
+  "similarity": 0.0725,
+  "crossFamily": false,
+  "shared": [
+   "AWS",
+   "Azure",
+   "GitHub",
+   "Kubernetes",
+   "개인정보 보호법"
   ]
  },
  {
   "a": "growth_marketing",
   "b": "mobile_dev",
-  "similarity": 0.0909,
+  "similarity": 0.0725,
   "crossFamily": true,
   "shared": [
    "CRM",
@@ -1266,101 +1309,35 @@
   ]
  },
  {
-  "a": "fullstack_dev",
-  "b": "devops_sre",
-  "similarity": 0.0896,
+  "a": "qa_eng",
+  "b": "embedded_dev",
+  "similarity": 0.0723,
   "crossFamily": false,
   "shared": [
-   "AWS",
-   "Docker",
-   "Git",
+   "C++",
    "GitHub",
-   "Kubernetes",
-   "Linux"
+   "GitLab",
+   "IoT",
+   "Jenkins",
+   "Zephyr"
   ]
  },
  {
-  "a": "be_dev",
-  "b": "biz_analyst",
-  "similarity": 0.0877,
+  "a": "product_manager",
+  "b": "fullstack_dev",
+  "similarity": 0.0714,
   "crossFamily": true,
   "shared": [
-   "Airflow",
-   "Hadoop",
-   "Python",
-   "Rocket",
-   "개인정보 보호법"
-  ]
- },
- {
-  "a": "security_eng",
-  "b": "qa_eng",
-  "similarity": 0.0875,
-  "crossFamily": false,
-  "shared": [
-   "Azure",
-   "C#",
-   "Docker",
-   "JavaScript",
-   "LLM",
-   "Vue",
-   "개인정보 보호법"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "data_eng",
-  "similarity": 0.087,
-  "crossFamily": false,
-  "shared": [
-   "C#",
-   "Git",
-   "PostgreSQL",
-   "Terraform"
-  ]
- },
- {
-  "a": "designer",
-  "b": "data_analyst",
-  "similarity": 0.087,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Claude",
-   "Cursor",
-   "Shopify"
-  ]
- },
- {
-  "a": "data_analyst",
-  "b": "mobile_dev",
-  "similarity": 0.0857,
-  "crossFamily": false,
-  "shared": [
-   "Android",
-   "CRM",
-   "Claude",
-   "Cursor",
-   "Git",
-   "Stripe"
-  ]
- },
- {
-  "a": "eng_lead",
-  "b": "data_analyst",
-  "similarity": 0.0851,
-  "crossFamily": false,
-  "shared": [
-   "Airflow",
-   "IaC",
-   "RAG",
-   "Snowflake"
+   "Confluence",
+   "Jira",
+   "LLMs",
+   "UX"
   ]
  },
  {
   "a": "product_manager",
   "b": "growth_marketing",
-  "similarity": 0.0833,
+  "similarity": 0.0714,
   "crossFamily": false,
   "shared": [
    "CRM",
@@ -1368,22 +1345,59 @@
   ]
  },
  {
+  "a": "mobile_dev",
+  "b": "embedded_dev",
+  "similarity": 0.0714,
+  "crossFamily": false,
+  "shared": [
+   "CRM",
+   "Git",
+   "GitHub",
+   "GitLab",
+   "MQTT"
+  ]
+ },
+ {
+  "a": "product_designer",
+  "b": "fe_dev",
+  "similarity": 0.0698,
+  "crossFamily": true,
+  "shared": [
+   "UI",
+   "UX",
+   "iOS"
+  ]
+ },
+ {
   "a": "be_dev",
-  "b": "data_scientist",
-  "similarity": 0.0833,
+  "b": "data_analyst",
+  "similarity": 0.069,
+  "crossFamily": false,
+  "shared": [
+   "Airflow",
+   "Claude",
+   "Git",
+   "개인정보 보호법"
+  ]
+ },
+ {
+  "a": "fullstack_dev",
+  "b": "data_eng",
+  "similarity": 0.069,
   "crossFamily": false,
   "shared": [
    "AWS",
-   "Airflow",
-   "Azure",
-   "Java",
-   "Python"
+   "C#",
+   "Git",
+   "MLOps",
+   "NoSQL",
+   "PostgreSQL"
   ]
  },
  {
   "a": "growth_marketing",
   "b": "motion_designer",
-  "similarity": 0.0833,
+  "similarity": 0.069,
   "crossFamily": true,
   "shared": [
    "Figma",
@@ -1391,420 +1405,184 @@
   ]
  },
  {
-  "a": "data_eng",
-  "b": "qa_eng",
-  "similarity": 0.0811,
+  "a": "data_analyst",
+  "b": "embedded_dev",
+  "similarity": 0.0682,
   "crossFamily": false,
   "shared": [
-   "Azure",
-   "C#",
-   "GitLab",
+   "CRM",
+   "Git",
+   "Python"
+  ]
+ },
+ {
+  "a": "architect",
+  "b": "qa_eng",
+  "similarity": 0.0676,
+  "crossFamily": false,
+  "shared": [
+   "IoT",
+   "LLM",
    "MLOps",
-   "Scala",
+   "Salesforce",
    "Unity"
   ]
  },
  {
-  "a": "data_scientist",
-  "b": "security_eng",
-  "similarity": 0.0806,
+  "a": "product_manager",
+  "b": "biz_strategy",
+  "similarity": 0.0667,
   "crossFamily": false,
   "shared": [
-   "AWS",
-   "Azure",
-   "LLM",
-   "LLMs",
-   "Python"
+   "CRM"
+  ]
+ },
+ {
+  "a": "eng_lead",
+  "b": "data_eng",
+  "similarity": 0.0667,
+  "crossFamily": false,
+  "shared": [
+   "IoT",
+   "Python",
+   "flex"
+  ]
+ },
+ {
+  "a": "product_designer",
+  "b": "growth_marketing",
+  "similarity": 0.0667,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "Figma"
+  ]
+ },
+ {
+  "a": "be_dev",
+  "b": "biz_analyst",
+  "similarity": 0.0656,
+  "crossFamily": true,
+  "shared": [
+   "Airflow",
+   "Hadoop",
+   "Rocket",
+   "개인정보 보호법"
   ]
  },
  {
   "a": "be_dev",
   "b": "embedded_dev",
-  "similarity": 0.08,
+  "similarity": 0.0656,
   "crossFamily": false,
   "shared": [
    "C++",
-   "Docker",
+   "Git",
    "GitHub",
-   "Python"
+   "Jenkins"
   ]
  },
  {
-  "a": "fullstack_dev",
-  "b": "product_designer",
-  "similarity": 0.08,
-  "crossFamily": true,
-  "shared": [
-   "Cursor",
-   "UI",
-   "UX",
-   "iOS"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "data_analyst",
-  "similarity": 0.08,
+  "a": "sw_eng",
+  "b": "solutions_eng",
+  "similarity": 0.0652,
   "crossFamily": false,
   "shared": [
    "Android",
+   "JavaScript",
+   "Redis"
+  ]
+ },
+ {
+  "a": "program_manager",
+  "b": "data_eng",
+  "similarity": 0.0638,
+  "crossFamily": true,
+  "shared": [
    "BI",
-   "Cursor",
-   "Git",
-   "RAG",
-   "Shopify"
-  ]
- },
- {
-  "a": "product_designer",
-  "b": "fe_dev",
-  "similarity": 0.0789,
-  "crossFamily": true,
-  "shared": [
-   "Claude",
-   "UI",
-   "UX"
-  ]
- },
- {
-  "a": "designer",
-  "b": "solutions_eng",
-  "similarity": 0.0789,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Claude",
-   "Cursor"
-  ]
- },
- {
-  "a": "architect",
-  "b": "security_eng",
-  "similarity": 0.0784,
-  "crossFamily": false,
-  "shared": [
-   "Azure",
-   "LLM",
-   "LLMs",
-   "OWASP"
-  ]
- },
- {
-  "a": "architect",
-  "b": "program_manager",
-  "similarity": 0.0769,
-  "crossFamily": true,
-  "shared": [
-   "GPU",
+   "SQL",
    "Salesforce"
   ]
  },
  {
   "a": "fullstack_dev",
-  "b": "biz_analyst",
-  "similarity": 0.0769,
+  "b": "designer",
+  "similarity": 0.0635,
   "crossFamily": true,
   "shared": [
-   "Android",
-   "BI",
-   "Git",
-   "Oracle",
-   "iOS"
+   "Claude",
+   "Jira",
+   "UI",
+   "UX"
   ]
  },
  {
-  "a": "eng_lead",
-  "b": "solutions_eng",
-  "similarity": 0.0769,
+  "a": "product_manager",
+  "b": "program_manager",
+  "similarity": 0.0625,
   "crossFamily": false,
   "shared": [
-   "LLM",
-   "PostgreSQL",
-   "RAG"
+   "Jira"
+  ]
+ },
+ {
+  "a": "designer",
+  "b": "fe_dev",
+  "similarity": 0.0625,
+  "crossFamily": true,
+  "shared": [
+   "Jira",
+   "UI",
+   "UX"
   ]
  },
  {
   "a": "biz_strategy",
-  "b": "graphic_designer",
-  "similarity": 0.0769,
+  "b": "motion_designer",
+  "similarity": 0.0625,
   "crossFamily": true,
   "shared": [
-   "PowerPoint",
-   "개인정보 보호법"
+   "PowerPoint"
   ]
  },
  {
-  "a": "be_dev",
-  "b": "qa_eng",
-  "similarity": 0.0759,
+  "a": "architect",
+  "b": "fullstack_dev",
+  "similarity": 0.0615,
   "crossFamily": false,
   "shared": [
-   "Azure",
-   "C++",
-   "Docker",
-   "Node.js",
-   "Spring",
-   "개인정보 보호법"
+   "LLM",
+   "LLMs",
+   "MLOps",
+   "RAG"
   ]
  },
  {
   "a": "sw_eng",
   "b": "security_eng",
-  "similarity": 0.0755,
+  "similarity": 0.0612,
   "crossFamily": false,
   "shared": [
    "C#",
-   "Docker",
    "JavaScript",
    "Linux"
   ]
  },
  {
-  "a": "mobile_dev",
-  "b": "embedded_dev",
-  "similarity": 0.0755,
-  "crossFamily": false,
-  "shared": [
-   "CRM",
-   "Git",
-   "GitHub",
-   "GitLab"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "biz_analyst",
-  "similarity": 0.075,
-  "crossFamily": true,
-  "shared": [
-   "Android",
-   "Git",
-   "iOS"
-  ]
- },
- {
-  "a": "data_scientist",
-  "b": "biz_strategy",
-  "similarity": 0.075,
-  "crossFamily": true,
-  "shared": [
-   "BI",
-   "SQL",
-   "Tableau"
-  ]
- },
- {
-  "a": "designer",
-  "b": "biz_strategy",
-  "similarity": 0.0741,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "PowerPoint"
-  ]
- },
- {
-  "a": "data_scientist",
-  "b": "fullstack_dev",
-  "similarity": 0.0735,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "BI",
-   "LLM",
-   "LLMs",
-   "RAG"
-  ]
- },
- {
-  "a": "data_eng",
-  "b": "solutions_eng",
-  "similarity": 0.0727,
-  "crossFamily": false,
-  "shared": [
-   "GitHub",
-   "MLOps",
-   "PostgreSQL",
-   "Python"
-  ]
- },
- {
   "a": "fe_dev",
-  "b": "solutions_eng",
-  "similarity": 0.0727,
-  "crossFamily": false,
-  "shared": [
-   "Claude",
-   "GitHub",
-   "JavaScript",
-   "Vue"
-  ]
- },
- {
-  "a": "security_eng",
-  "b": "data_analyst",
-  "similarity": 0.0714,
-  "crossFamily": false,
-  "shared": [
-   "Gemini",
-   "IaC",
-   "Python",
-   "개인정보 보호법",
-   "서비스 운영"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "embedded_dev",
-  "similarity": 0.069,
-  "crossFamily": false,
-  "shared": [
-   "Docker",
-   "Git",
-   "GitHub",
-   "Linux"
-  ]
- },
- {
-  "a": "designer",
-  "b": "qa_eng",
-  "similarity": 0.069,
-  "crossFamily": true,
-  "shared": [
-   "Shopify",
-   "UI",
-   "UX",
-   "WordPress"
-  ]
- },
- {
-  "a": "eng_lead",
-  "b": "fe_dev",
-  "similarity": 0.0682,
-  "crossFamily": false,
-  "shared": [
-   "Node.js",
-   "React",
-   "TypeScript"
-  ]
- },
- {
-  "a": "solutions_eng",
-  "b": "growth_marketing",
-  "similarity": 0.0682,
-  "crossFamily": true,
-  "shared": [
-   "CRM",
-   "Claude",
-   "GPU"
-  ]
- },
- {
-  "a": "sw_eng",
-  "b": "designer",
-  "similarity": 0.0667,
-  "crossFamily": true,
-  "shared": [
-   "Claude",
-   "Cursor"
-  ]
- },
- {
-  "a": "architect",
-  "b": "qa_eng",
-  "similarity": 0.0667,
-  "crossFamily": false,
-  "shared": [
-   "Azure",
-   "LLM",
-   "MLOps",
-   "Unity"
-  ]
- },
- {
-  "a": "mobile_dev",
-  "b": "biz_analyst",
-  "similarity": 0.0656,
-  "crossFamily": true,
-  "shared": [
-   "Android",
-   "Git",
-   "iOS",
-   "성능 최적화"
-  ]
- },
- {
-  "a": "qa_eng",
-  "b": "embedded_dev",
-  "similarity": 0.0656,
-  "crossFamily": false,
-  "shared": [
-   "C++",
-   "Docker",
-   "GitLab",
-   "Jenkins"
-  ]
- },
- {
-  "a": "product_manager",
-  "b": "fullstack_dev",
-  "similarity": 0.0625,
-  "crossFamily": true,
-  "shared": [
-   "Confluence",
-   "Jira",
-   "UX"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "data_analyst",
-  "similarity": 0.0625,
-  "crossFamily": false,
-  "shared": [
-   "Claude",
-   "Git",
-   "개인정보 보호법",
-   "서비스 개발"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "growth_marketing",
-  "similarity": 0.0612,
+  "b": "graphic_designer",
+  "similarity": 0.06,
   "crossFamily": true,
   "shared": [
    "CSS",
-   "Claude",
-   "HTML"
-  ]
- },
- {
-  "a": "solutions_eng",
-  "b": "biz_analyst",
-  "similarity": 0.0612,
-  "crossFamily": true,
-  "shared": [
-   "Android",
-   "ERP",
-   "Python"
-  ]
- },
- {
-  "a": "data_analyst",
-  "b": "embedded_dev",
-  "similarity": 0.06,
-  "crossFamily": false,
-  "shared": [
-   "CRM",
-   "Git",
-   "Python"
+   "HTML",
+   "개인정보 보호법"
   ]
  },
  {
   "a": "security_eng",
   "b": "fe_dev",
-  "similarity": 0.0597,
+  "similarity": 0.0588,
   "crossFamily": false,
   "shared": [
    "GitHub",
@@ -1815,17 +1593,39 @@
  },
  {
   "a": "product_manager",
-  "b": "program_manager",
-  "similarity": 0.0588,
-  "crossFamily": false,
+  "b": "solutions_eng",
+  "similarity": 0.0571,
+  "crossFamily": true,
   "shared": [
-   "Jira"
+   "CRM",
+   "LLMs"
+  ]
+ },
+ {
+  "a": "data_analyst",
+  "b": "graphic_designer",
+  "similarity": 0.0571,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "개인정보 보호법"
+  ]
+ },
+ {
+  "a": "solutions_eng",
+  "b": "biz_analyst",
+  "similarity": 0.0566,
+  "crossFamily": true,
+  "shared": [
+   "ERP",
+   "Oracle",
+   "Python"
   ]
  },
  {
   "a": "product_designer",
   "b": "solutions_eng",
-  "similarity": 0.0588,
+  "similarity": 0.0541,
   "crossFamily": true,
   "shared": [
    "Claude",
@@ -1833,173 +1633,65 @@
   ]
  },
  {
-  "a": "data_eng",
-  "b": "mobile_dev",
-  "similarity": 0.0588,
-  "crossFamily": false,
-  "shared": [
-   "Git",
-   "GitHub",
-   "GitLab",
-   "NoSQL"
-  ]
- },
- {
-  "a": "be_dev",
-  "b": "data_analyst",
-  "similarity": 0.058,
-  "crossFamily": false,
-  "shared": [
-   "Airflow",
-   "Python",
-   "개인정보 보호법",
-   "서비스 개발"
-  ]
- },
- {
-  "a": "eng_lead",
-  "b": "mobile_dev",
-  "similarity": 0.0577,
-  "crossFamily": false,
-  "shared": [
-   "LLM",
-   "NoSQL",
-   "Node.js"
-  ]
- },
- {
-  "a": "growth_marketing",
-  "b": "embedded_dev",
-  "similarity": 0.0571,
+  "a": "product_manager",
+  "b": "architect",
+  "similarity": 0.05,
   "crossFamily": true,
   "shared": [
-   "CRM",
-   "IoT"
-  ]
- },
- {
-  "a": "data_scientist",
-  "b": "devops_sre",
-  "similarity": 0.0566,
-  "crossFamily": false,
-  "shared": [
-   "AWS",
-   "Azure",
-   "Python"
+   "LLMs"
   ]
  },
  {
   "a": "product_manager",
-  "b": "fe_dev",
-  "similarity": 0.0556,
+  "b": "graphic_designer",
+  "similarity": 0.05,
   "crossFamily": true,
   "shared": [
-   "Jira",
+   "Figma"
+  ]
+ },
+ {
+  "a": "eng_lead",
+  "b": "fullstack_dev",
+  "similarity": 0.05,
+  "crossFamily": false,
+  "shared": [
+   "React",
+   "Ruby",
+   "TypeScript"
+  ]
+ },
+ {
+  "a": "designer",
+  "b": "mobile_dev",
+  "similarity": 0.05,
+  "crossFamily": true,
+  "shared": [
+   "Claude",
+   "UI",
    "UX"
   ]
  },
  {
-  "a": "devops_sre",
-  "b": "qa_eng",
-  "similarity": 0.0556,
-  "crossFamily": false,
-  "shared": [
-   "Azure",
-   "Docker",
-   "GitLab",
-   "Rust"
-  ]
- },
- {
-  "a": "product_designer",
-  "b": "qa_eng",
-  "similarity": 0.0556,
+  "a": "data_eng",
+  "b": "growth_marketing",
+  "similarity": 0.05,
   "crossFamily": true,
   "shared": [
-   "UI",
-   "UX",
-   "iOS"
+   "IoT",
+   "Looker",
+   "Salesforce"
   ]
  },
  {
   "a": "fe_dev",
   "b": "biz_analyst",
-  "similarity": 0.0556,
+  "similarity": 0.05,
   "crossFamily": true,
   "shared": [
-   "Git",
+   "iOS",
    "개인정보 보호법",
    "성능 최적화"
-  ]
- },
- {
-  "a": "fe_dev",
-  "b": "motion_designer",
-  "similarity": 0.0556,
-  "crossFamily": true,
-  "shared": [
-   "UI",
-   "UX"
-  ]
- },
- {
-  "a": "fullstack_dev",
-  "b": "graphic_designer",
-  "similarity": 0.0545,
-  "crossFamily": true,
-  "shared": [
-   "CSS",
-   "HTML",
-   "UX"
-  ]
- },
- {
-  "a": "program_manager",
-  "b": "solutions_eng",
-  "similarity": 0.0541,
-  "crossFamily": true,
-  "shared": [
-   "ERP",
-   "GPU"
-  ]
- },
- {
-  "a": "architect",
-  "b": "fullstack_dev",
-  "similarity": 0.0517,
-  "crossFamily": false,
-  "shared": [
-   "LLM",
-   "LLMs",
-   "RAG"
-  ]
- },
- {
-  "a": "product_manager",
-  "b": "biz_strategy",
-  "similarity": 0.05,
-  "crossFamily": false,
-  "shared": [
-   "CRM"
-  ]
- },
- {
-  "a": "biz_strategy",
-  "b": "motion_designer",
-  "similarity": 0.05,
-  "crossFamily": true,
-  "shared": [
-   "PowerPoint"
-  ]
- },
- {
-  "a": "biz_analyst",
-  "b": "embedded_dev",
-  "similarity": 0.05,
-  "crossFamily": true,
-  "shared": [
-   "Git",
-   "Python"
   ]
  }
 ]

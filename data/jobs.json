@@ -8,7 +8,7 @@
    "software developer",
    "개발자"
   ],
-  "sampleSize": 280,
+  "sampleSize": 372,
   "source": "JD"
  },
  {
@@ -21,7 +21,7 @@
    "서비스 기획",
    "PM"
   ],
-  "sampleSize": 117,
+  "sampleSize": 150,
   "source": "JD"
  },
  {
@@ -34,7 +34,7 @@
    "서버 개발",
    "백엔드"
   ],
-  "sampleSize": 107,
+  "sampleSize": 119,
   "source": "JD"
  },
  {
@@ -47,7 +47,7 @@
    "AI engineer",
    "머신러닝"
   ],
-  "sampleSize": 70,
+  "sampleSize": 85,
   "source": "JD"
  },
  {
@@ -58,7 +58,20 @@
    "architect",
    "아키텍트"
   ],
-  "sampleSize": 56,
+  "sampleSize": 83,
+  "source": "JD"
+ },
+ {
+  "id": "eng_lead",
+  "title": "엔지니어링 리더",
+  "family": "개발",
+  "aliases": [
+   "engineering manager",
+   "tech lead",
+   "principal engineer",
+   "테크리드"
+  ],
+  "sampleSize": 63,
   "source": "JD"
  },
  {
@@ -70,7 +83,7 @@
    "fullstack",
    "풀스택"
   ],
-  "sampleSize": 41,
+  "sampleSize": 58,
   "source": "JD"
  },
  {
@@ -84,7 +97,7 @@
    "platform engineer",
    "인프라"
   ],
-  "sampleSize": 41,
+  "sampleSize": 58,
   "source": "JD"
  },
  {
@@ -97,7 +110,7 @@
    "UI designer",
    "프로덕트 디자이너"
   ],
-  "sampleSize": 40,
+  "sampleSize": 48,
   "source": "JD"
  },
  {
@@ -108,20 +121,7 @@
    "designer",
    "디자이너"
   ],
-  "sampleSize": 39,
-  "source": "JD"
- },
- {
-  "id": "eng_lead",
-  "title": "엔지니어링 리더",
-  "family": "개발",
-  "aliases": [
-   "engineering manager",
-   "tech lead",
-   "principal engineer",
-   "테크리드"
-  ],
-  "sampleSize": 38,
+  "sampleSize": 47,
   "source": "JD"
  },
  {
@@ -133,7 +133,7 @@
    "program manager",
    "PMO"
   ],
-  "sampleSize": 36,
+  "sampleSize": 47,
   "source": "JD"
  },
  {
@@ -146,7 +146,7 @@
    "정보보안",
    "보안"
   ],
-  "sampleSize": 35,
+  "sampleSize": 46,
   "source": "JD"
  },
  {
@@ -159,7 +159,7 @@
    "사업 기획",
    "전략 기획"
   ],
-  "sampleSize": 33,
+  "sampleSize": 43,
   "source": "JD"
  },
  {
@@ -171,7 +171,7 @@
    "데이터 엔지니어",
    "data platform engineer"
   ],
-  "sampleSize": 30,
+  "sampleSize": 39,
   "source": "JD"
  },
  {
@@ -184,7 +184,7 @@
    "프론트엔드",
    "웹 퍼블리셔"
   ],
-  "sampleSize": 26,
+  "sampleSize": 35,
   "source": "JD"
  },
  {
@@ -196,20 +196,7 @@
    "sales engineer",
    "presales"
   ],
-  "sampleSize": 25,
-  "source": "JD"
- },
- {
-  "id": "growth_marketing",
-  "title": "마케팅·그로스",
-  "family": "기획",
-  "aliases": [
-   "growth",
-   "marketing",
-   "마케팅",
-   "그로스"
-  ],
-  "sampleSize": 15,
+  "sampleSize": 34,
   "source": "JD"
  },
  {
@@ -222,7 +209,32 @@
    "analytics engineer",
    "BI analyst"
   ],
-  "sampleSize": 15,
+  "sampleSize": 28,
+  "source": "JD"
+ },
+ {
+  "id": "growth_marketing",
+  "title": "마케팅·그로스",
+  "family": "기획",
+  "aliases": [
+   "growth",
+   "marketing",
+   "마케팅",
+   "그로스"
+  ],
+  "sampleSize": 19,
+  "source": "JD"
+ },
+ {
+  "id": "biz_analyst",
+  "title": "데이터·비즈니스 기획",
+  "family": "기획",
+  "aliases": [
+   "business analyst",
+   "비즈니스 분석",
+   "경영기획"
+  ],
+  "sampleSize": 18,
   "source": "JD"
  },
  {
@@ -235,19 +247,7 @@
    "mobile engineer",
    "안드로이드"
   ],
-  "sampleSize": 15,
-  "source": "JD"
- },
- {
-  "id": "biz_analyst",
-  "title": "데이터·비즈니스 기획",
-  "family": "기획",
-  "aliases": [
-   "business analyst",
-   "비즈니스 분석",
-   "경영기획"
-  ],
-  "sampleSize": 15,
+  "sampleSize": 16,
   "source": "JD"
  },
  {
@@ -261,7 +261,7 @@
    "SDET",
    "품질"
   ],
-  "sampleSize": 7,
+  "sampleSize": 15,
   "source": "JD"
  },
  {
@@ -273,7 +273,7 @@
    "brand designer",
    "그래픽 디자이너"
   ],
-  "sampleSize": 7,
+  "sampleSize": 11,
   "source": "JD"
  },
  {
@@ -286,7 +286,7 @@
    "임베디드",
    "펌웨어"
   ],
-  "sampleSize": 7,
+  "sampleSize": 11,
   "source": "JD"
  },
  {
@@ -299,7 +299,7 @@
    "모션",
    "영상"
   ],
-  "sampleSize": 5,
+  "sampleSize": 6,
   "source": "JD"
  }
 ]

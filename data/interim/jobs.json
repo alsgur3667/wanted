@@ -8,7 +8,7 @@
    "software developer",
    "개발자"
   ],
-  "sampleSize": 280,
+  "sampleSize": 372,
   "source": "JD",
   "newcomerRatio": 0.35,
   "ratioSource": "manual"
@@ -23,7 +23,7 @@
    "서비스 기획",
    "PM"
   ],
-  "sampleSize": 117,
+  "sampleSize": 150,
   "source": "JD",
   "newcomerRatio": 0.18,
   "ratioSource": "manual"
@@ -38,7 +38,7 @@
    "서버 개발",
    "백엔드"
   ],
-  "sampleSize": 107,
+  "sampleSize": 119,
   "source": "JD",
   "newcomerRatio": 0.3,
   "ratioSource": "manual"
@@ -53,7 +53,7 @@
    "AI engineer",
    "머신러닝"
   ],
-  "sampleSize": 70,
+  "sampleSize": 85,
   "source": "JD",
   "newcomerRatio": 0.2,
   "ratioSource": "manual"
@@ -66,9 +66,24 @@
    "architect",
    "아키텍트"
   ],
-  "sampleSize": 56,
+  "sampleSize": 83,
   "source": "JD",
   "newcomerRatio": 0.03,
+  "ratioSource": "manual"
+ },
+ {
+  "id": "eng_lead",
+  "title": "엔지니어링 리더",
+  "family": "개발",
+  "aliases": [
+   "engineering manager",
+   "tech lead",
+   "principal engineer",
+   "테크리드"
+  ],
+  "sampleSize": 63,
+  "source": "JD",
+  "newcomerRatio": 0.02,
   "ratioSource": "manual"
  },
  {
@@ -80,7 +95,7 @@
    "fullstack",
    "풀스택"
   ],
-  "sampleSize": 41,
+  "sampleSize": 58,
   "source": "JD",
   "newcomerRatio": 0.22,
   "ratioSource": "manual"
@@ -96,7 +111,7 @@
    "platform engineer",
    "인프라"
   ],
-  "sampleSize": 41,
+  "sampleSize": 58,
   "source": "JD",
   "newcomerRatio": 0.1,
   "ratioSource": "manual"
@@ -111,7 +126,7 @@
    "UI designer",
    "프로덕트 디자이너"
   ],
-  "sampleSize": 40,
+  "sampleSize": 48,
   "source": "JD",
   "newcomerRatio": 0.25,
   "ratioSource": "manual"
@@ -124,24 +139,9 @@
    "designer",
    "디자이너"
   ],
-  "sampleSize": 39,
+  "sampleSize": 47,
   "source": "JD",
   "newcomerRatio": 0.4,
-  "ratioSource": "manual"
- },
- {
-  "id": "eng_lead",
-  "title": "엔지니어링 리더",
-  "family": "개발",
-  "aliases": [
-   "engineering manager",
-   "tech lead",
-   "principal engineer",
-   "테크리드"
-  ],
-  "sampleSize": 38,
-  "source": "JD",
-  "newcomerRatio": 0.02,
   "ratioSource": "manual"
  },
  {
@@ -153,7 +153,7 @@
    "program manager",
    "PMO"
   ],
-  "sampleSize": 36,
+  "sampleSize": 47,
   "source": "JD",
   "newcomerRatio": 0.1,
   "ratioSource": "manual"
@@ -168,7 +168,7 @@
    "정보보안",
    "보안"
   ],
-  "sampleSize": 35,
+  "sampleSize": 46,
   "source": "JD",
   "newcomerRatio": 0.12,
   "ratioSource": "manual"
@@ -183,7 +183,7 @@
    "사업 기획",
    "전략 기획"
   ],
-  "sampleSize": 33,
+  "sampleSize": 43,
   "source": "JD",
   "newcomerRatio": 0.3,
   "ratioSource": "manual"
@@ -197,7 +197,7 @@
    "데이터 엔지니어",
    "data platform engineer"
   ],
-  "sampleSize": 30,
+  "sampleSize": 39,
   "source": "JD",
   "newcomerRatio": 0.18,
   "ratioSource": "manual"
@@ -212,7 +212,7 @@
    "프론트엔드",
    "웹 퍼블리셔"
   ],
-  "sampleSize": 26,
+  "sampleSize": 35,
   "source": "JD",
   "newcomerRatio": 0.34,
   "ratioSource": "manual"
@@ -226,24 +226,9 @@
    "sales engineer",
    "presales"
   ],
-  "sampleSize": 25,
+  "sampleSize": 34,
   "source": "JD",
   "newcomerRatio": 0.2,
-  "ratioSource": "manual"
- },
- {
-  "id": "growth_marketing",
-  "title": "마케팅·그로스",
-  "family": "기획",
-  "aliases": [
-   "growth",
-   "marketing",
-   "마케팅",
-   "그로스"
-  ],
-  "sampleSize": 15,
-  "source": "JD",
-  "newcomerRatio": 0.4,
   "ratioSource": "manual"
  },
  {
@@ -256,9 +241,38 @@
    "analytics engineer",
    "BI analyst"
   ],
-  "sampleSize": 15,
+  "sampleSize": 28,
   "source": "JD",
   "newcomerRatio": 0.38,
+  "ratioSource": "manual"
+ },
+ {
+  "id": "growth_marketing",
+  "title": "마케팅·그로스",
+  "family": "기획",
+  "aliases": [
+   "growth",
+   "marketing",
+   "마케팅",
+   "그로스"
+  ],
+  "sampleSize": 19,
+  "source": "JD",
+  "newcomerRatio": 0.4,
+  "ratioSource": "manual"
+ },
+ {
+  "id": "biz_analyst",
+  "title": "데이터·비즈니스 기획",
+  "family": "기획",
+  "aliases": [
+   "business analyst",
+   "비즈니스 분석",
+   "경영기획"
+  ],
+  "sampleSize": 18,
+  "source": "JD",
+  "newcomerRatio": 0.32,
   "ratioSource": "manual"
  },
  {
@@ -271,23 +285,9 @@
    "mobile engineer",
    "안드로이드"
   ],
-  "sampleSize": 15,
+  "sampleSize": 16,
   "source": "JD",
   "newcomerRatio": 0.28,
-  "ratioSource": "manual"
- },
- {
-  "id": "biz_analyst",
-  "title": "데이터·비즈니스 기획",
-  "family": "기획",
-  "aliases": [
-   "business analyst",
-   "비즈니스 분석",
-   "경영기획"
-  ],
-  "sampleSize": 15,
-  "source": "JD",
-  "newcomerRatio": 0.32,
   "ratioSource": "manual"
  },
  {
@@ -301,7 +301,7 @@
    "SDET",
    "품질"
   ],
-  "sampleSize": 7,
+  "sampleSize": 15,
   "source": "JD",
   "newcomerRatio": 0.45,
   "ratioSource": "manual"
@@ -315,7 +315,7 @@
    "brand designer",
    "그래픽 디자이너"
   ],
-  "sampleSize": 7,
+  "sampleSize": 11,
   "source": "JD",
   "newcomerRatio": 0.45,
   "ratioSource": "manual"
@@ -330,7 +330,7 @@
    "임베디드",
    "펌웨어"
   ],
-  "sampleSize": 7,
+  "sampleSize": 11,
   "source": "JD",
   "newcomerRatio": 0.25,
   "ratioSource": "manual"
@@ -345,7 +345,7 @@
    "모션",
    "영상"
   ],
-  "sampleSize": 5,
+  "sampleSize": 6,
   "source": "JD",
   "newcomerRatio": 0.42,
   "ratioSource": "manual"
