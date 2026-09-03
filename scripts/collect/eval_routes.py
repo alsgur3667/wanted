@@ -33,6 +33,8 @@ MUST_REL = 0.4               # 그 직무 최고 강도 대비 이 이상이면 
 MUST_MIN, MUST_MAX, NICE_MAX = 3, 8, 6
 LIFT_CAP = 3.0
 CONFIDENCE_N = 20
+UNIQ_FLOOR = 0.6             # 직무 고유성 보정의 바닥값
+CONT_PENALTY = 0.35          # 남의 직무에 통째로 흡수되는 만큼 깎는다
 
 MAX_PER_JOB = 300      # 직무마다 이만큼만 뽑는다. 응답 수가 많은 직무가 채점을 지배하지 않도록.
 
@@ -117,6 +119,7 @@ def resolver(S):
 
 def evaluate(profiles, J, S, M, G, verbose=True):
     per_job, claim, grp = build_index(S, M, G)
+    Sname = {sid: v["name"] for sid, v in S.items()}
     resolve = resolver(S)
 
     def imp(m):
@@ -134,6 +137,29 @@ def evaluate(profiles, J, S, M, G, verbose=True):
                 if r["skillId"] not in ms and (r.get("tier") == "preferred" or imp(r) >= top * 0.2)]
         return [r["skillId"] for r in must], [r["skillId"] for r in nice[:NICE_MAX]]
 
+    # ── 직무 자체의 성격 보정 — 앱(lib/skill-index.ts JOB_ADJUST)과 같은 계산 ──
+    #
+    #  ⚠️ 이게 빠져 있었다. 앱은 넓은 직무를 깎아 순위를 내는데 채점기는 안 깎아,
+    #     **자와 제품이 다른 점수를 냈다.** 이 자로 고른 결정들이 제품과 어긋날 수 있었다.
+    #     넓은 직무를 안 깎으면 오답이 전부 풀스택으로 쏠린다 — 실제로 그렇게 나왔다.
+    all_reqs = {jid: reqs(jid) for jid in per_job}
+    in_must = Counter(s for must, _ in all_reqs.values() for s in must)
+    uniq = {jid: (sum(1 / (in_must[s] or 1) for s in must) / len(must) if must else 0)
+            for jid, (must, _) in all_reqs.items()}
+    lo, hi = min(uniq.values(), default=0), max(uniq.values(), default=0)
+    adjust = {}
+    for jid, (must, _nice) in all_reqs.items():
+        contained = 0.0
+        for other, (om, on) in all_reqs.items():
+            if other == jid or not must:
+                continue
+            cover = set(om) | set(on)
+            contained = max(contained, sum(s in cover for s in must) / len(must))
+        u = ((uniq[jid] - lo) / (hi - lo)) if hi > lo else 0.5
+        adjust[jid] = (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained)
+    mx_adj = max(adjust.values(), default=0) or 1
+    adjust = {k: v / mx_adj for k, v in adjust.items()}
+
     def covered(req, have):
         ok = {grp[i] for i in have if i in grp}
         return [i for i in req if i in have or (i in grp and grp[i] in ok)]
@@ -150,7 +176,7 @@ def evaluate(profiles, J, S, M, G, verbose=True):
             rel = st[jid] / mx if mx else 0
             raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
             conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
-            out.append((round(raw * conf), jid))
+            out.append((round(raw * conf * adjust[jid]), jid))
         out.sort(reverse=True)
         return out
 
@@ -158,12 +184,14 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     by_job = defaultdict(lambda: [0, 0, 0])       # [건수, top1, top3]
     confusion = Counter()
     unresolved = Counter()
+    seen_skill = Counter()                        # 응답에 실제로 나온 역량
     for p in profiles:
         have = set()
         for nm in p["skills"]:
             sid = resolve(nm)
             if sid:
                 have.add(sid)
+                seen_skill[sid] += 1
             else:
                 unresolved[nm] += 1
         if len(have) < 3:
@@ -187,6 +215,23 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         print(f"  {'직무':20}{'표본':>7}{'1위':>8}{'3위 안':>9}")
         for jid, (c, t1, t3) in sorted(by_job.items(), key=lambda x: -x[1][0]):
             print(f"  {J[jid]['title'][:18]:20}{c:>7,}{t1 / c:>8.0%}{t3 / c:>9.0%}")
+        #  ⚠️ 0% 를 곧바로 '우리 점수가 틀렸다'로 읽으면 안 된다.
+        #     설문은 언어·DB·클라우드·프레임워크를 묻지, 테스트 도구나 업무 역량은 묻지 않는다.
+        #     QA 는 필수 4개(Selenium·Playwright·Cypress·UX/UI)가 하나도 응답에 안 나온다.
+        #     그런 직무는 이 자로 잴 수 없는 것이지, 우리 점수가 나쁜 것이 아니다.
+        blind = []
+        for jid in by_job:
+            must, _ = reqs(jid)
+            vis = sum(1 for x in must if seen_skill[x] >= 30)
+            if must and vis < len(must) * 0.6:
+                blind.append((jid, vis, len(must),
+                              [Sname.get(x, x) for x in must if seen_skill[x] < 30]))
+        if blind:
+            print()
+            print("  ⚠️ 이 자로는 잘 못 재는 직무 — 필수 역량이 설문 문항에 없다")
+            for jid, vis, tot, names in sorted(blind, key=lambda x: x[1] / x[2]):
+                print(f"    {J[jid]['title'][:16]:18} 보이는 필수 {vis}/{tot}"
+                      f"   안 보임: {' · '.join(names)}")
         print("\n  자주 틀리는 방향 (정답 → 우리가 고른 것)")
         for (w, g), c in confusion.most_common(8):
             print(f"    {J[w]['title'][:16]:18} → {J[g]['title'][:16] if g else '없음':18}{c:>6,}건")
