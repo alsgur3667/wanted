@@ -356,6 +356,13 @@ def run():
             n_boost += 1
         row["guideMentions"] = g_n
         row["guideDocs"] = g_docs
+        #  ⚠️ 해설 글이 '필수'라 했는지 '우대'라 했는지를 반드시 같이 옮긴다.
+        #     이 두 칸을 안 옮겨서 아래 tier 투표의 해설 몫(가중치 1)이 통째로 죽어 있었다.
+        #     verified.json 에는 129줄에 판정이 있는데(필수 108·우대 42) 매트릭스에서는 전부 0이라,
+        #     필수/우대가 **공고의 절 위치만으로** 정해졌다.
+        #     표본이 7건인 임베디드에서 RTOS(공고 3건 전부 우대 절)가 우대로 굳은 이유다.
+        row["guideRequired"] = r.get("guideRequired") or 0
+        row["guidePreferred"] = r.get("guidePreferred") or 0
         row["verification"] = r["verification"]
         row["evidence"] = round(
             (row["docFreq"] + GUIDE_ALPHA * g_n) / (job_n[jid] + GUIDE_ALPHA * g_docs), 4)
@@ -468,6 +475,17 @@ def run():
         #  필수라고 말할 만큼 확실하지 않은 것이다.
         jd_any = jd_req + jd_pre
         thin = (jd_any + g_any) < 2      # 공고·해설을 합쳐 2건 미만이면 얇다
+        #  ③ 표본이 아주 작은 직무는 공고만으로 필수를 정하지 않는다.
+        #
+        #     공고 15건짜리 QA 에서 Scala·C#·Swift·Ruby 가 각각 3건·3건·2건·2건에 나와
+        #     전부 필수가 됐다. 테스트 **대상** 언어를 적어 둔 것이지 QA 의 요구가 아니다.
+        #     표본이 작으면 한 회사의 스택이 곧 '그 직무의 요구'가 되어 버린다.
+        #
+        #     그래서 20건 미만인 직무는 해설 글이 함께 말한 것만 필수로 올린다.
+        #     실측(설문 3,420건, 같은 조건) — 1위 29.2% → 30.4%.
+        #     QA 가 남의 직무 사람을 삼키던 것이 멎었다(소프트웨어 엔지니어 105건·임베디드 86건).
+        if job_n.get(m["jobId"], 0) < 20 and g_any == 0:
+            thin = True
         if agree == 0:
             m["tier"] = None
         elif thin or (onto and jd_any == 0 and g_any == 0):
