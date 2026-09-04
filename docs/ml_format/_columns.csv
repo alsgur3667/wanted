@@ -1,0 +1,56 @@
+﻿file,column,type,required,allowed,source,status,note
+postings,id,str,Y,,manifest,확정,jd_ 로 시작하는 기존 공고 id
+postings,source,str,Y,,manifest,확정,greenhouse:coupang 처럼 보드:회사
+postings,company,str,N,,파생,확정,회사 slug. 통합 게시판이면 빈칸 (지금 42% 가 빈칸)
+postings,companySource,enum,Y,board|url|unknown,파생,확정,회사를 어떻게 알아냈나
+postings,postedAt,date,N,,manifest,확정,등록일. 없으면 수집일로 대신
+postings,lang,enum,Y,ko|en|de|other,신규판정,확정,본문 언어
+postings,dupGroup,str,Y,,신규,확정,중복 묶음 키
+postings,isPrimary,bool,Y,,신규,확정,그 묶음의 대표인가. 통계는 대표만 센다
+postings,weight,float,Y,,신규,확정,회사 상한 적용 뒤 통계에 기여하는 몫 (1.0 = 그대로)
+postings,jobFamily,enum,Y,개발|기획|디자인,manifest,확정,직군
+postings,jobId,str,N,,build_roles,확정,우리 24직무 중 배정된 것
+postings,jobIdSource,enum,N,title-rule|manual,신규,확정,어떻게 배정했나
+postings,title,str,Y,,manifest,확정,공고 제목
+postings,hasSectionSplit,bool,Y,,파생,확정,자격요건/우대가 갈렸나. 지금 1589건(65%)
+postings,charLen,int,Y,,파생,확정,본문 길이
+postings,split,enum,Y,train|valid|test,신규,확정,회사 단위로 미리 못 박은 분할
+postings,textRef,str,Y,,manifest,확정,본문이 있는 data/raw 경로. 본문 자체는 넣지 않는다
+sentences,postingId,str,Y,,postings,확정,뿌리 공고
+sentences,sentIdx,int,Y,,파생,확정,그 공고 안 문장 번호
+sentences,text,str,Y,,코퍼스,확정,문장 원문. 커밋 금지
+sentences,lang,enum,Y,ko|en|de,파생,확정,문장 언어
+sentences,section,enum,Y,req|pref|body,코퍼스,확정,어느 절에서 왔나
+sentences,tierLabel,enum,N,required|preferred,파생,확정,A-1 정답. section 이 req/pref 일 때만 채워진다
+sentences,tierSource,enum,N,section|human,파생,확정,라벨 출처. 사람이 고친 것을 구분한다
+sentences,hasCue,bool,Y,,파생,확정,우대·있으면 좋다 같은 단서어 포함 여부. 규칙 기준선과 견주려고
+sentences,skillIds,list,Y,,사전매칭,확정,이 문장에서 사전이 잡은 역량
+sentences,tokens,list,Y,,파생,보류,A-2 토큰. CSV 에 배열을 담기 나쁘다 — 아래 note 참조
+sentences,spanTags,list,Y,,사전매칭,보류,A-2 약한 라벨 BIO. tokens 와 길이가 같아야 한다
+sentences,spanSource,enum,Y,dictionary|human,파생,확정,dictionary = 사람이 안 본 라벨. 빠진 게 있다고 전제해야 한다
+sentences,company,str,N,,postings,확정,분할 누수 막기용
+sentences,dupGroup,str,Y,,postings,확정,분할 누수 막기용
+sentences,split,enum,Y,train|valid|test,postings,확정,postings 의 값을 그대로 물려받는다
+sentences,charLen,int,N,,파생,후보,문장 길이. 자격요건 문장은 짧은 편
+sentences,hasBullet,bool,N,,파생,후보,불릿 문장인가. 자격요건에 불릿이 많다
+sentences,nearestHeading,str,N,,파생,후보,바로 위 소제목 원문. 절 판정이 애매할 때 근거
+profiles,id,str,Y,,신규,확정,post:jd_... 또는 sv:2024#12345
+profiles,source,enum,Y,posting|survey,신규,확정,어디서 왔나
+profiles,skillIds,list,Y,,사전매칭,확정,우리 사전 id 만. 자유 텍스트는 넣지 않는다
+profiles,nSkills,int,Y,,파생,확정,개수. 3개 미만은 버린다
+profiles,jobId,str,Y,,파생,확정,우리 24직무 라벨
+profiles,jobIdSource,enum,Y,posting-title|survey-devtype,파생,확정,라벨 출처
+profiles,weight,float,Y,,파생,확정,중복·회사 상한 보정
+profiles,group,str,N,,파생,확정,분할 그룹. 공고는 회사, 설문은 빈칸
+profiles,split,enum,Y,train|valid|sealed,신규,확정,sealed = 채점 전용. 학습에 절대 안 쓴다
+profiles,country,str,N,,설문원본,후보,이슈 #14 의 핵심. 서구 편중을 숫자로 다룰 수 있다. 넣기 권장
+profiles,yearsCodePro,int,N,,설문원본,후보,화면 입력의 연차와 맞물린다
+profiles,orgSize,str,N,,설문원본,후보,회사 규모로 직무 정의가 갈린다. 자질이 늘어 과적합 위험
+profiles,edLevel,str,N,,설문원본,제외권장,추천에 학력을 쓰면 차별 소지. 넣지 않는 쪽을 권한다
+job_label_map,id,str,Y,,jobs.json,확정,직무 id
+job_label_map,title,str,Y,,jobs.json,확정,직무 이름
+job_label_map,family,enum,Y,개발|기획|디자인,jobs.json,확정,직군
+job_label_map,learnableFrom,list,Y,posting|survey,수기,확정,어느 자료로 배울 수 있나. 기획·디자인은 posting 뿐
+job_label_map,surveyDevTypes,list,N,,수기,확정,설문의 DevType 문자열들
+job_label_map,titlePatterns,list,N,,수기,확정,공고 제목에서 이 직무를 가리키는 말
+job_label_map,nPostings,int,N,,파생,확정,참고용. 얇은 직무를 한눈에

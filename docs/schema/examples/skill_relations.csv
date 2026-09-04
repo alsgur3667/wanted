@@ -1,0 +1,6 @@
+﻿fromId,toId,type,strength,basis,computedAt
+ios,android,대체,0.82,jaccard:0.18|guide:confirmed,2026-09-04
+java,spring,선수,0.9,guide:confirmed|cooccur:0.86,2026-09-04
+docker,kubernetes,선수,0.85,guide:confirmed,2026-09-04
+sql,mysql,상위,1.0,merge:synonyms,2026-09-04
+docker,terraform,보완,0.44,jaccard:0.44,2026-09-04

@@ -1,0 +1,7 @@
+﻿id,sourceId,occupationId,skillId,stance,quote,locator,extractedBy,extractorVersion,confidence,observedAt,reviewStatus,reviewedBy,supersededBy
+obs_000001,src_jd_cp_8143524,be_dev,spring,필수,Java 와 Spring Boot 를 이용한 서버 개발 경력 3년 이상,자격요건#12,규칙,rule-v3,0.95,2026-07-14,미검토,,
+obs_000002,src_jd_cp_8143524,be_dev,kubernetes,우대,Kubernetes 운영 경험이 있으면 좋습니다,우대사항#19,규칙,rule-v3,0.93,2026-07-14,미검토,,
+obs_000318,src_guide_qa_01,qa_eng,selenium,필수,자동화 도구는 기본기라고 보시면 됩니다,본문#7,LLM,extract-v2,0.71,2026-03-11,확인,junho,
+obs_000904,src_jd_cp_8143524,be_dev,oracle,필수,Oracle Java 8 이상,자격요건#14,규칙,rule-v2,0.60,2026-07-14,기각,junho,obs_000905
+obs_000905,src_jd_cp_8143524,be_dev,java,필수,Oracle Java 8 이상,자격요건#14,규칙,rule-v3,0.94,2026-07-14,확인,junho,
+obs_001102,src_guide_qa_01,qa_eng,cs_degree,부정,전공이 꼭 필요하지는 않습니다,본문#22,LLM,extract-v2,0.66,2026-03-11,미검토,,

@@ -1,0 +1,4 @@
+﻿occupationId,variantId,label,share,nSources,mustSkills,niceSkills,computedAt,note
+fullstack_dev,fullstack_dev.v1,JS 계열,0.55,27,react|typescript|nodejs|javascript,nextjs|angular|aws,2026-09-04,
+fullstack_dev,fullstack_dev.v3,Java·PHP 계열,0.22,11,java|spring|sql|typescript,vue|laravel|docker,2026-09-04,이 변형의 지원자는 v1 의 필수를 하나도 못 채운다. 평평한 목록으로는 안 보인다
+be_dev,be_dev.v1,폴리글랏·클라우드,0.41,45,kubernetes|aws|python,azure|java|sql|grpc,2026-09-04,백엔드 공고의 41%인데 Java 는 38%뿐이다. 지금 필수(Java·AWS·Spring)가 이 묶음을 대표하지 못한다
