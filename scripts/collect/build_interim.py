@@ -15,6 +15,7 @@
 두 출처를 섞되 구분은 남긴다 — source 필드로 JD 인지 manual 인지 항상 알 수 있다.
 """
 import json
+import os
 import sys
 from pathlib import Path
 
@@ -26,10 +27,53 @@ D = REPO / "data"
 OUT = D / "interim"
 
 
+def _matrix_from_stats():
+    """job_skill_stats.csv(창 all) 를 앱이 읽는 매트릭스 모양으로 바꾼다.
+
+    ⚠️ importance 에 lift 를 곱하지 않는다.
+       앱이 imp = importance × min(3, lift) 로 다시 곱한다. 여기서 또 곱하면 lift 가 제곱된다.
+       stats 의 importance 칸은 이미 곱한 값이라 쓰지 않고 share 를 쓴다.
+
+    ⚠️ 여기의 tier 는 **공고만 본 판정**이다. 해설 글·공인 체계는 아직 관측으로 안 들어왔다.
+       예전 계약은 셋을 합쳐 판정했으므로, 갈아끼우면 그만큼 근거가 줄어든다.
+    """
+    import csv as _csv
+    f = REPO / "data" / "v2" / "job_skill_stats.csv"
+    if not f.exists():
+        raise SystemExit("job_skill_stats.csv 가 없다. build_stats.py 를 먼저 돌릴 것.")
+    TIER = {"필수": "required", "우대": "preferred", "": None}
+    out = []
+    for r in _csv.DictReader(f.open(encoding="utf-8-sig")):
+        if r["window"] != "all":
+            continue
+        share = float(r["share"])
+        out.append({
+            "jobId": r["occupationId"], "skillId": r["skillId"],
+            "weight": round(share, 4), "docFreq": int(r["nSources"]),
+            "reqFreq": int(r["reqCount"]), "prefFreq": int(r["prefCount"]),
+            "lift": float(r["lift"]) if r["lift"] else None,
+            "importance": round(share, 4), "evidence": round(share, 4),
+            "tier": TIER.get(r["tier"], None), "agreement": int(r["agreement"]),
+            "source": "observations",
+            #  가상이 얼마나 섞였는지 화면까지 들고 간다
+            "nCompanies": int(r["nCompanies"]), "nSynthetic": int(r["nSynthetic"]),
+            "shareReal": float(r["shareReal"]),
+        })
+    return out, len(out)
+
+
 def run():
     jobs = json.loads((D / "jobs.json").read_text(encoding="utf-8"))
     skills = json.loads((D / "skills.json").read_text(encoding="utf-8"))
     matrix = json.loads((D / "job-skills.json").read_text(encoding="utf-8"))
+    #  ── 출처 전환 ────────────────────────────────────────────────────
+    #  기본은 예전 계약(data/job-skills.json)이다.
+    #  SOURCE=v2 면 관측에서 집계한 data/v2/job_skill_stats.csv 를 대신 쓴다.
+    #  둘을 바꿔 끼워 채점기로 견주려고 스위치로 뒀다 — 한쪽을 지우면 비교가 안 된다.
+    src_mode = os.environ.get("SOURCE", "contract")
+    n_v2 = 0
+    if src_mode == "v2":
+        matrix, n_v2 = _matrix_from_stats()
     work = json.loads((D / "work-skills.json").read_text(encoding="utf-8"))
     ratio = json.loads((D / "newcomer-ratio.json").read_text(encoding="utf-8"))["ratios"]
 
@@ -43,6 +87,27 @@ def run():
             j["newcomerRatio"] = ratio[j["id"]]
             j["ratioSource"] = "manual"
             n_ratio += 1
+
+    #  연봉 구간과 직업전망 — 고용24 직업정보 API 에서 받은 **실제 자료**다.
+    #  ⚠️ 목록 API 에 액수가 없어 avgSal 코드로 역산한 구간이다. 액수가 아니라 구간으로 적는다.
+    #  ⚠️ 최상단이 "5천만원 이상" 이라 24직무 중 21개가 같은 칸이다. 화면에서 이것만으로는
+    #     직무가 구분되지 않는다 — 공고의 제시 연봉과 함께 보여야 한다.
+    sal_path = REPO / "data" / "v2" / "occupation_salary.csv"
+    n_sal = 0
+    if sal_path.exists():
+        import csv as _csv
+        sal = {r["occupationId"]: r
+               for r in _csv.DictReader(sal_path.open(encoding="utf-8-sig"))}
+        for j in jobs:
+            r = sal.get(j["id"])
+            if not r or not r["salaryBand"]:
+                continue
+            j["salaryBand"] = r["salaryBand"]
+            j["salaryLow"] = int(r["salaryLow"]) if r["salaryLow"] else None
+            j["salaryHigh"] = int(r["salaryHigh"]) if r["salaryHigh"] else None
+            j["prospect"] = r["prospect"]
+            j["salarySource"] = "고용24 직업정보"
+            n_sal += 1
 
     # ② 업무 역량 — 이름이 겹치면 넣지 않는다. 같은 뜻이 두 스킬로 갈리면 둘 다 약해진다.
     #
@@ -106,7 +171,9 @@ def run():
         (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
 
     print(f"인접 {len(edges)}건 (직군 교차 {n_cross}건)")
-    print(f"직무 {len(jobs)}개 (신입 비율 {n_ratio}개) · 스킬 {len(skills)}개 "
+    if src_mode == "v2":
+        print(f"⚠️ 매트릭스를 관측 집계에서 가져왔다 (job_skill_stats {n_v2:,}줄)")
+    print(f"직무 {len(jobs)}개 (신입 비율 {n_ratio}개 · 연봉 구간 {n_sal}개) · 스킬 {len(skills)}개 "
           f"(업무 역량 {len(added)}개 추가) · 매핑 {len(matrix)}건 (수기 {n_map}건)")
     if skipped:
         print(f"  이름이 겹쳐 넣지 않은 업무 역량: {', '.join(skipped)}")

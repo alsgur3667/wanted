@@ -11,7 +11,12 @@
   "sampleSize": 356,
   "source": "JD",
   "newcomerRatio": 0.35,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "product_manager",
@@ -26,7 +31,12 @@
   "sampleSize": 150,
   "source": "JD",
   "newcomerRatio": 0.18,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "다소 증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "be_dev",
@@ -41,7 +51,12 @@
   "sampleSize": 119,
   "source": "JD",
   "newcomerRatio": 0.3,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "data_scientist",
@@ -56,7 +71,12 @@
   "sampleSize": 85,
   "source": "JD",
   "newcomerRatio": 0.2,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "architect",
@@ -69,7 +89,12 @@
   "sampleSize": 83,
   "source": "JD",
   "newcomerRatio": 0.03,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "다소 증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "eng_lead",
@@ -84,7 +109,12 @@
   "sampleSize": 63,
   "source": "JD",
   "newcomerRatio": 0.02,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "다소 증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "fullstack_dev",
@@ -98,7 +128,12 @@
   "sampleSize": 58,
   "source": "JD",
   "newcomerRatio": 0.22,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "devops_sre",
@@ -114,7 +149,12 @@
   "sampleSize": 58,
   "source": "JD",
   "newcomerRatio": 0.1,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "product_designer",
@@ -129,7 +169,12 @@
   "sampleSize": 48,
   "source": "JD",
   "newcomerRatio": 0.25,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "designer",
@@ -142,7 +187,12 @@
   "sampleSize": 47,
   "source": "JD",
   "newcomerRatio": 0.4,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "4~5천만원",
+  "salaryLow": 4000,
+  "salaryHigh": 5000,
+  "prospect": "감소",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "program_manager",
@@ -156,7 +206,12 @@
   "sampleSize": 47,
   "source": "JD",
   "newcomerRatio": 0.1,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "security_eng",
@@ -171,7 +226,12 @@
   "sampleSize": 46,
   "source": "JD",
   "newcomerRatio": 0.12,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "biz_strategy",
@@ -186,7 +246,12 @@
   "sampleSize": 43,
   "source": "JD",
   "newcomerRatio": 0.3,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "data_eng",
@@ -200,7 +265,12 @@
   "sampleSize": 39,
   "source": "JD",
   "newcomerRatio": 0.18,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "다소 증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "fe_dev",
@@ -215,7 +285,12 @@
   "sampleSize": 35,
   "source": "JD",
   "newcomerRatio": 0.34,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "solutions_eng",
@@ -229,7 +304,12 @@
   "sampleSize": 34,
   "source": "JD",
   "newcomerRatio": 0.2,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "다소 증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "data_analyst",
@@ -244,7 +324,12 @@
   "sampleSize": 28,
   "source": "JD",
   "newcomerRatio": 0.38,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "증가",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "growth_marketing",
@@ -259,7 +344,12 @@
   "sampleSize": 19,
   "source": "JD",
   "newcomerRatio": 0.4,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "biz_analyst",
@@ -273,7 +363,12 @@
   "sampleSize": 18,
   "source": "JD",
   "newcomerRatio": 0.32,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "감소",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "mobile_dev",
@@ -288,7 +383,12 @@
   "sampleSize": 16,
   "source": "JD",
   "newcomerRatio": 0.28,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "감소",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "qa_eng",
@@ -304,7 +404,12 @@
   "sampleSize": 15,
   "source": "JD",
   "newcomerRatio": 0.45,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "graphic_designer",
@@ -318,7 +423,12 @@
   "sampleSize": 11,
   "source": "JD",
   "newcomerRatio": 0.45,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "4~5천만원",
+  "salaryLow": 4000,
+  "salaryHigh": 5000,
+  "prospect": "감소",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "embedded_dev",
@@ -333,7 +443,12 @@
   "sampleSize": 11,
   "source": "JD",
   "newcomerRatio": 0.25,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "5천만원 이상",
+  "salaryLow": 5000,
+  "salaryHigh": 7000,
+  "prospect": "유지",
+  "salarySource": "고용24 직업정보"
  },
  {
   "id": "motion_designer",
@@ -348,6 +463,11 @@
   "sampleSize": 6,
   "source": "JD",
   "newcomerRatio": 0.42,
-  "ratioSource": "manual"
+  "ratioSource": "manual",
+  "salaryBand": "4~5천만원",
+  "salaryLow": 4000,
+  "salaryHigh": 5000,
+  "prospect": "감소",
+  "salarySource": "고용24 직업정보"
  }
 ]

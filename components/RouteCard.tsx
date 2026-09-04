@@ -27,6 +27,33 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
             {route.destination}
           </h3>
           <p className="mt-0.5 text-xs opacity-55">{route.jobFamily}</p>
+          {/*  연봉 구간과 직업전망 — 고용24 직업정보의 실제 자료다.
+               ⚠️ 액수가 아니라 구간이다. 최상단이 '5천만원 이상' 이라 개발 직무 대부분이
+                  같은 칸에 들어간다. 전망을 함께 보여야 직무가 갈려 보인다.  */}
+          {(route.salaryBand || route.prospect) && (
+            <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
+              {route.salaryBand && (
+                <span className="rounded bg-black/[0.06] px-1.5 py-0.5 tabular-nums dark:bg-white/10">
+                  연봉 {route.salaryBand}
+                </span>
+              )}
+              {route.prospect && (
+                <span
+                  className={
+                    'rounded px-1.5 py-0.5 ' +
+                    (route.prospect.includes('증가')
+                      ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
+                      : route.prospect.includes('감소')
+                        ? 'bg-rose-500/15 text-rose-700 dark:text-rose-300'
+                        : 'bg-black/[0.06] dark:bg-white/10')
+                  }
+                >
+                  전망 {route.prospect}
+                </span>
+              )}
+              <span className="opacity-40">고용24 직업정보</span>
+            </p>
+          )}
         </div>
 
         <div className="shrink-0 text-right">

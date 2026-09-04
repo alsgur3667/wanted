@@ -11,6 +11,22 @@
   내용이 회사 자랑이었다. 그대로 세면 필수/우대 판정의 분자가 오염된다.
   안 갈린 공고의 관측은 stance='언급' 으로 둔다. 스키마의 stance 가 이걸 위해 있다.
 
+세 출처를 모두 관측으로 넣는다 — 공고 · 해설 글 · 공인 체계
+  ⚠️ 처음에는 공고만 넣었다. 그랬더니 agreement 가 전부 1 이 되어
+     "여러 출처가 함께 말한 것" 을 구분할 수 없었다.
+     실측: 새 관측으로 갈아끼우자 데이터 사이언티스트가 55%→11% 로 무너졌다.
+     SQL(공고 49%)이 필수선을 아슬하게 못 넘어서인데, 예전 계약에서는
+     해설·공인 체계가 함께 말해 합의 가산을 받아 넘었다.
+
+⚠️ 해설 글의 관측은 근사다
+  verified.json 은 (직무·역량)마다 **합계**만 갖고 있다 — 어느 글이 필수라 했는지는 없다.
+  그래서 글 URL 에 필수→우대→언급 순으로 채워 개수를 맞춘다. 확신도를 낮게 준다.
+  문장 단위로 다시 뽑으면 정확해진다 (차후).
+
+⚠️ 공인 체계는 stance 를 '언급' 으로 둔다
+  O*NET·NCS 는 "이 직업이 이걸 쓴다" 고만 말하지 필수인지 우대인지는 말하지 않는다.
+  필수로 세면 공고 1건짜리 GitHub 이 임베디드의 필수가 된다 (예전에 그랬다).
+
 ⚠️ 관측은 지우지 않는다
   잘못 뽑힌 것은 reviewStatus='기각' 과 supersededBy 로 남긴다.
   extractorVersion 을 적어 두어 어느 판으로 뽑았는지 되짚을 수 있게 한다.
@@ -48,10 +64,11 @@ QUOTE_MAX = 200
 
 SRC_HEAD = ["id", "kind", "publisher", "company", "title", "url", "publishedAt",
             "collectedAt", "lang", "region", "license", "robotsOk", "accessMethod",
-            "dupGroup", "isPrimary", "credibility", "textRef"]
+            "dupGroup", "isPrimary", "credibility", "textRef", "isSynthetic",
+            "synthesisBasis"]
 OBS_HEAD = ["id", "sourceId", "occupationId", "skillId", "stance", "quote", "locator",
             "extractedBy", "extractorVersion", "confidence", "observedAt",
-            "reviewStatus", "reviewedBy", "supersededBy"]
+            "reviewStatus", "reviewedBy", "supersededBy", "isSynthetic"]
 
 #  공고를 낸 회사. 통합 게시판(remotive·jobicy·remoteok)은 알 수 없다.
 def company_of(d):
@@ -133,6 +150,7 @@ def run():
                                                              "data.go.kr")) else "html",
             "dupGroup": f"d_{key}", "isPrimary": str(d["id"] in primary).lower(),
             "credibility": "높음", "textRef": f"corpus:{d['id']}",
+            "isSynthetic": "false", "synthesisBasis": "",
         })
         if public:
             n_public += 1
@@ -168,8 +186,78 @@ def run():
                     "confidence": "0.9" if not unsplit else "0.6",
                     "observedAt": d.get("posted_at") or today,
                     "reviewStatus": "미검토", "reviewedBy": "", "supersededBy": "",
+                    "isSynthetic": "false",
                 })
                 stance_cnt[stance] += 1
+
+    # ── 해설 글 ──────────────────────────────────────────────────────
+    n_guide = 0
+    gv = RAW / "guides" / "verified.json"
+    if gv.exists():
+        for r in json.loads(gv.read_text(encoding="utf-8"))["rows"]:
+            urls = r.get("sources") or []
+            if not urls:
+                continue
+            for u in urls:
+                gid = "src_g_" + hashlib.md5(u.encode()).hexdigest()[:10]
+                if gid not in {x["id"] for x in srcs}:
+                    srcs.append({
+                        "id": gid, "kind": "해설글", "publisher": u.split("/")[2] if "//" in u else "",
+                        "company": "", "title": "", "url": u, "publishedAt": "",
+                        "collectedAt": today, "lang": "ko", "region": "KR",
+                        "license": "원문 재배포 불가", "robotsOk": "true",
+                        "accessMethod": "html", "dupGroup": gid, "isPrimary": "true",
+                        "credibility": "보통", "textRef": "", "isSynthetic": "false",
+                        "synthesisBasis": "",
+                    })
+            #  합계를 URL 에 필수→우대→언급 순으로 채운다 (어느 글이 뭐라 했는지는 자료에 없다)
+            plan = (["필수"] * (r.get("guideRequired") or 0)
+                    + ["우대"] * (r.get("guidePreferred") or 0)
+                    + ["언급"] * (r.get("guideNeutral") or 0))
+            for u, stance in zip(urls, plan or ["언급"] * len(urls)):
+                obs.append({
+                    "id": f"obs_{len(obs) + 1:07d}",
+                    "sourceId": "src_g_" + hashlib.md5(u.encode()).hexdigest()[:10],
+                    "occupationId": r["jobId"], "skillId": r["skillId"], "stance": stance,
+                    "quote": "", "locator": "", "extractedBy": "규칙",
+                    "extractorVersion": "verify_guides-v1", "confidence": "0.6",
+                    "observedAt": today, "reviewStatus": "미검토", "reviewedBy": "",
+                    "supersededBy": "", "isSynthetic": "false",
+                })
+                stance_cnt[stance] += 1
+                n_guide += 1
+
+    # ── 공인 체계 ────────────────────────────────────────────────────
+    n_onto = 0
+    ov = RAW / "_ontology_reqs.json"
+    if ov.exists():
+        od = json.loads(ov.read_text(encoding="utf-8"))
+        for sysname, sid_ in (("O*NET 31.0", "src_onet31"), ("NCS 표준직무기술서", "src_ncs")):
+            srcs.append({
+                "id": sid_, "kind": "공인체계", "publisher": sysname, "company": "",
+                "title": sysname, "url": "", "publishedAt": "", "collectedAt": today,
+                "lang": "en" if "O*NET" in sysname else "ko",
+                "region": "US" if "O*NET" in sysname else "KR",
+                "license": "CC BY 4.0" if "O*NET" in sysname else "공공데이터 이용허락",
+                "robotsOk": "true", "accessMethod": "manual", "dupGroup": sid_,
+                "isPrimary": "true", "credibility": "높음", "textRef": "",
+                "isSynthetic": "false", "synthesisBasis": "",
+            })
+        for jid, rows_ in (od.get("jobs") or {}).items():
+            for sid, v in rows_.items():
+                for key, src_id in (("onet", "src_onet31"), ("ncs", "src_ncs")):
+                    if not v.get(key):
+                        continue
+                    obs.append({
+                        "id": f"obs_{len(obs) + 1:07d}", "sourceId": src_id,
+                        "occupationId": jid, "skillId": sid, "stance": "언급",
+                        "quote": "", "locator": "", "extractedBy": "규칙",
+                        "extractorVersion": "ontology-v1", "confidence": "0.7",
+                        "observedAt": today, "reviewStatus": "미검토", "reviewedBy": "",
+                        "supersededBy": "", "isSynthetic": "false",
+                    })
+                    stance_cnt["언급"] += 1
+                    n_onto += 1
 
     OUT.mkdir(parents=True, exist_ok=True)
     for path, head, rows in (("sources.csv", SRC_HEAD, srcs),
@@ -190,6 +278,7 @@ def run():
     print(f"자료 {len(srcs):,}건 (중복으로 접은 것 {dup:,} · 공공기관 {n_public:,})")
     print(f"관측 {len(obs):,}건 — " + " · ".join(f"{k} {v:,}" for k, v in stance_cnt.most_common()))
     print(f"  절이 안 갈려 '언급' 으로 둔 공고 {n_unsplit:,}건")
+    print(f"  해설 글 관측 {n_guide:,}건 · 공인 체계 관측 {n_onto:,}건")
     per_job = Counter(o["occupationId"] for o in obs)
     print(f"  직무 {len(per_job)}개 · 관측이 가장 많은 곳: "
           + " · ".join(f"{k} {v:,}" for k, v in per_job.most_common(5)))
