@@ -1,0 +1,18 @@
+﻿skillId,name,isUbiquitous,reason
+git,Git,true,버전관리는 직무를 가리지 않는다. 우리 자료에서 21개 직무에 걸쳐 나온다 (고름 0.910)
+github,GitHub,true,같은 이유. 21개 직무 · 고름 0.908. 풀스택 공고의 29%가 적지만 지원자는 거의 다 갖고 있어 가르지 못한다
+gitlab,GitLab,true,버전관리 호스팅. 위와 같다
+jira,Jira,true,이슈 트래커. 20개 직무 · 고름 0.926
+confluence,Confluence,true,문서 도구. 16개 직무 · 고름 0.931
+slack,Slack,true,사내 메신저. 18개 직무 · 고름 0.956
+notion,Notion,true,문서·협업 도구
+intellij,IntelliJ IDEA,true,편집기
+skill,AI 코딩 도구,true,2026년 기준 직무를 안 가린다. 9개 직무가 15% 이상 요구한다
+docker,Docker,false,고르게 퍼졌지만(0.909) DevOps 공고의 39%가 요구하는 실제 역량이다. 범용 도구로 보지 않는다
+sql,SQL,false,15개 직무가 요구하지만 데이터 직무에서 86%로 뚜렷이 높다. 가르는 힘이 있다
+python,Python,false,15개 직무에 걸치나 데이터·ML 에서 84%로 높다
+bitbucket,Bitbucket,true,버전관리 호스팅. 위와 같다 ※ 지금 사전에 없어 적용되지 않는다
+vscode,Visual Studio Code,true,편집기. 무엇을 하든 쓴다 ※ 지금 사전에 없어 적용되지 않는다
+zoom,Zoom,true,화상회의 ※ 지금 사전에 없어 적용되지 않는다
+google_meet,Google Meet,true,화상회의 ※ 지금 사전에 없어 적용되지 않는다
+ms_teams,Microsoft Teams,true,화상회의·메신저 ※ 지금 사전에 없어 적용되지 않는다
