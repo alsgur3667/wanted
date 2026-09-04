@@ -1,0 +1,25 @@
+﻿occupationId,displayName,work24JobNm,work24JobCd,salaryBand,salaryLow,salaryHigh,prospect,matchNote,source,sourceUrl,collectedAt
+sw_eng,소프트웨어 엔지니어,응용소프트웨어개발자,K000001176,5천만원 이상,5000,7000,증가,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+be_dev,백엔드 개발자,응용소프트웨어개발자,K000001176,5천만원 이상,5000,7000,증가,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+fe_dev,프론트엔드 개발자,웹개발자(웹 프로그래머),K000001106,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+fullstack_dev,풀스택 개발자,웹개발자(웹 프로그래머),K000001106,5천만원 이상,5000,7000,유지,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+mobile_dev,모바일 개발자,모바일앱개발자,K000001042,5천만원 이상,5000,7000,감소,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+embedded_dev,임베디드·펌웨어,시스템 소프트웨어 개발자(프로그래머),K000000853,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+data_eng,데이터 엔지니어,데이터 시스템 전문가,K000001134,5천만원 이상,5000,7000,다소 증가,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+data_scientist,데이터 사이언티스트,데이터분석가(빅데이터분석가),K000001080,5천만원 이상,5000,7000,증가,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+data_analyst,데이터 분석가,데이터분석가(빅데이터분석가),K000001080,5천만원 이상,5000,7000,증가,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+devops_sre,DevOps·SRE,네트워크시스템개발자(네트워크엔지니어),K000000968,5천만원 이상,5000,7000,유지,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+security_eng,보안 엔지니어,정보 보안 전문가,K000000832,5천만원 이상,5000,7000,증가,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+qa_eng,QA 엔지니어,IT테스터 및 IT QA전문가,K000001153,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+architect,아키텍트,컴퓨터시스템설계 및 분석가,K000000856,5천만원 이상,5000,7000,다소 증가,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+eng_lead,엔지니어링 리더,컴퓨터시스템설계 및 분석가,K000000856,5천만원 이상,5000,7000,다소 증가,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+solutions_eng,솔루션·세일즈 엔지니어,정보통신컨설턴트 및 감리원,K000001085,5천만원 이상,5000,7000,다소 증가,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+product_manager,프로덕트 매니저,웹기획자,K000001172,5천만원 이상,5000,7000,다소 증가,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+program_manager,프로젝트·프로그램 매니저,상품 기획 전문가,K000000997,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+biz_strategy,사업·전략 기획,경영 기획 사무원,K000001079,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+biz_analyst,데이터·비즈니스 기획,조사전문가,K000001139,5천만원 이상,5000,7000,감소,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+growth_marketing,마케팅·그로스,광고·홍보·마케팅사무원,K000001069,5천만원 이상,5000,7000,유지,후보 2개 중 첫 번째,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+product_designer,프로덕트 디자이너,UX/UI디자이너,K000000890,5천만원 이상,5000,7000,유지,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+designer,디자이너(일반),시각 디자이너,K000001060,4~5천만원,4000,5000,감소,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+graphic_designer,그래픽·브랜드 디자이너,시각 디자이너,K000001060,4~5천만원,4000,5000,감소,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04
+motion_designer,모션·영상 디자이너,영상그래픽디자이너,K000007459,4~5천만원,4000,5000,감소,,고용24 직업정보 API(212L01),https://www.work24.go.kr/cm/openApi/call/wk/callOpenApiSvcInfo212L01.do,2026-09-04

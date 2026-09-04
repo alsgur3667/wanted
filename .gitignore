@@ -46,3 +46,6 @@ next-env.d.ts
 # 파이썬
 __pycache__/
 *.pyc
+/data/ml/
+/data/v2/sources.csv
+/data/v2/observations.csv

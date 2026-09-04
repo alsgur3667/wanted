@@ -1,0 +1,6 @@
+key,value,unit,asOf,source,sourceUrl,collectedAt,note
+미충원인원,101000,명,2025-3Q,고용노동부 직종별사업체노동력조사 (2025년 하반기 · 25-12-30 발표),https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18804,2026-09-04,전년동기대비 22천명 감소
+미충원율,8.4,%,2025-3Q,고용노동부 직종별사업체노동력조사 (2025년 하반기),https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18804,2026-09-04,전년동기대비 1.1%p 하락
+부족인원,449000,명,2025-10-01,고용노동부 직종별사업체노동력조사 (2025년 하반기),https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18804,2026-09-04,전년동기대비 78천명 감소
+미충원사유_경력갖춘지원자없음,26.9,%,2025-3Q,고용노동부 직종별사업체노동력조사 (2025년 하반기),https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18804,2026-09-04,⭐ 미충원 사유 1위. 우리 서비스가 푸는 문제와 직접 맞닿는다
+미충원사유_임금근로조건불일치,20.5,%,2025-3Q,고용노동부 직종별사업체노동력조사 (2025년 하반기),https://www.moel.go.kr/news/enews/report/enewsView.do?news_seq=18804,2026-09-04,미충원 사유 2위
