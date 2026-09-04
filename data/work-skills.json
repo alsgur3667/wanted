@@ -1,345 +1,357 @@
 {
-  "note": "공고 본문이 서술형이라 키워드 매칭으로 잡히지 않는 '업무 역량'. 직무 정의 기준 수동 매핑이며 source=manual 로 구분한다.",
-  "skills": [
-    {
-      "id": "ws_requirement",
-      "name": "요구사항 정의",
-      "type": "hard",
-      "learnDifficulty": 0.45,
-      "aliases": [
-        "요구사항 정의",
-        "요구사항 분석",
-        "스펙 작성",
-        "기능 정의",
-        "기획서 작성",
-        "PRD"
-      ],
-      "firstStep": "담당 기능 하나를 화면 없이 글로만 설명하는 문서로 써 보세요."
-    },
-    {
-      "id": "ws_metric",
-      "name": "지표 설계",
-      "type": "hard",
-      "learnDifficulty": 0.6,
-      "aliases": [
-        "지표 설계",
-        "KPI 설계",
-        "성과 지표",
-        "지표 정의",
-        "OKR"
-      ],
-      "firstStep": "맡은 화면의 성공 지표를 하나 정하고 측정 방법까지 문서로 남겨 보세요."
-    },
-    {
-      "id": "ws_priority",
-      "name": "우선순위 관리",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "우선순위",
-        "백로그 관리",
-        "로드맵",
-        "로드맵 관리",
-        "일정 관리"
-      ],
-      "firstStep": "팀 백로그를 임팩트·공수 2축으로 정렬해 공유해 보세요."
-    },
-    {
-      "id": "ws_interview",
-      "name": "사용자 인터뷰",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "사용자 인터뷰",
-        "유저 인터뷰",
-        "고객 인터뷰",
-        "유저 리서치",
-        "사용자 조사"
-      ],
-      "firstStep": "실제 사용자 3명에게 화면을 보여주고 막히는 지점을 기록해 보세요."
-    },
-    {
-      "id": "ws_ia",
-      "name": "정보 구조 설계",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "정보 구조",
-        "IA",
-        "화면 설계",
-        "플로우 설계",
-        "와이어프레임"
-      ],
-      "firstStep": "담당 서비스의 메뉴 구조를 트리로 그려 중복을 찾아 보세요."
-    },
-    {
-      "id": "ws_prototype",
-      "name": "프로토타이핑",
-      "type": "hard",
-      "learnDifficulty": 0.4,
-      "aliases": [
-        "프로토타이핑",
-        "프로토타입",
-        "목업"
-      ],
-      "firstStep": "다음 과제를 개발 전에 클릭 가능한 프로토타입으로 만들어 보세요."
-    },
-    {
-      "id": "ws_usability",
-      "name": "사용성 테스트",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "사용성 테스트",
-        "UT",
-        "사용성 평가",
-        "유저 테스트"
-      ],
-      "firstStep": "과업 3개를 정하고 동료에게 시켜 성공률을 기록해 보세요."
-    },
-    {
-      "id": "ws_abtest",
-      "name": "A/B 테스트 설계",
-      "type": "hard",
-      "learnDifficulty": 0.55,
-      "aliases": [
-        "A/B 테스트",
-        "AB테스트",
-        "실험 설계",
-        "그로스 실험"
-      ],
-      "firstStep": "가설 하나를 정하고 표본 크기까지 계산한 실험안을 써 보세요."
-    },
-    {
-      "id": "ws_funnel",
-      "name": "퍼널 분석",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "퍼널 분석",
-        "퍼널",
-        "전환율 분석",
-        "리텐션 분석"
-      ],
-      "firstStep": "이탈 구간을 단계별로 쪼개 원인 가설을 적어 보세요."
-    },
-    {
-      "id": "ws_policy",
-      "name": "정책·예외 설계",
-      "type": "hard",
-      "learnDifficulty": 0.55,
-      "aliases": [
-        "정책 설계",
-        "예외 처리 설계",
-        "업무 정책",
-        "운영 정책"
-      ],
-      "firstStep": "담당 화면의 예외 케이스를 전부 적어 정책표로 만들어 보세요."
-    },
-    {
-      "id": "ws_stakeholder",
-      "name": "이해관계자 조율",
-      "type": "soft",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "이해관계자",
-        "유관부서 협업",
-        "커뮤니케이션",
-        "조율"
-      ],
-      "firstStep": "다음 과제의 관련 부서를 적고 각자 원하는 바를 한 줄씩 정리해 보세요."
-    },
-    {
-      "id": "ws_visual",
-      "name": "시각 위계 설계",
-      "type": "hard",
-      "learnDifficulty": 0.55,
-      "aliases": [
-        "시각 위계",
-        "레이아웃 설계",
-        "타이포그래피",
-        "그리드"
-      ],
-      "firstStep": "최근 만든 화면을 여백·크기·대비만으로 다시 정리해 보세요."
-    },
-    {
-      "id": "ws_component",
-      "name": "컴포넌트 설계",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "컴포넌트 설계",
-        "컴포넌트 구조",
-        "재사용 컴포넌트",
-        "UI 컴포넌트"
-      ],
-      "firstStep": "반복되는 UI 3개를 찾아 공통 컴포넌트로 묶어 보세요."
-    },
-    {
-      "id": "ws_designsystem",
-      "name": "디자인 시스템",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "디자인 시스템",
-        "디자인시스템",
-        "design system",
-        "디자인 토큰",
-        "스타일 가이드"
-      ],
-      "firstStep": "자주 쓰는 컬러·간격 값을 토큰으로 정리해 문서화해 보세요."
-    },
-    {
-      "id": "ws_a11y",
-      "name": "접근성(A11y)",
-      "type": "hard",
-      "learnDifficulty": 0.45,
-      "aliases": [
-        "접근성",
-        "웹접근성",
-        "A11y",
-        "WCAG",
-        "스크린리더"
-      ],
-      "firstStep": "담당 화면을 키보드만으로 조작해 보고 막히는 곳을 기록하세요."
-    },
-    {
-      "id": "ws_interaction",
-      "name": "인터랙션 구현",
-      "type": "hard",
-      "learnDifficulty": 0.5,
-      "aliases": [
-        "인터랙션",
-        "인터랙션 설계",
-        "마이크로 인터랙션",
-        "애니메이션",
-        "모션"
-      ],
-      "firstStep": "기존 화면의 전환 하나에 애니메이션을 직접 붙여 보세요."
-    },
-    {
-      "id": "ws_handoff",
-      "name": "개발 핸드오프",
-      "type": "hard",
-      "learnDifficulty": 0.4,
-      "aliases": [
-        "핸드오프",
-        "디자인 핸드오프",
-        "스펙 전달",
-        "디자인 QA"
-      ],
-      "firstStep": "컴포넌트 스펙 문서를 만들어 개발자에게 전달해 보세요."
-    }
-  ],
-  "mapping": {
-    "product_manager": {
-      "ws_requirement": 0.86,
-      "ws_priority": 0.79,
-      "ws_metric": 0.72,
-      "ws_stakeholder": 0.65,
-      "ws_interview": 0.52,
-      "ws_ia": 0.4,
-      "ws_abtest": 0.34,
-      "ws_policy": 0.31
-    },
-    "program_manager": {
-      "ws_priority": 0.83,
-      "ws_stakeholder": 0.78,
-      "ws_requirement": 0.61,
-      "ws_policy": 0.39,
-      "ws_metric": 0.33
-    },
-    "biz_strategy": {
-      "ws_metric": 0.64,
-      "ws_stakeholder": 0.61,
-      "ws_requirement": 0.42,
-      "ws_priority": 0.36
-    },
-    "biz_analyst": {
-      "ws_metric": 0.73,
-      "ws_requirement": 0.53,
-      "ws_funnel": 0.4,
-      "ws_stakeholder": 0.33
-    },
-    "growth_marketing": {
-      "ws_abtest": 0.8,
-      "ws_funnel": 0.73,
-      "ws_metric": 0.6,
-      "ws_interview": 0.33
-    },
-    "product_designer": {
-      "ws_ia": 0.82,
-      "ws_prototype": 0.75,
-      "ws_usability": 0.68,
-      "ws_interview": 0.55,
-      "ws_visual": 0.48,
-      "ws_requirement": 0.31,
-      "ws_designsystem": 0.55,
-      "ws_handoff": 0.5,
-      "ws_interaction": 0.38,
-      "ws_component": 0.35
-    },
-    "designer": {
-      "ws_visual": 0.71,
-      "ws_prototype": 0.52,
-      "ws_ia": 0.38,
-      "ws_designsystem": 0.41,
-      "ws_handoff": 0.36
-    },
-    "graphic_designer": {
-      "ws_visual": 0.79,
-      "ws_interaction": 0.29
-    },
-    "motion_designer": {
-      "ws_visual": 0.6,
-      "ws_prototype": 0.4,
-      "ws_interaction": 0.8
-    },
-    "qa_eng": {
-      "ws_requirement": 0.71,
-      "ws_policy": 0.57,
-      "ws_stakeholder": 0.43
-    },
-    "fe_dev": {
-      "ws_ia": 0.31,
-      "ws_visual": 0.31,
-      "ws_component": 0.77,
-      "ws_a11y": 0.5,
-      "ws_interaction": 0.46,
-      "ws_designsystem": 0.42,
-      "ws_handoff": 0.35
-    },
-    "solutions_eng": {
-      "ws_stakeholder": 0.72,
-      "ws_requirement": 0.48
-    },
-    "eng_lead": {
-      "ws_priority": 0.66,
-      "ws_stakeholder": 0.71,
-      "ws_requirement": 0.42
-    },
-    "architect": {
-      "ws_stakeholder": 0.55,
-      "ws_requirement": 0.45
-    },
-    "data_analyst": {
-      "ws_metric": 0.67,
-      "ws_abtest": 0.47,
-      "ws_funnel": 0.4
-    },
-    "data_scientist": {
-      "ws_metric": 0.4,
-      "ws_abtest": 0.33
-    },
-    "fullstack_dev": {
-      "ws_component": 0.54
-    },
-    "mobile_dev": {
-      "ws_component": 0.53,
-      "ws_interaction": 0.4
-    },
-    "sw_eng": {
-      "ws_component": 0.31
-    }
+ "note": "공고 본문이 서술형이라 키워드 매칭으로 잡히지 않는 '업무 역량'. 직무 정의 기준 수동 매핑이며 source=manual 로 구분한다.  영어 표기는 코퍼스에서 걸러 넣었다 — 등장 0.5~30% 이고 직무 변별력 3.0 이상인 것만 (기준선 Java 4.7 · Figma 9.9).",
+ "skills": [
+  {
+   "id": "ws_requirement",
+   "name": "요구사항 정의",
+   "type": "hard",
+   "learnDifficulty": 0.45,
+   "aliases": [
+    "요구사항 정의",
+    "요구사항 분석",
+    "스펙 작성",
+    "기능 정의",
+    "기획서 작성",
+    "PRD"
+   ],
+   "firstStep": "담당 기능 하나를 화면 없이 글로만 설명하는 문서로 써 보세요."
+  },
+  {
+   "id": "ws_metric",
+   "name": "지표 설계",
+   "type": "hard",
+   "learnDifficulty": 0.6,
+   "aliases": [
+    "지표 설계",
+    "KPI 설계",
+    "성과 지표",
+    "지표 정의",
+    "OKR"
+   ],
+   "firstStep": "맡은 화면의 성공 지표를 하나 정하고 측정 방법까지 문서로 남겨 보세요."
+  },
+  {
+   "id": "ws_priority",
+   "name": "우선순위 관리",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "우선순위",
+    "백로그 관리",
+    "로드맵",
+    "로드맵 관리",
+    "일정 관리",
+    "roadmap",
+    "backlog",
+    "prioritization",
+    "prioritisation"
+   ],
+   "firstStep": "팀 백로그를 임팩트·공수 2축으로 정렬해 공유해 보세요."
+  },
+  {
+   "id": "ws_interview",
+   "name": "사용자 인터뷰",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "사용자 인터뷰",
+    "유저 인터뷰",
+    "고객 인터뷰",
+    "유저 리서치",
+    "사용자 조사",
+    "user research",
+    "usability testing"
+   ],
+   "firstStep": "실제 사용자 3명에게 화면을 보여주고 막히는 지점을 기록해 보세요."
+  },
+  {
+   "id": "ws_ia",
+   "name": "정보 구조 설계",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "정보 구조",
+    "IA",
+    "화면 설계",
+    "플로우 설계",
+    "와이어프레임"
+   ],
+   "firstStep": "담당 서비스의 메뉴 구조를 트리로 그려 중복을 찾아 보세요."
+  },
+  {
+   "id": "ws_prototype",
+   "name": "프로토타이핑",
+   "type": "hard",
+   "learnDifficulty": 0.4,
+   "aliases": [
+    "프로토타이핑",
+    "프로토타입",
+    "목업",
+    "prototyping",
+    "prototype"
+   ],
+   "firstStep": "다음 과제를 개발 전에 클릭 가능한 프로토타입으로 만들어 보세요."
+  },
+  {
+   "id": "ws_usability",
+   "name": "사용성 테스트",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "사용성 테스트",
+    "UT",
+    "사용성 평가",
+    "유저 테스트"
+   ],
+   "firstStep": "과업 3개를 정하고 동료에게 시켜 성공률을 기록해 보세요."
+  },
+  {
+   "id": "ws_abtest",
+   "name": "A/B 테스트 설계",
+   "type": "hard",
+   "learnDifficulty": 0.55,
+   "aliases": [
+    "A/B 테스트",
+    "AB테스트",
+    "실험 설계",
+    "그로스 실험"
+   ],
+   "firstStep": "가설 하나를 정하고 표본 크기까지 계산한 실험안을 써 보세요."
+  },
+  {
+   "id": "ws_funnel",
+   "name": "퍼널 분석",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "퍼널 분석",
+    "퍼널",
+    "전환율 분석",
+    "리텐션 분석",
+    "funnel"
+   ],
+   "firstStep": "이탈 구간을 단계별로 쪼개 원인 가설을 적어 보세요."
+  },
+  {
+   "id": "ws_policy",
+   "name": "정책·예외 설계",
+   "type": "hard",
+   "learnDifficulty": 0.55,
+   "aliases": [
+    "정책 설계",
+    "예외 처리 설계",
+    "업무 정책",
+    "운영 정책"
+   ],
+   "firstStep": "담당 화면의 예외 케이스를 전부 적어 정책표로 만들어 보세요."
+  },
+  {
+   "id": "ws_stakeholder",
+   "name": "이해관계자 조율",
+   "type": "soft",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "이해관계자",
+    "유관부서 협업",
+    "커뮤니케이션",
+    "조율",
+    "stakeholder management"
+   ],
+   "firstStep": "다음 과제의 관련 부서를 적고 각자 원하는 바를 한 줄씩 정리해 보세요."
+  },
+  {
+   "id": "ws_visual",
+   "name": "시각 위계 설계",
+   "type": "hard",
+   "learnDifficulty": 0.55,
+   "aliases": [
+    "시각 위계",
+    "레이아웃 설계",
+    "타이포그래피",
+    "그리드",
+    "typography"
+   ],
+   "firstStep": "최근 만든 화면을 여백·크기·대비만으로 다시 정리해 보세요."
+  },
+  {
+   "id": "ws_component",
+   "name": "컴포넌트 설계",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "컴포넌트 설계",
+    "컴포넌트 구조",
+    "재사용 컴포넌트",
+    "UI 컴포넌트"
+   ],
+   "firstStep": "반복되는 UI 3개를 찾아 공통 컴포넌트로 묶어 보세요."
+  },
+  {
+   "id": "ws_designsystem",
+   "name": "디자인 시스템",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "디자인 시스템",
+    "디자인시스템",
+    "design system",
+    "디자인 토큰",
+    "스타일 가이드"
+   ],
+   "firstStep": "자주 쓰는 컬러·간격 값을 토큰으로 정리해 문서화해 보세요."
+  },
+  {
+   "id": "ws_a11y",
+   "name": "접근성(A11y)",
+   "type": "hard",
+   "learnDifficulty": 0.45,
+   "aliases": [
+    "접근성",
+    "웹접근성",
+    "A11y",
+    "WCAG",
+    "스크린리더"
+   ],
+   "firstStep": "담당 화면을 키보드만으로 조작해 보고 막히는 곳을 기록하세요."
+  },
+  {
+   "id": "ws_interaction",
+   "name": "인터랙션 구현",
+   "type": "hard",
+   "learnDifficulty": 0.5,
+   "aliases": [
+    "인터랙션",
+    "인터랙션 설계",
+    "마이크로 인터랙션",
+    "애니메이션",
+    "모션",
+    "interaction design"
+   ],
+   "firstStep": "기존 화면의 전환 하나에 애니메이션을 직접 붙여 보세요."
+  },
+  {
+   "id": "ws_handoff",
+   "name": "개발 핸드오프",
+   "type": "hard",
+   "learnDifficulty": 0.4,
+   "aliases": [
+    "핸드오프",
+    "디자인 핸드오프",
+    "스펙 전달",
+    "디자인 QA"
+   ],
+   "firstStep": "컴포넌트 스펙 문서를 만들어 개발자에게 전달해 보세요."
   }
+ ],
+ "mapping": {
+  "product_manager": {
+   "ws_requirement": 0.86,
+   "ws_priority": 0.79,
+   "ws_metric": 0.72,
+   "ws_stakeholder": 0.65,
+   "ws_interview": 0.52,
+   "ws_ia": 0.4,
+   "ws_abtest": 0.34,
+   "ws_policy": 0.31
+  },
+  "program_manager": {
+   "ws_priority": 0.83,
+   "ws_stakeholder": 0.78,
+   "ws_requirement": 0.61,
+   "ws_policy": 0.39,
+   "ws_metric": 0.33
+  },
+  "biz_strategy": {
+   "ws_metric": 0.64,
+   "ws_stakeholder": 0.61,
+   "ws_requirement": 0.42,
+   "ws_priority": 0.36
+  },
+  "biz_analyst": {
+   "ws_metric": 0.73,
+   "ws_requirement": 0.53,
+   "ws_funnel": 0.4,
+   "ws_stakeholder": 0.33
+  },
+  "growth_marketing": {
+   "ws_abtest": 0.8,
+   "ws_funnel": 0.73,
+   "ws_metric": 0.6,
+   "ws_interview": 0.33
+  },
+  "product_designer": {
+   "ws_ia": 0.82,
+   "ws_prototype": 0.75,
+   "ws_usability": 0.68,
+   "ws_interview": 0.55,
+   "ws_visual": 0.48,
+   "ws_requirement": 0.31,
+   "ws_designsystem": 0.55,
+   "ws_handoff": 0.5,
+   "ws_interaction": 0.38,
+   "ws_component": 0.35
+  },
+  "designer": {
+   "ws_visual": 0.71,
+   "ws_prototype": 0.52,
+   "ws_ia": 0.38,
+   "ws_designsystem": 0.41,
+   "ws_handoff": 0.36
+  },
+  "graphic_designer": {
+   "ws_visual": 0.79,
+   "ws_interaction": 0.29
+  },
+  "motion_designer": {
+   "ws_visual": 0.6,
+   "ws_prototype": 0.4,
+   "ws_interaction": 0.8
+  },
+  "qa_eng": {
+   "ws_requirement": 0.71,
+   "ws_policy": 0.57,
+   "ws_stakeholder": 0.43
+  },
+  "fe_dev": {
+   "ws_ia": 0.31,
+   "ws_visual": 0.31,
+   "ws_component": 0.77,
+   "ws_a11y": 0.5,
+   "ws_interaction": 0.46,
+   "ws_designsystem": 0.42,
+   "ws_handoff": 0.35
+  },
+  "solutions_eng": {
+   "ws_stakeholder": 0.72,
+   "ws_requirement": 0.48
+  },
+  "eng_lead": {
+   "ws_priority": 0.66,
+   "ws_stakeholder": 0.71,
+   "ws_requirement": 0.42
+  },
+  "architect": {
+   "ws_stakeholder": 0.55,
+   "ws_requirement": 0.45
+  },
+  "data_analyst": {
+   "ws_metric": 0.67,
+   "ws_abtest": 0.47,
+   "ws_funnel": 0.4
+  },
+  "data_scientist": {
+   "ws_metric": 0.4,
+   "ws_abtest": 0.33
+  },
+  "fullstack_dev": {
+   "ws_component": 0.54
+  },
+  "mobile_dev": {
+   "ws_component": 0.53,
+   "ws_interaction": 0.4
+  },
+  "sw_eng": {
+   "ws_component": 0.31
+  }
+ }
 }
