@@ -1,6 +1,6 @@
 import type { AnalysisResult, GapSkill, Route, RouteRequirement, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, coverage, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
@@ -84,8 +84,11 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     const m = satisfied(must, have);
     const n = satisfied(nice, have);
     const mustHit = m.hit, niceHit = n.hit;
-    const mustCov = must.length ? m.covered.length / must.length : 0;
-    const niceCov = nice.length ? n.covered.length / nice.length : 0;
+    //  ⚠️ 칸 수가 아니라 무게로 센다. 이유는 skill-index.coverage() 주석 참조.
+    //     칸을 세면 택일 묶음이 칸을 부풀리고(Angular 하나로 3칸), 목록을 다듬으면
+    //     사람은 그대로인데 점수가 변한다.
+    const mustCov = coverage(job.id, must, have);
+    const niceCov = coverage(job.id, nice, have);
     const strength = maxStrength ? (rawStrength.get(job.id) ?? 0) / maxStrength : 0;
     // 표본이 7건인 직무의 요구 역량을 280건인 직무와 같은 확신으로 말할 수 없다.
     // 곱하는 이유 — 걸러내지는 않는다. 진짜 그 직무인 사람에게는 여전히 1순위로 나와야 한다.
@@ -237,6 +240,9 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       id: `rt_${i + 1}`,
       destination: s.job.title,
       jobFamily: s.job.family,
+      //  고용24 직업정보에서 받은 실제 값. 없으면 넣지 않는다 — 지어내지 않는다.
+      salaryBand: s.job.salaryBand,
+      prospect: s.job.prospect,
       fitScore: s.fitScore,
       surpriseScore: s.surpriseScore,
       isHiddenRoute: isHidden,

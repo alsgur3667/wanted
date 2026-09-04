@@ -17,6 +17,13 @@ export type JobRow = {
   /** 신입 채용 비율 0~1. 없으면 판단하지 않는다 */
   newcomerRatio?: number;
   ratioSource?: string;
+  /** 고용24 직업정보에서 받은 **실제** 연봉 구간. 목록 API 에 액수가 없어 구간이다. */
+  salaryBand?: string;
+  salaryLow?: number | null;
+  salaryHigh?: number | null;
+  /** 직업전망 — 증가 · 다소 증가 · 유지 · 다소 감소 · 감소 */
+  prospect?: string;
+  salarySource?: string;
 };
 export type SkillRow = { id: string; name: string; type: string; aliases: string[]; learnDifficulty: number; firstStep: string };
 export type MatrixRow = {
@@ -350,6 +357,68 @@ export function peerPathsOf(have: Set<string>): PeerPath[] {
  *   그 사람이 그 묶음의 다른 것(iOS·Swift)을 이미 갖고 있기 때문이다.
  *   Kotlin 이 없는 것은 결함이 아니라 다른 길을 간 것이다.
  */
+/** 그 직무가 그 역량을 요구하는 공고 비율. 충족률의 무게로 쓴다. */
+const DEMAND = new Map<string, number>(
+  MATRIX.map((r) => [`${r.jobId}|${r.skillId}`, r.weight] as const)
+);
+export const demandOf = (jobId: string, skillId: string) =>
+  DEMAND.get(`${jobId}|${skillId}`) ?? 0;
+
+/**
+ * 충족률 — **칸을 세지 않고 무게를 더한다.**
+ *
+ *  왜 바꿨나. 칸을 세면 세 가지가 함께 망가진다.
+ *    ① 택일 묶음이 칸을 부풀린다. 프론트엔드 필수 8개 중 셋(React·Angular·Vue)이 한 묶음이라
+ *       Angular 하나만 가진 사람이 **세 칸**을 채웠다. 역량 2개로 4/8 = 0.50 을 받는다.
+ *       목록에서 Angular·Vue 를 빼면 그 공짜 칸이 사라져 2/6 = 0.33 으로 떨어진다 —
+ *       사람은 그대로인데 목록을 다듬었다고 점수가 변한다.
+ *    ② 분모가 줄면 한 칸의 무게가 커진다. 8개면 12.5%p, 6개면 16.7%p.
+ *    ③ 모든 칸의 무게가 같다. React(공고 69%)와 CSS(20%)가 똑같이 한 칸이었다.
+ *
+ *  ⚠️ 일정한 배율로는 못 고친다. 실측: 목록을 8→6 으로 줄였을 때 사람마다
+ *     충족률이 0.44배~1.33배로 흩어졌다. 어떤 사람은 오히려 올랐다.
+ *  ⚠️ 직무별 백분위로 보정해도 안 된다. 차이의 크기를 버려서 1위 31.1%→22.6% 로 내렸다.
+ *
+ *  무게는 **그 직무 공고의 요구 비율**을 쓴다. 강도(=비율×lift)는 lift 상한 3 에 눌려
+ *  94% 짜리와 50% 짜리가 같은 무게가 된다(모바일의 Android 3.000 · UX/UI 2.826).
+ *  같은 택일 묶음은 그 묶음에서 가장 무거운 것 하나로만 센다.
+ *
+ *  실측 (설문 3,391명) — 1위 31.1% → 32.3% · 3위 안 55.1% → 55.8%
+ */
+export function coverage(jobId: string, required: string[], have: Set<string>): number {
+  if (!required.length) return 0;
+  const okGroups = new Set<string>();
+  for (const id of have) {
+    const g = GROUP_OF.get(id);
+    if (g) okGroups.add(g);
+  }
+  //  묶음은 한 칸으로 접는다 — 무게는 그 묶음에서 가장 무거운 것
+  const slots: { members: string[]; w: number }[] = [];
+  const slotOfGroup = new Map<string, number>();
+  for (const id of required) {
+    const w = demandOf(jobId, id);
+    const g = GROUP_OF.get(id);
+    if (!g) { slots.push({ members: [id], w }); continue; }
+    const at = slotOfGroup.get(g);
+    if (at === undefined) {
+      slotOfGroup.set(g, slots.length);
+      slots.push({ members: [id], w });
+    } else {
+      slots[at].members.push(id);
+      slots[at].w = Math.max(slots[at].w, w);
+    }
+  }
+  const total = slots.reduce((a, s) => a + s.w, 0);
+  if (!total) return 0;
+  let got = 0;
+  for (const s of slots) {
+    const ok = s.members.some((id) => have.has(id)
+      || (GROUP_OF.has(id) && okGroups.has(GROUP_OF.get(id)!)));
+    if (ok) got += s.w;
+  }
+  return got / total;
+}
+
 export function satisfied(required: string[], have: Set<string>) {
   const okGroups = new Set<string>();
   for (const id of have) {

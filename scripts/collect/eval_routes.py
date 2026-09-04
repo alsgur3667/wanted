@@ -166,6 +166,41 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         ok = {grp[i] for i in have if i in grp}
         return [i for i in req if i in have or (i in grp and grp[i] in ok)]
 
+    #  요구 비율 — 충족률의 무게. 앱의 demandOf 와 같은 값이다.
+    demand = {(m["jobId"], m["skillId"]): m["weight"] for m in M}
+
+    def coverage(jid, req, have):
+        """칸을 세지 않고 **무게를 더한다** — 앱(skill-index.coverage)과 같은 계산.
+
+        ⚠️ 칸을 세면 택일 묶음이 칸을 부풀린다. 프론트엔드 필수 8개 중 셋이 한 묶음이라
+           Angular 하나 가진 사람이 세 칸을 채웠다(2개 역량으로 4/8).
+           목록에서 둘을 빼면 공짜 칸이 사라져 2/6 이 된다 — 사람은 그대로인데 점수가 변한다.
+        ⚠️ 무게는 강도가 아니라 **요구 비율**이다. 강도는 lift 상한 3 에 눌려
+           94% 짜리와 50% 짜리가 같아진다 (모바일 Android 3.000 · UX/UI 2.826).
+        """
+        if not req:
+            return 0.0
+        ok = {grp[i] for i in have if i in grp}
+        slots, at = [], {}
+        for i in req:
+            w = demand.get((jid, i), 0.0)
+            g = grp.get(i)
+            if g is None:
+                slots.append(([i], w))
+            elif g in at:
+                mem, cw = slots[at[g]]
+                mem.append(i)
+                slots[at[g]] = (mem, max(cw, w))
+            else:
+                at[g] = len(slots)
+                slots.append(([i], w))
+        tot = sum(w for _, w in slots)
+        if not tot:
+            return 0.0
+        got = sum(w for mem, w in slots
+                  if any(i in have or (i in grp and grp[i] in ok) for i in mem))
+        return got / tot
+
     def fit_all(have):
         st = {j: (sum(claim.get((j, s), 0) for s in have) / len(have) if have else 0)
               for j in per_job}
@@ -173,8 +208,8 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         out = []
         for jid in per_job:
             must, nice = reqs(jid)
-            mc = len(covered(must, have)) / len(must) if must else 0
-            nc = len(covered(nice, have)) / len(nice) if nice else 0
+            mc = coverage(jid, must, have)
+            nc = coverage(jid, nice, have)
             rel = st[jid] / mx if mx else 0
             raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
             conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
