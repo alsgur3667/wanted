@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import type { Route, Skill } from '@/types';
-import { jobDetailOf, type RequirementRow } from '@/lib/job-detail';
+import { jobDetailOf, LOW_CONFIDENCE, type RequirementRow } from '@/lib/job-detail';
 
 // ============================================================================
 //  경로 하나 = 접힌 카드 하나. 눌러야 펼쳐진다.
@@ -21,7 +21,9 @@ function RequirementList({ rows, sampleSize }: { rows: RequirementRow[]; sampleS
             className={`mt-0.5 grid size-4 shrink-0 place-items-center rounded-full border text-[9px] leading-none ${
               r.held
                 ? 'border-emerald-500/70 text-emerald-600 dark:text-emerald-400'
-                : 'border-black/20 text-transparent dark:border-white/25'
+                : r.coveredVia
+                  ? 'border-emerald-500/35 text-emerald-600/60 dark:text-emerald-400/60'
+                  : 'border-black/20 text-transparent dark:border-white/25'
             }`}
           >
             ✓
@@ -39,7 +41,11 @@ function RequirementList({ rows, sampleSize }: { rows: RequirementRow[]; sampleS
               </span>
             </div>
             <p className="mt-0.5 text-xs leading-relaxed opacity-60">
-              {r.held ? `내 이력서 — "${r.evidence}"` : `첫 단계 — ${r.firstStep}`}
+              {r.held
+                ? `내 이력서 — "${r.evidence}"`
+                : r.coveredVia
+                  ? `같은 계열의 다른 것을 갖고 있어요 — ${r.coveredVia}`
+                  : `첫 단계 — ${r.firstStep}`}
             </p>
           </div>
         </li>
@@ -100,10 +106,19 @@ export default function RouteAccordion({
 
       {open && detail && (
         <div className="border-t border-black/[0.07] px-5 pb-5 pt-4 dark:border-white/[0.08]">
-          <div className="flex items-baseline justify-between">
+          <div className="flex items-baseline justify-between gap-3">
             <h4 className="text-sm font-medium">이 직무에 필요한 것</h4>
             <span className="text-[11px] opacity-45">공고 {detail.sampleSize}건 기준</span>
           </div>
+
+          {/* 표본이 얇은 직무는 요구 역량 자체를 믿기 어렵다 (이슈 #21).
+              숫자를 감추는 대신 어느 정도로 믿을 수 있는지 함께 적는다. */}
+          {detail.confidence < LOW_CONFIDENCE && (
+            <p className="mt-2 rounded-lg border border-dashed border-amber-400/40 px-3 py-2 text-[11px] leading-relaxed opacity-70">
+              공고 표본이 {detail.sampleSize}건으로 적어, 아래 목록은 한두 회사의 공고에 크게 기울어 있을 수
+              있습니다.
+            </p>
+          )}
 
           <div className="mt-3.5 grid gap-x-7 gap-y-5 sm:grid-cols-[1.4fr_1fr]">
             {detail.work.length > 0 && (
