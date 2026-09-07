@@ -590,8 +590,13 @@ python scripts/collect/build_roles.py           # 직무 역할
 python scripts/collect/collect_guides.py        # 직무 해설 글 (robots.txt 확인 후)
 python scripts/collect/verify_guides.py         # 해설 글 교차검증 → verified.json
 python scripts/collect/export_contract.py       # → data/*.json (등급 병합 포함)
+python scripts/collect/build_interim.py         # → 앱용 data/interim/*.json (업무 역량·목업 보정 포함)
 python scripts/collect/build_skill_map.py       # 검증 화면 docs/skill-map.html 갱신
 ```
+
+앱용 `interim`에는 [`data/demo-curation.json`](../data/demo-curation.json)을 적용합니다.
+원본 계약 데이터와 수집 근거는 바꾸지 않고, O*NET의 직업별 소프트웨어 목록처럼 목업 추천을 오염시키는 행만
+제외합니다. 보정 대상과 이유는 코드가 아니라 이 설정 파일에 남겨 재생성해도 같은 결과가 나오게 합니다.
 
 API 키는 저장소 밖 `.env` 에서 읽습니다. **어느 파일에도 키를 적지 않습니다.**
 

@@ -241,6 +241,24 @@
     "디자인 QA"
    ],
    "firstStep": "컴포넌트 스펙 문서를 만들어 개발자에게 전달해 보세요."
+  },
+  {
+   "id": "ws_product_design",
+   "name": "제품 디자인",
+   "type": "hard",
+   "learnDifficulty": 0.55,
+   "aliases": [
+    "프로덕트 디자인",
+    "프로덕트 디자이너",
+    "제품 디자이너",
+    "UX 디자이너",
+    "UI 디자이너",
+    "UX/UI 디자인",
+    "UI/UX 디자인",
+    "product design",
+    "product designer"
+   ],
+   "firstStep": "사용자 문제 하나를 정하고 조사부터 화면·프로토타입까지 설계 근거를 한 장으로 정리해 보세요."
   }
  ],
  "mapping": {
@@ -280,6 +298,7 @@
    "ws_interview": 0.33
   },
   "product_designer": {
+   "ws_product_design": 0.95,
    "ws_ia": 0.82,
    "ws_prototype": 0.75,
    "ws_usability": 0.68,

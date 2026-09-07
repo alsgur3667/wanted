@@ -1,0 +1,49 @@
+{
+ "note": "목업 화면의 직무 추천이 상식적으로 보이도록 앱용 interim 데이터에만 적용하는 보정. 원본 계약 data/*.json과 수집 근거는 변경하지 않는다.",
+ "excludeBySource": [
+  {
+   "jobIds": [
+    "product_designer",
+    "designer",
+    "graphic_designer",
+    "motion_designer"
+   ],
+   "sources": [
+    "ontology"
+   ],
+   "reason": "O*NET의 직업별 소프트웨어 목록은 사용할 수 있는 도구이지 디자인 직무의 요구 역량이 아니다. 개발 기술이 디자인 적합도를 올리는 누수를 막는다."
+  }
+ ],
+ "excludePairs": [
+  {
+   "jobId": "product_designer",
+   "skillId": "android",
+   "reason": "디자인 대상 플랫폼 언급을 필수 개발 역량으로 해석한 해설 글 오탐"
+  },
+  {
+   "jobId": "product_designer",
+   "skillId": "slack",
+   "reason": "협업 도구 언급이며 프로덕트 디자인 변별 역량이 아님"
+  },
+  {
+   "jobId": "product_designer",
+   "skillId": "data_analysis",
+   "reason": "해설 글의 보조 업무 언급이며 핵심 디자인 역량이 아님"
+  },
+  {
+   "jobId": "product_designer",
+   "skillId": "notion",
+   "reason": "범용 문서 도구이며 프로덕트 디자인 변별 역량이 아님"
+  },
+  {
+   "jobId": "product_designer",
+   "skillId": "software_development",
+   "reason": "개발 협업 맥락을 디자이너의 필수 개발 역량으로 해석한 오탐"
+  },
+  {
+   "jobId": "product_designer",
+   "skillId": "iot",
+   "reason": "특정 제품 도메인 언급이며 일반 프로덕트 디자인 역량이 아님"
+  }
+ ]
+}

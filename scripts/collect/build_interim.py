@@ -74,6 +74,30 @@ def run():
     n_v2 = 0
     if src_mode == "v2":
         matrix, n_v2 = _matrix_from_stats()
+
+    #  목업 앱에서만 쓰는 보정이다. 원본 계약 데이터와 수집 근거는 그대로 둔다.
+    #  O*NET의 직업별 소프트웨어 목록은 "이 직업이 만질 수 있는 도구"에 가까워
+    #  디자인 직무에 MongoDB·JUnit·Spring 같은 개발 기술이 대량 유입됐다.
+    #  판단은 코드에 숨기지 않고 data/demo-curation.json에 이유와 함께 남긴다.
+    curation_path = D / "demo-curation.json"
+    n_curated = 0
+    if curation_path.exists():
+        curation = json.loads(curation_path.read_text(encoding="utf-8"))
+        excluded = {
+            (r["jobId"], r["skillId"])
+            for r in (curation.get("excludePairs") or [])
+        }
+        for rule in curation.get("excludeBySource") or []:
+            job_set = set(rule.get("jobIds") or [])
+            source_set = set(rule.get("sources") or [])
+            excluded.update(
+                (m["jobId"], m["skillId"])
+                for m in matrix
+                if m["jobId"] in job_set and m.get("source") in source_set
+            )
+        before = len(matrix)
+        matrix = [m for m in matrix if (m["jobId"], m["skillId"]) not in excluded]
+        n_curated = before - len(matrix)
     work = json.loads((D / "work-skills.json").read_text(encoding="utf-8"))
     ratio = json.loads((D / "newcomer-ratio.json").read_text(encoding="utf-8"))["ratios"]
 
@@ -173,6 +197,8 @@ def run():
     print(f"인접 {len(edges)}건 (직군 교차 {n_cross}건)")
     if src_mode == "v2":
         print(f"⚠️ 매트릭스를 관측 집계에서 가져왔다 (job_skill_stats {n_v2:,}줄)")
+    if n_curated:
+        print(f"목업 보정 {n_curated}줄 제외 — data/demo-curation.json")
     print(f"직무 {len(jobs)}개 (신입 비율 {n_ratio}개 · 연봉 구간 {n_sal}개) · 스킬 {len(skills)}개 "
           f"(업무 역량 {len(added)}개 추가) · 매핑 {len(matrix)}건 (수기 {n_map}건)")
     if skipped:
