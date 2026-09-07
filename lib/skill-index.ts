@@ -246,6 +246,13 @@ export function requirementsOf(jobId: string) {
   return { must: must.map((r) => r.skillId), nice: nice.map((r) => r.skillId) };
 }
 
+/** 그 직무가 그 역량을 요구하는 공고 비율. 충족률의 무게로 쓴다. */
+const DEMAND = new Map<string, number>(
+  MATRIX.map((r) => [`${r.jobId}|${r.skillId}`, r.weight] as const)
+);
+export const demandOf = (jobId: string, skillId: string) =>
+  DEMAND.get(`${jobId}|${skillId}`) ?? 0;
+
 // ── 직무 자체의 성격 보정 ────────────────────────────────────────────
 //
 //  정의가 넓은 직무는 남의 직무 사람까지 흡수한다.
@@ -271,22 +278,37 @@ const JOB_ADJUST = new Map<string, number>();
   for (const [, r] of reqs) {
     for (const s of r.must) inMust.set(s, (inMust.get(s) ?? 0) + 1);
   }
+  //  ⚠️ 필수가 적은 직무는 고유성·흡수율이 둘 다 극단으로 튄다.
+  //     실측: 데이터 분석가(필수 SQL·BI·Python 3개)가 고유성 0.24 · 흡수율 1.00 을 받아
+  //     보정 0.44 가 됐다. 보정 전 83점이 36점으로 떨어져 5년차 데이터 분석가에게
+  //     데이터 분석가가 3순위 안에도 안 나왔다.
+  //     넓은 직무를 누르려던 보정이 **얇고 정확한 직무**를 누른 것이다.
+  //     그래서 표본이 얇을수록 평균(0.5) 쪽으로 당긴다 — 축소 추정.
+  const SHRINK_K = 3;
+  const shrink = (v: number, n: number) => (v * n + 0.5 * SHRINK_K) / (n + SHRINK_K);
+
   const uniq = new Map<string, number>();
   for (const [jid, r] of reqs) {
-    uniq.set(jid, r.must.length
+    const raw = r.must.length
       ? r.must.reduce((a, s) => a + 1 / (inMust.get(s) || 1), 0) / r.must.length
-      : 0);
+      : 0;
+    uniq.set(jid, r.must.length ? shrink(raw, r.must.length) : 0);
   }
   const vals = [...uniq.values()];
   const lo = Math.min(...vals), hi = Math.max(...vals);
 
   for (const [jid, r] of reqs) {
+    //  ⚠️ 흡수율을 **개수**로 재면 안 된다. 흔한 것 3개뿐인 직무는 그 셋이 남에게
+    //     들어가는 순간 1.00 이 되어 '완전히 흡수된 직무' 로 잡힌다. 무게로 잰다.
     let contained = 0;
+    const totalW = r.must.reduce((a, s) => a + demandOf(jid, s), 0);
     for (const [other, o] of reqs) {
-      if (other === jid || !r.must.length) continue;
+      if (other === jid || !r.must.length || !totalW) continue;
       const cover = new Set([...o.must, ...o.nice]);
-      contained = Math.max(contained, r.must.filter((s) => cover.has(s)).length / r.must.length);
+      const w = r.must.reduce((a, s) => a + (cover.has(s) ? demandOf(jid, s) : 0), 0);
+      contained = Math.max(contained, w / totalW);
     }
+    contained = r.must.length ? shrink(contained, r.must.length) : contained;
     const u = hi > lo ? ((uniq.get(jid) ?? 0) - lo) / (hi - lo) : 0.5;
     JOB_ADJUST.set(jid, (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained));
   }
@@ -357,12 +379,40 @@ export function peerPathsOf(have: Set<string>): PeerPath[] {
  *   그 사람이 그 묶음의 다른 것(iOS·Swift)을 이미 갖고 있기 때문이다.
  *   Kotlin 이 없는 것은 결함이 아니라 다른 길을 간 것이다.
  */
-/** 그 직무가 그 역량을 요구하는 공고 비율. 충족률의 무게로 쓴다. */
-const DEMAND = new Map<string, number>(
-  MATRIX.map((r) => [`${r.jobId}|${r.skillId}`, r.weight] as const)
-);
-export const demandOf = (jobId: string, skillId: string) =>
-  DEMAND.get(`${jobId}|${skillId}`) ?? 0;
+/**
+ * LLM 이 적어 준 현재 직무명을 우리 직무 id 로 맞춘다.
+ *
+ * 왜 필요한가
+ *   「이 길도 있어요」가 **지금 하고 있는 그 직무**에 붙는 일이 있었다.
+ *   7년차 프로덕트 매니저에게 "프로덕트 매니저는 몰랐던 길입니다" 라고 말한 것이다.
+ *   기존 가드는 점수 1위(scored[0])와 비교했는데, 점수 1위는 현재 직무가 아니다.
+ *
+ * ⚠️ 못 찾으면 undefined 를 돌려준다. 억지로 맞추면 엉뚱한 직무를 현재 직무로 보게 된다.
+ */
+const JOB_BY_NAME = new Map<string, string>();
+{
+  const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+  for (const j of JOBS) {
+    JOB_BY_NAME.set(norm(j.title), j.id);
+    for (const a of j.aliases ?? []) JOB_BY_NAME.set(norm(a), j.id);
+  }
+}
+export function resolveJobTitle(title?: string | null): string | undefined {
+  if (!title) return undefined;
+  const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+  const k = norm(title);
+  if (!k) return undefined;
+  const exact = JOB_BY_NAME.get(k);
+  if (exact) return exact;
+  //  '인프라 엔지니어' 처럼 우리 이름과 다르게 적히는 경우 — 부분 일치로 한 번 더 본다
+  let best: { id: string; len: number } | undefined;
+  for (const [name, id] of JOB_BY_NAME) {
+    if (name.length >= 3 && (k.includes(name) || name.includes(k))) {
+      if (!best || name.length > best.len) best = { id, len: name.length };
+    }
+  }
+  return best?.id;
+}
 
 /**
  * 충족률 — **칸을 세지 않고 무게를 더한다.**

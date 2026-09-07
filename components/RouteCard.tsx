@@ -97,21 +97,39 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
         <details className="mt-4 group">
           <summary className="cursor-pointer list-none text-xs font-medium opacity-55 hover:opacity-80">
             요구 역량 {route.requirements.filter((r) => r.tier === 'required').length}가지 전체 보기
+            {route.requirements.some((r) => r.viaGroup) ? (
+              <span className="ml-1 text-[10px] text-amber-700/80 dark:text-amber-300/80">
+                (≈ 는 대체 인정)
+              </span>
+            ) : null}
             <span className="ml-1 inline-block transition-transform group-open:rotate-90">›</span>
           </summary>
           <ul className="mt-2 space-y-1">
             {route.requirements.map((r) => (
+              /*  ⚠️ 세 가지를 구분해서 보여준다 — 갖춤 · 대체 인정 · 없음.
+                  묶음 대체를 ✓ 로 그리면 **안 가진 것을 가졌다고 말하게 된다.**
+                  실측: iOS·Android 만 가진 사람에게 Kotlin·React Native·Jetpack 이
+                  전부 ✓ 로 찍혔다. 그 사람은 셋 다 모른다.  */
               <li key={`${r.tier}-${r.name}`} className="flex items-baseline gap-2 text-xs">
-                <span aria-hidden className={r.met ? 'text-emerald-600 dark:text-emerald-400' : 'opacity-30'}>
-                  {r.met ? '✓' : '·'}
+                <span
+                  aria-hidden
+                  className={
+                    r.viaGroup
+                      ? 'text-amber-600 dark:text-amber-400'
+                      : r.met
+                        ? 'text-emerald-600 dark:text-emerald-400'
+                        : 'opacity-30'
+                  }
+                >
+                  {r.viaGroup ? '≈' : r.met ? '✓' : '·'}
                 </span>
-                <span className={r.met ? 'font-medium' : 'opacity-60'}>{r.name}</span>
+                <span className={r.met && !r.viaGroup ? 'font-medium' : 'opacity-60'}>{r.name}</span>
                 <span className="rounded px-1 py-px text-[10px] opacity-45">
                   {r.tier === 'required' ? '필수' : '우대'}
                 </span>
                 {r.viaGroup ? (
-                  <span className="text-[10px] text-emerald-700/70 dark:text-emerald-300/70">
-                    {r.viaGroup} 대체 충족
+                  <span className="text-[10px] text-amber-700/80 dark:text-amber-300/80">
+                    안 갖췄지만 같은 {r.viaGroup} 을(를) 다뤄 대체 인정
                   </span>
                 ) : null}
               </li>

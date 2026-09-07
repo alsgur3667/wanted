@@ -144,19 +144,33 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     #  ⚠️ 이게 빠져 있었다. 앱은 넓은 직무를 깎아 순위를 내는데 채점기는 안 깎아,
     #     **자와 제품이 다른 점수를 냈다.** 이 자로 고른 결정들이 제품과 어긋날 수 있었다.
     #     넓은 직무를 안 깎으면 오답이 전부 풀스택으로 쏠린다 — 실제로 그렇게 나왔다.
+    #  요구 비율 — 충족률과 보정의 무게. 앱의 demandOf 와 같은 값이다.
+    demand = {(m["jobId"], m["skillId"]): m["weight"] for m in M}
     all_reqs = {jid: reqs(jid) for jid in per_job}
+    #  ⚠️ 필수가 적은 직무는 고유성·흡수율이 둘 다 극단으로 튄다 — 앱과 같게 축소 추정한다.
+    #     실측: 데이터 분석가(필수 3개)가 보정 0.44 를 받아 83점이 36점이 됐다.
+    SHRINK_K = 3.0
+
+    def shrink(v, n):
+        return (v * n + 0.5 * SHRINK_K) / (n + SHRINK_K) if n else v
+
     in_must = Counter(s for must, _ in all_reqs.values() for s in must)
-    uniq = {jid: (sum(1 / (in_must[s] or 1) for s in must) / len(must) if must else 0)
+    uniq = {jid: (shrink(sum(1 / (in_must[s] or 1) for s in must) / len(must), len(must))
+                  if must else 0)
             for jid, (must, _) in all_reqs.items()}
     lo, hi = min(uniq.values(), default=0), max(uniq.values(), default=0)
     adjust = {}
     for jid, (must, _nice) in all_reqs.items():
         contained = 0.0
+        #  개수가 아니라 무게로 잰다 — 흔한 것 3개짜리 직무가 늘 1.00 이 되는 것을 막는다
+        tot_w = sum(demand.get((jid, s), 0.0) for s in must)
         for other, (om, on) in all_reqs.items():
-            if other == jid or not must:
+            if other == jid or not must or not tot_w:
                 continue
             cover = set(om) | set(on)
-            contained = max(contained, sum(s in cover for s in must) / len(must))
+            w = sum(demand.get((jid, s), 0.0) for s in must if s in cover)
+            contained = max(contained, w / tot_w)
+        contained = shrink(contained, len(must))
         u = ((uniq[jid] - lo) / (hi - lo)) if hi > lo else 0.5
         adjust[jid] = (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained)
     mx_adj = max(adjust.values(), default=0) or 1
@@ -167,7 +181,6 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         return [i for i in req if i in have or (i in grp and grp[i] in ok)]
 
     #  요구 비율 — 충족률의 무게. 앱의 demandOf 와 같은 값이다.
-    demand = {(m["jobId"], m["skillId"]): m["weight"] for m in M}
 
     def coverage(jid, req, have):
         """칸을 세지 않고 **무게를 더한다** — 앱(skill-index.coverage)과 같은 계산.
@@ -213,6 +226,11 @@ def evaluate(profiles, J, S, M, G, verbose=True):
             rel = st[jid] / mx if mx else 0
             raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
             conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
+            #  ⚠️ 앱에는 '경력 반영'(experienceFitOf)이 하나 더 있는데 여기에는 없다.
+            #     설문 프로필에 **연차가 없기 때문**이다 — collect_survey 가 YearsCodePro 를
+            #     안 받는다. 그래서 이 자로는 경력 반영의 효과를 잴 수 없다.
+            #     앱에서도 연차를 모르면 1배(안 깎음)라 이 자의 결과는 앱과 어긋나지 않는다.
+            #     재려면 YearsCodePro 를 함께 받아야 한다 (이슈 #20).
             out.append((round(raw * conf * adjust[jid]), jid))
         out.sort(reverse=True)
         return out

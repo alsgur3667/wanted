@@ -1,6 +1,6 @@
 import type { AnalysisResult, GapSkill, Route, RouteRequirement, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, claimOf, coverage, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, coverage, resolveJobTitle, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
@@ -12,6 +12,37 @@ import { isNewcomer } from '@/types';
 // ============================================================================
 
 const MUST_W = 3, NICE_W = 1;
+
+// ── 경력 반영 ────────────────────────────────────────────────────────
+//
+//  왜 필요한가
+//    연차를 뽑아 놓고 점수에 안 썼다. 6년차 인프라 엔지니어 62점 · 부트캠프 신입 52점 —
+//    10점 차이다. 사용자가 이 숫자를 믿기 어렵다.
+//
+//  ⚠️ 연차 자체를 더하면 안 된다. 9년차 iOS 개발자가 QA 에 지원해도 9년이니까 점수가
+//     오르면 틀린 답이다. 경력은 **그 직무가 경력을 요구할 때만** 의미가 있다.
+//
+//  그래서 직무마다 다른 '신입 채용 비율' 을 쓴다 (jobs.json 의 newcomerRatio).
+//     엔지니어링 리더 2% · 아키텍트 3%   신입에게 거의 안 열린다
+//     QA 45% · 그래픽 디자이너 45%      신입에게 열려 있다
+//
+//  ⚠️ 올리지는 않는다. 경력자에게 모든 직무의 점수를 올려 주면 직무 간 순위가 그대로인 채
+//     숫자만 부푼다. **모자랄 때만 깎는다.**
+//  ⚠️ newcomerRatio 는 손으로 넣은 값이다(ratioSource=manual). 공고에서 잰 값이 아니라
+//     이 벌점의 근거가 그만큼 약하다. 공고의 경력 요구를 세어 바꾸는 것이 다음 일이다.
+const EXP_PENALTY = 0.35;      // 최대 벌점
+const EXP_FULL_MONTHS = 60;    // 5년이면 '경력을 갖췄다'로 본다
+
+/** 그 직무가 원하는 경력에 견줘 얼마나 모자란가 → 0.65~1.0 배 */
+function experienceFitOf(jobId: string, careerMonths: number | undefined): number {
+  if (careerMonths === undefined || careerMonths === null) return 1;   // 모르면 깎지 않는다
+  const job = JOBS.find((j) => j.id === jobId);
+  const newcomer = job?.newcomerRatio;
+  if (newcomer === undefined || newcomer === null) return 1;           // 근거 없으면 깎지 않는다
+  const need = 1 - newcomer;                                          // 이 직무가 경력을 원하는 정도
+  const have = Math.min(1, Math.max(0, careerMonths) / EXP_FULL_MONTHS);
+  return 1 - EXP_PENALTY * Math.max(0, need - have);
+}
 
 // ── 강점 반영 ────────────────────────────────────────────────────────
 //
@@ -95,12 +126,20 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     const raw = (100 * (mustCov * MUST_W + niceCov * NICE_W + strength * STRENGTH_W))
       / (MUST_W + NICE_W + STRENGTH_W);
     //  직무 자체의 성격도 반영한다 — 정의가 넓고 남에게 흡수되는 직무는 낮춘다.
-    const fitScore = Math.round(raw * confidenceOf(job.id) * jobAdjustOf(job.id));
+    //  경력도 반영한다 — 그 직무가 경력을 원하는데 모자라면 깎는다. 넘치면 깎지 않는다.
+    const fitScore = Math.round(
+      raw * confidenceOf(job.id) * jobAdjustOf(job.id)
+      * experienceFitOf(job.id, ex.currentPosition.careerMonths)
+    );
     return { job, must, nice, mustHit, niceHit,
              mustCovered: m.covered, niceCovered: n.covered, fitScore };
   }).sort((a, b) => b.fitScore - a.fitScore);
 
   const currentFamily = ex.currentPosition.jobFamily || scored[0]?.job.family || '기획';
+  //  지금 하고 있는 직무. 「이 길도 있어요」가 여기에 붙으면 안 된다.
+  //  ⚠️ 점수 1위(scored[0])와 헷갈리면 안 된다. 7년차 PM 에게 프로덕트 매니저를
+  //     '몰랐던 길' 로 붙인 사고가 그것 때문이었다.
+  const currentJobId = resolveJobTitle(ex.currentPosition.jobTitle);
 
   // ── 신입 필터 ────────────────────────────────────────────────
   //  경력이 없는 사람에게 아키텍트·엔지니어링 리더를 추천하면 신뢰를 잃는다.
@@ -159,7 +198,7 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   };
 
   const crossJobs = withSurprise
-    .filter((s) => s.cross && s.fitScore >= HIDDEN_MIN_FIT)
+    .filter((s) => s.cross && s.fitScore >= HIDDEN_MIN_FIT && s.job.id !== currentJobId)
     .map((s) => ({ ...s, b: bridgesOf(s) }));
 
   //  ③ 직무 간 인접은 **문턱을 낮추는 데 쓰지 않는다.** 자격을 갖춘 것들 사이의 우선순위에만 쓴다.
@@ -204,7 +243,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         && !already.has(p.jobId)                       // 이미 앞에 나온 직무가 아니고
         && cand !== undefined
         && cand.fitScore >= HIDDEN_MIN_FIT             // 권할 만한 적합도는 되고
-        && cand.job.id !== scored[0]?.job.id;          // 지금 하고 있는 그 직무가 아니어야 한다
+        && cand.job.id !== scored[0]?.job.id           // 점수 1위에 배지를 겹쳐 붙이지 않는다
+        && cand.job.id !== currentJobId;               // 지금 하고 있는 그 직무가 아니어야 한다
     });
     if (peer) {
       const cand = eligible.find((s) => s.job.id === peer!.jobId)!;

@@ -1,4 +1,5 @@
 import { EXTRACT_SYSTEM_PROMPT, buildExtractUserPrompt, buildMentionSection, buildVocabularySection } from '@/lib/prompts/extract';
+import { extractCareerMonths } from '@/lib/career';
 import { JOBS, MATRIX, SKILLS, findMentions } from '@/lib/skill-index';
 
 // ============================================================================
@@ -120,7 +121,8 @@ function mockExtract(resumeText: string): Extracted {
     [s.name, ...(s.aliases ?? [])].some((n) => n.length >= 2 && t.includes(norm(n)))
   ).slice(0, 14);
 
-  const m = resumeText.match(/(\d+)\s*년\s*차/);
+  const yrs = extractCareerMonths(resumeText);
+  const m = yrs.months > 0;
   const ids = new Set(hits.map((h) => h.id));
   const famScore = new Map<string, number>();
   for (const j of JOBS) {
@@ -134,7 +136,7 @@ function mockExtract(resumeText: string): Extracted {
     currentPosition: {
       jobTitle: m ? '경력자' : '신입',
       jobFamily,
-      careerMonths: m ? parseInt(m[1]) * 12 : 0,
+      careerMonths: yrs.months,
       industry: null,
       summary: '입력한 경험에서 확인된 역량을 기준으로 분석했습니다. (mock 모드)',
     },
@@ -145,16 +147,40 @@ function mockExtract(resumeText: string): Extracted {
   };
 }
 
+/**
+ * 연차는 **코드가 정한다.** LLM 이 뽑은 값은 참고만 한다.
+ *
+ * 실측: "8년차 iOS 개발자입니다" 로 시작하는 글에서 Gemini 가 careerMonths 를 0 으로 줬다.
+ * 직무명은 제대로 읽으면서 숫자를 흘린다. 숫자는 규칙이 확실하고, 틀려도 이유를 댈 수 있다.
+ *
+ * 규칙이 못 찾았을 때만 LLM 값을 쓴다 — 규칙이 모르는 표기가 있을 수 있다.
+ */
+function fixCareer(data: Extracted, resumeText: string): Extracted {
+  const found = extractCareerMonths(resumeText);
+  const fromLlm = data.currentPosition.careerMonths ?? 0;
+  const months = found.months > 0 ? found.months : fromLlm;
+  if (months !== fromLlm) {
+    console.log(`[career] LLM ${fromLlm}개월 → 규칙 ${months}개월 (${found.why})`);
+  }
+  return { ...data, currentPosition: { ...data.currentPosition, careerMonths: months } };
+}
+
 export async function extractProfile(
   resumeText: string,
   targetJob?: string
 ): Promise<{ data: Extracted; provider: Provider }> {
   const p = activeProvider();
   try {
-    if (p === 'gemini') return { data: await callGemini(resumeText, targetJob), provider: 'gemini' };
-    if (p === 'anthropic') return { data: await callAnthropic(resumeText, targetJob), provider: 'anthropic' };
+    if (p === 'gemini') {
+      return { data: fixCareer(await callGemini(resumeText, targetJob), resumeText),
+               provider: 'gemini' };
+    }
+    if (p === 'anthropic') {
+      return { data: fixCareer(await callAnthropic(resumeText, targetJob), resumeText),
+               provider: 'anthropic' };
+    }
   } catch (e) {
     console.error('[llm] 호출 실패, mock 으로 폴백:', e);
   }
-  return { data: mockExtract(resumeText), provider: 'mock' };
+  return { data: fixCareer(mockExtract(resumeText), resumeText), provider: 'mock' };
 }
