@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import type { AnalysisResult } from '@/types';
+import { jobDetailOf } from '@/lib/job-detail';
 
 const CONTEST_URL = 'https://event.wanted.co.kr/ai-championship/2026';
 
@@ -19,11 +20,17 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
   const hidden = hiddenRoute ?? result.routes[0];
   if (!hidden) return null;
 
+  // 적합도(0~100) 대신 셀 수 있는 사실을 싣는다 — 이슈 #28 참고.
+  const detail = jobDetailOf(hidden.destination, result.skills);
+  const mustHeld = detail?.mustHeld ?? hidden.bridgeSkills.length;
+  const mustTotal = detail?.mustTotal ?? hidden.bridgeSkills.length + hidden.gapSkills.length;
+
   const params = new URLSearchParams({
     jt: result.currentPosition.jobTitle,
     cm: String(result.currentPosition.careerMonths),
     d: hidden.destination,
-    f: String(hidden.fitScore),
+    mh: String(mustHeld),
+    mt: String(mustTotal),
     b: hidden.bridgeSkills.slice(0, 3).join('|'),
     ...(hiddenRoute ? { hidden: '1' } : {}),
   });
@@ -31,8 +38,8 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
 
   const shareText =
     (hiddenRoute
-      ? `커리어 내비로 분석해 봤더니 몰랐던 "${hidden.destination}" 경로가 나왔어요 (적합도 ${hidden.fitScore})\n`
-      : `커리어 내비로 분석해 봤더니 "${hidden.destination}" 적합도가 ${hidden.fitScore}점 나왔어요\n`) +
+      ? `커리어 내비로 분석해 봤더니 몰랐던 "${hidden.destination}" 경로가 나왔어요 (필수 역량 ${mustTotal}개 중 ${mustHeld}개 보유)\n`
+      : `커리어 내비로 분석해 봤더니 "${hidden.destination}"의 필수 역량 ${mustTotal}개 중 ${mustHeld}개를 이미 갖고 있대요\n`) +
     `직무명이 아니라 역량으로 커리어를 연결해 주는 서비스예요.\n${CONTEST_URL}`;
 
   async function copy() {
