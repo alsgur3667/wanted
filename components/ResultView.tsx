@@ -1,7 +1,20 @@
 import { isNewcomer, type AnalysisResult } from '@/types';
-import SkillMap from './SkillMap';
-import RouteCard from './RouteCard';
+import SkillGroups from './SkillGroups';
+import RouteAccordion from './RouteAccordion';
+import RankingTable from './RankingTable';
 import ShareButton from './ShareButton';
+
+// ============================================================================
+//  결과 화면 배치
+//
+//    1  경로 (아코디언, 전부 접힘)
+//    2  왜 이 순서인가요 (표)
+//    3  내 역량 (묶음 · 분포도는 접힘)
+//
+//  기존에는 상단이 2×2 산점도였고 경로가 아래였다. 순서를 뒤집었다.
+//  "직관적이지 않다"는 피드백의 핵심이 여기였다 — 사용자가 궁금한 것은
+//  자기 역량의 좌표가 아니라 어디로 갈 수 있는가다.
+// ============================================================================
 
 export default function ResultView({
   result,
@@ -39,24 +52,19 @@ export default function ResultView({
       </section>
 
       <section className="mt-12">
-        <h2 className="text-lg font-semibold">스킬 지도</h2>
-        <p className="mt-1 text-sm opacity-60">
-          오른쪽 위로 갈수록{' '}
-          <strong className="font-medium opacity-90">여러 직무에 통하면서 흔하지 않은</strong> 역량입니다.
-        </p>
-        <div className="mt-5">
-          <SkillMap skills={skills} />
+        <div className="space-y-3">
+          {routes.map((r) => (
+            <RouteAccordion key={r.id} route={r} mySkills={skills} />
+          ))}
+        </div>
+
+        <div className="mt-4">
+          <RankingTable routes={routes} mySkills={skills} />
         </div>
       </section>
 
       <section className="mt-14">
-        <h2 className="text-lg font-semibold">갈 수 있는 경로</h2>
-        <p className="mt-1 text-sm opacity-60">지금 가진 역량으로 도달 가능한 직무입니다.</p>
-        <div className="mt-5 space-y-4">
-          {routes.map((r, i) => (
-            <RouteCard key={r.id} route={r} rank={i + 1} />
-          ))}
-        </div>
+        <SkillGroups skills={skills} />
       </section>
 
       <ShareButton result={result} />
