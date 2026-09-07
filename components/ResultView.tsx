@@ -2,6 +2,7 @@ import { isNewcomer, type AnalysisResult } from '@/types';
 import SkillGroups from './SkillGroups';
 import RouteAccordion from './RouteAccordion';
 import RankingTable from './RankingTable';
+import JobExplorer from './JobExplorer';
 import ShareButton from './ShareButton';
 
 // ============================================================================
@@ -61,6 +62,8 @@ export default function ResultView({
         <div className="mt-4">
           <RankingTable routes={routes} mySkills={skills} />
         </div>
+
+        <JobExplorer mySkills={skills} shownJobTitles={routes.map((r) => r.destination)} />
       </section>
 
       <section className="mt-14">
