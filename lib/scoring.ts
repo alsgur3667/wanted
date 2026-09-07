@@ -1,17 +1,52 @@
 import type { AnalysisResult, GapSkill, Route, RouteRequirement, Skill } from '@/types';
 import type { Extracted } from '@/lib/llm';
-import { JOBS, SKILL_STATS, claimOf, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
+import { JOBS, SKILL_STATS, claimOf, coverage, resolveJobTitle, confidenceOf, getSkill, isCrossFamilySkill, neighborsOf, groupLabelOf, groupOf, jobAdjustOf, peerPathsOf, requirementsOf, resolveSkill, satisfied } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 
 // ============================================================================
 //  점수 계산 — 여기서만 숫자가 만들어진다. LLM 은 '무엇을 했는가'만 뽑는다.
 //
-//  fitScore      = 100 × (필수 커버율×3 + 우대 커버율×1 + 강점 반영×2) / 6 × 표본 신뢰도
+//  fitScore      = 100 × (필수 커버율×3 + 우대 커버율×1 + 강점 반영×2) / 6 × 경력 적합도
+//                  + 현재 직무가 정확히 일치하면 최대 8점
+//  evidenceScore = fitScore 원점수 × 표본 신뢰도 × 직무 보정 (숨은 경로·낮은 확신 판정 전용)
+//  추천 순위      = 화면에 보이는 fitScore 우선, 동점일 때만 evidenceScore 사용
 //  surpriseScore = 직군이 다른데 적합도가 높을수록 높다 (= 직무명으로는 안 보이는 경로)
 //  estimatedMonths = 부족 역량의 학습 난이도 합 × 3
 // ============================================================================
 
 const MUST_W = 3, NICE_W = 1;
+const CURRENT_JOB_BONUS = 8;
+
+// ── 경력 반영 ────────────────────────────────────────────────────────
+//
+//  왜 필요한가
+//    연차를 뽑아 놓고 점수에 안 썼다. 6년차 인프라 엔지니어 62점 · 부트캠프 신입 52점 —
+//    10점 차이다. 사용자가 이 숫자를 믿기 어렵다.
+//
+//  ⚠️ 연차 자체를 더하면 안 된다. 9년차 iOS 개발자가 QA 에 지원해도 9년이니까 점수가
+//     오르면 틀린 답이다. 경력은 **그 직무가 경력을 요구할 때만** 의미가 있다.
+//
+//  그래서 직무마다 다른 '신입 채용 비율' 을 쓴다 (jobs.json 의 newcomerRatio).
+//     엔지니어링 리더 2% · 아키텍트 3%   신입에게 거의 안 열린다
+//     QA 45% · 그래픽 디자이너 45%      신입에게 열려 있다
+//
+//  ⚠️ 올리지는 않는다. 경력자에게 모든 직무의 점수를 올려 주면 직무 간 순위가 그대로인 채
+//     숫자만 부푼다. **모자랄 때만 깎는다.**
+//  ⚠️ newcomerRatio 는 손으로 넣은 값이다(ratioSource=manual). 공고에서 잰 값이 아니라
+//     이 벌점의 근거가 그만큼 약하다. 공고의 경력 요구를 세어 바꾸는 것이 다음 일이다.
+const EXP_PENALTY = 0.35;      // 최대 벌점
+const EXP_FULL_MONTHS = 60;    // 5년이면 '경력을 갖췄다'로 본다
+
+/** 그 직무가 원하는 경력에 견줘 얼마나 모자란가 → 0.65~1.0 배 */
+function experienceFitOf(jobId: string, careerMonths: number | undefined): number {
+  if (careerMonths === undefined || careerMonths === null) return 1;   // 모르면 깎지 않는다
+  const job = JOBS.find((j) => j.id === jobId);
+  const newcomer = job?.newcomerRatio;
+  if (newcomer === undefined || newcomer === null) return 1;           // 근거 없으면 깎지 않는다
+  const need = 1 - newcomer;                                          // 이 직무가 경력을 원하는 정도
+  const have = Math.min(1, Math.max(0, careerMonths) / EXP_FULL_MONTHS);
+  return 1 - EXP_PENALTY * Math.max(0, need - have);
+}
 
 // ── 강점 반영 ────────────────────────────────────────────────────────
 //
@@ -36,6 +71,22 @@ function toGap(skillId: string): GapSkill {
   return { name: s.name, difficulty: s.learnDifficulty, firstStep: s.firstStep };
 }
 
+function requirementSlotStats(required: string[], covered: string[]) {
+  const keyOf = (id: string) => groupOf(id) ?? `skill:${id}`;
+  const all = new Set(required.map(keyOf));
+  const met = new Set(covered.map(keyOf));
+  return { total: all.size, covered: [...met].filter((key) => all.has(key)).length };
+}
+
+/** LLM의 자유 형식 직군명을 현재 데이터의 세 직군으로 정규화한다. */
+export function normalizeJobFamily(raw: string | undefined, fallback = '기획'): string {
+  const value = (raw ?? '').toLowerCase().replace(/[\s_/-]+/g, '');
+  if (/디자인|design|ux|ui/.test(value)) return '디자인';
+  if (/개발|엔지니어|engineer|developer|데이터|data|보안|security|qa|devops/.test(value)) return '개발';
+  if (/기획|product|project|manager|pm|마케팅|영업|고객|인사|재무/.test(value)) return '기획';
+  return fallback;
+}
+
 export function buildAnalysis(ex: Extracted): AnalysisResult {
   // 1) 추출된 자유 표기 → 온톨로지 skillId
   const resolved = new Map<string, string>(); // skillId -> evidence
@@ -54,6 +105,9 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     (unresolved.length ? ` · 실패: ${unresolved.join(', ')}` : '')
   );
   const have = new Set(resolved.keys());
+  // 명시된 현재 직무는 역량과 별개의 강한 근거다. 다만 직무명만 적어도 고득점이 되지
+  // 않도록 역량 기반 점수를 대체하지 않고 최대 8점만 더한다.
+  const currentJobId = resolveJobTitle(ex.currentPosition.jobTitle);
 
   // 2) 스킬 지도
   const skills: Skill[] = [...resolved.entries()].map(([id, evidence], i) => {
@@ -73,7 +127,7 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   // 3) 현재 직군 추정 — 보유 역량이 가장 많이 겹치는 직무의 직군
   //
   //  강점 반영은 '가장 잘 맞는 직무 대비'로 잰다. 절대값은 0.1~0.5 라 그대로 더하면
-  //  총점이 통째로 눌려 아래 fitScore 문턱(30)에 전부 걸린다.
+  //  총점이 통째로 눌려 아래 내부 순위 문턱(30)에 전부 걸린다.
   const rawStrength = new Map(JOBS.map((j) => [j.id, strengthOf(j.id, have)]));
   const maxStrength = Math.max(...rawStrength.values(), 0);
 
@@ -84,20 +138,41 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     const m = satisfied(must, have);
     const n = satisfied(nice, have);
     const mustHit = m.hit, niceHit = n.hit;
-    const mustCov = must.length ? m.covered.length / must.length : 0;
-    const niceCov = nice.length ? n.covered.length / nice.length : 0;
+    //  ⚠️ 칸 수가 아니라 무게로 센다. 이유는 skill-index.coverage() 주석 참조.
+    //     칸을 세면 택일 묶음이 칸을 부풀리고(Angular 하나로 3칸), 목록을 다듬으면
+    //     사람은 그대로인데 점수가 변한다.
+    const mustCov = coverage(job.id, must, have);
+    const niceCov = coverage(job.id, nice, have);
+    const mustSlots = requirementSlotStats(must, m.covered);
+    const niceSlots = requirementSlotStats(nice, n.covered);
     const strength = maxStrength ? (rawStrength.get(job.id) ?? 0) / maxStrength : 0;
-    // 표본이 7건인 직무의 요구 역량을 280건인 직무와 같은 확신으로 말할 수 없다.
-    // 곱하는 이유 — 걸러내지는 않는다. 진짜 그 직무인 사람에게는 여전히 1순위로 나와야 한다.
+    // 표본이 7건인 직무의 요구 역량을 280건인 직무와 같은 확신으로 순위화할 수 없다.
     const raw = (100 * (mustCov * MUST_W + niceCov * NICE_W + strength * STRENGTH_W))
       / (MUST_W + NICE_W + STRENGTH_W);
     //  직무 자체의 성격도 반영한다 — 정의가 넓고 남에게 흡수되는 직무는 낮춘다.
-    const fitScore = Math.round(raw * confidenceOf(job.id) * jobAdjustOf(job.id));
+    //  경력도 반영한다 — 그 직무가 경력을 원하는데 모자라면 깎는다. 넘치면 깎지 않는다.
+    const experienceFit = experienceFitOf(job.id, ex.currentPosition.careerMonths);
+    // 사용자에게 보여주는 적합도에는 후보와 무관한 표본 수·직무 구조 보정을 섞지 않는다.
+    // 이전에는 모바일 개발자의 이론상 최고점이 78점이라 완벽히 맞아도 낮아 보였다.
+    const skillFit = raw * experienceFit;
+    const currentJobBonus = job.id === currentJobId
+      ? Math.min(CURRENT_JOB_BONUS, Math.max(0, 100 - skillFit))
+      : 0;
+    const fitScore = Math.round(skillFit + currentJobBonus);
+    // 표본이 적거나 다른 직무를 흡수하기 쉬운 직무는 숨은 경로를 고를 때 보수적으로 다룬다.
+    // 이 값을 일반 정렬에 곱하면 85점 경로가 66점 경로 아래에 놓이는 UI 모순이 생긴다.
+    const evidenceScore = raw * experienceFit * confidenceOf(job.id) * jobAdjustOf(job.id);
     return { job, must, nice, mustHit, niceHit,
-             mustCovered: m.covered, niceCovered: n.covered, fitScore };
-  }).sort((a, b) => b.fitScore - a.fitScore);
+             mustCovered: m.covered, niceCovered: n.covered,
+             mustCov, mustSlots, niceSlots, fitScore, evidenceScore, currentJobBonus };
+  }).sort((a, b) => b.fitScore - a.fitScore || b.evidenceScore - a.evidenceScore);
 
-  const currentFamily = ex.currentPosition.jobFamily || scored[0]?.job.family || '기획';
+  //  지금 하고 있는 직무. 「이 길도 있어요」가 여기에 붙으면 안 된다.
+  //  ⚠️ 점수 1위(scored[0])와 헷갈리면 안 된다. 7년차 PM 에게 프로덕트 매니저를
+  //     '몰랐던 길' 로 붙인 사고가 그것 때문이었다.
+  const currentJobFamily = JOBS.find((j) => j.id === currentJobId)?.family;
+  const currentFamily = currentJobFamily
+    ?? normalizeJobFamily(ex.currentPosition.jobFamily, scored[0]?.job.family || '기획');
 
   // ── 신입 필터 ────────────────────────────────────────────────
   //  경력이 없는 사람에게 아키텍트·엔지니어링 리더를 추천하면 신뢰를 잃는다.
@@ -108,7 +183,7 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   const openToNewcomer = (job: (typeof JOBS)[number]) =>
     !isJobseeker || job.newcomerRatio === undefined || job.newcomerRatio >= NEWCOMER_MIN_RATIO;
 
-  // 4) 경로 3선 — 직군이 다른데 적합한 경로를 최소 1개 보장
+  // 4) 경로 3선 — 근거가 충분할 때만 직군이 다른 숨은 경로를 포함한다.
   //  적합도 문턱 — 넘는 것이 하나도 없으면 문턱을 버리고 상위 3개를 그대로 보여준다.
   //
   //  왜 그러나 — 문턱만 두면 '역량을 충분히 찾지 못했습니다' 오류가 난다.
@@ -116,14 +191,13 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   //  그때 "못 찾았다"고 말하는 것은 거짓이다. 낮은 점수를 낮은 대로 보여주는 편이 정직하다.
   //  ⚠️ 계약은 routes 를 **정확히 3개**로 정한다(types.ts). 문턱으로 잘라내면 안 된다.
   //
-  //  전에는 적합도 30 미만을 버렸는데, 요구 역량을 3~8개로 늘리면서 커버율이 낮아져
+  //  전에는 내부 순위점수 30 미만을 버렸는데, 요구 역량을 3~8개로 늘리면서 커버율이 낮아져
   //  경로가 2개만 나오는 일이 생겼다. 계약 위반이고, 화면도 3개를 기대하고 그려져 있다.
   //
   //  문턱은 **자르는 데 쓰지 않고 확신이 낮다고 알리는 데**만 쓴다.
   //  낮은 점수를 낮은 대로 보여주는 편이, 아무것도 안 보여주는 것보다 정직하다.
-  const MIN_FIT = 30;
+  const MIN_EVIDENCE_SCORE = 30;
   const eligible = scored.filter((s) => openToNewcomer(s.job));
-  const lowConfidence = !eligible.some((s) => s.fitScore >= MIN_FIT);
   const withSurprise = eligible.map((s) => {
     const cross = s.job.family !== currentFamily;
     const surpriseScore = cross
@@ -140,10 +214,10 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   //  실측 — 기술만 적은 8년차 iOS 개발자가 Slack·HTML·CSS 를 다리로 그래픽 디자이너에 연결됐다.
   //  Slack 은 어느 직군에나 있지만 그것 때문에 디자이너가 되지는 않는다.
   //  다리가 있어도 적합도가 너무 낮으면 붙이지 않는다.
-  //  실측 — 8년차 iOS 개발자에게 HTML·CSS 두 개를 다리로 그래픽 디자이너(적합도 30)가 붙었다.
+  //  실측 — 8년차 iOS 개발자에게 HTML·CSS 두 개를 다리로 그래픽 디자이너(순위점수 30)가 붙었다.
   //  둘 다 직군을 넘나드는 역량인 것은 맞지만, 그것만으로 디자이너를 권할 수는 없다.
-  //  40 은 도달 가능한 값이다 — 진짜 전환 후보는 79·51 로 나온다.
-  const HIDDEN_MIN_FIT = 40;
+  //  내부 순위점수 40 은 도달 가능한 값이다 — 진짜 전환 후보는 79·51 로 나온다.
+  const HIDDEN_MIN_EVIDENCE_SCORE = 40;
   const HIDDEN_MIN_MUST_BRIDGES = 2;
   const HIDDEN_MIN_WIDE_BRIDGES = 3;
   const EASY_SKILL = 0.3;   // 이보다 쉬우면 다리로 세지 않는다
@@ -156,14 +230,14 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   };
 
   const crossJobs = withSurprise
-    .filter((s) => s.cross && s.fitScore >= HIDDEN_MIN_FIT)
+    .filter((s) => s.cross && s.evidenceScore >= HIDDEN_MIN_EVIDENCE_SCORE && s.job.id !== currentJobId)
     .map((s) => ({ ...s, b: bridgesOf(s) }));
 
   //  ③ 직무 간 인접은 **문턱을 낮추는 데 쓰지 않는다.** 자격을 갖춘 것들 사이의 우선순위에만 쓴다.
   //
   //  처음에는 "다리가 없으면 인접한 직무를 대신 붙이자"로 만들었는데, 적합도 6점짜리에
   //  "이 길도 있어요"가 붙었다. 근거 없는 배지는 안 붙이는 편이 낫다 —
-  //  팀원이 이미 같은 사고를 겪었다(취준생에게 적합도 30짜리 아키텍트를 hidden 으로 권함).
+  //  팀원이 이미 같은 사고를 겪었다(취준생에게 순위점수 30짜리 아키텍트를 hidden 으로 권함).
   //
   //  다리가 하나도 없다는 것은 **정말로 건너갈 길이 없다**는 뜻이다. 그때는 붙이지 않는다.
   const anchor = scored[0]?.job.id;
@@ -200,8 +274,9 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       return p.lift >= PEER_MIN_LIFT
         && !already.has(p.jobId)                       // 이미 앞에 나온 직무가 아니고
         && cand !== undefined
-        && cand.fitScore >= HIDDEN_MIN_FIT             // 권할 만한 적합도는 되고
-        && cand.job.id !== scored[0]?.job.id;          // 지금 하고 있는 그 직무가 아니어야 한다
+        && cand.evidenceScore >= HIDDEN_MIN_EVIDENCE_SCORE // 표본 보정 뒤에도 권할 만하고
+        && cand.job.id !== scored[0]?.job.id           // 점수 1위에 배지를 겹쳐 붙이지 않는다
+        && cand.job.id !== currentJobId;               // 지금 하고 있는 그 직무가 아니어야 한다
     });
     if (peer) {
       const cand = eligible.find((s) => s.job.id === peer!.jobId)!;
@@ -215,7 +290,7 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   const picked = [
     ...withSurprise.filter((s) => s.job.id !== hidden?.job.id).slice(0, hidden ? 2 : 3),
     ...(hidden ? [hidden] : []),
-  ].sort((a, b) => b.fitScore - a.fitScore);
+  ].sort((a, b) => b.fitScore - a.fitScore || b.evidenceScore - a.evidenceScore);
 
   //  요구 역량 한 줄을 만든다. 대체재로 충족한 것은 어느 묶음으로 충족했는지 밝힌다.
   const reqRow = (id: string, tier: 'required' | 'preferred'): RouteRequirement => {
@@ -237,18 +312,18 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
       id: `rt_${i + 1}`,
       destination: s.job.title,
       jobFamily: s.job.family,
+      //  고용24 직업정보에서 받은 실제 값. 없으면 넣지 않는다 — 지어내지 않는다.
+      salaryBand: s.job.salaryBand,
+      prospect: s.job.prospect,
       fitScore: s.fitScore,
       surpriseScore: s.surpriseScore,
       isHiddenRoute: isHidden,
       difficulty: total <= 1 ? 'easy' : total <= 2 ? 'moderate' : 'challenging',
-      estimatedMonths: Math.max(1, Math.round(total * 3)),
+      estimatedMonths: gaps.length ? Math.max(1, Math.round(total * 3)) : 0,
       //  ⚠️ 근거 문구와 같은 것을 세야 한다.
       //  예전에는 문구가 '필수 5개 중 2개'인데 옆의 '이미 가진 무기'에는 3개가 떴다.
       //  문구는 필수만, 목록은 필수+우대를 세고 있었다. 이제 둘 다 필수 칸을 기준으로 한다.
-      bridgeSkills: [
-        ...s.mustHit.map((id) => getSkill(id)!.name),
-        ...s.niceHit.map((id) => getSkill(id)!.name),
-      ].slice(0, 5),
+      bridgeSkills: s.mustHit.map((id) => getSkill(id)!.name).slice(0, 5),
       gapSkills: gaps.slice(0, 3),
       //  요구 역량 전부를 상태와 함께 싣는다.
       //  "8가지 중 5가지"만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
@@ -260,8 +335,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         ? `${getSkill(peer.viaSkillId)?.name} 를 쓰는 ${peer.n.toLocaleString()}명 중 `
           + `${Math.round(peer.share * 100)}%가 이 직무를 하고 있습니다. `
           + `전체 평균보다 ${peer.lift.toFixed(1)}배 높습니다 — 직무명으로는 잘 안 보이는 경로입니다.`
-        : lowConfidence
-        ? `요구 역량 ${s.must.length}개 중 ${s.mustHit.length}개가 겹칩니다. 다만 뚜렷하게 맞는 직무를 찾지 못했습니다 — 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
+        : s.evidenceScore < MIN_EVIDENCE_SCORE
+        ? `적합도 ${s.fitScore}점으로 근거가 약한 후보입니다. 필수 역량 ${s.mustSlots.total}개 영역 중 ${s.mustSlots.covered}개가 겹칩니다 (가중 ${Math.round(s.mustCov * 100)}%). 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
         : isHidden
         ? `${s.job.family} 직군이지만 이 직무가 요구하는 것 중 ${(hiddenBridges?.must.length ?? 0) || (hiddenBridges?.wide.length ?? 0)}개를 이미 갖추고 있습니다 — ${[...new Set([...(hiddenBridges?.must ?? []), ...(hiddenBridges?.wide ?? [])])].slice(0, 3).map((id) => getSkill(id)?.name).filter(Boolean).join(' · ')}. 직군을 넘나드는 역량이라 옮겨도 그대로 쓰입니다.`
         : (() => {
@@ -270,12 +345,18 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
             const held = new Set(s.mustHit);
             const bySub = s.mustCovered.filter((id) => !held.has(id));
             const labels = [...new Set(bySub.map((id) => groupLabelOf(groupOf(id) ?? '')).filter(Boolean))];
-            const base = `요구 역량 ${s.must.length}가지 중 ${s.mustCovered.length}가지를 갖추고 있습니다`;
+            const grouped = s.mustSlots.total < s.must.length;
+            const base = grouped
+              ? `필수 역량 ${s.mustSlots.total}개 영역 중 ${s.mustSlots.covered}개를 충족합니다 (가중 ${Math.round(s.mustCov * 100)}%)`
+              : `요구 역량 ${s.must.length}가지 중 ${s.mustCovered.length}가지를 갖추고 있습니다`;
             const sub = labels.length
               ? ` — ${s.mustHit.map((id) => getSkill(id)!.name).slice(0, 2).join('·')} 으로 ${labels.join('·')} 요구를 충족합니다`
               : '';
-            const nice = s.niceCovered.length ? ` (우대 ${s.niceCovered.length}가지 추가)` : '';
-            return base + sub + nice + '.';
+            const nice = s.niceSlots.covered ? ` (우대 ${s.niceSlots.covered}개 영역 추가)` : '';
+            const role = s.currentJobBonus > 0
+              ? ` 현재 직무 표기와 일치해 ${Math.round(s.currentJobBonus)}점을 반영했습니다.`
+              : '';
+            return base + sub + nice + '.' + role;
           })(),
       marketNote:
         isJobseeker && s.job.newcomerRatio !== undefined

@@ -35,6 +35,8 @@ LIFT_CAP = 3.0
 CONFIDENCE_N = 20
 UNIQ_FLOOR = 0.6             # 직무 고유성 보정의 바닥값
 CONT_PENALTY = 0.35          # 남의 직무에 통째로 흡수되는 만큼 깎는다
+EXP_PENALTY = 0.35           # 앱 experienceFitOf와 같은 최대 벌점
+EXP_FULL_YEARS = 5           # 5년이면 경력을 갖춘 것으로 본다
 
 MAX_PER_JOB = 300      # 직무마다 이만큼만 뽑는다. 응답 수가 많은 직무가 채점을 지배하지 않도록.
 
@@ -144,19 +146,33 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     #  ⚠️ 이게 빠져 있었다. 앱은 넓은 직무를 깎아 순위를 내는데 채점기는 안 깎아,
     #     **자와 제품이 다른 점수를 냈다.** 이 자로 고른 결정들이 제품과 어긋날 수 있었다.
     #     넓은 직무를 안 깎으면 오답이 전부 풀스택으로 쏠린다 — 실제로 그렇게 나왔다.
+    #  요구 비율 — 충족률과 보정의 무게. 앱의 demandOf 와 같은 값이다.
+    demand = {(m["jobId"], m["skillId"]): m["weight"] for m in M}
     all_reqs = {jid: reqs(jid) for jid in per_job}
+    #  ⚠️ 필수가 적은 직무는 고유성·흡수율이 둘 다 극단으로 튄다 — 앱과 같게 축소 추정한다.
+    #     실측: 데이터 분석가(필수 3개)가 보정 0.44 를 받아 83점이 36점이 됐다.
+    SHRINK_K = 3.0
+
+    def shrink(v, n):
+        return (v * n + 0.5 * SHRINK_K) / (n + SHRINK_K) if n else v
+
     in_must = Counter(s for must, _ in all_reqs.values() for s in must)
-    uniq = {jid: (sum(1 / (in_must[s] or 1) for s in must) / len(must) if must else 0)
+    uniq = {jid: (shrink(sum(1 / (in_must[s] or 1) for s in must) / len(must), len(must))
+                  if must else 0)
             for jid, (must, _) in all_reqs.items()}
     lo, hi = min(uniq.values(), default=0), max(uniq.values(), default=0)
     adjust = {}
     for jid, (must, _nice) in all_reqs.items():
         contained = 0.0
+        #  개수가 아니라 무게로 잰다 — 흔한 것 3개짜리 직무가 늘 1.00 이 되는 것을 막는다
+        tot_w = sum(demand.get((jid, s), 0.0) for s in must)
         for other, (om, on) in all_reqs.items():
-            if other == jid or not must:
+            if other == jid or not must or not tot_w:
                 continue
             cover = set(om) | set(on)
-            contained = max(contained, sum(s in cover for s in must) / len(must))
+            w = sum(demand.get((jid, s), 0.0) for s in must if s in cover)
+            contained = max(contained, w / tot_w)
+        contained = shrink(contained, len(must))
         u = ((uniq[jid] - lo) / (hi - lo)) if hi > lo else 0.5
         adjust[jid] = (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained)
     mx_adj = max(adjust.values(), default=0) or 1
@@ -166,20 +182,68 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         ok = {grp[i] for i in have if i in grp}
         return [i for i in req if i in have or (i in grp and grp[i] in ok)]
 
-    def fit_all(have):
+    #  요구 비율 — 충족률의 무게. 앱의 demandOf 와 같은 값이다.
+
+    def coverage(jid, req, have):
+        """칸을 세지 않고 **무게를 더한다** — 앱(skill-index.coverage)과 같은 계산.
+
+        ⚠️ 칸을 세면 택일 묶음이 칸을 부풀린다. 프론트엔드 필수 8개 중 셋이 한 묶음이라
+           Angular 하나 가진 사람이 세 칸을 채웠다(2개 역량으로 4/8).
+           목록에서 둘을 빼면 공짜 칸이 사라져 2/6 이 된다 — 사람은 그대로인데 점수가 변한다.
+        ⚠️ 무게는 강도가 아니라 **요구 비율**이다. 강도는 lift 상한 3 에 눌려
+           94% 짜리와 50% 짜리가 같아진다 (모바일 Android 3.000 · UX/UI 2.826).
+        """
+        if not req:
+            return 0.0
+        ok = {grp[i] for i in have if i in grp}
+        slots, at = [], {}
+        for i in req:
+            w = demand.get((jid, i), 0.0)
+            g = grp.get(i)
+            if g is None:
+                slots.append(([i], w))
+            elif g in at:
+                mem, cw = slots[at[g]]
+                mem.append(i)
+                slots[at[g]] = (mem, max(cw, w))
+            else:
+                at[g] = len(slots)
+                slots.append(([i], w))
+        tot = sum(w for _, w in slots)
+        if not tot:
+            return 0.0
+        got = sum(w for mem, w in slots
+                  if any(i in have or (i in grp and grp[i] in ok) for i in mem))
+        return got / tot
+
+    def experience_fit(jid, work_years):
+        if work_years is None:
+            return 1.0
+        newcomer = J[jid].get("newcomerRatio")
+        if newcomer is None:
+            return 1.0
+        need = 1 - newcomer
+        have = min(1, max(0, work_years) / EXP_FULL_YEARS)
+        return 1 - EXP_PENALTY * max(0, need - have)
+
+    def fit_all(have, work_years=None):
         st = {j: (sum(claim.get((j, s), 0) for s in have) / len(have) if have else 0)
               for j in per_job}
         mx = max(st.values(), default=0)
         out = []
         for jid in per_job:
             must, nice = reqs(jid)
-            mc = len(covered(must, have)) / len(must) if must else 0
-            nc = len(covered(nice, have)) / len(nice) if nice else 0
+            mc = coverage(jid, must, have)
+            nc = coverage(jid, nice, have)
             rel = st[jid] / mx if mx else 0
             raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
             conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
-            out.append((round(raw * conf * adjust[jid]), jid))
-        out.sort(reverse=True)
+            # 앱과 동일하게 화면 적합도를 1차 순위로 쓰고, 근거 점수는 동점일 때만 쓴다.
+            # 보정값을 일반 순위에 곱하면 화면의 높은 점수가 낮은 점수 아래로 내려간다.
+            fit = raw * experience_fit(jid, work_years)
+            evidence = fit * conf * adjust[jid]
+            out.append((round(fit), evidence, jid))
+        out.sort(key=lambda row: (row[0], row[1]), reverse=True)
         return out
 
     top1 = top3 = 0
@@ -198,8 +262,8 @@ def evaluate(profiles, J, S, M, G, verbose=True):
                 unresolved[nm] += 1
         if len(have) < 3:
             continue
-        ranked = fit_all(have)
-        got = [j for _, j in ranked[:3]]
+        ranked = fit_all(have, p.get("yearsCodePro"))
+        got = [j for _, _, j in ranked[:3]]
         want = p["jobId"]
         by_job[want][0] += 1
         if got and got[0] == want:

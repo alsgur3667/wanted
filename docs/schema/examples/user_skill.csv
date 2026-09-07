@@ -1,0 +1,5 @@
+﻿sessionId,skillId,level,years,lastUsedYear,claimSource,confidence
+s_20260904_0a3f,swift,주도,8,2026,본인기술,0.96
+s_20260904_0a3f,ios,주도,8,2026,본인기술,0.95
+s_20260904_0a3f,kotlin,써봄,0.5,2019,프로젝트,0.61
+s_20260904_0a3f,stakeholder_align,능숙,3,2026,추론,0.52

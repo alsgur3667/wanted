@@ -1,6 +1,6 @@
 import type { Candidate } from '@/types';
 
-// 샘플 지원자 풀 12명.
+// 샘플 지원자 풀 15명.
 // ⚠️ 실제 인물이 아닌 가상 데이터이며, 화면에도 그렇게 표기한다.
 //    실제 서비스에서는 지원자가 공개에 동의한 항목만 노출한다.
 export const CANDIDATES: Candidate[] = [

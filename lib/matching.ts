@@ -17,7 +17,14 @@ const NICE_WEIGHT = 1;
 /** 부족 역량 난이도 합 → 온보딩 개월 추정 (난이도 1.0 ≈ 3개월) */
 function estimateOnboarding(gaps: GapSkill[]): number {
   const total = gaps.reduce((s, g) => s + g.difficulty, 0);
-  return Math.max(1, Math.round(total * 3));
+  return gaps.length ? Math.max(1, Math.round(total * 3)) : 0;
+}
+
+const normalizeRoleTitle = (title: string) => title.toLowerCase().replace(/[\s_/-]+/g, '');
+
+/** 채용 직무명 검색에서 실제로 같은 제목으로 잡히는 후보인지 판정한다. */
+export function isSameRoleTitle(req: JobRequirement, candidate: Candidate): boolean {
+  return normalizeRoleTitle(req.title) === normalizeRoleTitle(candidate.currentJobTitle);
 }
 
 function toGap(name: string): GapSkill {
@@ -43,7 +50,7 @@ export function matchCandidate(req: JobRequirement, c: Candidate): CandidateMatc
   return {
     candidate: c,
     fitScore,
-    // 직군이 다르면 직무명 기반 검색으로는 잡히지 않는 사람
+    // 직군이 다르면 인접 직군을 건너온 후보로 표시한다.
     isCrossRole: c.jobFamily !== req.jobFamily,
     matchedSkills: [...mustHit, ...niceHit],
     gapSkills,
@@ -54,13 +61,13 @@ export function matchCandidate(req: JobRequirement, c: Candidate): CandidateMatc
 export function buildEmployerResult(
   req: JobRequirement,
   pool: Candidate[],
-  opts: { includeCrossRole: boolean; minFit?: number } = { includeCrossRole: true }
+  opts: { includeDifferentRole: boolean; minFit?: number } = { includeDifferentRole: true }
 ): EmployerResult {
   const minFit = opts.minFit ?? 40;
   const matches = pool
     .map((c) => matchCandidate(req, c))
     .filter((m) => m.fitScore >= minFit)
-    .filter((m) => (opts.includeCrossRole ? true : !m.isCrossRole))
+    .filter((m) => opts.includeDifferentRole || isSameRoleTitle(req, m.candidate))
     .sort((a, b) => b.fitScore - a.fitScore || a.onboardingMonths - b.onboardingMonths);
 
   return { requirement: req, matches };

@@ -114,9 +114,10 @@ export default function SkillGroups({ skills }: { skills: Skill[] }) {
         </button>
         {mapOpen && (
           <div className="mt-4">
-            <p className="mb-3 text-xs opacity-55">
+            <p className="mb-3 text-xs leading-relaxed opacity-55">
               오른쪽 위로 갈수록{' '}
-              <strong className="font-medium opacity-90">여러 직무에 통하면서 익히기 어려운</strong> 역량입니다.
+              <strong className="font-medium opacity-90">여러 직무에 통하면서 학습 난이도가 높은</strong>{' '}
+              역량입니다. 세로축은 데이터 기반 추정치입니다.
             </p>
             <SkillMap skills={skills} />
           </div>

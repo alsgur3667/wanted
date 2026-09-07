@@ -1,0 +1,4 @@
+﻿sessionId,occupationId,skillId,why,prerequisiteChain,estimatedWeeks,firstStep
+s_20260904_0a3f,mobile_dev,react_native,우대미충족,javascript|react,8,자바스크립트 문법부터
+s_20260904_0a3f,fe_dev,typescript,필수미충족,javascript,4,타입 표기와 제네릭부터
+s_20260904_0a3f,solutions_eng,kubernetes,필수미충족,docker,10,컨테이너 한 개를 직접 띄워 보기

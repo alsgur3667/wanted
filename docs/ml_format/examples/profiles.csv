@@ -1,0 +1,4 @@
+﻿id,source,skillIds,nSkills,jobId,jobIdSource,weight,group,split,country,yearsCodePro,orgSize
+post:jd_gh_coupang_8143524,posting,java|spring|sql|aws|kubernetes,5,be_dev,posting-title,0.4,coupang,train,,,
+sv:2024#41207,survey,python|sql|airflow|aws|docker|terraform,6,data_eng,survey-devtype,1.0,,train,Germany,7,500-999
+sv:2025#13882,survey,swift|ios|kotlin|android|git,5,mobile_dev,survey-devtype,1.0,,sealed,South Korea,8,20-99

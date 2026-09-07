@@ -1,0 +1,5 @@
+﻿postingId,sentIdx,text,lang,section,tierLabel,tierSource,hasCue,skillIds,tokens,spanTags,spanSource,company,dupGroup,split,charLen,hasBullet,nearestHeading
+jd_gh_coupang_8143524,12,Java 와 Spring Boot 를 이용한 서버 개발 경력 3년 이상,ko,req,required,section,false,java|spring,Java|와|Spring|Boot|를|이용한|서버|개발|경력|3년|이상,B-SKILL|O|B-SKILL|I-SKILL|O|O|O|O|O|O|O,dictionary,coupang,d_9a1f,train,34,true,자격요건
+jd_gh_coupang_8143524,19,Kubernetes 운영 경험이 있으면 좋습니다,ko,pref,preferred,section,true,kubernetes,Kubernetes|운영|경험이|있으면|좋습니다,B-SKILL|O|O|O|O,dictionary,coupang,d_9a1f,train,22,true,우대사항
+jd_rm_884120,4,"Experience with Terraform is a plus, and you will own our AWS footprint.",en,body,,,true,terraform|aws,"Experience|with|Terraform|is|a|plus|,|and|you|will|own|our|AWS|footprint|.",O|O|B-SKILL|O|O|O|O|O|O|O|O|O|B-SKILL|O|O,dictionary,,d_5b03,train,71,false,
+jd_rm_884120,7,Familiarity with Pulumi and SQLite is helpful.,en,body,,,true,,Familiarity|with|Pulumi|and|SQLite|is|helpful|.,O|O|O|O|O|O|O|O,dictionary,,d_5b03,train,45,false,

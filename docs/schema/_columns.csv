@@ -1,0 +1,147 @@
+﻿file,column,type,required,allowed,source,status,note
+occupations,id,str,Y,,수기,확정,우리 직무 id. 채용 시장 용어로 우리가 정한다 — 공인 분류를 라벨로 쓰지 않는다
+occupations,displayName,str,Y,,수기,확정,화면에 보이는 이름
+occupations,aliases,list,N,,수기+공고,확정,공고에서 이 직무를 가리키는 다른 말. 제목 매칭에 쓴다
+occupations,family,enum,Y,개발|기획|디자인|기타,수기,확정,직군
+occupations,summary,str,Y,,수기,확정,한 줄 정의. 화면에 보여 준다
+occupations,definitionRefs,list,N,,sources,확정,정의의 근거가 된 자료 id
+occupations,onetRefs,list,N,,수기,확정,O*NET SOC 코드. 라벨이 아니라 앵커다 — 역량 표준과 겹침 근거를 끌어온다
+occupations,ncsRefs,list,N,,수기,확정,NCS 세분류 이름. 6개 직무는 대응이 없다 (QA·풀스택 등)
+occupations,escoRefs,list,N,,수기,제외권장,ESCO URI. O*NET·NCS 와 겹치기만 해 빼기로 정했다 (26-09-04). 되살리려면 상태만 확정으로 바꾼다
+occupations,isRecommendable,bool,Y,,수기,확정,추천 후보로 낼지. 소프트웨어 엔지니어처럼 상위 개념인 것은 false 로 두고 순위에서 뺀다
+occupations,level,enum,N,실무|리드|임원,수기,확정,층이 다른 직무를 가른다. 엔지니어링 리더 필수에 Ruby·Python 이 오른 것은 그 자리를 실무처럼 다뤄서다
+occupations,status,enum,Y,active|merged|retired,수기,확정,직무를 지우지 않는다. 합치거나 접는다
+occupations,mergedInto,str,N,,수기,확정,status 가 merged 면 어디로 합쳤나
+occupations,updatedAt,date,Y,,파생,확정,마지막으로 손댄 날
+occupation_relations,fromId,str,Y,,occupations,확정,포함 관계면 상위가 여기 온다
+occupation_relations,toId,str,Y,,occupations,확정,포함 관계면 하위
+occupation_relations,type,enum,Y,포함|인접|전환,수기+파생,확정,포함=상하위 · 인접=요구가 비슷 · 전환=실제로 많이 옮겨 가는 길
+occupation_relations,strength,float,Y,,파생,확정,0~1. 인접은 자카드 · 포함은 하위 요구가 상위에 흡수되는 비율
+occupation_relations,basis,list,Y,,파생,확정,왜 그렇게 봤나. onet:15-1252.00 처럼 근거를 적는다
+occupation_relations,computedAt,date,Y,,파생,확정,언제 계산했나
+sources,id,str,Y,,파생,확정,자료 하나의 id
+sources,kind,enum,Y,공고|해설글|직무기술서|공인체계|커뮤니티|설문|합성공고,수기,확정,어떤 종류의 근거인가
+sources,publisher,str,Y,,파생,확정,어디서 냈나. 사이트나 기관
+sources,company,str,N,,파생,확정,공고를 낸 회사. 한 회사가 표본을 지배하는 것을 여기서 막는다
+sources,title,str,N,,원본,확정,자료 제목
+sources,url,str,N,,원본,확정,원본 주소
+sources,publishedAt,date,N,,원본,확정,자료가 나온 날. 구간별 집계의 기준
+sources,collectedAt,date,Y,,파생,확정,우리가 받은 날
+sources,lang,enum,Y,ko|en|de|other,파생,확정,자료 언어
+sources,region,enum,Y,KR|US|EU|GLOBAL|other,파생,확정,어느 시장의 이야기인가. 국내 추천에 해외 근거를 섞을지 가른다
+sources,license,str,Y,,수기,확정,이용 조건. 배포 가능 여부가 여기서 갈린다
+sources,robotsOk,bool,Y,,파생,확정,수집이 허용된 곳인가
+sources,accessMethod,enum,Y,api|html|manual,파생,확정,어떻게 받았나
+sources,dupGroup,str,Y,,파생,확정,같은 내용의 자료 묶음
+sources,isPrimary,bool,Y,,파생,확정,그 묶음의 대표. 집계는 대표만 센다
+sources,credibility,enum,Y,높음|보통|낮음,수기,확정,기관 공식 문서와 개인 블로그를 같은 무게로 세지 않는다
+sources,textRef,str,N,,파생,확정,원문이 있는 로컬 경로. 원문은 저장소에 넣지 않는다
+observations,id,str,Y,,파생,확정,관측 하나의 id
+observations,sourceId,str,Y,,sources,확정,어느 자료가 말했나
+observations,occupationId,str,Y,,occupations,확정,어느 직무에 대해
+observations,skillId,str,Y,,skills,확정,어느 역량을
+observations,stance,enum,Y,필수|우대|언급|부정,파생,확정,뭐라고 말했나. 부정 = 필요 없다고 적힌 것
+observations,quote,str,N,,원본,확정,근거 문장 하나. 화면에서 왜 그런지 보여 줄 때 쓴다
+observations,locator,str,N,,파생,확정,자료 안에서의 위치. 자격요건#12 처럼
+observations,extractedBy,enum,Y,규칙|LLM|사람|합성,파생,확정,누가 뽑았나
+observations,extractorVersion,str,Y,,파생,확정,어느 판으로 뽑았나. 규칙을 고치면 결과가 달라지므로 재현에 필요하다
+observations,confidence,float,N,,파생,확정,뽑은 쪽의 확신도
+observations,observedAt,date,Y,,sources,확정,그 자료가 말한 시점. 구간별 집계의 기준
+observations,reviewStatus,enum,Y,미검토|확인|기각,사람,확정,사람이 본 흔적. 기각한 관측도 지우지 않고 남긴다
+observations,reviewedBy,str,N,,사람,확정,누가 봤나
+observations,supersededBy,str,N,,파생,확정,잘못 뽑힌 관측을 지우는 대신 대체한 관측을 가리킨다
+skills,id,str,Y,,파생,확정,역량 id
+skills,name,str,Y,,파생,확정,대표 표기
+skills,aliases,list,N,,파생+수기,확정,같은 것을 가리키는 다른 표기. 이력서·공고 매칭에 쓴다
+skills,type,enum,Y,언어|프레임워크|도구|플랫폼|개념|업무역량|자격증,수기,확정,업무역량은 공고에 잘 안 적히지만 직무를 가른다
+skills,onetRefs,list,N,,수기,확정,O*NET 도구·기술 표준 이름
+skills,ncsRefs,list,N,,수기,확정,NCS 능력단위의 지식·기술
+skills,isUbiquitous,bool,Y,,수기,확정,직무를 안 가리는 것(Git·VS Code·Slack). true 면 요구 역량에서 뺀다 — 지금은 코드에 목록으로 박혀 있다
+skills,learnDifficulty,float,N,,파생,확정,0~1. 배우기 어려운 정도
+skills,firstStep,str,N,,수기,확정,무엇부터 하면 되는지 한 줄
+skills,status,enum,Y,active|merged|retired,수기,확정,역량을 지우지 않는다. 합치거나 접는다
+skills,mergedInto,str,N,,수기,확정,JS 를 JavaScript 로 합친 것처럼 어디로 합쳤나
+skills,updatedAt,date,Y,,파생,확정,마지막으로 손댄 날
+skill_relations,fromId,str,Y,,skills,확정,선수 관계면 먼저 배울 것이 여기 온다
+skill_relations,toId,str,Y,,skills,확정,선수 관계면 나중에 배울 것
+skill_relations,type,enum,Y,대체|보완|선수|상위,수기+파생,확정,대체=택일(iOS↔Android) · 보완=함께 쓴다 · 선수=먼저 배워야 한다 · 상위=SQL ⊃ MySQL
+skill_relations,strength,float,Y,,파생,확정,0~1
+skill_relations,basis,list,Y,,파생,확정,왜 그렇게 봤나. jaccard:0.18 · guide:confirmed 처럼
+skill_relations,computedAt,date,Y,,파생,확정,언제 계산했나
+job_skill_stats,occupationId,str,Y,,occupations,확정,직무
+job_skill_stats,skillId,str,Y,,skills,확정,역량
+job_skill_stats,window,str,Y,,파생,확정,집계 구간. all 또는 2026Q2. 구간별로 두면 뜨는 역량과 지는 역량이 보인다
+job_skill_stats,nObs,int,Y,,observations,확정,관측 수
+job_skill_stats,nSources,int,Y,,observations,확정,서로 다른 자료 수
+job_skill_stats,nCompanies,int,Y,,observations,확정,서로 다른 회사 수. 3건이지만 전부 한 회사인 것을 여기서 거른다
+job_skill_stats,reqCount,int,Y,,observations,확정,필수로 말한 관측 수
+job_skill_stats,prefCount,int,Y,,observations,확정,우대로 말한 관측 수
+job_skill_stats,negCount,int,Y,,observations,확정,필요 없다고 말한 관측 수
+job_skill_stats,share,float,Y,,파생,확정,그 구간 그 직무 자료 중 몇 %가 말했나. 표본 크기에 안 휘둘린다
+job_skill_stats,lift,float,N,,파생,확정,전체 평균 대비 이 직무에서 얼마나 더 나오나
+job_skill_stats,importance,float,Y,,파생,확정,요구 역량을 고르는 순서
+job_skill_stats,tier,enum,N,필수|우대,파생,확정,최종 판정. 사람 보정이 있으면 그것이 이긴다
+job_skill_stats,agreement,int,Y,,파생,확정,몇 종류의 출처가 말했나 (공고·해설·공인체계)
+job_skill_stats,computedAt,date,Y,,파생,확정,언제 계산했나
+job_skill_stats,configHash,str,Y,,파생,확정,어떤 방침으로 집계했나. 이게 없으면 예전 수치를 재현할 수 없다
+overrides,targetType,enum,Y,직무역량|직무|역량,수기,확정,무엇을 고치나
+overrides,targetId,str,Y,,수기,확정,be_dev|spring 처럼. 직무나 역량 하나면 그 id
+overrides,field,str,Y,,수기,확정,고칠 칸 이름. tier · importance · isRecommendable 등
+overrides,value,str,Y,,수기,확정,사람이 정한 값
+overrides,reason,str,Y,,수기,확정,왜 고쳤나. 이게 없으면 나중에 되돌릴지 판단할 수 없다
+overrides,author,str,Y,,수기,확정,누가
+overrides,createdAt,date,Y,,수기,확정,언제
+overrides,expiresAt,date,N,,수기,확정,자료가 쌓이면 저절로 풀리게 할지. 영구 보정은 원인을 덮는다
+user_profile,sessionId,str,Y,,파생,확정,한 번의 진단. 사람을 가리키는 id 가 아니다
+user_profile,createdAt,date,Y,,파생,확정,언제
+user_profile,inputMethod,enum,Y,이력서|직접입력,파생,확정,어떻게 넣었나
+user_profile,totalYears,float,N,,입력,확정,전체 경력 연차
+user_profile,currentOccupationId,str,N,,입력,확정,지금 하는 일. 추천에서 이것 자체는 빼야 한다
+user_profile,targetFamily,enum,N,개발|기획|디자인|무관,입력,확정,관심 직군
+user_profile,weeklyStudyHours,float,N,,입력,확정,주당 학습 가능 시간. 부족 역량의 기간 추정에 쓴다
+user_profile,rawText,str,N,,입력,제외권장,이력서 원문. 저장하지 않는다 — 개인정보를 저장소 안팎 어디에도 두지 않는 방침
+user_skill,sessionId,str,Y,,user_profile,확정,어느 진단인가
+user_skill,skillId,str,Y,,skills,확정,어느 역량인가
+user_skill,level,enum,Y,써봄|능숙|주도,입력+LLM,확정,정도. 지금은 있냐 없냐뿐이라 8년차 iOS 와 한 번 만져본 iOS 가 같게 취급된다
+user_skill,years,float,N,,입력+LLM,확정,그 역량을 쓴 햇수
+user_skill,lastUsedYear,int,N,,입력+LLM,확정,마지막으로 쓴 해. 10년 전 역량을 지금 역량과 같게 셀 수 없다
+user_skill,claimSource,enum,Y,본인기술|자격증|프로젝트|추론,파생,확정,무엇을 근거로 가졌다고 보나
+user_skill,confidence,float,N,,파생,확정,뽑은 쪽의 확신도
+user_skill,evidenceQuote,str,N,,입력,제외권장,이력서 문장. 개인정보라 저장하지 않는다. 화면에는 그 자리에서만 보여 준다
+recommendations,sessionId,str,Y,,user_profile,확정,어느 진단인가
+recommendations,rank,int,Y,,파생,확정,1~3
+recommendations,occupationId,str,Y,,occupations,확정,추천한 직무
+recommendations,fit,float,Y,,파생,확정,적합도 0~100
+recommendations,mustCovered,int,Y,,파생,확정,필수 중 갖춘 개수
+recommendations,mustTotal,int,Y,,파생,확정,필수 개수
+recommendations,niceCovered,int,Y,,파생,확정,우대 중 갖춘 개수
+recommendations,niceTotal,int,Y,,파생,확정,우대 개수
+recommendations,strength,float,Y,,파생,확정,역량의 세기 합
+recommendations,adjust,float,Y,,파생,확정,직무 자체의 성격 보정 (넓거나 흡수되는 직무를 누른다)
+recommendations,confidence,float,Y,,파생,확정,근거가 얼마나 두꺼운가
+recommendations,isHidden,bool,Y,,파생,확정,이 길도 있어요 로 보여 줄 것인가
+recommendations,hiddenReason,str,N,,파생,확정,왜 몰랐던 길이라 보나
+recommendations,evidenceObsIds,list,N,,observations,확정,이 추천을 만든 관측. 왜 이 직무인지 실제 문장으로 답할 수 있게 한다
+recommendations,modelVersion,str,Y,,파생,확정,어느 판으로 계산했나
+recommendation_gaps,sessionId,str,Y,,user_profile,확정,어느 진단인가
+recommendation_gaps,occupationId,str,Y,,occupations,확정,어느 직무의 부족분인가
+recommendation_gaps,skillId,str,Y,,skills,확정,부족한 역량
+recommendation_gaps,why,enum,Y,필수미충족|우대미충족,파생,확정,왜 부족으로 보나
+recommendation_gaps,prerequisiteChain,list,N,,skill_relations,확정,무엇부터 배워야 하나. 선수 관계를 따라간 순서
+recommendation_gaps,estimatedWeeks,float,N,,파생,확정,얼마나 걸릴지. 학습 가능 시간과 난이도로 뽑는다
+recommendation_gaps,firstStep,str,N,,skills,확정,첫걸음 한 줄
+occupation_variants,occupationId,str,Y,,occupations,확정,어느 직무의 변형인가
+occupation_variants,variantId,str,Y,,파생,확정,직무 안에서의 번호. be_dev.v1 처럼
+occupation_variants,label,str,Y,,수기,확정,사람이 읽을 이름. 'Java 계열' · '폴리글랏·클라우드'
+occupation_variants,share,float,Y,,파생,확정,그 직무 공고 중 이 변형의 비율
+occupation_variants,nSources,int,Y,,파생,확정,이 변형을 이룬 자료 수
+occupation_variants,mustSkills,list,Y,,파생,확정,이 변형의 절반 이상이 요구한 역량
+occupation_variants,niceSkills,list,N,,파생,확정,25~50%가 요구한 역량
+occupation_variants,computedAt,date,Y,,파생,확정,언제 계산했나
+occupation_variants,note,str,N,,수기,확정,⚠️ 순위 계산에는 쓰지 않는다. 변형별로 재면 모든 직무가 그 사람에게 맞는 얼굴을 하나씩 갖게 되어 변별력이 줄어든다 — 실측 1위 31.1%→28.4%. 왜 맞는지 설명하고 부족 역량을 가르는 데만 쓴다
+sources,isSynthetic,bool,Y,,파생,확정,실제로 모은 자료인가 우리가 만든 것인가. true 면 집계에서 언제든 뺄 수 있어야 한다
+sources,synthesisBasis,str,N,,파생,확정,무엇을 본떠 만들었나. fullstack_dev.v3 처럼 어느 직무의 어느 변형 분포를 썼는지
+observations,isSynthetic,bool,Y,,sources,확정,가상 자료에서 나온 관측. extractedBy=합성 과 짝을 이룬다
+job_skill_stats,nSynthetic,int,Y,,observations,확정,이 수치에 섞인 가상 관측 수. 0 이 아니면 화면에 알린다
+job_skill_stats,shareReal,float,Y,,파생,확정,가상을 뺀 실제 자료만으로 다시 잰 비율. share 와 크게 다르면 그 수치는 가상이 만든 것이다
+user_profile,isSynthetic,bool,Y,,파생,확정,가상 이력서인가. 우리에겐 실제 이력서가 없어 매칭 시연·회귀 확인에 쓴다

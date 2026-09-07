@@ -48,6 +48,15 @@ NOT_TARGET = [
     "legal counsel", "office assistant", "office manager", "content reviewer",
     "customer support", "customer success", "kundenservice", "praxis onboarding",
     "consulting architect", "steuerberat", "pflege", "techniker bau",
+    #  소프트웨어가 아닌 엔지니어 — 아래 ROLES 의 소프트웨어 엔지니어가 맨 "engineer" 를
+    #  잡기 때문에 여기서 먼저 걸러야 한다. 실측으로 하나씩 확인하고 넣었다.
+    #    Senior Mechanical Engineer · Senior Manufacturing Engineer – Assembly ·
+    #    Electrical Engineer · Senior EV Field Service Engineer · Automation Maintenance Engineer ·
+    #    Principal Supplier Quality Engineer · Principal Industrial Engineer
+    #  ⚠️ 맨 "quality engineer" 는 빼지 않는다 — 소프트웨어 QA 일 수 있다.
+    #     "supplier quality" 처럼 분명한 것만 뺀다.
+    "mechanical", "manufacturing", "electrical engineer", "field service",
+    "industrial engineer", "supplier quality", "maintenance engineer",
 ]
 
 # 역할 사전 — (표준 역할명, 직군, 제목에서 찾을 표현들)

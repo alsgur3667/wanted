@@ -190,7 +190,7 @@ export function buildExtractUserPrompt(
 ## 이력서
 """
 ${resumeText}
-"""${target}${vocabulary ?? ''}
+"""${target}${vocabulary ?? ''}${mentions ?? ''}
 
 JSON만 출력하세요.`;
 }

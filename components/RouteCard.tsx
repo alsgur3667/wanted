@@ -27,11 +27,38 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
             {route.destination}
           </h3>
           <p className="mt-0.5 text-xs opacity-55">{route.jobFamily}</p>
+          {/*  연봉 구간과 직업전망 — 고용24 직업정보의 실제 자료다.
+               ⚠️ 액수가 아니라 구간이다. 최상단이 '5천만원 이상' 이라 개발 직무 대부분이
+                  같은 칸에 들어간다. 전망을 함께 보여야 직무가 갈려 보인다.  */}
+          {(route.salaryBand || route.prospect) && (
+            <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
+              {route.salaryBand && (
+                <span className="rounded bg-black/[0.06] px-1.5 py-0.5 tabular-nums dark:bg-white/10">
+                  연봉 {route.salaryBand}
+                </span>
+              )}
+              {route.prospect && (
+                <span
+                  className={
+                    'rounded px-1.5 py-0.5 ' +
+                    (route.prospect.includes('증가')
+                      ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
+                      : route.prospect.includes('감소')
+                        ? 'bg-rose-500/15 text-rose-700 dark:text-rose-300'
+                        : 'bg-black/[0.06] dark:bg-white/10')
+                  }
+                >
+                  전망 {route.prospect}
+                </span>
+              )}
+              <span className="opacity-40">고용24 직업정보</span>
+            </p>
+          )}
         </div>
 
         <div className="shrink-0 text-right">
           <div className="text-2xl font-bold tabular-nums">{route.fitScore}</div>
-          <div className="text-[11px] opacity-55">적합도</div>
+          <div className="text-[11px] opacity-55">역량 적합도</div>
         </div>
       </header>
 
@@ -69,22 +96,40 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
       {route.requirements?.length ? (
         <details className="mt-4 group">
           <summary className="cursor-pointer list-none text-xs font-medium opacity-55 hover:opacity-80">
-            요구 역량 {route.requirements.filter((r) => r.tier === 'required').length}가지 전체 보기
+            필수 항목 {route.requirements.filter((r) => r.tier === 'required').length}개 전체 보기
+            {route.requirements.some((r) => r.viaGroup) ? (
+              <span className="ml-1 text-[10px] text-amber-700/80 dark:text-amber-300/80">
+                (같은 대체 그룹은 점수에서 한 영역 · ≈ 는 대체 인정)
+              </span>
+            ) : null}
             <span className="ml-1 inline-block transition-transform group-open:rotate-90">›</span>
           </summary>
           <ul className="mt-2 space-y-1">
             {route.requirements.map((r) => (
+              /*  ⚠️ 세 가지를 구분해서 보여준다 — 갖춤 · 대체 인정 · 없음.
+                  묶음 대체를 ✓ 로 그리면 **안 가진 것을 가졌다고 말하게 된다.**
+                  실측: iOS·Android 만 가진 사람에게 Kotlin·React Native·Jetpack 이
+                  전부 ✓ 로 찍혔다. 그 사람은 셋 다 모른다.  */
               <li key={`${r.tier}-${r.name}`} className="flex items-baseline gap-2 text-xs">
-                <span aria-hidden className={r.met ? 'text-emerald-600 dark:text-emerald-400' : 'opacity-30'}>
-                  {r.met ? '✓' : '·'}
+                <span
+                  aria-hidden
+                  className={
+                    r.viaGroup
+                      ? 'text-amber-600 dark:text-amber-400'
+                      : r.met
+                        ? 'text-emerald-600 dark:text-emerald-400'
+                        : 'opacity-30'
+                  }
+                >
+                  {r.viaGroup ? '≈' : r.met ? '✓' : '·'}
                 </span>
-                <span className={r.met ? 'font-medium' : 'opacity-60'}>{r.name}</span>
+                <span className={r.met && !r.viaGroup ? 'font-medium' : 'opacity-60'}>{r.name}</span>
                 <span className="rounded px-1 py-px text-[10px] opacity-45">
                   {r.tier === 'required' ? '필수' : '우대'}
                 </span>
                 {r.viaGroup ? (
-                  <span className="text-[10px] text-emerald-700/70 dark:text-emerald-300/70">
-                    {r.viaGroup} 대체 충족
+                  <span className="text-[10px] text-amber-700/80 dark:text-amber-300/80">
+                    안 갖췄지만 같은 {r.viaGroup} 을(를) 다뤄 대체 인정
                   </span>
                 ) : null}
               </li>

@@ -1,0 +1,25 @@
+﻿id,displayName,aliases,family,summary,definitionRefs,onetRefs,ncsRefs,isRecommendable,level,status,mergedInto,updatedAt
+sw_eng,소프트웨어 엔지니어,software engineer|software developer|개발자,개발,특정 분야로 갈리기 전의 일반 개발 직무. 하위 직무의 상위 개념이다.,,15-1252.00,응용SW엔지니어링,true,실무,active,,2026-09-04
+product_manager,프로덕트 매니저,product manager|product owner|서비스 기획|PM,기획,무엇을 왜 만들지 정하고 그 결정을 팀에 맞춘다.,,15-1299.09|13-1082.00,IT프로젝트관리|정보기술전략,true,실무,active,,2026-09-04
+be_dev,백엔드 개발자,backend|back-end|서버 개발|백엔드,개발,서버·API·데이터 저장을 맡아 서비스의 뒤쪽을 만든다.,,15-1252.00|15-1299.08,응용SW엔지니어링|SW아키텍처,true,실무,active,,2026-09-04
+data_scientist,데이터 사이언티스트,data scientist|ML engineer|AI engineer|머신러닝,개발,데이터로 모델을 만들어 예측하거나 자동화한다.,,15-2051.00|15-1221.00,빅데이터분석,true,실무,active,,2026-09-04
+architect,아키텍트,architect|아키텍트,개발,시스템 전체의 구조를 정하고 기술 선택의 기준을 세운다.,,15-1299.08|15-1241.00,SW아키텍처|인프라스트럭쳐아키텍처구축|클라우드솔루션아키텍처,true,리드,active,,2026-09-04
+eng_lead,엔지니어링 리더,engineering manager|tech lead|principal engineer|테크리드,개발,개발 조직을 이끈다. 사람과 일정과 기술 방향을 함께 본다.,,11-3021.00,,true,리드,active,,2026-09-04
+fullstack_dev,풀스택 개발자,full stack|fullstack|풀스택,개발,화면과 서버를 함께 맡는다. 작은 조직에서 한 사람이 양쪽을 본다.,,15-1254.00|15-1252.00,,true,실무,active,,2026-09-04
+devops_sre,DevOps·SRE,DevOps|site reliability|SRE|platform engineer|인프라,개발,배포와 운영을 자동화하고 서비스가 죽지 않게 한다.,,15-1244.00|15-1241.00,IT시스템관리|클라우드인프라스트럭쳐엔지니어링|정보시스템운영,true,실무,active,,2026-09-04
+product_designer,프로덕트 디자이너,product designer|UX designer|UI designer|프로덕트 디자이너,디자인,사용자가 겪는 흐름을 설계하고 화면으로 옮긴다.,,15-1255.00,UI/UX개발|디지털디자인,true,실무,active,,2026-09-04
+designer,디자이너(일반),designer|디자이너,디자인,시각과 사용성을 두루 맡는 일반 디자인 직무.,,15-1255.00|27-1024.00,디지털디자인|시각디자인,true,실무,active,,2026-09-04
+program_manager,프로젝트·프로그램 매니저,project manager|program manager|PMO,기획,여러 팀에 걸친 일정과 위험을 관리해 끝까지 굴러가게 한다.,,13-1082.00|15-1299.09,IT프로젝트관리,true,실무,active,,2026-09-04
+security_eng,보안 엔지니어,security engineer|penetration|정보보안|보안,개발,취약점을 찾아 막고 침해에 대응한다.,,15-1212.00|15-1299.05|15-1299.04,보안엔지니어링|정보보호관리·운영|보안사고분석대응,true,실무,active,,2026-09-04
+biz_strategy,사업·전략 기획,strategy|business development|사업 기획|전략 기획,기획,사업 방향과 우선순위를 숫자로 세운다.,,13-1111.00,정보기술전략|정보기술컨설팅,true,실무,active,,2026-09-04
+data_eng,데이터 엔지니어,data engineer|데이터 엔지니어|data platform engineer,개발,데이터가 흐르는 길을 만든다. 수집·적재·가공 파이프라인을 맡는다.,,15-1243.00|15-1243.01|15-1242.00,빅데이터플랫폼구축|빅데이터운영·관리,true,실무,active,,2026-09-04
+fe_dev,프론트엔드 개발자,frontend|front-end|프론트엔드|웹 퍼블리셔,개발,사용자가 직접 만지는 화면을 만들고 브라우저에서 동작하게 한다.,,15-1254.00|15-1255.00,UI/UX개발|응용SW엔지니어링,true,실무,active,,2026-09-04
+solutions_eng,솔루션·세일즈 엔지니어,solutions engineer|sales engineer|presales,개발,고객 환경에 제품을 맞춰 넣는다. 기술과 영업 사이에 선다.,,15-1211.00|15-1232.00,,true,실무,active,,2026-09-04
+data_analyst,데이터 분석가,data analyst|데이터 분석|analytics engineer|BI analyst,개발,데이터를 읽어 무슨 일이 일어났는지 설명하고 지표를 만든다.,,15-2051.01|15-2031.00,빅데이터분석|통계조사,true,실무,active,,2026-09-04
+growth_marketing,마케팅·그로스,growth|marketing|마케팅|그로스,기획,유입부터 전환까지를 실험으로 개선한다.,,13-1161.00|13-1161.01|11-2021.00,,true,실무,active,,2026-09-04
+biz_analyst,데이터·비즈니스 기획,business analyst|비즈니스 분석|경영기획,기획,사업 질문을 데이터로 바꿔 답하고 의사결정을 돕는다.,,15-2051.01|13-1111.00,,true,실무,active,,2026-09-04
+mobile_dev,모바일 개발자,android|iOS developer|mobile engineer|안드로이드,개발,iOS·안드로이드 앱을 만든다. 플랫폼에 따라 쓰는 언어가 갈린다.,,15-1252.00,스마트문화앱콘텐츠제작|응용SW엔지니어링,true,실무,active,,2026-09-04
+qa_eng,QA 엔지니어,QA engineer|quality assurance|test engineer|SDET|품질,개발,제품이 요구대로 동작하는지 검증하고 그 과정을 자동화한다.,,15-1253.00,,true,실무,active,,2026-09-04
+graphic_designer,그래픽·브랜드 디자이너,graphic designer|brand designer|그래픽 디자이너,디자인,브랜드와 인쇄·화면 그래픽을 만든다.,,27-1024.00|27-1011.00,시각디자인,true,실무,active,,2026-09-04
+embedded_dev,임베디드·펌웨어,embedded|firmware|임베디드|펌웨어,개발,기기 안에서 도는 소프트웨어를 만든다. 자원이 제한된 환경을 다룬다.,,15-1251.00,임베디드SW엔지니어링,true,실무,active,,2026-09-04
+motion_designer,모션·영상 디자이너,motion designer|video editor|모션|영상,디자인,움직이는 그래픽과 영상을 만든다.,,27-1014.00,VR콘텐츠디자인|무대영상,true,실무,active,,2026-09-04

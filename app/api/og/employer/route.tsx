@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { loadKoreanFont } from '@/lib/og-font';
 import { JOB_REQUIREMENTS } from '@/data/job-requirements';
 import { CANDIDATES } from '@/data/candidates';
-import { buildEmployerResult } from '@/lib/matching';
+import { buildEmployerResult, isSameRoleTitle } from '@/lib/matching';
 
 export const runtime = 'nodejs';
 export const maxDuration = 30;
@@ -16,9 +16,9 @@ export async function GET(req: Request) {
   const jobId = new URL(req.url).searchParams.get('job') ?? 'jr_pm';
   const req_ = JOB_REQUIREMENTS.find((j) => j.id === jobId) ?? JOB_REQUIREMENTS[0];
 
-  const all = buildEmployerResult(req_, CANDIDATES, { includeCrossRole: true });
-  const same = buildEmployerResult(req_, CANDIDATES, { includeCrossRole: false });
-  const missed = all.matches.filter((m) => m.isCrossRole).slice(0, 2);
+  const all = buildEmployerResult(req_, CANDIDATES, { includeDifferentRole: true });
+  const same = buildEmployerResult(req_, CANDIDATES, { includeDifferentRole: false });
+  const missed = all.matches.filter((m) => !isSameRoleTitle(req_, m.candidate)).slice(0, 2);
 
   const text =
     `커리어 내비 채용 중 직무명으로 검색 역량으로 검색 명 놓치고 있던 적합도 ` +

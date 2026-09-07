@@ -1,0 +1,5 @@
+﻿id,name,aliases,type,onetRefs,ncsRefs,isUbiquitous,learnDifficulty,firstStep,status,mergedInto,updatedAt
+java,Java,자바|JDK,언어,Oracle Java,응용SW엔지니어링,false,0.55,자바 문법과 컬렉션부터,active,,2026-09-04
+git,Git,깃|버전관리,도구,,,true,0.25,브랜치와 병합부터,active,,2026-09-04
+stakeholder_align,이해관계자 조율,,업무역량,,IT프로젝트관리,false,0.6,회의록을 결정 중심으로 써 보기,active,,2026-09-04
+js,JS,,언어,,,false,,,merged,javascript,2026-09-04

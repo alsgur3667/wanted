@@ -1,0 +1,6 @@
+﻿id,kind,publisher,company,title,url,publishedAt,collectedAt,lang,region,license,robotsOk,accessMethod,dupGroup,isPrimary,credibility,textRef
+src_jd_cp_8143524,공고,greenhouse,coupang,"Backend Engineer, Fulfillment",https://www.coupang.jobs/en/jobs/?gh_jid=8143524,2026-07-14,2026-09-01,ko,KR,원문 재배포 불가,true,api,d_9a1f,true,높음,jd/greenhouse/coupang/8143524.json
+src_jd_cp_8143999,공고,greenhouse,coupang,"Backend Engineer, Fulfillment (재공고)",,2026-08-02,2026-09-01,ko,KR,원문 재배포 불가,true,api,d_9a1f,false,높음,jd/greenhouse/coupang/8143999.json
+src_guide_qa_01,해설글,velog,,QA 엔지니어가 하는 일,https://velog.io/@example/qa,2026-03-11,2026-08-28,ko,KR,원문 재배포 불가,true,html,d_g001,true,보통,guides/velog/qa-01.html
+src_onet_31,공인체계,U.S. DOL,,O*NET 31.0,https://www.onetcenter.org/database.html,2026-02-01,2026-08-20,en,US,CC BY 4.0,true,manual,d_onet31,true,높음,ontology/onet_31_0/
+src_so_2025,설문,Stack Overflow,,Developer Survey 2025,,2025-07-01,2026-09-03,en,GLOBAL,ODbL 1.0 — 재배포 안 함,true,html,d_so25,true,보통,survey/profiles.jsonl

@@ -4,13 +4,13 @@ import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import { JOB_REQUIREMENTS } from '@/data/job-requirements';
 import { CANDIDATES } from '@/data/candidates';
-import { buildEmployerResult } from '@/lib/matching';
+import { buildEmployerResult, isSameRoleTitle } from '@/lib/matching';
 import { isNewcomer } from '@/types';
 import CandidateCard from '@/components/CandidateCard';
 
 export default function EmployerPage() {
   const [jobId, setJobId] = useState(JOB_REQUIREMENTS[0].id);
-  const [includeCrossRole, setIncludeCrossRole] = useState(true);
+  const [includeDifferentRole, setIncludeDifferentRole] = useState(true);
   const [seniority, setSeniority] = useState<'all' | 'exp' | 'new'>('all');
 
   const req = JOB_REQUIREMENTS.find((j) => j.id === jobId)!;
@@ -24,14 +24,14 @@ export default function EmployerPage() {
   );
 
   const result = useMemo(
-    () => buildEmployerResult(req, pool, { includeCrossRole }),
-    [req, pool, includeCrossRole]
+    () => buildEmployerResult(req, pool, { includeDifferentRole }),
+    [req, pool, includeDifferentRole]
   );
   const sameRoleCount = useMemo(
-    () => buildEmployerResult(req, pool, { includeCrossRole: false }).matches.length,
+    () => buildEmployerResult(req, pool, { includeDifferentRole: false }).matches.length,
     [req, pool]
   );
-  const hiddenCount = result.matches.filter((m) => m.isCrossRole).length;
+  const hiddenCount = result.matches.filter((m) => !isSameRoleTitle(req, m.candidate)).length;
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
@@ -102,8 +102,8 @@ export default function EmployerPage() {
         <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-black/10 p-4 dark:border-white/10">
           <input
             type="checkbox"
-            checked={includeCrossRole}
-            onChange={(e) => setIncludeCrossRole(e.target.checked)}
+            checked={includeDifferentRole}
+            onChange={(e) => setIncludeDifferentRole(e.target.checked)}
             className="mt-0.5 h-4 w-4 accent-amber-400"
           />
           <span className="text-sm">
@@ -125,7 +125,13 @@ export default function EmployerPage() {
         </div>
         <div className="mt-5 space-y-4">
           {result.matches.map((m, i) => (
-            <CandidateCard key={m.candidate.id} match={m} rank={i + 1} />
+            <CandidateCard
+              key={m.candidate.id}
+              match={m}
+              rank={i + 1}
+              requiredSkills={req.mustSkills}
+              isDifferentRole={!isSameRoleTitle(req, m.candidate)}
+            />
           ))}
           {result.matches.length === 0 && (
             <p className="rounded-xl border border-black/10 p-8 text-center text-sm opacity-50 dark:border-white/10">

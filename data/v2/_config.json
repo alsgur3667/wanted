@@ -1,0 +1,10 @@
+{
+ "extractorVersion": "rule-v4",
+ "dedup": "prefix-hash",
+ "dedupPrefixChars": 600,
+ "dedupKeep": "newest",
+ "publicPostings": "자료로만 남기고 관측은 만들지 않는다",
+ "unsplitStance": "언급",
+ "builtAt": "2026-09-04",
+ "note": "절이 안 갈린 공고를 필수로 세지 않는다. 본문에 회사 소개가 섞여 있다."
+}

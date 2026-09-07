@@ -1,0 +1,13 @@
+﻿key,value,type,allowed,note
+dedup.method,,enum,prefix-hash|minhash,중복 판정 방법. 앞 600자 해시로 482건이 잡혔다
+dedup.prefixChars,600,int,,prefix-hash 일 때 앞 몇 자를 비교하나
+dedup.keep,,enum,newest|first,중복 묶음에서 무엇을 대표로 남기나
+companyCap.mode,,enum,none|drop|weight,쿠팡 296건(코퍼스의 12%) 처리. drop 은 표본을 잃고 weight 는 남긴 채 누른다
+companyCap.max,,int,,회사당 최대 공고 수
+language.keep,,list,ko|en|de,담을 언어. 지금 영어 1269 · 한국어 764 · 독일어 415
+minPosted,2025-09-01,date,,이보다 오래된 공고 제외 (기존 값)
+split.by,company,enum,company|posting,같은 회사 상용구가 학습과 시험에 갈리면 성능이 부풀려진다
+split.ratio,0.7|0.15|0.15,list,,학습|검증|시험
+split.seed,20260904,int,,고정 씨앗
+survey.sealedSeed,20260903,int,,eval_routes 와 같아야 sealed 이 그 3420건과 일치한다
+survey.maxPerJob,300,int,,eval_routes 와 같은 값

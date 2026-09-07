@@ -1,0 +1,5 @@
+﻿fromId,toId,type,strength,basis,computedAt
+sw_eng,be_dev,포함,0.82,onet:15-1252.00|ncs:응용SW엔지니어링|reqOverlap:0.79,2026-09-04
+sw_eng,mobile_dev,포함,0.61,onet:15-1252.00|ncs:응용SW엔지니어링,2026-09-04
+be_dev,fullstack_dev,인접,0.58,reqJaccard:0.58,2026-09-04
+qa_eng,devops_sre,전환,0.34,survey:peer-paths lift 2.1,2026-09-04

@@ -8,7 +8,7 @@
    "software developer",
    "개발자"
   ],
-  "sampleSize": 372,
+  "sampleSize": 356,
   "source": "JD"
  },
  {
@@ -244,6 +244,7 @@
   "aliases": [
    "android",
    "iOS developer",
+   "iOS 개발자",
    "mobile engineer",
    "안드로이드"
   ],

@@ -132,7 +132,9 @@ def text_of(source: str, p: dict) -> tuple[str, str]:
 
 
 def clean(s: str) -> str:
-    s = html.unescape(str(s or ""))
+    #  두 번 푼다. 원본이 &amp;nbsp; 처럼 두 겹으로 감싸 온 곳이 있어
+    #  한 번만 풀면 본문에 &nbsp; 가 글자 그대로 남는다 (관측 인용의 4.9%에서 나왔다).
+    s = html.unescape(html.unescape(str(s or "")))
     s = s.translate(BAD_CHARS)
     s = TAG.sub(" ", s)
     s = WS.sub(" ", s)

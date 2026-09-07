@@ -17,6 +17,13 @@ export type JobRow = {
   /** 신입 채용 비율 0~1. 없으면 판단하지 않는다 */
   newcomerRatio?: number;
   ratioSource?: string;
+  /** 고용24 직업정보에서 받은 **실제** 연봉 구간. 목록 API 에 액수가 없어 구간이다. */
+  salaryBand?: string;
+  salaryLow?: number | null;
+  salaryHigh?: number | null;
+  /** 직업전망 — 증가 · 다소 증가 · 유지 · 다소 감소 · 감소 */
+  prospect?: string;
+  salarySource?: string;
 };
 export type SkillRow = { id: string; name: string; type: string; aliases: string[]; learnDifficulty: number; firstStep: string };
 export type MatrixRow = {
@@ -239,6 +246,13 @@ export function requirementsOf(jobId: string) {
   return { must: must.map((r) => r.skillId), nice: nice.map((r) => r.skillId) };
 }
 
+/** 그 직무가 그 역량을 요구하는 공고 비율. 충족률의 무게로 쓴다. */
+const DEMAND = new Map<string, number>(
+  MATRIX.map((r) => [`${r.jobId}|${r.skillId}`, r.weight] as const)
+);
+export const demandOf = (jobId: string, skillId: string) =>
+  DEMAND.get(`${jobId}|${skillId}`) ?? 0;
+
 // ── 직무 자체의 성격 보정 ────────────────────────────────────────────
 //
 //  정의가 넓은 직무는 남의 직무 사람까지 흡수한다.
@@ -264,22 +278,37 @@ const JOB_ADJUST = new Map<string, number>();
   for (const [, r] of reqs) {
     for (const s of r.must) inMust.set(s, (inMust.get(s) ?? 0) + 1);
   }
+  //  ⚠️ 필수가 적은 직무는 고유성·흡수율이 둘 다 극단으로 튄다.
+  //     실측: 데이터 분석가(필수 SQL·BI·Python 3개)가 고유성 0.24 · 흡수율 1.00 을 받아
+  //     보정 0.44 가 됐다. 보정 전 83점이 36점으로 떨어져 5년차 데이터 분석가에게
+  //     데이터 분석가가 3순위 안에도 안 나왔다.
+  //     넓은 직무를 누르려던 보정이 **얇고 정확한 직무**를 누른 것이다.
+  //     그래서 표본이 얇을수록 평균(0.5) 쪽으로 당긴다 — 축소 추정.
+  const SHRINK_K = 3;
+  const shrink = (v: number, n: number) => (v * n + 0.5 * SHRINK_K) / (n + SHRINK_K);
+
   const uniq = new Map<string, number>();
   for (const [jid, r] of reqs) {
-    uniq.set(jid, r.must.length
+    const raw = r.must.length
       ? r.must.reduce((a, s) => a + 1 / (inMust.get(s) || 1), 0) / r.must.length
-      : 0);
+      : 0;
+    uniq.set(jid, r.must.length ? shrink(raw, r.must.length) : 0);
   }
   const vals = [...uniq.values()];
   const lo = Math.min(...vals), hi = Math.max(...vals);
 
   for (const [jid, r] of reqs) {
+    //  ⚠️ 흡수율을 **개수**로 재면 안 된다. 흔한 것 3개뿐인 직무는 그 셋이 남에게
+    //     들어가는 순간 1.00 이 되어 '완전히 흡수된 직무' 로 잡힌다. 무게로 잰다.
     let contained = 0;
+    const totalW = r.must.reduce((a, s) => a + demandOf(jid, s), 0);
     for (const [other, o] of reqs) {
-      if (other === jid || !r.must.length) continue;
+      if (other === jid || !r.must.length || !totalW) continue;
       const cover = new Set([...o.must, ...o.nice]);
-      contained = Math.max(contained, r.must.filter((s) => cover.has(s)).length / r.must.length);
+      const w = r.must.reduce((a, s) => a + (cover.has(s) ? demandOf(jid, s) : 0), 0);
+      contained = Math.max(contained, w / totalW);
     }
+    contained = r.must.length ? shrink(contained, r.must.length) : contained;
     const u = hi > lo ? ((uniq.get(jid) ?? 0) - lo) / (hi - lo) : 0.5;
     JOB_ADJUST.set(jid, (UNIQ_FLOOR + (1 - UNIQ_FLOOR) * u) * (1 - CONT_PENALTY * contained));
   }
@@ -350,6 +379,96 @@ export function peerPathsOf(have: Set<string>): PeerPath[] {
  *   그 사람이 그 묶음의 다른 것(iOS·Swift)을 이미 갖고 있기 때문이다.
  *   Kotlin 이 없는 것은 결함이 아니라 다른 길을 간 것이다.
  */
+/**
+ * LLM 이 적어 준 현재 직무명을 우리 직무 id 로 맞춘다.
+ *
+ * 왜 필요한가
+ *   「이 길도 있어요」가 **지금 하고 있는 그 직무**에 붙는 일이 있었다.
+ *   7년차 프로덕트 매니저에게 "프로덕트 매니저는 몰랐던 길입니다" 라고 말한 것이다.
+ *   기존 가드는 점수 1위(scored[0])와 비교했는데, 점수 1위는 현재 직무가 아니다.
+ *
+ * ⚠️ 못 찾으면 undefined 를 돌려준다. 억지로 맞추면 엉뚱한 직무를 현재 직무로 보게 된다.
+ */
+const JOB_BY_NAME = new Map<string, string>();
+{
+  const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+  for (const j of JOBS) {
+    JOB_BY_NAME.set(norm(j.title), j.id);
+    for (const a of j.aliases ?? []) JOB_BY_NAME.set(norm(a), j.id);
+  }
+}
+export function resolveJobTitle(title?: string | null): string | undefined {
+  if (!title) return undefined;
+  const norm = (t: string) => t.toLowerCase().replace(/[^a-z0-9가-힣]/g, '');
+  const k = norm(title);
+  if (!k) return undefined;
+  const exact = JOB_BY_NAME.get(k);
+  if (exact) return exact;
+  //  '인프라 엔지니어' 처럼 우리 이름과 다르게 적히는 경우 — 부분 일치로 한 번 더 본다
+  let best: { id: string; len: number } | undefined;
+  for (const [name, id] of JOB_BY_NAME) {
+    if (name.length >= 3 && (k.includes(name) || name.includes(k))) {
+      if (!best || name.length > best.len) best = { id, len: name.length };
+    }
+  }
+  return best?.id;
+}
+
+/**
+ * 충족률 — **칸을 세지 않고 무게를 더한다.**
+ *
+ *  왜 바꿨나. 칸을 세면 세 가지가 함께 망가진다.
+ *    ① 택일 묶음이 칸을 부풀린다. 프론트엔드 필수 8개 중 셋(React·Angular·Vue)이 한 묶음이라
+ *       Angular 하나만 가진 사람이 **세 칸**을 채웠다. 역량 2개로 4/8 = 0.50 을 받는다.
+ *       목록에서 Angular·Vue 를 빼면 그 공짜 칸이 사라져 2/6 = 0.33 으로 떨어진다 —
+ *       사람은 그대로인데 목록을 다듬었다고 점수가 변한다.
+ *    ② 분모가 줄면 한 칸의 무게가 커진다. 8개면 12.5%p, 6개면 16.7%p.
+ *    ③ 모든 칸의 무게가 같다. React(공고 69%)와 CSS(20%)가 똑같이 한 칸이었다.
+ *
+ *  ⚠️ 일정한 배율로는 못 고친다. 실측: 목록을 8→6 으로 줄였을 때 사람마다
+ *     충족률이 0.44배~1.33배로 흩어졌다. 어떤 사람은 오히려 올랐다.
+ *  ⚠️ 직무별 백분위로 보정해도 안 된다. 차이의 크기를 버려서 1위 31.1%→22.6% 로 내렸다.
+ *
+ *  무게는 **그 직무 공고의 요구 비율**을 쓴다. 강도(=비율×lift)는 lift 상한 3 에 눌려
+ *  94% 짜리와 50% 짜리가 같은 무게가 된다(모바일의 Android 3.000 · UX/UI 2.826).
+ *  같은 택일 묶음은 그 묶음에서 가장 무거운 것 하나로만 센다.
+ *
+ *  실측 (설문 3,391명) — 1위 31.1% → 32.3% · 3위 안 55.1% → 55.8%
+ */
+export function coverage(jobId: string, required: string[], have: Set<string>): number {
+  if (!required.length) return 0;
+  const okGroups = new Set<string>();
+  for (const id of have) {
+    const g = GROUP_OF.get(id);
+    if (g) okGroups.add(g);
+  }
+  //  묶음은 한 칸으로 접는다 — 무게는 그 묶음에서 가장 무거운 것
+  const slots: { members: string[]; w: number }[] = [];
+  const slotOfGroup = new Map<string, number>();
+  for (const id of required) {
+    const w = demandOf(jobId, id);
+    const g = GROUP_OF.get(id);
+    if (!g) { slots.push({ members: [id], w }); continue; }
+    const at = slotOfGroup.get(g);
+    if (at === undefined) {
+      slotOfGroup.set(g, slots.length);
+      slots.push({ members: [id], w });
+    } else {
+      slots[at].members.push(id);
+      slots[at].w = Math.max(slots[at].w, w);
+    }
+  }
+  const total = slots.reduce((a, s) => a + s.w, 0);
+  if (!total) return 0;
+  let got = 0;
+  for (const s of slots) {
+    const ok = s.members.some((id) => have.has(id)
+      || (GROUP_OF.has(id) && okGroups.has(GROUP_OF.get(id)!)));
+    if (ok) got += s.w;
+  }
+  return got / total;
+}
+
 export function satisfied(required: string[], have: Set<string>) {
   const okGroups = new Set<string>();
   for (const id of have) {
@@ -428,12 +547,13 @@ const LOOKUP_PATTERNS: { id: string; name: string; re: RegExp }[] = [];
       //  대소문자 — 이력서는 "Language  swift, java, python" 처럼 소문자로 적는 일이 흔하다.
       //  코퍼스 채굴 때는 대소문자를 구분해야 했지만(소문자 sass 가 Sass 로 20건 오탐),
       //  여기는 사람이 쓴 짧은 글이고 **2단계에서 LLM 이 걸러 준다.** 넓게 잡는 편이 맞다.
-      //  다만 3글자 이하는 구분한다 — Go·R·C·IT·AI 는 영어 문장에 그대로 섞인다.
-      const flags = t.length >= 4 ? 'ui' : 'u';
+      //  SQL/AWS/iOS 같은 3글자 기술도 소문자로 자주 적혀 대소문자를 무시한다.
+      //  Go/BI/TS 같은 2글자는 일반 단어 오탐을 피하려고 대소문자를 구분한다.
+      const flags = t.length >= 3 ? 'ui' : 'u';
       LOOKUP_PATTERNS.push({
         id: s.id, name: s.name,
         re: new RegExp(
-          `(?<![A-Za-z0-9가-힣])${esc}(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[을를이가은는의에도와과로써만부터까지등및])|$)`,
+          `(?<![A-Za-z0-9가-힣])${esc}(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[을를이가은는의에도와과로으써만부터까지등및입였])|$)`,
           flags),
       });
     }

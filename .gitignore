@@ -32,6 +32,7 @@ yarn-error.log*
 
 # env files (can opt-in for committing if needed)
 .env*
+!.env.example
 
 # vercel
 .vercel
@@ -46,3 +47,9 @@ next-env.d.ts
 # 파이썬
 __pycache__/
 *.pyc
+/.venv/
+/.uv-cache/
+/.uv-python/
+/data/ml/
+/data/v2/sources.csv
+/data/v2/observations.csv

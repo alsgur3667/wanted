@@ -1,0 +1,4 @@
+﻿id,title,family,learnableFrom,surveyDevTypes,titlePatterns,nPostings
+be_dev,백엔드 개발자,개발,posting|survey,"Developer, back-end",backend|백엔드|server|서버,119
+qa_eng,QA 엔지니어,개발,posting|survey,"Developer, QA or test",qa|quality assurance|test engineer|테스트,15
+product_designer,프로덕트 디자이너,디자인,posting,,product designer|프로덕트 디자이너|ux designer,48

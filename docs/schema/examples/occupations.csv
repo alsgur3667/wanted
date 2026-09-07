@@ -1,0 +1,5 @@
+﻿id,displayName,aliases,family,summary,definitionRefs,onetRefs,ncsRefs,escoRefs,isRecommendable,level,status,mergedInto,updatedAt
+sw_eng,소프트웨어 엔지니어,software engineer|개발자|swe,개발,특정 분야로 갈리기 전의 일반 개발 직무. 하위 직무의 상위 개념이다.,src_onet_31|src_ncs_app_sw,15-1252.00,응용SW엔지니어링,,false,실무,active,,2026-09-04
+be_dev,백엔드 개발자,backend|백엔드|server engineer|서버 개발자,개발,서버·API·데이터 저장을 맡는 개발 직무.,src_ncs_app_sw,15-1252.00|15-1299.08,응용SW엔지니어링|SW아키텍처,,true,실무,active,,2026-09-04
+qa_eng,QA 엔지니어,qa|quality assurance|test engineer|테스트 엔지니어,개발,제품이 요구대로 동작하는지 검증하고 자동화하는 직무.,src_guide_qa_01,15-1253.00,,,true,실무,active,,2026-09-04
+web_dev,웹 개발자,web developer,개발,프론트·백엔드로 갈리기 전 표기. 지금은 쓰지 않는다.,,,,,false,,merged,fullstack_dev,2026-09-04

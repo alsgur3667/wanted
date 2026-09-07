@@ -1,0 +1,4 @@
+﻿occupationId,skillId,window,nObs,nSources,nCompanies,reqCount,prefCount,negCount,share,lift,importance,tier,agreement,computedAt,configHash
+be_dev,spring,all,71,64,38,58,13,0,0.54,3.1,0.62,필수,3,2026-09-04,cfg_7d1a
+be_dev,spring,2026Q2,19,18,14,16,3,0,0.51,3.0,0.60,필수,3,2026-09-04,cfg_7d1a
+eng_lead,ruby,all,6,6,1,5,1,0,0.10,4.46,0.19,,1,2026-09-04,cfg_7d1a

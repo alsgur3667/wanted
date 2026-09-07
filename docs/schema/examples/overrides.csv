@@ -1,0 +1,4 @@
+﻿targetType,targetId,field,value,reason,author,createdAt,expiresAt
+직무,sw_eng,isRecommendable,false,공고 372건으로 표본 1위지만 1위 정답률 1%. 하위 직무의 상위 개념이라 순위에서 뺀다,junho,2026-09-04,
+직무역량,embedded_dev|rtos,tier,필수,공고 3건이 전부 우대 절에 적었지만 변별력 157배. 해설 글도 기본기라 말한다,junho,2026-09-04,
+직무역량,eng_lead|ruby,tier,,공고 6건이 전부 한 회사. 표본이 늘면 다시 본다,junho,2026-09-04,2026-12-31
