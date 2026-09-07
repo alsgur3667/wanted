@@ -45,5 +45,17 @@
    "skillId": "iot",
    "reason": "특정 제품 도메인 언급이며 일반 프로덕트 디자인 역량이 아님"
   }
+ ],
+ "pinPairs": [
+  {
+   "jobId": "biz_analyst",
+   "skillId": "ws_requirement",
+   "reason": "데이터·비즈니스 기획은 BI 도구 사용만이 아니라 요구사항을 업무 정의로 바꾸는 역할이므로 필수에서 빠지면 안 됨"
+  },
+  {
+   "jobId": "biz_analyst",
+   "skillId": "ws_stakeholder",
+   "reason": "분석 결과를 사업 의사결정으로 연결하는 이해관계자 조율이 없으면 데이터 분석가와 구분되지 않음"
+  }
  ]
 }

@@ -31,4 +31,12 @@ describe('디자인 직무 목업 데이터', () => {
     expect(names).not.toContain('JUnit');
     expect(names).not.toContain('Node.js');
   });
+
+  it('데이터·비즈니스 기획을 BI 도구만으로 판정하지 않는다', () => {
+    const requirements = requirementsOf('biz_analyst');
+    const must = requirements.must.map((id) => getSkill(id)?.name);
+
+    expect(must).toContain('요구사항 정의');
+    expect(must).toContain('이해관계자 조율');
+  });
 });

@@ -33193,7 +33193,8 @@
   "source": "manual",
   "tier": "required",
   "importance": 0.53,
-  "agreement": 1
+  "agreement": 1,
+  "pinned": true
  },
  {
   "jobId": "biz_analyst",
@@ -33211,7 +33212,8 @@
   "source": "manual",
   "tier": "required",
   "importance": 0.33,
-  "agreement": 1
+  "agreement": 1,
+  "pinned": true
  },
  {
   "jobId": "growth_marketing",

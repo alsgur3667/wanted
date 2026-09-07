@@ -80,6 +80,7 @@ def run():
     #  디자인 직무에 MongoDB·JUnit·Spring 같은 개발 기술이 대량 유입됐다.
     #  판단은 코드에 숨기지 않고 data/demo-curation.json에 이유와 함께 남긴다.
     curation_path = D / "demo-curation.json"
+    curation = {}
     n_curated = 0
     if curation_path.exists():
         curation = json.loads(curation_path.read_text(encoding="utf-8"))
@@ -173,6 +174,18 @@ def run():
             seen.add((jid, sid))
             n_map += 1
 
+    # 도구 빈도에 밀리면 역할을 구분하는 수기 핵심 역량이 필수 목록에서 빠진다.
+    # 목업 판단은 설정에 남기고, 원본 매트릭스가 아닌 interim 행에만 pinned를 표시한다.
+    pinned = {
+        (r["jobId"], r["skillId"])
+        for r in (curation.get("pinPairs") or [])
+    }
+    n_pinned = 0
+    for row in matrix:
+        if (row["jobId"], row["skillId"]) in pinned:
+            row["pinned"] = True
+            n_pinned += 1
+
     # ④ 직무 간 인접 — 직군을 건너뛰는 경로("이 길도 있어요")의 근거로 쓴다.
     #    개인 점수와 무관하게 "이 두 직무는 요구 역량이 겹친다"는 사실이라,
     #    개인 적합도만으로는 히든 경로가 안 나올 때의 대안이 된다.
@@ -199,6 +212,8 @@ def run():
         print(f"⚠️ 매트릭스를 관측 집계에서 가져왔다 (job_skill_stats {n_v2:,}줄)")
     if n_curated:
         print(f"목업 보정 {n_curated}줄 제외 — data/demo-curation.json")
+    if n_pinned:
+        print(f"목업 핵심 역량 {n_pinned}줄 고정 — data/demo-curation.json")
     print(f"직무 {len(jobs)}개 (신입 비율 {n_ratio}개 · 연봉 구간 {n_sal}개) · 스킬 {len(skills)}개 "
           f"(업무 역량 {len(added)}개 추가) · 매핑 {len(matrix)}건 (수기 {n_map}건)")
     if skipped:
