@@ -1,0 +1,2930 @@
+[
+  {
+    "id": "demo_lumenflow_product_manager",
+    "companyId": "lumenflow",
+    "jobId": "product_manager",
+    "title": "시니어 프로덕트 매니저",
+    "jobFamily": "기획",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 성동구",
+    "summary": "업무 데이터와 협업 기록을 연결하는 의사결정 SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 프로덕트 매니저를 찾습니다.",
+    "responsibilities": [
+      "사용자 문제와 사업 목표를 제품 과제로 정의합니다",
+      "지표와 근거로 우선순위를 조정합니다",
+      "디자인·개발과 출시 과정을 이끕니다"
+    ],
+    "mustSkillIds": [
+      "ws_requirement",
+      "ws_priority",
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_interview"
+    ],
+    "niceSkillIds": [
+      "sql",
+      "jira",
+      "confluence",
+      "llm"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-28",
+    "deadlineType": "date",
+    "deadline": "2026-09-30",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=product_manager",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_lumenflow_fe_dev",
+    "companyId": "lumenflow",
+    "jobId": "fe_dev",
+    "title": "프론트엔드 개발자",
+    "jobFamily": "개발",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 성동구",
+    "summary": "업무 데이터와 협업 기록을 연결하는 의사결정 SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 프론트엔드 개발자를 찾습니다.",
+    "responsibilities": [
+      "사용자에게 보이는 웹 기능을 개발합니다",
+      "컴포넌트 품질과 접근성을 개선합니다",
+      "로딩 성능과 오류 경험을 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "typescript",
+      "react",
+      "ws_component",
+      "ux_ui",
+      "html"
+    ],
+    "niceSkillIds": [
+      "node_js",
+      "git",
+      "redux",
+      "graphql"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-21",
+    "deadlineType": "date",
+    "deadline": "2026-10-05",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=fe_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_lumenflow_be_dev",
+    "companyId": "lumenflow",
+    "jobId": "be_dev",
+    "title": "백엔드 개발자",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 성동구",
+    "summary": "업무 데이터와 협업 기록을 연결하는 의사결정 SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 백엔드 개발자를 찾습니다.",
+    "responsibilities": [
+      "서비스 API와 도메인 로직을 개발합니다",
+      "데이터 모델과 처리 성능을 개선합니다",
+      "장애 원인을 분석하고 재발을 방지합니다"
+    ],
+    "mustSkillIds": [
+      "aws",
+      "java",
+      "spring",
+      "python",
+      "docker"
+    ],
+    "niceSkillIds": [
+      "kubernetes",
+      "cassandra",
+      "spring_boot",
+      "redis"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,900~7,500만원",
+      "min": 5900,
+      "max": 7500,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-14",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=be_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pebblepay_mobile_dev",
+    "companyId": "pebblepay",
+    "jobId": "mobile_dev",
+    "title": "리드 모바일 개발자",
+    "jobFamily": "개발",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 영등포구",
+    "summary": "소상공인 정산·현금흐름 관리 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 모바일 개발자를 찾습니다.",
+    "responsibilities": [
+      "iOS·Android 앱 기능을 개발하고 운영합니다",
+      "모바일 성능과 안정성을 개선합니다",
+      "제품·디자인과 앱 경험을 구체화합니다"
+    ],
+    "mustSkillIds": [
+      "android",
+      "kotlin",
+      "ios",
+      "ux_ui",
+      "ws_component"
+    ],
+    "niceSkillIds": [
+      "swift",
+      "react",
+      "github",
+      "typescript"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "8,700~10,900만원",
+      "min": 8700,
+      "max": 10900,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-07",
+    "deadlineType": "date",
+    "deadline": "2026-10-15",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=mobile_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pebblepay_security_eng",
+    "companyId": "pebblepay",
+    "jobId": "security_eng",
+    "title": "보안 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 영등포구",
+    "summary": "소상공인 정산·현금흐름 관리 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 보안 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "서비스와 인프라의 보안 위험을 진단합니다",
+      "탐지·대응 절차와 자동화를 개선합니다",
+      "개발 과정에 보안 기준을 적용합니다"
+    ],
+    "mustSkillIds": [
+      "aws",
+      "python",
+      "azure",
+      "siem",
+      "kubernetes"
+    ],
+    "niceSkillIds": [
+      "cissp",
+      "docker",
+      "linux",
+      "isms_p"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-31",
+    "deadlineType": "date",
+    "deadline": "2026-10-20",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=security_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pebblepay_data_analyst",
+    "companyId": "pebblepay",
+    "jobId": "data_analyst",
+    "title": "데이터 분석가",
+    "jobFamily": "개발",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 영등포구",
+    "summary": "소상공인 정산·현금흐름 관리 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 분석가를 찾습니다.",
+    "responsibilities": [
+      "제품·사업 지표를 정의하고 분석합니다",
+      "대시보드와 정기 리포트를 운영합니다",
+      "데이터로 문제 원인과 개선 기회를 설명합니다"
+    ],
+    "mustSkillIds": [
+      "sql",
+      "bi",
+      "python",
+      "ws_metric",
+      "ws_abtest"
+    ],
+    "niceSkillIds": [
+      "hive",
+      "aws",
+      "skill",
+      "crm"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-24",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_analyst",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mosaicmarket_growth_marketing",
+    "companyId": "mosaicmarket",
+    "jobId": "growth_marketing",
+    "title": "시니어 마케팅·그로스",
+    "jobFamily": "기획",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 강남구",
+    "summary": "개인화 상품 탐색과 브랜드 운영 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 마케팅·그로스를 찾습니다.",
+    "responsibilities": [
+      "유입·전환 퍼널을 분석하고 실험합니다",
+      "채널별 성과를 측정해 예산을 조정합니다",
+      "고객 메시지와 캠페인을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "ws_abtest",
+      "ws_funnel",
+      "ws_metric",
+      "crm",
+      "seo"
+    ],
+    "niceSkillIds": [
+      "seo",
+      "html",
+      "looker",
+      "css"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "7,300~8,700만원",
+      "min": 7300,
+      "max": 8700,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-29",
+    "deadlineType": "date",
+    "deadline": "2026-10-30",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=growth_marketing",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mosaicmarket_product_designer",
+    "companyId": "mosaicmarket",
+    "jobId": "product_designer",
+    "title": "프로덕트 디자이너",
+    "jobFamily": "디자인",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 강남구",
+    "summary": "개인화 상품 탐색과 브랜드 운영 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 프로덕트 디자이너를 찾습니다.",
+    "responsibilities": [
+      "사용자 문제를 흐름과 화면 구조로 구체화합니다",
+      "프로토타입으로 가설을 검증합니다",
+      "제품 경험의 일관성을 관리합니다"
+    ],
+    "mustSkillIds": [
+      "ux_ui",
+      "ws_product_design",
+      "ws_ia",
+      "ws_prototype",
+      "figma"
+    ],
+    "niceSkillIds": [
+      "ios",
+      "hci",
+      "photoshop",
+      "illustrator"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "3,500~4,400만원",
+      "min": 3500,
+      "max": 4400,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-22",
+    "deadlineType": "date",
+    "deadline": "2026-11-04",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=product_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mosaicmarket_data_eng",
+    "companyId": "mosaicmarket",
+    "jobId": "data_eng",
+    "title": "데이터 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 강남구",
+    "summary": "개인화 상품 탐색과 브랜드 운영 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "분석·제품용 데이터 파이프라인을 구축합니다",
+      "데이터 품질과 스키마를 관리합니다",
+      "처리 성능과 운영 비용을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "sql",
+      "python",
+      "aws",
+      "etl",
+      "airflow"
+    ],
+    "niceSkillIds": [
+      "terraform",
+      "nosql",
+      "bi",
+      "hadoop"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-15",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cloudforge_devops_sre",
+    "companyId": "cloudforge",
+    "jobId": "devops_sre",
+    "title": "리드 DevOps·SRE",
+    "jobFamily": "개발",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "경기 성남시",
+    "summary": "멀티 클라우드 운영·관측 자동화 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 DevOps·SRE를 찾습니다.",
+    "responsibilities": [
+      "배포와 인프라 운영을 자동화합니다",
+      "관측 지표와 장애 대응 체계를 개선합니다",
+      "서비스 신뢰성과 비용을 함께 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "terraform",
+      "kubernetes",
+      "aws",
+      "docker",
+      "azure"
+    ],
+    "niceSkillIds": [
+      "git",
+      "ruby",
+      "jira",
+      "llm"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-08",
+    "deadlineType": "date",
+    "deadline": "2026-10-02",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=devops_sre",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cloudforge_architect",
+    "companyId": "cloudforge",
+    "jobId": "architect",
+    "title": "아키텍트",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "계약직",
+    "workMode": "hybrid",
+    "location": "경기 성남시",
+    "summary": "멀티 클라우드 운영·관측 자동화 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 아키텍트를 찾습니다.",
+    "responsibilities": [
+      "서비스 확장에 맞는 시스템 구조를 설계합니다",
+      "기술 표준과 품질 기준을 정립합니다",
+      "복잡한 기술 의사결정을 문서화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "azure"
+    ],
+    "niceSkillIds": [
+      "aws",
+      "sql",
+      "rag",
+      "mlops"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,300~6,300만원",
+      "min": 5300,
+      "max": 6300,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-01",
+    "deadlineType": "date",
+    "deadline": "2026-10-07",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=architect",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cloudforge_solutions_eng",
+    "companyId": "cloudforge",
+    "jobId": "solutions_eng",
+    "title": "솔루션·세일즈 엔지니어",
+    "jobFamily": "개발",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "경기 성남시",
+    "summary": "멀티 클라우드 운영·관측 자동화 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 솔루션·세일즈 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "고객 문제를 기술 요구사항으로 변환합니다",
+      "도입 검증과 기술 제안을 지원합니다",
+      "제품팀에 고객의 기술 피드백을 전달합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "erp"
+    ],
+    "niceSkillIds": [
+      "aws",
+      "erp",
+      "docker",
+      "maven"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "4,100~5,200만원",
+      "min": 4100,
+      "max": 5200,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-25",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=solutions_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_nestcare_sw_eng",
+    "companyId": "nestcare",
+    "jobId": "sw_eng",
+    "title": "시니어 소프트웨어 엔지니어",
+    "jobFamily": "개발",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 송파구",
+    "summary": "병원·보호자용 돌봄 일정 및 기록 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 소프트웨어 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "핵심 서비스 기능을 설계하고 운영합니다",
+      "코드 품질과 배포 안정성을 개선합니다",
+      "제품 요구사항을 기술 과제로 구체화합니다"
+    ],
+    "mustSkillIds": [
+      "python",
+      "aws",
+      "ws_component",
+      "kubernetes",
+      "react"
+    ],
+    "niceSkillIds": [
+      "docker",
+      "sql",
+      "typescript",
+      "terraform"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-30",
+    "deadlineType": "date",
+    "deadline": "2026-10-17",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=sw_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_nestcare_program_manager",
+    "companyId": "nestcare",
+    "jobId": "program_manager",
+    "title": "프로젝트·프로그램 매니저",
+    "jobFamily": "기획",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 송파구",
+    "summary": "병원·보호자용 돌봄 일정 및 기록 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 프로젝트·프로그램 매니저를 찾습니다.",
+    "responsibilities": [
+      "여러 팀의 목표·일정·의존성을 조율합니다",
+      "프로젝트 위험을 조기에 식별하고 대응합니다",
+      "진행 상황과 의사결정을 투명하게 공유합니다"
+    ],
+    "mustSkillIds": [
+      "ws_priority",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_policy",
+      "ws_metric"
+    ],
+    "niceSkillIds": [
+      "jira",
+      "sql",
+      "erp",
+      "sdlc"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-23",
+    "deadlineType": "date",
+    "deadline": "2026-10-22",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=program_manager",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_nestcare_qa_eng",
+    "companyId": "nestcare",
+    "jobId": "qa_eng",
+    "title": "QA 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 송파구",
+    "summary": "병원·보호자용 돌봄 일정 및 기록 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 QA 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "제품 위험을 기준으로 테스트를 설계합니다",
+      "반복 검증을 자동화하고 품질 지표를 관리합니다",
+      "결함 원인을 분석해 개발 과정에 반영합니다"
+    ],
+    "mustSkillIds": [
+      "selenium",
+      "playwright",
+      "ws_requirement",
+      "ux_ui",
+      "jenkins"
+    ],
+    "niceSkillIds": [
+      "playwright",
+      "gitlab",
+      "scala",
+      "c_2"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,800~7,300만원",
+      "min": 5800,
+      "max": 7300,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-16",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=qa_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mobiwave_embedded_dev",
+    "companyId": "mobiwave",
+    "jobId": "embedded_dev",
+    "title": "리드 임베디드·펌웨어",
+    "jobFamily": "개발",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "경기 성남시",
+    "summary": "차량·모바일 연동 이동 경험 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 임베디드·펌웨어를 찾습니다.",
+    "responsibilities": [
+      "장치 제어 소프트웨어를 개발합니다",
+      "하드웨어 연동과 실시간 동작을 검증합니다",
+      "현장 오류를 분석하고 안정성을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "linux",
+      "c",
+      "python",
+      "bash",
+      "git"
+    ],
+    "niceSkillIds": [
+      "ubuntu",
+      "github",
+      "docker",
+      "vpn"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "8,900~10,300만원",
+      "min": 8900,
+      "max": 10300,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-09",
+    "deadlineType": "date",
+    "deadline": "2026-11-01",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=embedded_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mobiwave_mobile_dev",
+    "companyId": "mobiwave",
+    "jobId": "mobile_dev",
+    "title": "모바일 개발자",
+    "jobFamily": "개발",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "경기 성남시",
+    "summary": "차량·모바일 연동 이동 경험 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 모바일 개발자를 찾습니다.",
+    "responsibilities": [
+      "iOS·Android 앱 기능을 개발하고 운영합니다",
+      "모바일 성능과 안정성을 개선합니다",
+      "제품·디자인과 앱 경험을 구체화합니다"
+    ],
+    "mustSkillIds": [
+      "android",
+      "kotlin",
+      "ios",
+      "ux_ui",
+      "ws_component"
+    ],
+    "niceSkillIds": [
+      "swift",
+      "react",
+      "github",
+      "typescript"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-02",
+    "deadlineType": "date",
+    "deadline": "2026-11-06",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=mobile_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_mobiwave_product_manager",
+    "companyId": "mobiwave",
+    "jobId": "product_manager",
+    "title": "시니어 프로덕트 매니저",
+    "jobFamily": "기획",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "경기 성남시",
+    "summary": "차량·모바일 연동 이동 경험 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 프로덕트 매니저를 찾습니다.",
+    "responsibilities": [
+      "사용자 문제와 사업 목표를 제품 과제로 정의합니다",
+      "지표와 근거로 우선순위를 조정합니다",
+      "디자인·개발과 출시 과정을 이끕니다"
+    ],
+    "mustSkillIds": [
+      "ws_requirement",
+      "ws_priority",
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_interview"
+    ],
+    "niceSkillIds": [
+      "sql",
+      "jira",
+      "confluence",
+      "llm"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-26",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=product_manager",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pixelharbor_motion_designer",
+    "companyId": "pixelharbor",
+    "jobId": "motion_designer",
+    "title": "시니어 모션·영상 디자이너",
+    "jobFamily": "디자인",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 마포구",
+    "summary": "숏폼 콘텐츠 제작·성과 분석 스튜디오의 다음 기능과 운영 품질을 함께 만들어 갈 모션·영상 디자이너를 찾습니다.",
+    "responsibilities": [
+      "제품과 브랜드 메시지를 모션으로 표현합니다",
+      "영상·인터랙션 에셋을 제작합니다",
+      "채널과 기기에 맞게 결과물을 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_interaction",
+      "ws_visual",
+      "ws_prototype",
+      "illustrator",
+      "photoshop"
+    ],
+    "niceSkillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "google_slides"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "7,100~8,800만원",
+      "min": 7100,
+      "max": 8800,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-31",
+    "deadlineType": "date",
+    "deadline": "2026-10-04",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=motion_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pixelharbor_graphic_designer",
+    "companyId": "pixelharbor",
+    "jobId": "graphic_designer",
+    "title": "그래픽·브랜드 디자이너",
+    "jobFamily": "디자인",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 마포구",
+    "summary": "숏폼 콘텐츠 제작·성과 분석 스튜디오의 다음 기능과 운영 품질을 함께 만들어 갈 그래픽·브랜드 디자이너를 찾습니다.",
+    "responsibilities": [
+      "브랜드 메시지를 시각 시스템으로 만듭니다",
+      "캠페인·콘텐츠 그래픽을 제작합니다",
+      "채널별 산출물의 일관성을 관리합니다"
+    ],
+    "mustSkillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "ws_visual",
+      "ws_interaction"
+    ],
+    "niceSkillIds": [
+      "photoshop",
+      "figma",
+      "html",
+      "css"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "3,800~4,700만원",
+      "min": 3800,
+      "max": 4700,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-24",
+    "deadlineType": "date",
+    "deadline": "2026-10-09",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=graphic_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_pixelharbor_growth_marketing",
+    "companyId": "pixelharbor",
+    "jobId": "growth_marketing",
+    "title": "리드 마케팅·그로스",
+    "jobFamily": "기획",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 마포구",
+    "summary": "숏폼 콘텐츠 제작·성과 분석 스튜디오의 다음 기능과 운영 품질을 함께 만들어 갈 마케팅·그로스를 찾습니다.",
+    "responsibilities": [
+      "유입·전환 퍼널을 분석하고 실험합니다",
+      "채널별 성과를 측정해 예산을 조정합니다",
+      "고객 메시지와 캠페인을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "ws_abtest",
+      "ws_funnel",
+      "ws_metric",
+      "crm",
+      "seo"
+    ],
+    "niceSkillIds": [
+      "seo",
+      "html",
+      "looker",
+      "css"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-17",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=growth_marketing",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_safelayer_security_eng",
+    "companyId": "safelayer",
+    "jobId": "security_eng",
+    "title": "보안 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "계약직",
+    "workMode": "onsite",
+    "location": "서울 금천구",
+    "summary": "클라우드 보안 진단과 대응 자동화 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 보안 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "서비스와 인프라의 보안 위험을 진단합니다",
+      "탐지·대응 절차와 자동화를 개선합니다",
+      "개발 과정에 보안 기준을 적용합니다"
+    ],
+    "mustSkillIds": [
+      "aws",
+      "python",
+      "azure",
+      "siem",
+      "kubernetes"
+    ],
+    "niceSkillIds": [
+      "cissp",
+      "docker",
+      "linux",
+      "isms_p"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-10",
+    "deadlineType": "date",
+    "deadline": "2026-10-19",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=security_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_safelayer_devops_sre",
+    "companyId": "safelayer",
+    "jobId": "devops_sre",
+    "title": "DevOps·SRE",
+    "jobFamily": "개발",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 금천구",
+    "summary": "클라우드 보안 진단과 대응 자동화 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 DevOps·SRE를 찾습니다.",
+    "responsibilities": [
+      "배포와 인프라 운영을 자동화합니다",
+      "관측 지표와 장애 대응 체계를 개선합니다",
+      "서비스 신뢰성과 비용을 함께 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "terraform",
+      "kubernetes",
+      "aws",
+      "docker",
+      "azure"
+    ],
+    "niceSkillIds": [
+      "git",
+      "ruby",
+      "jira",
+      "llm"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "4,100~4,800만원",
+      "min": 4100,
+      "max": 4800,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-03",
+    "deadlineType": "date",
+    "deadline": "2026-10-24",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=devops_sre",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_safelayer_qa_eng",
+    "companyId": "safelayer",
+    "jobId": "qa_eng",
+    "title": "시니어 QA 엔지니어",
+    "jobFamily": "개발",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 금천구",
+    "summary": "클라우드 보안 진단과 대응 자동화 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 QA 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "제품 위험을 기준으로 테스트를 설계합니다",
+      "반복 검증을 자동화하고 품질 지표를 관리합니다",
+      "결함 원인을 분석해 개발 과정에 반영합니다"
+    ],
+    "mustSkillIds": [
+      "selenium",
+      "playwright",
+      "ws_requirement",
+      "ux_ui",
+      "jenkins"
+    ],
+    "niceSkillIds": [
+      "playwright",
+      "gitlab",
+      "scala",
+      "c_2"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "6,800~8,000만원",
+      "min": 6800,
+      "max": 8000,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-27",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=qa_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_databridgelab_data_scientist",
+    "companyId": "databridgelab",
+    "jobId": "data_scientist",
+    "title": "시니어 데이터 사이언티스트",
+    "jobFamily": "개발",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 서초구",
+    "summary": "기업용 데이터 통합·예측 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 사이언티스트를 찾습니다.",
+    "responsibilities": [
+      "제품 문제를 분석 과제와 지표로 정의합니다",
+      "예측 모델을 실험하고 성능을 검증합니다",
+      "모델 결과를 제품 의사결정에 연결합니다"
+    ],
+    "mustSkillIds": [
+      "python",
+      "aws",
+      "sql",
+      "llm",
+      "ws_metric"
+    ],
+    "niceSkillIds": [
+      "bi",
+      "langchain",
+      "airflow",
+      "docker"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-09-01",
+    "deadlineType": "date",
+    "deadline": "2026-11-03",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_scientist",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_databridgelab_data_eng",
+    "companyId": "databridgelab",
+    "jobId": "data_eng",
+    "title": "데이터 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 서초구",
+    "summary": "기업용 데이터 통합·예측 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "분석·제품용 데이터 파이프라인을 구축합니다",
+      "데이터 품질과 스키마를 관리합니다",
+      "처리 성능과 운영 비용을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "sql",
+      "python",
+      "aws",
+      "etl",
+      "airflow"
+    ],
+    "niceSkillIds": [
+      "terraform",
+      "nosql",
+      "bi",
+      "hadoop"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-25",
+    "deadlineType": "date",
+    "deadline": "2026-09-26",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_databridgelab_biz_analyst",
+    "companyId": "databridgelab",
+    "jobId": "biz_analyst",
+    "title": "데이터·비즈니스 기획",
+    "jobFamily": "기획",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 서초구",
+    "summary": "기업용 데이터 통합·예측 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터·비즈니스 기획를 찾습니다.",
+    "responsibilities": [
+      "업무 요구사항과 데이터 흐름을 정의합니다",
+      "현업과 개발 사이의 기준을 조율합니다",
+      "운영 지표와 개선안을 구조화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_requirement",
+      "ws_stakeholder",
+      "sql",
+      "bi",
+      "tableau"
+    ],
+    "niceSkillIds": [
+      "hive",
+      "data_analysis",
+      "hadoop",
+      "erp"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,500~6,400만원",
+      "min": 5500,
+      "max": 6400,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-18",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=biz_analyst",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_greenlooptech_sw_eng",
+    "companyId": "greenlooptech",
+    "jobId": "sw_eng",
+    "title": "소프트웨어 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "대전 유성구",
+    "summary": "사업장 에너지 사용량 분석·절감 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 소프트웨어 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "핵심 서비스 기능을 설계하고 운영합니다",
+      "코드 품질과 배포 안정성을 개선합니다",
+      "제품 요구사항을 기술 과제로 구체화합니다"
+    ],
+    "mustSkillIds": [
+      "python",
+      "aws",
+      "ws_component",
+      "kubernetes",
+      "react"
+    ],
+    "niceSkillIds": [
+      "docker",
+      "sql",
+      "typescript",
+      "terraform"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,400~6,700만원",
+      "min": 5400,
+      "max": 6700,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-11",
+    "deadlineType": "date",
+    "deadline": "2026-10-06",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=sw_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_greenlooptech_biz_strategy",
+    "companyId": "greenlooptech",
+    "jobId": "biz_strategy",
+    "title": "사업·전략 기획",
+    "jobFamily": "기획",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "대전 유성구",
+    "summary": "사업장 에너지 사용량 분석·절감 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 사업·전략 기획를 찾습니다.",
+    "responsibilities": [
+      "시장과 고객 데이터를 바탕으로 성장 과제를 찾습니다",
+      "사업 가설과 실행 계획을 수립합니다",
+      "성과 지표를 관리하고 다음 의사결정을 제안합니다"
+    ],
+    "mustSkillIds": [
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_priority",
+      "bi"
+    ],
+    "niceSkillIds": [
+      "powerpoint",
+      "python",
+      "looker",
+      "crm"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-04",
+    "deadlineType": "date",
+    "deadline": "2026-10-11",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=biz_strategy",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_greenlooptech_product_designer",
+    "companyId": "greenlooptech",
+    "jobId": "product_designer",
+    "title": "시니어 프로덕트 디자이너",
+    "jobFamily": "디자인",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "대전 유성구",
+    "summary": "사업장 에너지 사용량 분석·절감 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 프로덕트 디자이너를 찾습니다.",
+    "responsibilities": [
+      "사용자 문제를 흐름과 화면 구조로 구체화합니다",
+      "프로토타입으로 가설을 검증합니다",
+      "제품 경험의 일관성을 관리합니다"
+    ],
+    "mustSkillIds": [
+      "ux_ui",
+      "ws_product_design",
+      "ws_ia",
+      "ws_prototype",
+      "figma"
+    ],
+    "niceSkillIds": [
+      "ios",
+      "hci",
+      "photoshop",
+      "illustrator"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-28",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=product_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cubelogics_embedded_dev",
+    "companyId": "cubelogics",
+    "jobId": "embedded_dev",
+    "title": "임베디드·펌웨어",
+    "jobFamily": "개발",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "경기 화성시",
+    "summary": "생산 설비 제어와 품질 예측 솔루션의 다음 기능과 운영 품질을 함께 만들어 갈 임베디드·펌웨어를 찾습니다.",
+    "responsibilities": [
+      "장치 제어 소프트웨어를 개발합니다",
+      "하드웨어 연동과 실시간 동작을 검증합니다",
+      "현장 오류를 분석하고 안정성을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "linux",
+      "c",
+      "python",
+      "bash",
+      "git"
+    ],
+    "niceSkillIds": [
+      "ubuntu",
+      "github",
+      "docker",
+      "vpn"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "3,600~4,300만원",
+      "min": 3600,
+      "max": 4300,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-09-02",
+    "deadlineType": "date",
+    "deadline": "2026-10-21",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=embedded_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cubelogics_architect",
+    "companyId": "cubelogics",
+    "jobId": "architect",
+    "title": "아키텍트",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "경기 화성시",
+    "summary": "생산 설비 제어와 품질 예측 솔루션의 다음 기능과 운영 품질을 함께 만들어 갈 아키텍트를 찾습니다.",
+    "responsibilities": [
+      "서비스 확장에 맞는 시스템 구조를 설계합니다",
+      "기술 표준과 품질 기준을 정립합니다",
+      "복잡한 기술 의사결정을 문서화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "azure"
+    ],
+    "niceSkillIds": [
+      "aws",
+      "sql",
+      "rag",
+      "mlops"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,500~7,000만원",
+      "min": 5500,
+      "max": 7000,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-26",
+    "deadlineType": "date",
+    "deadline": "2026-10-26",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=architect",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_cubelogics_eng_lead",
+    "companyId": "cubelogics",
+    "jobId": "eng_lead",
+    "title": "엔지니어링 리더",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "계약직",
+    "workMode": "onsite",
+    "location": "경기 화성시",
+    "summary": "생산 설비 제어와 품질 예측 솔루션의 다음 기능과 운영 품질을 함께 만들어 갈 엔지니어링 리더를 찾습니다.",
+    "responsibilities": [
+      "개발 조직의 목표와 실행 계획을 정렬합니다",
+      "기술 부채와 제품 납기를 함께 관리합니다",
+      "구성원의 성장과 협업 방식을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_priority",
+      "ws_requirement",
+      "python",
+      "aws"
+    ],
+    "niceSkillIds": [
+      "ruby",
+      "java",
+      "iot",
+      "typescript"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-19",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=eng_lead",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_studionova_designer",
+    "companyId": "studionova",
+    "jobId": "designer",
+    "title": "리드 디자이너(일반)",
+    "jobFamily": "디자인",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 용산구",
+    "summary": "디지털 제품·브랜드 경험 디자인 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 디자이너(일반)를 찾습니다.",
+    "responsibilities": [
+      "브랜드와 제품 목적에 맞는 시각물을 설계합니다",
+      "다양한 채널의 디자인 품질을 관리합니다",
+      "디자인 원칙과 산출물을 체계화합니다"
+    ],
+    "mustSkillIds": [
+      "photoshop",
+      "ws_visual",
+      "illustrator",
+      "figma",
+      "ws_prototype"
+    ],
+    "niceSkillIds": [
+      "skill",
+      "wordpress",
+      "css",
+      "html"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-12",
+    "deadlineType": "date",
+    "deadline": "2026-11-05",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_studionova_motion_designer",
+    "companyId": "studionova",
+    "jobId": "motion_designer",
+    "title": "모션·영상 디자이너",
+    "jobFamily": "디자인",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 용산구",
+    "summary": "디지털 제품·브랜드 경험 디자인 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 모션·영상 디자이너를 찾습니다.",
+    "responsibilities": [
+      "제품과 브랜드 메시지를 모션으로 표현합니다",
+      "영상·인터랙션 에셋을 제작합니다",
+      "채널과 기기에 맞게 결과물을 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_interaction",
+      "ws_visual",
+      "ws_prototype",
+      "illustrator",
+      "photoshop"
+    ],
+    "niceSkillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "google_slides"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "4,200~4,900만원",
+      "min": 4200,
+      "max": 4900,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-05",
+    "deadlineType": "date",
+    "deadline": "2026-09-28",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=motion_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_studionova_graphic_designer",
+    "companyId": "studionova",
+    "jobId": "graphic_designer",
+    "title": "시니어 그래픽·브랜드 디자이너",
+    "jobFamily": "디자인",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 용산구",
+    "summary": "디지털 제품·브랜드 경험 디자인 서비스의 다음 기능과 운영 품질을 함께 만들어 갈 그래픽·브랜드 디자이너를 찾습니다.",
+    "responsibilities": [
+      "브랜드 메시지를 시각 시스템으로 만듭니다",
+      "캠페인·콘텐츠 그래픽을 제작합니다",
+      "채널별 산출물의 일관성을 관리합니다"
+    ],
+    "mustSkillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "ws_visual",
+      "ws_interaction"
+    ],
+    "niceSkillIds": [
+      "photoshop",
+      "figma",
+      "html",
+      "css"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "7,200~8,400만원",
+      "min": 7200,
+      "max": 8400,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-29",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=graphic_designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_retailscope_data_analyst",
+    "companyId": "retailscope",
+    "jobId": "data_analyst",
+    "title": "데이터 분석가",
+    "jobFamily": "개발",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 중구",
+    "summary": "온·오프라인 판매 및 재고 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 분석가를 찾습니다.",
+    "responsibilities": [
+      "제품·사업 지표를 정의하고 분석합니다",
+      "대시보드와 정기 리포트를 운영합니다",
+      "데이터로 문제 원인과 개선 기회를 설명합니다"
+    ],
+    "mustSkillIds": [
+      "sql",
+      "bi",
+      "python",
+      "ws_metric",
+      "ws_abtest"
+    ],
+    "niceSkillIds": [
+      "hive",
+      "aws",
+      "skill",
+      "crm"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-09-03",
+    "deadlineType": "date",
+    "deadline": "2026-10-08",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_analyst",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_retailscope_biz_analyst",
+    "companyId": "retailscope",
+    "jobId": "biz_analyst",
+    "title": "데이터·비즈니스 기획",
+    "jobFamily": "기획",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "서울 중구",
+    "summary": "온·오프라인 판매 및 재고 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 데이터·비즈니스 기획를 찾습니다.",
+    "responsibilities": [
+      "업무 요구사항과 데이터 흐름을 정의합니다",
+      "현업과 개발 사이의 기준을 조율합니다",
+      "운영 지표와 개선안을 구조화합니다"
+    ],
+    "mustSkillIds": [
+      "ws_requirement",
+      "ws_stakeholder",
+      "sql",
+      "bi",
+      "tableau"
+    ],
+    "niceSkillIds": [
+      "hive",
+      "data_analysis",
+      "hadoop",
+      "erp"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-27",
+    "deadlineType": "date",
+    "deadline": "2026-10-13",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=biz_analyst",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_retailscope_fullstack_dev",
+    "companyId": "retailscope",
+    "jobId": "fullstack_dev",
+    "title": "풀스택 개발자",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 중구",
+    "summary": "온·오프라인 판매 및 재고 분석 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 풀스택 개발자를 찾습니다.",
+    "responsibilities": [
+      "웹 제품의 화면과 API를 함께 개발합니다",
+      "사용자 흐름의 성능과 안정성을 개선합니다",
+      "기획부터 운영까지 기능 생애주기를 담당합니다"
+    ],
+    "mustSkillIds": [
+      "react",
+      "typescript",
+      "node_js",
+      "aws",
+      "ws_component"
+    ],
+    "niceSkillIds": [
+      "graphql",
+      "confluence",
+      "spring_boot",
+      "c_2"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,600~7,000만원",
+      "min": 5600,
+      "max": 7000,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-20",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=fullstack_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_eduspring_fe_dev",
+    "companyId": "eduspring",
+    "jobId": "fe_dev",
+    "title": "프론트엔드 개발자",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 관악구",
+    "summary": "직무 학습 진단과 맞춤형 콘텐츠 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 프론트엔드 개발자를 찾습니다.",
+    "responsibilities": [
+      "사용자에게 보이는 웹 기능을 개발합니다",
+      "컴포넌트 품질과 접근성을 개선합니다",
+      "로딩 성능과 오류 경험을 최적화합니다"
+    ],
+    "mustSkillIds": [
+      "typescript",
+      "react",
+      "ws_component",
+      "ux_ui",
+      "html"
+    ],
+    "niceSkillIds": [
+      "node_js",
+      "git",
+      "redux",
+      "graphql"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,900~7,400만원",
+      "min": 5900,
+      "max": 7400,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-13",
+    "deadlineType": "date",
+    "deadline": "2026-10-23",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=fe_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_eduspring_designer",
+    "companyId": "eduspring",
+    "jobId": "designer",
+    "title": "디자이너(일반)",
+    "jobFamily": "디자인",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 관악구",
+    "summary": "직무 학습 진단과 맞춤형 콘텐츠 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 디자이너(일반)를 찾습니다.",
+    "responsibilities": [
+      "브랜드와 제품 목적에 맞는 시각물을 설계합니다",
+      "다양한 채널의 디자인 품질을 관리합니다",
+      "디자인 원칙과 산출물을 체계화합니다"
+    ],
+    "mustSkillIds": [
+      "photoshop",
+      "ws_visual",
+      "illustrator",
+      "figma",
+      "ws_prototype"
+    ],
+    "niceSkillIds": [
+      "skill",
+      "wordpress",
+      "css",
+      "html"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서",
+      "포트폴리오"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-06",
+    "deadlineType": "date",
+    "deadline": "2026-10-28",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=designer",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_eduspring_program_manager",
+    "companyId": "eduspring",
+    "jobId": "program_manager",
+    "title": "시니어 프로젝트·프로그램 매니저",
+    "jobFamily": "기획",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "remote",
+    "location": "서울 관악구",
+    "summary": "직무 학습 진단과 맞춤형 콘텐츠 플랫폼의 다음 기능과 운영 품질을 함께 만들어 갈 프로젝트·프로그램 매니저를 찾습니다.",
+    "responsibilities": [
+      "여러 팀의 목표·일정·의존성을 조율합니다",
+      "프로젝트 위험을 조기에 식별하고 대응합니다",
+      "진행 상황과 의사결정을 투명하게 공유합니다"
+    ],
+    "mustSkillIds": [
+      "ws_priority",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_policy",
+      "ws_metric"
+    ],
+    "niceSkillIds": [
+      "jira",
+      "sql",
+      "erp",
+      "sdlc"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-30",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=program_manager",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_worknexus_fullstack_dev",
+    "companyId": "worknexus",
+    "jobId": "fullstack_dev",
+    "title": "풀스택 개발자",
+    "jobFamily": "개발",
+    "level": "신입",
+    "minCareerMonths": 0,
+    "maxCareerMonths": 12,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 종로구",
+    "summary": "인재 배치·역량 개발 HR SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 풀스택 개발자를 찾습니다.",
+    "responsibilities": [
+      "웹 제품의 화면과 API를 함께 개발합니다",
+      "사용자 흐름의 성능과 안정성을 개선합니다",
+      "기획부터 운영까지 기능 생애주기를 담당합니다"
+    ],
+    "mustSkillIds": [
+      "react",
+      "typescript",
+      "node_js",
+      "aws",
+      "ws_component"
+    ],
+    "niceSkillIds": [
+      "graphql",
+      "confluence",
+      "spring_boot",
+      "c_2"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "3,500~4,100만원",
+      "min": 3500,
+      "max": 4100,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-09-04",
+    "deadlineType": "date",
+    "deadline": "2026-09-25",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=fullstack_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_worknexus_solutions_eng",
+    "companyId": "worknexus",
+    "jobId": "solutions_eng",
+    "title": "솔루션·세일즈 엔지니어",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "계약직",
+    "workMode": "remote",
+    "location": "서울 종로구",
+    "summary": "인재 배치·역량 개발 HR SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 솔루션·세일즈 엔지니어를 찾습니다.",
+    "responsibilities": [
+      "고객 문제를 기술 요구사항으로 변환합니다",
+      "도입 검증과 기술 제안을 지원합니다",
+      "제품팀에 고객의 기술 피드백을 전달합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "erp"
+    ],
+    "niceSkillIds": [
+      "aws",
+      "erp",
+      "docker",
+      "maven"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "5,400~6,500만원",
+      "min": 5400,
+      "max": 6500,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-28",
+    "deadlineType": "date",
+    "deadline": "2026-09-30",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=solutions_eng",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_worknexus_biz_strategy",
+    "companyId": "worknexus",
+    "jobId": "biz_strategy",
+    "title": "리드 사업·전략 기획",
+    "jobFamily": "기획",
+    "level": "리드",
+    "minCareerMonths": 84,
+    "maxCareerMonths": null,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 종로구",
+    "summary": "인재 배치·역량 개발 HR SaaS의 다음 기능과 운영 품질을 함께 만들어 갈 사업·전략 기획를 찾습니다.",
+    "responsibilities": [
+      "시장과 고객 데이터를 바탕으로 성장 과제를 찾습니다",
+      "사업 가설과 실행 계획을 수립합니다",
+      "성과 지표를 관리하고 다음 의사결정을 제안합니다"
+    ],
+    "mustSkillIds": [
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_priority",
+      "bi"
+    ],
+    "niceSkillIds": [
+      "powerpoint",
+      "python",
+      "looker",
+      "crm"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "면접 후 협의",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-21",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=biz_strategy",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_corestack_be_dev",
+    "companyId": "corestack",
+    "jobId": "be_dev",
+    "title": "백엔드 개발자",
+    "jobFamily": "개발",
+    "level": "미들",
+    "minCareerMonths": 36,
+    "maxCareerMonths": 84,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "서울 성동구",
+    "summary": "백엔드 개발·배포 자동화 도구의 다음 기능과 운영 품질을 함께 만들어 갈 백엔드 개발자를 찾습니다.",
+    "responsibilities": [
+      "서비스 API와 도메인 로직을 개발합니다",
+      "데이터 모델과 처리 성능을 개선합니다",
+      "장애 원인을 분석하고 재발을 방지합니다"
+    ],
+    "mustSkillIds": [
+      "aws",
+      "java",
+      "spring",
+      "python",
+      "docker"
+    ],
+    "niceSkillIds": [
+      "kubernetes",
+      "cassandra",
+      "spring_boot",
+      "redis"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "회사 내규에 따름",
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-14",
+    "deadlineType": "date",
+    "deadline": "2026-10-10",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=be_dev",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_insightlabs_data_scientist",
+    "companyId": "insightlabs",
+    "jobId": "data_scientist",
+    "title": "데이터 사이언티스트",
+    "jobFamily": "개발",
+    "level": "주니어",
+    "minCareerMonths": 12,
+    "maxCareerMonths": 48,
+    "employmentType": "정규직",
+    "workMode": "hybrid",
+    "location": "대전 유성구",
+    "summary": "산업 데이터 기반 예측·최적화 솔루션의 다음 기능과 운영 품질을 함께 만들어 갈 데이터 사이언티스트를 찾습니다.",
+    "responsibilities": [
+      "제품 문제를 분석 과제와 지표로 정의합니다",
+      "예측 모델을 실험하고 성능을 검증합니다",
+      "모델 결과를 제품 의사결정에 연결합니다"
+    ],
+    "mustSkillIds": [
+      "python",
+      "aws",
+      "sql",
+      "llm",
+      "ws_metric"
+    ],
+    "niceSkillIds": [
+      "bi",
+      "langchain",
+      "airflow",
+      "docker"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "4,300~5,200만원",
+      "min": 4300,
+      "max": 5200,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-08-07",
+    "deadlineType": "date",
+    "deadline": "2026-10-15",
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=data_scientist",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "demo_brickwhale_eng_lead",
+    "companyId": "brickwhale",
+    "jobId": "eng_lead",
+    "title": "시니어 엔지니어링 리더",
+    "jobFamily": "개발",
+    "level": "시니어",
+    "minCareerMonths": 60,
+    "maxCareerMonths": 144,
+    "employmentType": "정규직",
+    "workMode": "onsite",
+    "location": "경기 성남시",
+    "summary": "멀티플랫폼 게임과 라이브 운영 도구의 다음 기능과 운영 품질을 함께 만들어 갈 엔지니어링 리더를 찾습니다.",
+    "responsibilities": [
+      "개발 조직의 목표와 실행 계획을 정렬합니다",
+      "기술 부채와 제품 납기를 함께 관리합니다",
+      "구성원의 성장과 협업 방식을 개선합니다"
+    ],
+    "mustSkillIds": [
+      "ws_stakeholder",
+      "ws_priority",
+      "ws_requirement",
+      "python",
+      "aws"
+    ],
+    "niceSkillIds": [
+      "ruby",
+      "java",
+      "iot",
+      "typescript"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "가족 건강검진",
+      "사내 식당"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "코딩·직무 과제",
+      "실무 인터뷰",
+      "리더 인터뷰",
+      "처우 협의"
+    ],
+    "applicationDocuments": [
+      "이력서"
+    ],
+    "salary": {
+      "display": "7,100~8,800만원",
+      "min": 7100,
+      "max": 8800,
+      "currency": "KRW",
+      "unit": "만원"
+    },
+    "postedAt": "2026-07-31",
+    "deadlineType": "rolling",
+    "deadline": null,
+    "status": "open",
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1;job=eng_lead",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  }
+]

@@ -1,0 +1,93 @@
+{
+  "schemaVersion": "1.0",
+  "snapshotDate": "2026-09-07",
+  "seed": 20260907,
+  "isSynthetic": true,
+  "purpose": "실제 회사·공고 공급원을 연결하기 전 조회·지원 UI를 검증하는 목업",
+  "actualDataUse": "공개 페이지의 필드 구조만 참고했으며 회사명·소개 문구·로고·공고 원문은 복제하지 않음",
+  "fieldModelSources": [
+    {
+      "name": "원티드 공개 채용공고",
+      "url": "https://www.wanted.co.kr/wd/70297",
+      "usedFor": "회사·직무·경력·업무·자격요건·근무지·마감·전형 필드"
+    },
+    {
+      "name": "원티드 기업회원 도움말",
+      "url": "https://help.wanted.co.kr/hc/ko/categories/360001832811",
+      "usedFor": "기업명·주소·웹사이트·태그·로고·이미지 필드"
+    },
+    {
+      "name": "잡플래닛 서비스 안내",
+      "url": "https://www.jobplanet.co.kr/events/membership",
+      "usedFor": "회사 탐색에서 쓰이는 정보 범주 확인; 리뷰·평점은 생성 대상에서 제외"
+    }
+  ],
+  "distribution": {
+    "companiesByStage": {
+      "early": 4,
+      "enterprise": 1,
+      "growth": 8,
+      "stable": 5
+    },
+    "companiesByIndustry": {
+      "AI 솔루션": 1,
+      "B2B SaaS": 1,
+      "HR테크": 1,
+      "개발자 도구": 1,
+      "게임 플랫폼": 1,
+      "기후테크": 1,
+      "데이터 분석": 1,
+      "디자인 스튜디오": 1,
+      "디지털 헬스케어": 1,
+      "리테일테크": 1,
+      "모빌리티": 1,
+      "사이버 보안": 1,
+      "스마트 제조": 1,
+      "에듀테크": 1,
+      "커머스": 1,
+      "콘텐츠": 1,
+      "클라우드": 1,
+      "핀테크": 1
+    },
+    "workModeAvailability": {
+      "hybrid": 18,
+      "onsite": 9,
+      "remote": 9
+    },
+    "postingsByJob": {
+      "architect": 2,
+      "be_dev": 2,
+      "biz_analyst": 2,
+      "biz_strategy": 2,
+      "data_analyst": 2,
+      "data_eng": 2,
+      "data_scientist": 2,
+      "designer": 2,
+      "devops_sre": 2,
+      "embedded_dev": 2,
+      "eng_lead": 2,
+      "fe_dev": 2,
+      "fullstack_dev": 2,
+      "graphic_designer": 2,
+      "growth_marketing": 2,
+      "mobile_dev": 2,
+      "motion_designer": 2,
+      "product_designer": 2,
+      "product_manager": 2,
+      "program_manager": 2,
+      "qa_eng": 2,
+      "security_eng": 2,
+      "solutions_eng": 2,
+      "sw_eng": 2
+    },
+    "salaryDisplayForm": {
+      "negotiable": 12,
+      "policy": 12,
+      "range": 24
+    }
+  },
+  "replaceableContracts": [
+    "Company",
+    "JobPosting"
+  ]
+}

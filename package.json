@@ -10,8 +10,10 @@
     "test": "vitest run",
     "test:data-tools": "uv run --cache-dir .uv-cache python -m unittest discover -s scripts/collect -p test_*.py",
     "test:watch": "vitest",
+    "build:demo-data": "uv run --cache-dir .uv-cache python scripts/mock/build_company_data.py",
+    "validate:demo-data": "uv run --cache-dir .uv-cache python scripts/mock/validate_company_data.py",
     "validate:data": "node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json && node scripts/validate-data.mjs data/interim/jobs.json data/interim/skills.json data/interim/job-skills.json",
-    "verify": "npm run lint && npm run test && npm run test:data-tools && npm run validate:data && npm run build"
+    "verify": "npm run lint && npm run test && npm run test:data-tools && npm run validate:data && npm run validate:demo-data && npm run build"
   },
   "dependencies": {
     "next": "16.3.4",

@@ -91,6 +91,17 @@ export default function Landing() {
         />
       </div>
 
+      <Link
+        href="/companies"
+        className="group mt-4 flex items-center justify-between rounded-2xl border border-dashed border-black/15 px-5 py-4 transition hover:border-amber-400/70 dark:border-white/15"
+      >
+        <span>
+          <span className="block text-sm font-medium">가상 회사·채용공고 둘러보기</span>
+          <span className="mt-1 block text-xs opacity-50">18개 회사와 48개 데모 공고에서 회사 정보와 지원 흐름을 확인합니다.</span>
+        </span>
+        <span className="ml-4 transition group-hover:translate-x-0.5">→</span>
+      </Link>
+
       <p className="mt-8 text-center text-xs leading-relaxed opacity-45">
         같은 역량 매칭 엔진이 양방향으로 동작합니다 · 원티드 AI Championship 2026
       </p>

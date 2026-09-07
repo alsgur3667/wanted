@@ -1,8 +1,11 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import type { Route, Skill } from '@/types';
 import { jobDetailOf, LOW_CONFIDENCE, type RequirementRow } from '@/lib/job-detail';
+import { careerLabel, deadlineLabel, postingsForJob, WORK_MODE_LABEL } from '@/lib/company-index';
+import CompanyMark from '@/components/CompanyMark';
 
 // ============================================================================
 //  경로 하나 = 접힌 카드 하나. 눌러야 펼쳐진다.
@@ -66,6 +69,7 @@ export default function RouteAccordion({
 }) {
   const [open, setOpen] = useState(false);
   const detail = jobDetailOf(route.destination, mySkills);
+  const demoPostings = detail ? postingsForJob(detail.jobId, 2) : [];
 
   const coverageSummary = detail
     ? `필수 ${detail.mustTotal}개 중 ${detail.mustHeld}개`
@@ -148,15 +152,31 @@ export default function RouteAccordion({
             )}
           </div>
 
-          {/* 회사명은 아직 공고 데이터에 없다. 자리를 먼저 두고 건수만 사실대로 쓴다.
-              없는 회사명을 지어 넣으면 나머지 숫자의 신뢰도까지 함께 잃는다. */}
           <div className="mt-5 border-t border-black/[0.07] pt-3.5 dark:border-white/[0.08]">
             <div className="flex items-baseline justify-between gap-3">
               <h4 className="text-sm font-medium">이 직무를 모집 중인 기업</h4>
-              <span className="text-xs opacity-60">공고 {detail.sampleSize}건</span>
+              <span className="text-[11px] text-amber-700 dark:text-amber-300">가상 공고 {demoPostings.length}개</span>
             </div>
-            <p className="mt-2 text-xs leading-relaxed opacity-45">
-              분석에 쓴 공고 {detail.sampleSize}건에서 뽑은 요구 역량입니다. 회사명과 공고 링크는 준비 중입니다.
+            <div className="mt-3 space-y-2">
+              {demoPostings.map(({ posting, company }) => (
+                <Link
+                  key={posting.id}
+                  href={`/jobs/${posting.id}`}
+                  className="flex items-center gap-3 rounded-xl border border-black/[0.07] p-3 transition hover:border-amber-400/60 dark:border-white/[0.08]"
+                >
+                  <CompanyMark company={company} size="sm" />
+                  <div className="min-w-0 flex-1">
+                    <p className="truncate text-sm font-medium">{posting.title}</p>
+                    <p className="mt-0.5 truncate text-[11px] opacity-50">
+                      {company.name} · {careerLabel(posting)} · {WORK_MODE_LABEL[posting.workMode]}
+                    </p>
+                  </div>
+                  <span className="shrink-0 text-[11px] opacity-45">{deadlineLabel(posting)} →</span>
+                </Link>
+              ))}
+            </div>
+            <p className="mt-2 text-[11px] leading-relaxed opacity-45">
+              실제 채용이 아닌 서비스 시연용 가상 기업·공고입니다.
             </p>
           </div>
 

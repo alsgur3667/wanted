@@ -163,6 +163,87 @@ export interface SampleProfile {
   cachedResult: AnalysisResult;
 }
 
+// ----------------------------------------------------------------------------
+//  회사·채용공고 — 현재는 가상 데이터, 실제 서비스에서는 같은 계약으로 교체
+// ----------------------------------------------------------------------------
+
+export type WorkMode = 'onsite' | 'hybrid' | 'remote';
+export type CompanyStage = 'early' | 'growth' | 'stable' | 'enterprise';
+export type PostingLevel = '신입' | '주니어' | '미들' | '시니어' | '리드';
+
+export interface CompanyBrand {
+  /** 이미지가 없을 때 쓰는 1~2글자 이니셜 */
+  initials: string;
+  colorFrom: string;
+  colorTo: string;
+}
+
+/** 회사 조회 화면의 계약. 실제 회사 데이터도 이 형태로 정규화한다. */
+export interface Company {
+  id: string;
+  name: string;
+  tagline: string;
+  description: string;
+  industry: string;
+  stage: CompanyStage;
+  employeeCountRange: string;
+  foundedYear: number;
+  headquarters: string;
+  locations: string[];
+  workModes: WorkMode[];
+  productDescription: string;
+  products: string[];
+  tags: string[];
+  culture: string[];
+  benefits: string[];
+  hiringProcess: string[];
+  /** 가상 회사는 실제 웹사이트·로고를 만들지 않는다. 실제 연동 시 채운다. */
+  websiteUrl: string | null;
+  imageUrls: string[];
+  brand: CompanyBrand;
+  isSynthetic: true;
+  synthesisBasis: string;
+  generatedAt: string;
+}
+
+export interface PostingSalary {
+  display: string;
+  min?: number;
+  max?: number;
+  currency: 'KRW';
+  unit: '만원';
+}
+
+/** 지원자가 조회하는 채용공고 계약. 요구 역량은 온톨로지 skill id를 참조한다. */
+export interface JobPosting {
+  id: string;
+  companyId: string;
+  jobId: string;
+  title: string;
+  jobFamily: string;
+  level: PostingLevel;
+  minCareerMonths: number;
+  maxCareerMonths: number | null;
+  employmentType: '정규직' | '계약직';
+  workMode: WorkMode;
+  location: string;
+  summary: string;
+  responsibilities: string[];
+  mustSkillIds: string[];
+  niceSkillIds: string[];
+  benefits: string[];
+  hiringProcess: string[];
+  applicationDocuments: string[];
+  salary: PostingSalary;
+  postedAt: string;
+  deadlineType: 'rolling' | 'date';
+  deadline: string | null;
+  status: 'open';
+  isSynthetic: true;
+  synthesisBasis: string;
+  generatedAt: string;
+}
+
 // ============================================================================
 //  기업 화면 (B2B) — 직무 → 지원자 매칭
 //

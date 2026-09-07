@@ -106,12 +106,16 @@ weight   = 스킬이 등장한 공고 수 ÷ 그 직무의 전체 공고 수
 
 근거를 필드로 구분합니다 — `"source": "JD"` (공고 빈도) / `"source": "manual"` (수동 매핑)
 
+지원자용 회사 조회에는 **가상 회사 18개와 가상 공고 48개**를 사용합니다. 실제 회사의 문구나 로고를 복제한 데이터가 아니며, 추후 실제 공급원을 같은 계약으로 교체하기 위한 목업입니다. 추천 점수 계산과 모델 평가에는 사용하지 않습니다.
+
 ```bash
 node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json
 # 오류 0건이어야 앱에 투입
+npm run validate:demo-data
+# 가상 회사·공고의 참조와 표시 규칙 검증
 ```
 
-📄 [데이터 계약](./docs/DATA_SPEC.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+📄 [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
 
 ---
 
@@ -121,15 +125,18 @@ node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.j
 app/
   page.tsx          랜딩 (개인 / 기업 분기)
   personal/         이력서 입력 → 결과
+  companies/        가상 회사 목록 → 회사 상세
+  jobs/             가상 채용공고 상세 → 지원 흐름
   employer/         지원자 매칭
   api/analyze/      역량 추출 → 적합도 산출
   api/og/           공유 카드 이미지
 lib/
   skill-index.ts    직무×스킬 매트릭스 · 전이성 지수
+  company-index.ts  회사·공고 조회와 직무·스킬 연결
   scoring.ts        개인 방향        matching.ts  기업 방향
   llm.ts            제공자 추상화 (gemini | anthropic | mock)
-data/               수집 데이터 + 수동 보강분
-scripts/            수집(Python) · 검증 · 병합
+data/               수집 데이터 + 수동 보강분 + 가상 회사·공고
+scripts/            수집(Python) · 생성 · 검증 · 병합
 types.ts            개인/기업 공통 계약
 ```
 
@@ -192,6 +199,7 @@ uv run python scripts/collect/eval_routes.py
 |---|---|
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
+| [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
 | [**PLAN**](./docs/PLAN.md) | 개발 일정과 마일스톤 |
 
@@ -199,7 +207,7 @@ uv run python scripts/collect/eval_routes.py
 
 ## 로드맵
 
-현재 기업 화면의 지원자는 **샘플 데이터**입니다.
+현재 기업 화면의 지원자와 지원자용 회사·공고는 **샘플·가상 데이터**입니다.
 이력서 파일 일괄 분석은 **비용 제어와 개인정보 처리 정책**이 선행되어야 해 이번 범위에서 제외했습니다.
 매칭 엔진은 `Candidate[]` 만 받으면 동작하므로, 파일 파싱과 배치 처리만 추가하면 연결됩니다.
 
