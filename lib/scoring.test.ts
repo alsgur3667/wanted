@@ -14,6 +14,12 @@ describe('직군 정규화', () => {
 });
 
 describe('iOS 경력자 회귀', () => {
+  it('한국어 iOS 개발자 표기를 모바일 개발자로 보존한다', () => {
+    const extracted = mockExtract('7년차 iOS 개발자입니다. Swift와 Xcode로 앱을 개발했습니다.');
+
+    expect(extracted.currentPosition.jobTitle).toBe('모바일 개발자');
+  });
+
   it('표본 신뢰도 때문에 사용자 적합도 자체를 50점대로 낮추지 않는다', () => {
     const text = 'Language swift, objective-c, java, JavaScript, C#, C++, Python Platform IOS, Android, Web(HTML, CSS, JS), Linux System Mac OS, Windows Tool XCode, Git, Redmine, Jira, Notion, Slack, Jenkins, Zeplin 8년차 iOS개발자, 총 경력 9년, iOS만 7년, iOS/AOS병행 1년, 기타 1년';
     const result = buildAnalysis(mockExtract(text));
@@ -23,6 +29,7 @@ describe('iOS 경력자 회귀', () => {
     expect(result.routes[0].destination).toBe('모바일 개발자');
     expect(mobile?.fitScore).toBeGreaterThanOrEqual(70);
     expect(mobile?.reason).toContain('가중 65%');
+    expect(mobile?.reason).toContain('현재 직무 표기와 일치');
   });
 });
 

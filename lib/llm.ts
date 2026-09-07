@@ -1,6 +1,6 @@
 import { EXTRACT_SYSTEM_PROMPT, buildExtractUserPrompt, buildMentionSection, buildVocabularySection } from '@/lib/prompts/extract';
 import { extractCareerMonths } from '@/lib/career';
-import { JOBS, MATRIX, SKILLS, findMentions } from '@/lib/skill-index';
+import { JOBS, MATRIX, SKILLS, findMentions, resolveJobTitle } from '@/lib/skill-index';
 
 // ============================================================================
 //  LLM 제공자 추상화
@@ -166,11 +166,15 @@ export function mockExtract(resumeText: string): Extracted {
     famScore.set(j.family, (famScore.get(j.family) ?? 0) + w);
   }
   const jobFamily = [...famScore.entries()].sort((a, b) => b[1] - a[1])[0]?.[0] ?? '기획';
+  // mock도 원문에 명시된 직무명을 버리지 않는다. 이전에는 모든 경력자를 단순히
+  // "경력자"로 바꿔 데이터 분석가처럼 서로 요구 역량이 겹치는 직무의 순위를 뒤집었다.
+  const inferredJobId = resolveJobTitle(resumeText);
+  const inferredJob = JOBS.find((job) => job.id === inferredJobId);
 
   return {
     currentPosition: {
-      jobTitle: m ? '경력자' : '신입',
-      jobFamily,
+      jobTitle: inferredJob?.title ?? (m ? '경력자' : '신입'),
+      jobFamily: inferredJob?.family ?? jobFamily,
       careerMonths: yrs.months,
       industry: null,
       summary: '입력한 경험에서 확인된 역량을 기준으로 분석했습니다. (mock 모드)',

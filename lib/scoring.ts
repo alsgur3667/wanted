@@ -7,6 +7,7 @@ import { isNewcomer } from '@/types';
 //  점수 계산 — 여기서만 숫자가 만들어진다. LLM 은 '무엇을 했는가'만 뽑는다.
 //
 //  fitScore      = 100 × (필수 커버율×3 + 우대 커버율×1 + 강점 반영×2) / 6 × 경력 적합도
+//                  + 현재 직무가 정확히 일치하면 최대 8점
 //  evidenceScore = fitScore 원점수 × 표본 신뢰도 × 직무 보정 (숨은 경로·낮은 확신 판정 전용)
 //  추천 순위      = 화면에 보이는 fitScore 우선, 동점일 때만 evidenceScore 사용
 //  surpriseScore = 직군이 다른데 적합도가 높을수록 높다 (= 직무명으로는 안 보이는 경로)
@@ -14,6 +15,7 @@ import { isNewcomer } from '@/types';
 // ============================================================================
 
 const MUST_W = 3, NICE_W = 1;
+const CURRENT_JOB_BONUS = 8;
 
 // ── 경력 반영 ────────────────────────────────────────────────────────
 //
@@ -103,6 +105,9 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     (unresolved.length ? ` · 실패: ${unresolved.join(', ')}` : '')
   );
   const have = new Set(resolved.keys());
+  // 명시된 현재 직무는 역량과 별개의 강한 근거다. 다만 직무명만 적어도 고득점이 되지
+  // 않도록 역량 기반 점수를 대체하지 않고 최대 8점만 더한다.
+  const currentJobId = resolveJobTitle(ex.currentPosition.jobTitle);
 
   // 2) 스킬 지도
   const skills: Skill[] = [...resolved.entries()].map(([id, evidence], i) => {
@@ -149,19 +154,22 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     const experienceFit = experienceFitOf(job.id, ex.currentPosition.careerMonths);
     // 사용자에게 보여주는 적합도에는 후보와 무관한 표본 수·직무 구조 보정을 섞지 않는다.
     // 이전에는 모바일 개발자의 이론상 최고점이 78점이라 완벽히 맞아도 낮아 보였다.
-    const fitScore = Math.round(raw * experienceFit);
+    const skillFit = raw * experienceFit;
+    const currentJobBonus = job.id === currentJobId
+      ? Math.min(CURRENT_JOB_BONUS, Math.max(0, 100 - skillFit))
+      : 0;
+    const fitScore = Math.round(skillFit + currentJobBonus);
     // 표본이 적거나 다른 직무를 흡수하기 쉬운 직무는 숨은 경로를 고를 때 보수적으로 다룬다.
     // 이 값을 일반 정렬에 곱하면 85점 경로가 66점 경로 아래에 놓이는 UI 모순이 생긴다.
     const evidenceScore = raw * experienceFit * confidenceOf(job.id) * jobAdjustOf(job.id);
     return { job, must, nice, mustHit, niceHit,
              mustCovered: m.covered, niceCovered: n.covered,
-             mustCov, mustSlots, niceSlots, fitScore, evidenceScore };
+             mustCov, mustSlots, niceSlots, fitScore, evidenceScore, currentJobBonus };
   }).sort((a, b) => b.fitScore - a.fitScore || b.evidenceScore - a.evidenceScore);
 
   //  지금 하고 있는 직무. 「이 길도 있어요」가 여기에 붙으면 안 된다.
   //  ⚠️ 점수 1위(scored[0])와 헷갈리면 안 된다. 7년차 PM 에게 프로덕트 매니저를
   //     '몰랐던 길' 로 붙인 사고가 그것 때문이었다.
-  const currentJobId = resolveJobTitle(ex.currentPosition.jobTitle);
   const currentJobFamily = JOBS.find((j) => j.id === currentJobId)?.family;
   const currentFamily = currentJobFamily
     ?? normalizeJobFamily(ex.currentPosition.jobFamily, scored[0]?.job.family || '기획');
@@ -190,7 +198,6 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   //  낮은 점수를 낮은 대로 보여주는 편이, 아무것도 안 보여주는 것보다 정직하다.
   const MIN_EVIDENCE_SCORE = 30;
   const eligible = scored.filter((s) => openToNewcomer(s.job));
-  const lowConfidence = !eligible.some((s) => s.evidenceScore >= MIN_EVIDENCE_SCORE);
   const withSurprise = eligible.map((s) => {
     const cross = s.job.family !== currentFamily;
     const surpriseScore = cross
@@ -328,8 +335,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         ? `${getSkill(peer.viaSkillId)?.name} 를 쓰는 ${peer.n.toLocaleString()}명 중 `
           + `${Math.round(peer.share * 100)}%가 이 직무를 하고 있습니다. `
           + `전체 평균보다 ${peer.lift.toFixed(1)}배 높습니다 — 직무명으로는 잘 안 보이는 경로입니다.`
-        : lowConfidence
-        ? `필수 역량 ${s.mustSlots.total}개 영역 중 ${s.mustSlots.covered}개가 겹칩니다 (가중 ${Math.round(s.mustCov * 100)}%). 다만 뚜렷하게 맞는 직무를 찾지 못했습니다 — 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
+        : s.evidenceScore < MIN_EVIDENCE_SCORE
+        ? `적합도 ${s.fitScore}점으로 근거가 약한 후보입니다. 필수 역량 ${s.mustSlots.total}개 영역 중 ${s.mustSlots.covered}개가 겹칩니다 (가중 ${Math.round(s.mustCov * 100)}%). 어떤 일을 어떻게 했는지 조금 더 적으면 정확해집니다.`
         : isHidden
         ? `${s.job.family} 직군이지만 이 직무가 요구하는 것 중 ${(hiddenBridges?.must.length ?? 0) || (hiddenBridges?.wide.length ?? 0)}개를 이미 갖추고 있습니다 — ${[...new Set([...(hiddenBridges?.must ?? []), ...(hiddenBridges?.wide ?? [])])].slice(0, 3).map((id) => getSkill(id)?.name).filter(Boolean).join(' · ')}. 직군을 넘나드는 역량이라 옮겨도 그대로 쓰입니다.`
         : (() => {
@@ -346,7 +353,10 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
               ? ` — ${s.mustHit.map((id) => getSkill(id)!.name).slice(0, 2).join('·')} 으로 ${labels.join('·')} 요구를 충족합니다`
               : '';
             const nice = s.niceSlots.covered ? ` (우대 ${s.niceSlots.covered}개 영역 추가)` : '';
-            return base + sub + nice + '.';
+            const role = s.currentJobBonus > 0
+              ? ` 현재 직무 표기와 일치해 ${Math.round(s.currentJobBonus)}점을 반영했습니다.`
+              : '';
+            return base + sub + nice + '.' + role;
           })(),
       marketNote:
         isJobseeker && s.job.newcomerRatio !== undefined
