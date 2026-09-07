@@ -122,12 +122,23 @@ def load_allowlist():
     if not p.exists():
         raise SystemExit("allowlist.json 이 없다. 먼저 build_allowlist.py 를 실행할 것.")
     d = json.loads(p.read_text(encoding="utf-8"))
-    return d["types"], set(d["too_broad"]), set(d["not_skill"]), set(d["map_types"])
+    return (d["types"], set(d["too_broad"]), set(d["not_skill"]), set(d["map_types"]),
+            set(d.get("curated", [])))
 
 
 ALLOW: dict = {}
 BLOCK: set = set()
 MAP_TYPES: set = set()
+# 손으로 확인해 넣은 소수 분야 어휘. 자동 목록과 달리 노이즈가 없다.
+CURATED: set = set()
+# 그래서 최소 등장 문서 수를 낮춰 잡는다.
+#
+# 왜 낮추나 — 표본이 작은 직무의 고유 스킬은 코퍼스 전체에서 df 가 낮을 수밖에 없다.
+#   임베디드 공고는 7건뿐이라 RTOS 가 4건에 나와도 df=4 다. MIN_DF=5 에 걸려 통째로 빠졌고,
+#   그 결과 임베디드 직무의 요구 스킬이 Linux·C++·Python·Git·Jenkins 만 남았다.
+#   범용 도구뿐이라 아무 개발자나 그 직무에 100% 적합하게 나온다.
+# MIN_DF 는 자동 목록의 노이즈를 막으려고 둔 값이다. 사람이 확인한 어휘에는 그 이유가 없다.
+CURATED_MIN_DF = 2
 
 
 # 일반 영단어와 철자가 겹치는 약어·개념어.
@@ -270,12 +281,22 @@ tok_all: Counter = Counter()
 tok_cap: Counter = Counter()
 
 
+def company_of(d: dict) -> str | None:
+    """이 공고를 낸 회사. 통합 게시판(remotive·jobicy·remoteok)은 알 수 없어 None."""
+    src, url = d["source"], d.get("source_url") or ""
+    if ":" in src and not src.startswith(("data.go.kr", "jobicy")):
+        return src.split(":", 1)[1]              # greenhouse:coupang · lever:zeta · ashby:megazone
+    m = re.search(r"arbeitnow\.com/jobs/companies/([^/]+)/", url)
+    return "arbeitnow:" + m.group(1) if m else None
+
+
 def run():
-    global ALLOW, BLOCK, MAP_TYPES
-    types_, broad, notskill, map_types = load_allowlist()
+    global ALLOW, BLOCK, MAP_TYPES, CURATED
+    types_, broad, notskill, map_types, curated = load_allowlist()
     ALLOW = types_
     BLOCK = broad | notskill
     MAP_TYPES = map_types
+    CURATED = curated
     print(f"허용 어휘 {len(ALLOW):,}개 · 제외어 {len(BLOCK)}개 · 지도 유형 {sorted(MAP_TYPES)}")
 
     tools, hot = load_onet_tools()
@@ -292,6 +313,7 @@ def run():
     surface = {}
     all_titles = set()
     n_doc = 0
+    df_company = defaultdict(set)   # 이 말이 어느 회사들의 공고에 나왔나
 
     with (RAW / "_corpus.jsonl").open(encoding="utf-8") as f:
         for line in f:
@@ -299,6 +321,7 @@ def run():
                 continue
             d = json.loads(line)
             n_doc += 1
+            co = company_of(d)
             blob = f"{d['title']} {d['text']}"
             t = d["title"].strip().lower()[:60]
             if t:
@@ -321,6 +344,8 @@ def run():
                 c = cn(k)
                 surface.setdefault(c, surface_hint.get(k, k))
                 df[c] += 1
+                if co:
+                    df_company[c].add(co)
                 fam[c][d["job_family"]] += 1
                 if t:
                     titles[c].add(t)
@@ -329,8 +354,37 @@ def run():
             for k in seen_pref:
                 df_pref[cn(k)] += 1
 
+    # ── 회사가 자기 이름을 적은 것은 역량이 아니다 ──────────────────────
+    #
+    #  엔지니어링 리더의 필수 3위가 "Staffbase" 였다. 공고 12건이 **전부 그 회사**
+    #  (arbeitnow:staffbase)의 공고다. 회사가 자기 회사명을 본문에 쓴 것을 세었을 뿐이다.
+    #  변별력(lift)은 11.5 로 오히려 높게 나와, 희소성 지표로는 절대 못 거른다.
+    #
+    #  ⚠️ "한 회사에서만 나오는 말"로 넓히면 안 된다. 그렇게 재 봤더니 MSA·시스템 아키텍처·
+    #     XGBoost·A/B 테스트 설계까지 걸렸다 — 한국어 공고가 몇 개 회사에만 있어서지
+    #     그 말이 회사 것이어서가 아니다. **이름이 회사명과 같을 때만** 뺀다.
+    #
+    #  ⚠️ 회사명이면서 진짜 역량인 것이 있다 (MongoDB·GitLab·Databricks·JetBrains).
+    #     그래서 다른 회사 3곳 이상에도 나오면 남긴다 — 그건 업계가 쓰는 말이다.
+    self_named = []
+    for k in list(df):
+        nm = re.sub(r"[^a-z0-9]", "", surface_hint.get(k, k).lower())
+        if len(nm) < 4:
+            continue
+        cos = df_company.get(k, set())
+        same = {c for c in cos if re.sub(r"[^a-z0-9]", "", c.split(":")[-1]) == nm}
+        if same and len(cos - same) < 3:
+            self_named.append((surface_hint.get(k, k), df[k], sorted(same)[0]))
+            del df[k]
+    if self_named:
+        print("회사가 자기 이름을 적은 것 제외 "
+              + " · ".join(f"{n}({c}건, {co})" for n, c, co in self_named))
+
     hi = int(n_doc * MAX_DF_RATIO)
-    keep = {k: c for k, c in df.items() if MIN_DF <= c <= hi}
+    keep = {k: c for k, c in df.items()
+            if (CURATED_MIN_DF if cn(k) in CURATED or k.lower() in CURATED else MIN_DF) <= c <= hi}
+    n_cur = sum(1 for k in keep if cn(k) in CURATED or k.lower() in CURATED)
+    print(f"손으로 넣은 어휘 통과 {n_cur}개 (df {CURATED_MIN_DF} 이상)")
 
     # 대문자 사용 비율로 거른다.
     #   Python  거의 항상 대문자        → 고유명사, 남긴다

@@ -80,13 +80,32 @@ def split_req_pref(body: str) -> tuple[str, str]:
             e = low.find(m, start + 20)     # 표지 자신을 다시 잡지 않도록 조금 띄운다
             if e >= 0:
                 end = min(end, e)
-        return body[:start], body[start:end]
+        req, pref = body[:start], body[start:end]
+        #  표지가 맨 앞이면 자격요건이 통째로 비어 버린다. 그건 나누기에 실패한 것이다.
+        if req.strip():
+            return req, pref
+        return body, ""
+
+    #  ⚠️ 줄 단위로 가르려면 줄이 있어야 한다.
+    #
+    #  HTML 을 지우면서 본문이 **한 줄**이 되는 공고가 있다(줄바꿈 없이 온 경우).
+    #  그 한 줄에 "a plus"·"preferred" 가 하나라도 있으면 **공고 전체가 우대사항이 된다.**
+    #
+    #  실측 — 민간 공고 1,417건 중 65건이 자격요건 0자·우대 수천 자가 됐다. 전부 한 줄짜리다.
+    #  그래서 임베디드의 RTOS 가 "자격요건 0건·우대 3건"이 되어 필수가 아닌 것으로 판정됐다.
+    #  공고 7건 중 3건에 나오고 변별력 157배인 역량인데도 그렇다.
+    #
+    #  줄이 없으면 문장으로 가른다. 그래도 한쪽이 통째로 비면 나누지 않는다 —
+    #  잘못 나누면 그 공고의 모든 역량이 '우대'로 세어져 필수/우대 판정이 뒤집힌다.
+    units = body.splitlines()
+    if len(units) < 3:
+        units = re.split(r"(?<=[.!?])\s+|(?<=습니다)\s|(?<=해요)\s|(?<=됩니다)\s", body)
 
     pref_lines, req_lines = [], []
-    for line in body.splitlines():
+    for line in units:
         ll = line.lower()
         (pref_lines if any(m in ll for m in WEAK_PREF) else req_lines).append(line)
-    if pref_lines:
+    if req_lines and pref_lines:
         return "\n".join(req_lines), "\n".join(pref_lines)
     return body, ""
 

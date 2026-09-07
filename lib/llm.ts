@@ -1,5 +1,5 @@
-import { EXTRACT_SYSTEM_PROMPT, buildExtractUserPrompt, buildVocabularySection } from '@/lib/prompts/extract';
-import { JOBS, MATRIX, SKILLS } from '@/lib/skill-index';
+import { EXTRACT_SYSTEM_PROMPT, buildExtractUserPrompt, buildMentionSection, buildVocabularySection } from '@/lib/prompts/extract';
+import { JOBS, MATRIX, SKILLS, findMentions } from '@/lib/skill-index';
 
 // ============================================================================
 //  LLM 제공자 추상화
@@ -51,12 +51,24 @@ function parseJson(text: string): Extracted {
   return JSON.parse(s >= 0 ? cleaned.slice(s, e + 1) : cleaned);
 }
 
+/**
+ * 1단계 — 코드가 원문에서 사전에 있는 이름을 전부 찾아낸다.
+ * 찾는 일은 대조라서 코드가 빠뜨리지 않는다. 판단은 LLM 이 한다(2단계).
+ */
+function mentionSection(resumeText: string): string {
+  const found = findMentions(resumeText).filter((m) => USED_SKILL_IDS.has(m.id));
+  console.log(`[llm] 코드가 찾은 후보 ${found.length}개: ${found.map((m) => m.name).join(', ')}`);
+  return buildMentionSection(found);
+}
+
 async function callGemini(resumeText: string, targetJob?: string): Promise<Extracted> {
   const key = env('GEMINI_API_KEY')!;
   const model = env('GEMINI_MODEL') ?? 'gemini-flash-lite-latest';
   const body = JSON.stringify({
     systemInstruction: { parts: [{ text: EXTRACT_SYSTEM_PROMPT }] },
-    contents: [{ role: 'user', parts: [{ text: buildExtractUserPrompt(resumeText, targetJob, VOCABULARY) }] }],
+    contents: [{ role: 'user', parts: [{
+      text: buildExtractUserPrompt(resumeText, targetJob, VOCABULARY, mentionSection(resumeText)),
+    }] }],
     generationConfig: { temperature: 0, responseMimeType: 'application/json' },
   });
 
@@ -91,7 +103,8 @@ async function callAnthropic(resumeText: string, targetJob?: string): Promise<Ex
       max_tokens: 4096,
       temperature: 0,
       system: EXTRACT_SYSTEM_PROMPT,
-      messages: [{ role: 'user', content: buildExtractUserPrompt(resumeText, targetJob, VOCABULARY) }],
+      messages: [{ role: 'user',
+        content: buildExtractUserPrompt(resumeText, targetJob, VOCABULARY, mentionSection(resumeText)) }],
     }),
   });
   if (!res.ok) throw new Error(`anthropic ${res.status} ${(await res.text().catch(() => '')).slice(0, 160)}`);

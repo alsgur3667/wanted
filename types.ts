@@ -82,10 +82,29 @@ export interface Route {
   bridgeSkills: string[];
   /** 채워야 할 것 (2~4개) */
   gapSkills: GapSkill[];
+  /**
+   * 요구 역량 전부와 충족 여부 (선택). 화면에서 "8가지 중 5가지"를 펼쳐 보여주기 위한 것.
+   * 숫자만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
+   */
+  requirements?: RouteRequirement[];
   /** 왜 이 경로인지 한 문장 — 근거 중심, 칭찬 금지 */
   reason: string;
   /** 시장 상황 한 줄. 데이터 없으면 null */
   marketNote: string | null;
+}
+
+/** 요구 역량 한 줄 — 무엇을 요구하고, 갖췄는지, 무엇으로 갖췄는지 */
+export interface RouteRequirement {
+  name: string;
+  /** 필수인가 우대인가 */
+  tier: 'required' | 'preferred';
+  /** 갖췄는가 */
+  met: boolean;
+  /**
+   * 그 이름 그대로 갖춘 것이 아니라 **대체재로 충족**한 경우 그 묶음 이름.
+   * 예) iOS 개발자가 Kotlin 을 안 가졌지만 같은 '모바일 플랫폼'의 iOS·Swift 를 가진 경우.
+   */
+  viaGroup?: string;
 }
 
 /** 최종 응답 — B는 이것만 보고 화면을 그린다 */

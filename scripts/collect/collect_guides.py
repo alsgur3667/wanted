@@ -49,6 +49,9 @@ SOURCES = {
         "https://velog.io/@skyu_dev/나만의-로드맵-더-나은-프론트엔드-개발자가-되기-위한-학습-방향-설정하기",
     ],
     "devops_sre": [
+        "https://velog.io/@rlemdhs612/DevOps-엔지니어-로드맵",
+        "https://velog.io/@dojun527/DevOps-엔지니어",
+        "https://insight.infograb.net/blog/2023/11/06/how-to-be-a-devops-engineer/",
         "https://www.samsungsds.com/kr/insights/devops-sre-platform-engineering.html",
         "https://www.atlassian.com/ko/devops/what-is-devops/devops-engineer",
         "https://www.elancer.co.kr/blog/detail/843",
@@ -69,11 +72,16 @@ SOURCES = {
         "https://velog.io/@sws7884/데이터-분석가에게-필요한-역량",
     ],
     "security_eng": [
+        "https://www.itworld.co.kr/news/219879",
+        "https://brunch.co.kr/@rooot/76",
         "https://theori.io/ko/blog/cybersecurity-job-preparation-guide",
         "https://www.ciokorea.com/news/39410",
         "https://www.cio.com/article/4197569/최고의-보안-엔지니어는-무엇이-다른가ai-시대-필수.html",
     ],
     "qa_eng": [
+        "https://brunch.co.kr/@jamescompany/18",
+        "https://tech.socarcorp.kr/qa/2023/05/15/qa-skills-marktang.html",
+        "https://www.cio.com/article/3505291/qa에서-진화된-ai-시대-필수-인력-it-자동화-엔지니어.html",
         "https://www.elancer.co.kr/blog/detail/300",
         "https://medium.com/musinsa-tech/qaengineer-roles-and-responsibilities-d1fc088c7a43",
         "https://sprint.codeit.kr/blog/유저의-불편함이-프로덕트로-qa-직무-완전-분석-qa-업무-역량-연봉까지",
@@ -98,11 +106,16 @@ SOURCES = {
         "https://brunch.co.kr/@2aec535615f24be/14",
     ],
     "graphic_designer": [
+        "https://brunch.co.kr/@2aec535615f24be/5",
+        "https://jobcannon.io/ko/careers/brand-designer",
+        "https://ko.wix.com/blog/post/graphic-design-websites-inspiration",
         "https://media.fastcampus.co.kr/insight/design/designpp/",
         "https://brunch.co.kr/@outlines/5",
         "https://www.itdaa.net/open_mentorings/2470",
     ],
     "growth_marketing": [
+        "https://www.codestates.com/blog/content/퍼포먼스-마케터란",
+        "https://www.mobiinside.co.kr/2022/02/17/bigquery/",
         "https://brunch.co.kr/@likelion/133",
         "https://brunch.co.kr/@groschool/80",
         "https://brunch.co.kr/@edte1020/69",
@@ -110,6 +123,7 @@ SOURCES = {
         "https://1point.kr/blog/insights/growth-performance-difference/",
     ],
     "biz_strategy": [
+        "https://jasoseol.com/blog/post/30/",
         "https://brunch.co.kr/@13335218e68a4e8/102",
         "https://jasoseol.com/blog/post/직무-분석-경영기획-전략-뜻-하는일-자격증-사업기획/",
         "https://inthiswork.com/strategy",
@@ -130,15 +144,22 @@ SOURCES = {
         "https://www.gttkorea.com/news/articleView.html?idxno=7902",
     ],
     "fullstack_dev": [
+        "https://velog.io/@k-dino/풀스택-개발자-학습-로드맵",
+        "https://sprint.codeit.kr/blog/2025-js-웹-풀스택-취업-로드맵",
         "https://blog.goorm.io/fullstack/",
         "https://sprint.codeit.kr/blog/fullstack-developer-job-skills",
         "https://codecrain.medium.com/코드크레인-수요-높은-박학다능-풀스택-개발자란-되는-방법은-b379e134c7b4",
     ],
     "program_manager": [
+        "https://brunch.co.kr/@moq/16",
+        "https://www.elancer.co.kr/blog/detail/68",
+        "https://velog.io/@pgby/PMBOK-3-프로젝트-관리자-역할",
+        "https://freemoa-blog.com/1016",
         "https://brunch.co.kr/@acc9b16b9f0f430/50",
         "https://ko.wikipedia.org/wiki/프로젝트_관리_전문가",
     ],
     "embedded_dev": [
+        "https://kldp.org/node/164823",
         "https://job.asamaru.net/직무/임베디드sw엔지니어링/",
         "https://codedosa.com/1715",
         "https://velog.io/@mythos/EETB-1-임베디드-소프트웨어-엔지니어의-업무",
@@ -146,6 +167,10 @@ SOURCES = {
         "https://community.linkareer.com/STEM_mentoring/4699573",
     ],
     "architect": [
+        "https://velog.io/@tedigom/MSA-제대로-이해하기-2-MSA-Outer-Architecure",
+        "https://velog.io/@momona/msa01",
+        "https://www.samsungsds.com/kr/insights/1239180_4627.html",
+        "https://whdrns2013.github.io/design_pattern/20250708_001_msa/",
         "https://velog.io/@willie/소프트웨어-아키텍트",
         "https://velog.io/@jihwankim94/소프트웨어-아키텍처란-무엇인가",
         "https://velog.io/@bouml3/개발-vs-아키텍처",
@@ -153,6 +178,9 @@ SOURCES = {
         "https://zdnet.co.kr/view/?no=20170810153934",
     ],
     "eng_lead": [
+        "https://maily.so/devpill/posts/w6ovygdpok5",
+        "https://maily.so/devpill/posts/5xrxklklo2v",
+        "https://jinu.substack.com/p/13",
         "https://brunch.co.kr/@evanyunkeelee/3",
         "https://blog.banksalad.com/tech/engineering-manager-role-growth/",
         "https://velog.io/@broccolism/개발자-커리어-단계별-역량-차이",
@@ -160,16 +188,35 @@ SOURCES = {
         "https://velog.io/@whaleshark/3장.-테크리드",
     ],
     "solutions_eng": [
+        "https://www.onlybook.co.kr/entry/presales",
+        "https://okky.kr/articles/472665",
         "https://brunch.co.kr/@imagineer/328",
         "https://ko.wikipedia.org/wiki/세일즈_엔지니어링",
     ],
     "biz_analyst": [
+        "https://brunch.co.kr/@hyunda/33",
+        "https://www.cio.com/article/3519904/직무-책임-연봉으로-알아보는-비즈니스-분석가.html",
+        "http://www.edujin.co.kr/news/articleView.html?idxno=41510",
         "https://zzsza.github.io/diary/2021/02/21/various-data-jobs/",
         "https://community.heartcount.io/ko/ai-data-analyst-skill/",
     ],
     "designer": [
+        "https://velog.io/@ivermatin/내가-생각하는-UIUX-디자이너의-핵심-역량",
+        "https://nbcamp.spartaclub.kr/blog/-직업의-세계-uiux-디자이너-③-uiux-디자이너의-현실-41245",
+        "https://exitbasic.com/웹디자이너/",
+        "https://ko.wix.com/blog/post/ux-design-tools",
         "https://brunch.co.kr/@13335218e68a4e8/93",
         "https://brunch.co.kr/@2aec535615f24be/14",
+    ],
+    "sw_eng": [
+        "https://velog.io/@yeonbikim/1-개발자로-취업하기-위해-컴퓨터-과학CS지식은-왜-중요한가",
+        "https://velog.io/@1w2k/cs-과목-길잡이",
+        "https://velog.io/@yjj7819/백엔드-신입-개발자가-쌓아야-하는-역량-자료구조-알고리즘-코딩-테스트",
+        "https://velog.io/@harry7435/자료구조-알고리즘-중요한-이유",
+    ],
+    "motion_designer": [
+        "https://jobcannon.io/careers/motion-graphics-designer",
+        "https://prime-career.com/interview_article/6691",
     ],
 }
 

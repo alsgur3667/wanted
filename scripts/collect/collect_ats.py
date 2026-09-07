@@ -48,6 +48,22 @@ imweb cafe24 portone bootpay settle
 lemonbase greetinghq flexteam remembercompany
 hyperconnect azarlive matchgroup
 zeta megazone flex viva-republica
+
+# ── 4차 후보 — 기획·디자인 공고를 늘리려고 추가 ────────────────────────
+# 직무 24개 중 기획 5개·디자인 4개뿐이고 표본도 작다. 직군을 잇는 다리가 놓일 자리가 좁다.
+# 커머스·콘텐츠·에이전시처럼 기획·디자인 인력을 많이 뽑는 곳을 골랐다.
+oliveyoung kurly marketkurly 29cm ssg emart lotteon gmarket coupangplay
+tving wavve watchapedia spotv kakaoent sm hybe yg jype
+zigbang dabang hogangnono peterpanz
+yanolja goodchoice myrealtrip triple interpark
+class101 fastcampus inflab teamsparta wanted greeting
+buzzni dailyhotel wadiz tumblbug idus backpackr
+oheadline publyco longblackco folinco
+bucketplace ohousekr styleshare 29cmkr brandikr
+karrot daangnpay danggeun toss tossplace
+naverfinancial linefinancial kakaobank kbank
+lgcns samsungsdskr sk-planet skplanet 11st
+kt ktds ktalpha nhn nhncloud afreecatv soop
 """.split()
 
 

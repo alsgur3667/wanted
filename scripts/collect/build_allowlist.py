@@ -38,7 +38,7 @@ SRC = {
 
 # 유형 우선순위 — 여러 목록에 걸치면 앞선 것을 쓴다.
 # Python 은 Linguist 와 simple-icons 양쪽에 있으나 언어로 본다.
-TYPE_ORDER = ["language", "certification", "office", "domain", "concept", "tool"]
+TYPE_ORDER = ["language", "certification", "office", "domain", "concept", "curated", "tool"]
 
 # ── 기술 개념·방법론 ─ 지도에 올린다 ────────────────────────────────────
 CONCEPT = """
@@ -52,6 +52,31 @@ gpu cuda tpu simd
 uat regression e2e
 a11y wcag hci usability wireframe prototyping
 blockchain nft web3
+""".split()
+
+# ── 손으로 확인해 넣은 소수 분야 어휘 ─────────────────────────────────
+#
+# 왜 따로 두나
+#   허용 목록의 대부분은 Linguist·simple-icons 에서 자동으로 온다. 그 목록에는
+#   임베디드 하드웨어 용어와 애플 생태계 용어가 거의 없다. 그래서 임베디드·펌웨어
+#   직무의 요구 스킬이 Linux·C++·Python·Git·Jenkins 뿐이 되었고,
+#   **아무 개발자나 그 직무에 100% 적합**하게 나왔다(8년차 iOS 개발자에게 1순위로 추천됨).
+#
+# 넣기 전에 코퍼스에서 하나씩 확인했다. 괄호 안은 등장 문서 수와 대문자 비율이다.
+#   RTOS(4·100%) FreeRTOS(3·100%) I2C(5·100%) SPI(4·100%) UART(5·100%)
+#   JTAG(2·100%) Cortex(1·100%) Zephyr(4) Xcode(3·100%) UIKit(4·100%)
+#   SwiftUI(7·100%) Jetpack(9·100%) Objective-C(1)
+#
+# 넣지 않은 것과 이유 — 전부 실측이다
+#   ARM       8회인데 대문자 50%. 영문 문장의 arm 과 섞인다
+#   CAN       1,634회. 조동사 can 이다 (CAN 버스가 아니다)
+#   Combine   47회인데 대문자 2%. 영어 동사다
+#   Compose   19회. Docker Compose 와 Jetpack Compose 가 섞여 가릴 수 없다
+#   firmware  22회인데 대문자 5%. 소문자 일반명사라 대문자 비율 검사에 걸린다
+#   embedded  87회. 직무명 자체다. 직무가 자기 이름을 요구 스킬로 갖는 꼴이 된다
+CURATED = """
+rtos freertos zephyr i2c spi uart jtag cortex
+xcode uikit swiftui jetpack objective-c
 """.split()
 
 # ── 직무 영역 용어 ─ 지도에 올린다 ─────────────────────────────────────
@@ -212,11 +237,12 @@ def run():
         "language": web["linguist"],
         "tool": web["simple_icons"] | web["devicon"],
         "concept": {norm(x) for x in CONCEPT},
+        "curated": {norm(x) for x in CURATED},
         "domain": {norm(x) for x in DOMAIN},
         "certification": {norm(x) for x in CERTIFICATION},
         "office": {norm(x) for x in OFFICE},
     }
-    for k in ("concept", "domain", "certification", "office"):
+    for k in ("concept", "domain", "certification", "office", "curated"):
         print(f"  {'보완:' + k:14} {len(buckets[k]):>6,}개")
 
     # 우선순위대로 유형을 확정한다
@@ -244,7 +270,10 @@ def run():
         "licenses": {"linguist": "MIT", "simple_icons": "CC0", "devicon": "MIT",
                      "concept/domain/certification/office": "직접 작성"},
         "type_order": TYPE_ORDER,
-        "map_types": ["language", "tool", "concept", "domain"],
+        "map_types": ["language", "tool", "concept", "domain", "curated"],
+        # 손으로 확인해 넣은 어휘. 자동 목록과 달리 노이즈가 없으므로
+        # mine_vocab 이 최소 등장 문서 수(MIN_DF)를 낮춰 잡는다.
+        "curated": sorted({norm(x) for x in CURATED}),
         "aside_types": ["certification", "office"],
         "too_broad": sorted(TOO_BROAD),
         "not_skill": sorted(NOT_SKILL),
