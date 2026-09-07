@@ -42,7 +42,8 @@ export default function ResultView({
         <h2 className="text-lg font-semibold">스킬 지도</h2>
         <p className="mt-1 text-sm opacity-60">
           오른쪽 위로 갈수록{' '}
-          <strong className="font-medium opacity-90">여러 직무에 통하면서 흔하지 않은</strong> 역량입니다.
+          <strong className="font-medium opacity-90">여러 직무에 통하면서 학습 난이도가 높은</strong> 역량입니다.
+          세로축은 데이터 기반 추정치입니다.
         </p>
         <div className="mt-5">
           <SkillMap skills={skills} />
@@ -51,7 +52,9 @@ export default function ResultView({
 
       <section className="mt-14">
         <h2 className="text-lg font-semibold">갈 수 있는 경로</h2>
-        <p className="mt-1 text-sm opacity-60">지금 가진 역량으로 도달 가능한 직무입니다.</p>
+        <p className="mt-1 text-sm leading-relaxed opacity-60">
+          적합도는 가진 역량과 직무 요구의 일치 정도입니다. 추천 순위에는 공고 표본의 신뢰도도 함께 반영합니다.
+        </p>
         <div className="mt-5 space-y-4">
           {routes.map((r, i) => (
             <RouteCard key={r.id} route={r} rank={i + 1} />

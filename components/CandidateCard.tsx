@@ -1,12 +1,23 @@
 import { isNewcomer, type CandidateMatch } from '@/types';
 
-export default function CandidateCard({ match, rank }: { match: CandidateMatch; rank: number }) {
-  const { candidate: c, fitScore, isCrossRole, matchedSkills, gapSkills, onboardingMonths } = match;
+export default function CandidateCard({
+  match,
+  rank,
+  requiredSkills,
+  isDifferentRole,
+}: {
+  match: CandidateMatch;
+  rank: number;
+  requiredSkills: string[];
+  isDifferentRole: boolean;
+}) {
+  const { candidate: c, fitScore, matchedSkills, gapSkills, onboardingMonths } = match;
+  const matchedRequiredCount = matchedSkills.filter((s) => requiredSkills.includes(s)).length;
 
   return (
     <article
       className={`rounded-2xl border p-5 ${
-        isCrossRole ? 'border-amber-400/60 bg-amber-400/[0.06]' : 'border-black/10 dark:border-white/10'
+        isDifferentRole ? 'border-amber-400/60 bg-amber-400/[0.06]' : 'border-black/10 dark:border-white/10'
       }`}
     >
       <header className="flex items-start gap-4">
@@ -19,7 +30,7 @@ export default function CandidateCard({ match, rank }: { match: CandidateMatch; 
           <div className="flex flex-wrap items-center gap-2">
             <span className="text-sm opacity-40 tabular-nums">{rank}</span>
             <h3 className="font-semibold">{c.alias}</h3>
-            {isCrossRole && (
+            {isDifferentRole && (
               <span className="rounded-full bg-amber-400/20 px-2 py-0.5 text-[11px] font-semibold text-amber-600 dark:text-amber-300">
                 직무 전환 후보
               </span>
@@ -65,10 +76,10 @@ export default function CandidateCard({ match, rank }: { match: CandidateMatch; 
           </div>
         )}
 
-        {isCrossRole && (
+        {isDifferentRole && (
           <p className="mt-3 border-t border-amber-400/20 pt-2.5 text-xs leading-relaxed opacity-70">
             직무명은 <strong className="font-medium opacity-100">{c.currentJobTitle}</strong>지만, 필수 역량{' '}
-            {matchedSkills.length}개를 이미 보유하고 있습니다. 직무명으로 검색하면 노출되지 않는 후보입니다.
+            {matchedRequiredCount}개를 이미 보유하고 있습니다. 직무명으로 검색하면 노출되지 않는 후보입니다.
           </p>
         )}
       </div>

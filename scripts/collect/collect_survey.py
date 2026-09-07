@@ -11,7 +11,7 @@
   ② **우리가 요구 역량을 만든 자료와 완전히 독립**이다.
      요구 역량 = 채용공고 + 직무 해설 글 + O*NET/NCS.  이 설문은 그 어느 것도 아니다.
      같은 자료로 만들고 같은 자료로 채점하면 자기 채점이라 의미가 없다.
-  ③ 개인 식별정보를 쓰지 않는다. 직무와 기술 목록 두 칸만 읽는다.
+  ③ 개인 식별정보를 쓰지 않는다. 직무·기술·국가·경력 연차만 읽는다.
 
 라이선스
   ODbL 1.0 (데이터베이스) · DbCL 1.0 (개별 값). 출처 표시 + 배포 시 동일조건.
@@ -80,6 +80,22 @@ TECH_COLS = [
 ]
 
 
+def parse_work_years(value):
+    """연차 칸을 숫자로 정규화한다. 빈 값과 해석 불가능한 값은 None으로 둔다."""
+    text = (value or "").strip()
+    if not text:
+        return None
+    if "Less than 1" in text:
+        return 0.5
+    if "More than 50" in text:
+        return 50.0
+    try:
+        years = float(text)
+    except ValueError:
+        return None
+    return years if 0 <= years <= 80 else None
+
+
 def run():
     #  자유 서술 칸에 아주 긴 답이 있어 csv 기본 한도(131,072자)를 넘는다.
     #  2025 자료에서 실제로 걸렸다. 우리는 그 칸을 읽지 않지만 파서는 통과해야 한다.
@@ -109,8 +125,9 @@ def run():
         #  "…HaveWorkedWith" 로 끝나는 칸을 전부 쓴다 — 그게 '실제로 써 본 기술' 칸이다.
         fields = rd.fieldnames or []
         cols = [c for c in fields if c.endswith("HaveWorkedWith")]
-        if not cols:
-            cols = [c for c in TECH_COLS if c in fields]
+        # OpSysProfessional use처럼 접미사가 다른 기술 칸도 반드시 합친다.
+        # 2024·2025에는 별도의 버전 관리 사용 칸이 없으므로 임의 추정하지 않는다.
+        cols.extend(c for c in TECH_COLS if c in fields and c not in cols)
         print(f"  {year} 기술 칸 {len(cols)}개: {', '.join(cols[:6])}…", flush=True)
         n_dev = 0
         for row in rd:
@@ -127,8 +144,15 @@ def run():
                         skills.add(v)
             if len(skills) < 3:          # 기술을 거의 안 적은 응답은 채점에 못 쓴다
                 continue
-            rows.append({"year": year, "jobId": jid, "devType": dev,
-                         "skills": sorted(skills)})
+            work_years = parse_work_years(row.get("WorkExp") or row.get("YearsCodePro"))
+            country = (row.get("Country") or "").strip()
+            profile = {"year": year, "jobId": jid, "devType": dev,
+                       "skills": sorted(skills)}
+            if work_years is not None:
+                profile["yearsCodePro"] = work_years
+            if country:
+                profile["country"] = country
+            rows.append(profile)
             n_dev += 1
         print(f"  {year} 사용 가능한 응답 {n_dev:,}건 (기술 칸 {len(cols)}개)")
 

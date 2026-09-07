@@ -53,7 +53,7 @@ export default function SkillMap({ skills }: { skills: Skill[] }) {
         <text x={PAD.l + iw / 2} y={H - 14} textAnchor="middle" fontSize="11"
               fill="currentColor" opacity="0.55">여러 직무에 통하는 정도 →</text>
         <text x={16} y={PAD.t + ih / 2} fontSize="11" fill="currentColor" opacity="0.55"
-              transform={`rotate(-90 16 ${PAD.t + ih / 2})`} textAnchor="middle">희소성 →</text>
+              transform={`rotate(-90 16 ${PAD.t + ih / 2})`} textAnchor="middle">학습 난이도(추정) →</text>
 
         {/* 점 */}
         {shown.map((s) => {

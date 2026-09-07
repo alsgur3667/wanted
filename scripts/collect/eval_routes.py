@@ -35,6 +35,8 @@ LIFT_CAP = 3.0
 CONFIDENCE_N = 20
 UNIQ_FLOOR = 0.6             # 직무 고유성 보정의 바닥값
 CONT_PENALTY = 0.35          # 남의 직무에 통째로 흡수되는 만큼 깎는다
+EXP_PENALTY = 0.35           # 앱 experienceFitOf와 같은 최대 벌점
+EXP_FULL_YEARS = 5           # 5년이면 경력을 갖춘 것으로 본다
 
 MAX_PER_JOB = 300      # 직무마다 이만큼만 뽑는다. 응답 수가 많은 직무가 채점을 지배하지 않도록.
 
@@ -214,7 +216,17 @@ def evaluate(profiles, J, S, M, G, verbose=True):
                   if any(i in have or (i in grp and grp[i] in ok) for i in mem))
         return got / tot
 
-    def fit_all(have):
+    def experience_fit(jid, work_years):
+        if work_years is None:
+            return 1.0
+        newcomer = J[jid].get("newcomerRatio")
+        if newcomer is None:
+            return 1.0
+        need = 1 - newcomer
+        have = min(1, max(0, work_years) / EXP_FULL_YEARS)
+        return 1 - EXP_PENALTY * max(0, need - have)
+
+    def fit_all(have, work_years=None):
         st = {j: (sum(claim.get((j, s), 0) for s in have) / len(have) if have else 0)
               for j in per_job}
         mx = max(st.values(), default=0)
@@ -226,13 +238,12 @@ def evaluate(profiles, J, S, M, G, verbose=True):
             rel = st[jid] / mx if mx else 0
             raw = 100 * (mc * MUST_W + nc * NICE_W + rel * STRENGTH_W) / (MUST_W + NICE_W + STRENGTH_W)
             conf = min(1, math.sqrt(J[jid]["sampleSize"] / CONFIDENCE_N))
-            #  ⚠️ 앱에는 '경력 반영'(experienceFitOf)이 하나 더 있는데 여기에는 없다.
-            #     설문 프로필에 **연차가 없기 때문**이다 — collect_survey 가 YearsCodePro 를
-            #     안 받는다. 그래서 이 자로는 경력 반영의 효과를 잴 수 없다.
-            #     앱에서도 연차를 모르면 1배(안 깎음)라 이 자의 결과는 앱과 어긋나지 않는다.
-            #     재려면 YearsCodePro 를 함께 받아야 한다 (이슈 #20).
-            out.append((round(raw * conf * adjust[jid]), jid))
-        out.sort(reverse=True)
+            # 앱과 동일하게 화면 적합도를 1차 순위로 쓰고, 근거 점수는 동점일 때만 쓴다.
+            # 보정값을 일반 순위에 곱하면 화면의 높은 점수가 낮은 점수 아래로 내려간다.
+            fit = raw * experience_fit(jid, work_years)
+            evidence = fit * conf * adjust[jid]
+            out.append((round(fit), evidence, jid))
+        out.sort(key=lambda row: (row[0], row[1]), reverse=True)
         return out
 
     top1 = top3 = 0
@@ -251,8 +262,8 @@ def evaluate(profiles, J, S, M, G, verbose=True):
                 unresolved[nm] += 1
         if len(have) < 3:
             continue
-        ranked = fit_all(have)
-        got = [j for _, j in ranked[:3]]
+        ranked = fit_all(have, p.get("yearsCodePro"))
+        got = [j for _, _, j in ranked[:3]]
         want = p["jobId"]
         by_job[want][0] += 1
         if got and got[0] == want:

@@ -58,7 +58,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
 
         <div className="shrink-0 text-right">
           <div className="text-2xl font-bold tabular-nums">{route.fitScore}</div>
-          <div className="text-[11px] opacity-55">적합도</div>
+          <div className="text-[11px] opacity-55">역량 적합도</div>
         </div>
       </header>
 
@@ -96,10 +96,10 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
       {route.requirements?.length ? (
         <details className="mt-4 group">
           <summary className="cursor-pointer list-none text-xs font-medium opacity-55 hover:opacity-80">
-            요구 역량 {route.requirements.filter((r) => r.tier === 'required').length}가지 전체 보기
+            필수 항목 {route.requirements.filter((r) => r.tier === 'required').length}개 전체 보기
             {route.requirements.some((r) => r.viaGroup) ? (
               <span className="ml-1 text-[10px] text-amber-700/80 dark:text-amber-300/80">
-                (≈ 는 대체 인정)
+                (같은 대체 그룹은 점수에서 한 영역 · ≈ 는 대체 인정)
               </span>
             ) : null}
             <span className="ml-1 inline-block transition-transform group-open:rotate-90">›</span>
