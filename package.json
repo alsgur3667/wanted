@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "test": "vitest run",
-    "test:data-tools": "uv run python -m unittest discover -s scripts/collect -p test_*.py",
+    "test:data-tools": "uv run --cache-dir .uv-cache python -m unittest discover -s scripts/collect -p test_*.py",
     "test:watch": "vitest",
     "validate:data": "node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json && node scripts/validate-data.mjs data/interim/jobs.json data/interim/skills.json data/interim/job-skills.json",
     "verify": "npm run lint && npm run test && npm run test:data-tools && npm run validate:data && npm run build"
