@@ -24,17 +24,19 @@ export default function ResumeInput({
     }
     setLoading(true);
     try {
-      // TODO(A): /api/analyze 연결. 지금은 mock으로 관통만 확인.
       const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resumeText: text }),
       });
       const json = await res.json();
-      if (!json.ok) throw new Error(json.message ?? '분석에 실패했습니다.');
+      if (!json.ok) {
+        setError(json.message ?? '분석에 실패했습니다.');
+        return;
+      }
       onResult(json.data);
-    } catch {
-      setError('아직 분석 서버가 연결되지 않았습니다. 아래 예시로 먼저 확인해 보세요.');
+    } catch (e) {
+      setError(e instanceof Error ? `분석 서버와 통신하지 못했습니다: ${e.message}` : '분석 서버와 통신하지 못했습니다.');
     } finally {
       setLoading(false);
     }
@@ -74,9 +76,9 @@ export default function ResumeInput({
 
         <div className="mt-2 flex items-center justify-between text-xs">
           <span className={tooShort ? 'text-rose-500' : 'opacity-45'}>
-            {text.trim().length.toLocaleString()} / {INPUT_GUARD.minChars}자 이상
+            {text.trim().length.toLocaleString()} / {INPUT_GUARD.minChars}~{INPUT_GUARD.maxChars.toLocaleString()}자
           </span>
-          <span className="opacity-45">입력한 내용은 저장하지 않습니다</span>
+          <span className="opacity-45">서버·DB에는 저장하지 않습니다</span>
         </div>
 
         {error && <p className="mt-3 text-xs text-rose-500">{error}</p>}

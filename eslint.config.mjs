@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    ".venv/**",
+    ".uv-cache/**",
+    ".uv-python/**",
+    "data/raw/**",
   ]),
 ]);
 

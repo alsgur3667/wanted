@@ -3,7 +3,7 @@
 > **당신의 다음 커리어를, 데이터로 안내합니다.**
 
 이력서를 넣으면 가진 역량을 분석해 **갈 수 있는 커리어 경로 3개**를 제시합니다.
-그중 하나는 스스로는 떠올리기 어려운 **"이 길도 있어요"** 경로입니다.
+근거가 충분하면 스스로는 떠올리기 어려운 **"이 길도 있어요"** 경로도 함께 보여줍니다.
 
 원티드 AI Championship 2026 출품작 · 2인 팀
 
@@ -71,18 +71,49 @@
 git clone https://github.com/alsgur3667/wanted.git
 cd wanted
 npm install
-cp .env.example .env.local   # 키 입력 후
+cp .env.example .env.local
 npm run dev
 ```
+
+Windows PowerShell에서는 `Copy-Item .env.example .env.local`을 사용합니다. 예시 설정은
+`mock` 모드라 키 없이 E2E 흐름을 확인할 수 있지만, 실제 추천 품질 검증에는 Gemini 또는
+Anthropic 키를 설정해야 합니다.
 
 ### 환경 변수
 
 | 키 | 용도 |
 |---|---|
-| `ANTHROPIC_API_KEY` | 이력서 추출 · 경로 설명 생성 |
-| `DAILY_CALL_LIMIT` | 일일 LLM 호출 상한 (비용 방어) |
+| `LLM_PROVIDER` | `mock` · `gemini` · `anthropic` 중 선택 |
+| `GEMINI_API_KEY` | Gemini 이력서 추출 |
+| `GEMINI_MODEL` | Gemini 모델명 (선택) |
+| `ANTHROPIC_API_KEY` | Anthropic 이력서 추출 |
+| `ANTHROPIC_MODEL` | Anthropic 모델명 (선택) |
+| `DAILY_CALL_LIMIT` | 프로세스별 일일 LLM 호출 상한 (데모 비용 방어) |
 
 > `.env.local` 은 **절대 커밋하지 않습니다.** 유료 API 자부담이라 키 유출 = 요금 폭탄입니다.
+
+운영 환경에서 provider 호출이 실패하면 mock 추천으로 바꾸지 않고 오류를 반환합니다. 또한 현재 호출
+상한은 프로세스 메모리 기준이므로, 여러 인스턴스로 배포할 때는 플랫폼 rate limit이나 공유 저장소가
+추가로 필요합니다.
+
+입력 이력서와 분석 결과는 애플리케이션 서버·DB에 저장하지 않습니다. 다만 실제 LLM provider를
+사용하면 입력 내용이 해당 AI 제공자에 분석 목적으로 전송됩니다.
+
+### 검증
+
+```bash
+npm run verify
+```
+
+위 명령은 lint, 단위·API 관통 테스트, 원본·중간 데이터 계약 검사, production build를 순서대로
+실행합니다.
+
+데이터 수집·평가용 Python 환경은 [uv](https://docs.astral.sh/uv/) lock 파일로 고정합니다.
+
+```bash
+uv sync
+uv run python scripts/collect/eval_routes.py
+```
 
 ---
 

@@ -21,7 +21,7 @@ export default function Home() {
         <p className="mt-3 text-sm leading-relaxed opacity-60">
           가진 역량을 분석해 갈 수 있는 경로 3개를 보여줍니다.
           <br className="hidden sm:block" />
-          그중 하나는 스스로는 떠올리기 어려운 길입니다.
+          근거가 충분하면 스스로는 떠올리기 어려운 길도 함께 보여줍니다.
         </p>
       </header>
 
@@ -34,7 +34,7 @@ export default function Home() {
       </div>
 
       <footer className="mt-16 border-t border-black/5 pt-6 text-xs opacity-45 dark:border-white/5">
-        입력한 이력서는 분석 후 저장하지 않습니다. · 원티드 AI Championship 2026
+        입력한 이력서는 서버·DB에 저장하지 않으며, 설정된 AI 제공자에 분석용으로 전송됩니다. · 원티드 AI Championship 2026
       </footer>
     </main>
   );

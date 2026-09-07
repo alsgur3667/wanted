@@ -547,12 +547,13 @@ const LOOKUP_PATTERNS: { id: string; name: string; re: RegExp }[] = [];
       //  대소문자 — 이력서는 "Language  swift, java, python" 처럼 소문자로 적는 일이 흔하다.
       //  코퍼스 채굴 때는 대소문자를 구분해야 했지만(소문자 sass 가 Sass 로 20건 오탐),
       //  여기는 사람이 쓴 짧은 글이고 **2단계에서 LLM 이 걸러 준다.** 넓게 잡는 편이 맞다.
-      //  다만 3글자 이하는 구분한다 — Go·R·C·IT·AI 는 영어 문장에 그대로 섞인다.
-      const flags = t.length >= 4 ? 'ui' : 'u';
+      //  SQL/AWS/iOS 같은 3글자 기술도 소문자로 자주 적혀 대소문자를 무시한다.
+      //  Go/BI/TS 같은 2글자는 일반 단어 오탐을 피하려고 대소문자를 구분한다.
+      const flags = t.length >= 3 ? 'ui' : 'u';
       LOOKUP_PATTERNS.push({
         id: s.id, name: s.name,
         re: new RegExp(
-          `(?<![A-Za-z0-9가-힣])${esc}(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[을를이가은는의에도와과로써만부터까지등및])|$)`,
+          `(?<![A-Za-z0-9가-힣])${esc}(?![A-Za-z0-9])(?:(?=[^가-힣])|(?=[을를이가은는의에도와과로으써만부터까지등및입였])|$)`,
           flags),
       });
     }

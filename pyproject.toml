@@ -1,0 +1,12 @@
+[project]
+name = "career-navi-data-tools"
+version = "0.1.0"
+description = "Reproducible data collection and evaluation environment for Career Navi"
+requires-python = ">=3.11"
+dependencies = [
+  "numpy>=2.0,<3",
+  "openpyxl>=3.1,<4",
+  "pandas>=2.2,<4",
+  "requests>=2.32,<3",
+  "scikit-learn>=1.6,<2",
+]
