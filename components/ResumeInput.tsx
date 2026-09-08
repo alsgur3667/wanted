@@ -75,13 +75,13 @@ export default function ResumeInput({
         />
 
         <div className="mt-2 flex items-center justify-between text-xs">
-          <span className={tooShort ? 'text-rose-500' : 'text-faint'}>
+          <span className={tooShort ? 'text-error' : 'text-faint'}>
             {text.trim().length.toLocaleString()} / {INPUT_GUARD.minChars}~{INPUT_GUARD.maxChars.toLocaleString()}자
           </span>
           <span className="text-faint">서버·DB에는 저장하지 않습니다</span>
         </div>
 
-        {error && <p className="mt-3 text-xs text-rose-500">{error}</p>}
+        {error && <p className="mt-3 text-xs text-error">{error}</p>}
 
         <button
           onClick={analyze}

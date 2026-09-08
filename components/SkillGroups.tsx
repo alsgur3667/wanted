@@ -18,12 +18,15 @@ import SkillMap from './SkillMap';
 //  사분면 중 오분류 위험이 가장 큰 자리이기도 하다.
 // ============================================================================
 
+// 색 규칙: 청록은 '내가 가진 것', 앰버는 '원래 안 보이던 것'.
+// 무기 묶음은 전자다 — 여기를 앰버로 칠하면 자기 강점이 경고처럼 읽히고,
+// 히든 경로 배지와 같은 색이라 무슨 뜻인지 구분되지 않는다.
 const GROUPS: { key: Quadrant; label: string; hint: string; tone: string }[] = [
   {
     key: 'leverage',
     label: '어디서나 통하는 무기',
     hint: '여러 직군이 요구하는데, 갖춘 사람은 적어요',
-    tone: 'border-warning/35 bg-warning-soft text-warning',
+    tone: 'border-link/30 bg-link-soft text-link-deep dark:text-link',
   },
   {
     key: 'lockin',

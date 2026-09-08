@@ -153,8 +153,11 @@
 :root {
   --ink: #171717;
   --body: #4d4d4d;
-  --mute: #8f8f8f;
-  --faint: #a1a1a1;
+  /* ⚠️ 지침의 mute(#8f8f8f)·faint(#a1a1a1)는 큰 글씨 기준이다.
+     우리는 11~12px 근거 수치("101/117")에 쓰고 있어서 그대로 가져오면
+     대비가 2.6:1 로 떨어져 읽히지 않는다. 위계는 두고 바닥만 올린다. */
+  --mute: #666666;
+  --faint: #767676;
   --hairline: #ebebeb;
   --hairline-soft: #f2f2f2;
   --canvas: #fafafa;
@@ -163,9 +166,12 @@
   /* 의미색 — 지침의 semantic 팔레트.
      Success 는 따로 두지 않고 link 가 겸한다("the blue doubles as the positive signal").
      그래서 '보유함' 체크도 이 파랑을 쓴다. */
-  --link: #0070f3;
-  --link-deep: #0761d1;
-  --link-soft: #d3e5ff;
+  /* 포인트 색 하나. 화면 전체는 흑백이고 이 색은 '가진 것'에만 붙는다.
+     파랑 대신 청록을 쓰는 이유 — 앰버(이 길도 있어요)와 보색이라 둘이 안 싸우고,
+     대비도 한 단계 높다(4.55 → 5.47). 채용 서비스가 죄다 파랑인 것도 있다. */
+  --link: #0f766e;
+  --link-deep: #115e59;
+  --link-soft: #d7f0ec;
   /* 지침의 warning-deep(#ab570a)은 갈색으로 읽혀 배지에 안 맞았다.
      기준색 #f5a623 을 쓰되 밝은 바탕에서 글자로 쓰기엔 옅어, 글자만 한 단계 내린다. */
   --warning: #b06f0a;
@@ -177,17 +183,17 @@
 .dark {
   --ink: #ededed;
   --body: #a1a1a1;
-  --mute: #7d7d7d;
-  --faint: #5c5c5c;
+  --mute: #a3a3a3;
+  --faint: #8a8a8a;
   --hairline: #1f1f1f;
   --hairline-soft: #171717;
   --canvas: #0a0a0a;
   --elevated: #111111;
 
   /* 어두운 바탕에서는 같은 값이 가라앉는다. 한 단계씩 밝힌다. */
-  --link: #3291ff;
-  --link-deep: #0070f3;
-  --link-soft: rgba(50, 145, 255, 0.14);
+  --link: #2dd4bf;
+  --link-deep: #14b8a6;
+  --link-soft: rgba(45, 212, 191, 0.13);
   --warning: #f5a623;
   --warning-soft: rgba(245, 166, 35, 0.12);
   --violet: #a56bf0;

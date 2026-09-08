@@ -3,8 +3,16 @@
 import { useMemo, useState } from 'react';
 import Link from 'next/link';
 import CompanyMark from '@/components/CompanyMark';
-import { COMPANIES, postingsForCompany, searchCompanies, STAGE_LABEL, WORK_MODE_LABEL } from '@/lib/company-index';
+import {
+  COMPANIES,
+  postingsForCompany,
+  searchCompanies,
+  STAGE_LABEL,
+  WORK_MODE_LABEL,
+} from '@/lib/company-index';
 
+// 색은 ink → body → mute → faint 네 단계만 쓴다. 투명도로 위계를 만들지 않는다.
+// 청록(--link)은 포커스 한 곳에만 — 지금 입력 중인 칸이 어디인지 말하는 용도다.
 
 export default function CompanyDirectory() {
   const [query, setQuery] = useState('');
@@ -13,15 +21,19 @@ export default function CompanyDirectory() {
   return (
     <>
       <div className="mt-8">
-        <label htmlFor="company-search" className="text-xs font-medium opacity-55">회사·산업·태그 검색</label>
+        <label htmlFor="company-search" className="text-[11px] font-medium uppercase tracking-wider text-faint">
+          회사·산업·태그 검색
+        </label>
         <input
           id="company-search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="예: 핀테크, 데이터, SaaS"
-          className="mt-2 w-full rounded-xl border border-black/10 bg-transparent px-4 py-3 text-sm outline-none transition placeholder:opacity-40 focus:border-amber-400 dark:border-white/15"
+          className="mt-2 w-full rounded-md border border-hairline bg-elevated px-4 py-3 text-[13px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link"
         />
-        <p className="mt-2 text-xs opacity-45">전체 {COMPANIES.length}개 중 {companies.length}개</p>
+        <p className="mt-2 text-[12px] text-mute">
+          전체 {COMPANIES.length}개 중 {companies.length}개
+        </p>
       </div>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -31,27 +43,33 @@ export default function CompanyDirectory() {
             <Link
               key={company.id}
               href={`/companies/${company.id}`}
-              className="group rounded-2xl border border-black/10 p-5 transition hover:-translate-y-0.5 hover:border-amber-400/70 dark:border-white/12"
+              className="group rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-mute"
             >
               <div className="flex items-start gap-3">
                 <CompanyMark company={company} />
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="font-semibold">{company.name}</h2>
-                    <span className="rounded bg-amber-400/15 px-1.5 py-0.5 text-[10px] text-amber-700 dark:text-amber-300">가상</span>
+                    <h2 className="text-[15px] font-semibold tracking-[-0.02em] text-ink">{company.name}</h2>
+                    <span className="rounded bg-warning-soft px-1.5 py-0.5 text-[10px] font-medium text-warning">
+                      가상
+                    </span>
                   </div>
-                  <p className="mt-1 text-xs opacity-55">{company.industry} · {company.employeeCountRange}</p>
+                  <p className="mt-1 text-[12px] text-mute">
+                    {company.industry} · {company.employeeCountRange}
+                  </p>
                 </div>
               </div>
-              <p className="mt-4 text-sm leading-relaxed opacity-75">{company.tagline}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] opacity-60">
+              <p className="mt-4 text-[13px] leading-[1.6] text-body">{company.tagline}</p>
+              <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] text-faint">
                 <span>{STAGE_LABEL[company.stage]}</span>
                 <span>·</span>
                 <span>{company.workModes.map((mode) => WORK_MODE_LABEL[mode]).join(' · ')}</span>
               </div>
-              <div className="mt-4 flex items-center justify-between border-t border-black/[0.06] pt-3 text-xs dark:border-white/[0.07]">
-                <span className="opacity-55">채용 중 {postings.length}개</span>
-                <span className="font-medium transition group-hover:translate-x-0.5">회사 보기 →</span>
+              <div className="mt-4 flex items-center justify-between border-t border-hairline pt-3 text-[12px]">
+                <span className="text-mute">채용 중 {postings.length}개</span>
+                <span className="font-medium text-ink transition-transform group-hover:translate-x-0.5">
+                  회사 보기 →
+                </span>
               </div>
             </Link>
           );
@@ -59,7 +77,7 @@ export default function CompanyDirectory() {
       </div>
 
       {companies.length === 0 && (
-        <p className="mt-6 rounded-xl border border-black/10 p-8 text-center text-sm opacity-50 dark:border-white/10">
+        <p className="mt-6 rounded-xl border border-hairline p-8 text-center text-[13px] text-mute">
           검색 결과가 없습니다.
         </p>
       )}

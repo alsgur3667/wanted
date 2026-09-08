@@ -12,7 +12,6 @@ import {
   WORK_MODE_LABEL,
 } from '@/lib/company-index';
 
-
 export function generateStaticParams() {
   return COMPANIES.map((company) => ({ companyId: company.id }));
 }
@@ -25,61 +24,91 @@ export default async function CompanyPage({ params }: { params: Promise<{ compan
 
   return (
     <main className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
-      <Link href="/companies" className="text-xs opacity-45 transition hover:opacity-90">← 회사 목록</Link>
+      <Link href="/companies" className="text-[12px] text-faint transition-colors hover:text-ink">
+        ← 회사 목록
+      </Link>
+
       <header className="mt-6 flex items-start gap-4">
         <CompanyMark company={company} size="lg" />
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            <h1 className="text-2xl font-bold sm:text-3xl">{company.name}</h1>
-            <span className="rounded bg-amber-400/15 px-2 py-0.5 text-[11px] text-amber-700 dark:text-amber-300">가상 기업</span>
+            <h1 className="text-2xl font-bold tracking-[-0.03em] text-ink sm:text-3xl">{company.name}</h1>
+            <span className="rounded bg-warning-soft px-2 py-0.5 text-[11px] font-medium text-warning">
+              가상 기업
+            </span>
           </div>
-          <p className="mt-2 text-sm opacity-65">{company.tagline}</p>
+          <p className="mt-2 text-[13px] leading-[1.6] text-body">{company.tagline}</p>
         </div>
       </header>
 
-      <div className="mt-6"><SyntheticNotice /></div>
+      <div className="mt-6">
+        <SyntheticNotice />
+      </div>
 
-      <section className="mt-8 rounded-2xl border border-black/10 p-5 dark:border-white/10">
-        <h2 className="font-semibold">회사 정보</h2>
-        <dl className="mt-4 grid grid-cols-[100px_1fr] gap-y-2 text-sm">
-          <dt className="opacity-45">산업</dt><dd>{company.industry}</dd>
-          <dt className="opacity-45">조직</dt><dd>{company.employeeCountRange} · {STAGE_LABEL[company.stage]}</dd>
-          <dt className="opacity-45">설립</dt><dd>{company.foundedYear}년</dd>
-          <dt className="opacity-45">근무지</dt><dd>{company.headquarters}</dd>
-          <dt className="opacity-45">근무 방식</dt><dd>{company.workModes.map((mode) => WORK_MODE_LABEL[mode]).join(' · ')}</dd>
+      <section className="mt-8 rounded-xl border border-hairline bg-elevated p-5">
+        <h2 className="text-[13px] font-medium text-ink">회사 정보</h2>
+        <dl className="mt-4 grid grid-cols-[100px_1fr] gap-y-2 text-[13px] text-ink">
+          <dt className="text-faint">산업</dt>
+          <dd>{company.industry}</dd>
+          <dt className="text-faint">조직</dt>
+          <dd>
+            {company.employeeCountRange} · {STAGE_LABEL[company.stage]}
+          </dd>
+          <dt className="text-faint">설립</dt>
+          <dd>{company.foundedYear}년</dd>
+          <dt className="text-faint">근무지</dt>
+          <dd>{company.headquarters}</dd>
+          <dt className="text-faint">근무 방식</dt>
+          <dd>{company.workModes.map((mode) => WORK_MODE_LABEL[mode]).join(' · ')}</dd>
         </dl>
-        <p className="mt-5 text-sm leading-relaxed opacity-70">{company.description}</p>
+        <p className="mt-5 text-[13px] leading-[1.7] text-body">{company.description}</p>
         <div className="mt-4 flex flex-wrap gap-1.5">
-          {company.tags.map((tag) => <span key={tag} className="rounded-full bg-black/[0.05] px-2.5 py-1 text-xs dark:bg-white/[0.08]">{tag}</span>)}
+          {company.tags.map((tag) => (
+            <span key={tag} className="rounded-full bg-hairline-soft px-2.5 py-1 text-[11px] text-mute">
+              {tag}
+            </span>
+          ))}
         </div>
       </section>
 
       <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        <section className="rounded-2xl border border-black/10 p-5 dark:border-white/10">
-          <h2 className="font-semibold">일하는 방식</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
-            {company.culture.map((item) => <li key={item}>· {item}</li>)}
+        <section className="rounded-xl border border-hairline bg-elevated p-5">
+          <h2 className="text-[13px] font-medium text-ink">일하는 방식</h2>
+          <ul className="mt-3 space-y-2 text-[13px] leading-[1.6] text-body">
+            {company.culture.map((item) => (
+              <li key={item}>· {item}</li>
+            ))}
           </ul>
         </section>
-        <section className="rounded-2xl border border-black/10 p-5 dark:border-white/10">
-          <h2 className="font-semibold">지원 제도</h2>
-          <ul className="mt-3 space-y-2 text-sm leading-relaxed opacity-70">
-            {company.benefits.map((item) => <li key={item}>· {item}</li>)}
+        <section className="rounded-xl border border-hairline bg-elevated p-5">
+          <h2 className="text-[13px] font-medium text-ink">지원 제도</h2>
+          <ul className="mt-3 space-y-2 text-[13px] leading-[1.6] text-body">
+            {company.benefits.map((item) => (
+              <li key={item}>· {item}</li>
+            ))}
           </ul>
         </section>
       </div>
 
       <section className="mt-10">
-        <h2 className="text-lg font-semibold">채용 중인 포지션 {postings.length}개</h2>
+        <h2 className="text-lg font-semibold tracking-[-0.025em] text-ink">
+          채용 중인 포지션 {postings.length}개
+        </h2>
         <div className="mt-4 space-y-3">
           {postings.map((posting) => (
-            <Link key={posting.id} href={`/jobs/${posting.id}`} className="block rounded-2xl border border-black/10 p-5 transition hover:border-amber-400/70 dark:border-white/10">
+            <Link
+              key={posting.id}
+              href={`/jobs/${posting.id}`}
+              className="block rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-mute"
+            >
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h3 className="font-semibold">{posting.title}</h3>
-                  <p className="mt-1 text-xs opacity-50">{careerLabel(posting)} · {posting.location} · {WORK_MODE_LABEL[posting.workMode]}</p>
+                  <h3 className="text-[15px] font-semibold tracking-[-0.02em] text-ink">{posting.title}</h3>
+                  <p className="mt-1 text-[12px] text-mute">
+                    {careerLabel(posting)} · {posting.location} · {WORK_MODE_LABEL[posting.workMode]}
+                  </p>
                 </div>
-                <span className="shrink-0 text-xs opacity-45">{deadlineLabel(posting)}</span>
+                <span className="shrink-0 text-[12px] text-faint">{deadlineLabel(posting)}</span>
               </div>
             </Link>
           ))}
