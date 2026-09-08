@@ -43,9 +43,9 @@ export default function JobExplorer({
   const detail = picked ? jobDetailOf(picked, mySkills) : null;
 
   return (
-    <section className="mt-4 rounded-2xl border border-dashed border-black/12 p-5 dark:border-white/15">
-      <h3 className="text-sm font-medium">궁금한 직무가 따로 있나요?</h3>
-      <p className="mt-1 text-xs leading-relaxed opacity-55">
+    <section className="mt-4 rounded-xl border border-dashed border-hairline px-5 py-4">
+      <h3 className="text-[13px] font-medium text-ink">궁금한 직무가 따로 있나요?</h3>
+      <p className="mt-1 text-[12px] leading-[1.6] text-mute">
         위에 없는 직무를 골라도 지금 가진 역량으로 얼마나 채워지는지 볼 수 있어요.
       </p>
 
@@ -61,15 +61,15 @@ export default function JobExplorer({
           id="job-explorer"
           value={picked}
           onChange={(e) => setPicked(e.target.value)}
-          className="min-w-56 rounded-lg border border-black/12 bg-background px-3 py-2 text-sm text-foreground transition hover:border-black/25 dark:border-white/15 dark:hover:border-white/30"
+          className="min-w-56 rounded-md border border-hairline bg-elevated px-3 py-2 text-[13px] text-ink transition-colors hover:border-mute"
         >
-          <option value="" className="bg-background text-foreground">
+          <option value="" className="bg-elevated text-ink">
             직무를 골라 보세요
           </option>
           {groups.map(([family, jobs]) => (
-            <optgroup key={family} label={family} className="bg-background text-foreground">
+            <optgroup key={family} label={family} className="bg-elevated text-ink">
               {jobs.map((j) => (
-                <option key={j.id} value={j.title} className="bg-background text-foreground">
+                <option key={j.id} value={j.title} className="bg-elevated text-ink">
                   {j.title}
                 </option>
               ))}
@@ -81,7 +81,7 @@ export default function JobExplorer({
           <button
             type="button"
             onClick={() => setPicked('')}
-            className="rounded-lg px-2.5 py-2 text-xs opacity-55 transition hover:opacity-100"
+            className="rounded-md px-2.5 py-2 text-[12px] text-faint transition-colors hover:text-ink"
           >
             닫기
           </button>
@@ -89,16 +89,16 @@ export default function JobExplorer({
       </div>
 
       {detail && (
-        <div className="mt-5 border-t border-black/[0.07] pt-4 dark:border-white/[0.08]">
+        <div key={picked} className="animate-fade mt-5 border-t border-hairline pt-4">
           <div className="mb-3.5">
             <div className="flex items-baseline justify-between gap-3">
-              <h4 className="text-lg font-semibold leading-tight">{detail.title}</h4>
-              <span className="shrink-0 whitespace-nowrap text-xs opacity-60">
+              <h4 className="text-[19px] font-semibold leading-tight tracking-[-0.02em] text-ink">{detail.title}</h4>
+              <span className="shrink-0 whitespace-nowrap text-[12px] text-mute">
                 필수 {detail.mustTotal}개 중 {detail.mustHeld}개
               </span>
             </div>
             {detail.oneLiner && (
-              <p className="mt-1 text-sm leading-relaxed opacity-65">{detail.oneLiner}</p>
+              <p className="mt-1.5 text-[13px] leading-[1.6] text-body">{detail.oneLiner}</p>
             )}
           </div>
 

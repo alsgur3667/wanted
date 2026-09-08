@@ -134,3 +134,190 @@
    흰 글자와 겹쳐 아무것도 보이지 않는다. */
 :root { color-scheme: light; }
 .dark { color-scheme: dark; }
+
+/* ============================================================================
+   Geist 색 사다리 (Vercel 디자인 지침)
+
+   지금까지 opacity-45 · opacity-60 처럼 투명도로 위계를 만들었다.
+   그러면 배경색이 바뀔 때마다 실제 대비가 달라지고, 같은 "흐린 글씨"가
+   화면마다 다르게 보인다. 네 단계를 값으로 못 박는다.
+
+     ink    제목 · 강조        가장 진하다
+     body   본문 · 부가 설명
+     mute   캡션 · 메타데이터
+     faint  플레이스홀더 · 비활성   가장 흐리다
+
+   hairline 은 카드·입력·구분선의 1px 테두리다. 이 시스템의 구조를 만드는 선이라
+   그림자보다 먼저 쓴다.
+   ========================================================================== */
+:root {
+  --ink: #171717;
+  --body: #4d4d4d;
+  --mute: #8f8f8f;
+  --faint: #a1a1a1;
+  --hairline: #ebebeb;
+  --hairline-soft: #f2f2f2;
+  --canvas: #fafafa;
+  --elevated: #ffffff;
+
+  /* 의미색 — 지침의 semantic 팔레트.
+     Success 는 따로 두지 않고 link 가 겸한다("the blue doubles as the positive signal").
+     그래서 '보유함' 체크도 이 파랑을 쓴다. */
+  --link: #0070f3;
+  --link-deep: #0761d1;
+  --link-soft: #d3e5ff;
+  /* 지침의 warning-deep(#ab570a)은 갈색으로 읽혀 배지에 안 맞았다.
+     기준색 #f5a623 을 쓰되 밝은 바탕에서 글자로 쓰기엔 옅어, 글자만 한 단계 내린다. */
+  --warning: #b06f0a;
+  --warning-soft: #fff4dd;
+  --violet: #7928ca;
+  --error: #ee0000;
+}
+
+.dark {
+  --ink: #ededed;
+  --body: #a1a1a1;
+  --mute: #7d7d7d;
+  --faint: #5c5c5c;
+  --hairline: #1f1f1f;
+  --hairline-soft: #171717;
+  --canvas: #0a0a0a;
+  --elevated: #111111;
+
+  /* 어두운 바탕에서는 같은 값이 가라앉는다. 한 단계씩 밝힌다. */
+  --link: #3291ff;
+  --link-deep: #0070f3;
+  --link-soft: rgba(50, 145, 255, 0.14);
+  --warning: #f5a623;
+  --warning-soft: rgba(245, 166, 35, 0.12);
+  --violet: #a56bf0;
+  --error: #ff4d4d;
+}
+
+@theme inline {
+  --color-ink: var(--ink);
+  --color-body: var(--body);
+  --color-mute: var(--mute);
+  --color-faint: var(--faint);
+  --color-hairline: var(--hairline);
+  --color-hairline-soft: var(--hairline-soft);
+  --color-canvas: var(--canvas);
+  --color-elevated: var(--elevated);
+  --color-link: var(--link);
+  --color-link-deep: var(--link-deep);
+  --color-link-soft: var(--link-soft);
+  --color-warning: var(--warning);
+  --color-warning-soft: var(--warning-soft);
+  --color-violet: var(--violet);
+  --color-error: var(--error);
+}
+
+@layer base {
+  body {
+    background: var(--canvas);
+    color: var(--body);
+  }
+  /* 큰 글씨일수록 자간을 좁힌다 — Geist 의 서명 */
+  h1 { letter-spacing: -0.05em; }
+  h2 { letter-spacing: -0.04em; }
+  h3 { letter-spacing: -0.025em; }
+}
+
+/* ============================================================================
+   움직임
+
+   Geist 계열은 화려한 전환을 쓰지 않는다. 짧고, 한 방향이고, 감속으로 끝난다.
+   등장은 8px 아래에서 떠오르며 흐려짐이 걷히는 것 하나로 통일한다.
+
+   ⚠️ 높이 애니메이션에 max-height 를 쓰지 않는다. 실제 높이를 모르니
+      과하게 잡아야 하고, 그러면 닫힐 때 한참 기다렸다가 접힌다.
+      grid-template-rows 를 0fr → 1fr 로 바꾸면 브라우저가 실제 높이를 계산해
+      자바스크립트 없이도 정확히 움직인다.
+   ========================================================================== */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-rise { animation: rise 0.95s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.animate-fade { animation: fade 0.65s ease-out both; }
+
+/* 접힘·펼침 — 내용은 항상 그려 두고 높이만 바꾼다 */
+.collapsible {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 620ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.collapsible[data-open='true'] { grid-template-rows: 1fr; }
+.collapsible > * { overflow: hidden; }
+
+/* 움직임을 줄여 달라고 설정한 사용자에게는 전부 끈다 */
+@media (prefers-reduced-motion: reduce) {
+  .animate-rise,
+  .animate-fade { animation: none; }
+  .collapsible { transition: none; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* 분포도 — 축이 먼저 서고 점이 하나씩 찍힌다.
+   숫자가 한꺼번에 쏟아지면 어디를 볼지 알 수 없다. 왼쪽부터 순서대로 놓아
+   "여러 직무에 통할수록 오른쪽"이라는 가로축의 뜻이 움직임으로 전달되게 한다. */
+@keyframes plot {
+  from { opacity: 0; transform: scale(0.55); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+.plot-frame { animation: fade 600ms ease-out both; }
+
+.plot-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: plot 420ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.plot-label { animation: fade 400ms ease-out both; }
+
+/* 점에 마우스를 올리면 커지면서 이름이 뜬다.
+   점이 몰린 구간은 이름표를 다 붙일 수 없다 — 붙이면 서로 가려 못 읽는다.
+   그래서 기본은 몇 개만 붙여 두고, 나머지는 올려 보면 알 수 있게 한다.
+
+   ⚠️ 확대에 transform 을 쓰지 않는다. 등장 애니메이션이 이미 transform 을
+      쓰고 있어서(animation-fill-mode: both) 전환이 먹지 않는다.
+      SVG 의 r 속성은 CSS 로 전환할 수 있으므로 그걸 쓴다. */
+.dot { cursor: default; }
+
+.dot-core {
+  transition: r 240ms cubic-bezier(0.16, 1, 0.3, 1), fill-opacity 240ms ease-out;
+}
+.dot:hover .dot-core {
+  r: var(--r-hover);
+  fill-opacity: 0.95;
+}
+
+.dot-name {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease-out, font-size 200ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+.dot-name.is-pinned { opacity: 1; }
+.dot:hover .dot-name {
+  opacity: 1;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot-core, .dot-name { transition: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .plot-frame, .plot-dot, .plot-label { animation: none; }
+}

@@ -50,7 +50,7 @@ export async function GET(req: Request) {
         </div>
 
         <div style={{ display: 'flex', flex: 1, alignItems: 'center', gap: 56 }}>
-          <Num n={same.matches.length} label="직무명으로 검색" dim />
+          <Num n={same.matches.length} label="직무명으로 검색 " dim />
           {/* 화살표는 글자(→) 대신 SVG 로 그린다. 폰트에 글리프가 없으면 □ 로 깨진다 */}
           <div style={{ display: 'flex', paddingBottom: 34 }}>
             <svg width="72" height="30" viewBox="0 0 72 30">

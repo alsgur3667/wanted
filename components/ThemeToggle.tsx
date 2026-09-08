@@ -44,7 +44,7 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-lg border border-black/10 text-black/55 transition hover:text-black dark:border-white/15 dark:text-white/55 dark:hover:text-white"
+      className="grid size-9 place-items-center rounded-md border border-hairline bg-elevated text-mute transition-colors hover:text-ink"
     >
       {theme === null ? (
         <span className="size-4" />

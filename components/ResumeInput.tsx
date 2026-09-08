@@ -45,25 +45,25 @@ export default function ResumeInput({
   return (
     <div>
       <section>
-        <h2 className="text-sm font-medium opacity-70">예시로 바로 보기</h2>
+        <h2 className="text-[11px] font-medium uppercase tracking-wider text-faint">예시로 바로 보기</h2>
         <div className="mt-3 grid gap-2.5 sm:grid-cols-2">
           {SAMPLE_PROFILES.map((s) => (
             <button
               key={s.id}
               onClick={() => onResult(s.cachedResult)}
-              className="rounded-xl border border-black/10 p-3.5 text-left transition hover:border-amber-400/70 hover:bg-amber-400/[0.05] dark:border-white/12"
+              className="rounded-lg border border-hairline bg-elevated p-3.5 text-left transition-colors hover:border-link/50 hover:bg-link-soft"
             >
               <span className="block text-sm font-medium">{s.label}</span>
-              <span className="mt-1 block text-xs opacity-55">{s.hint}</span>
+              <span className="mt-1 block text-[12px] text-mute">{s.hint}</span>
             </button>
           ))}
         </div>
       </section>
 
       <section className="mt-10">
-        <h2 className="text-sm font-medium opacity-70">내 경험으로 보기</h2>
-        <p className="mt-1 text-xs leading-relaxed opacity-55">
-          경력이 없어도 괜찮아요. <strong className="font-medium opacity-80">팀 프로젝트 · 인턴 · 전공 수업 · 동아리</strong> 경험도 그대로 분석됩니다.
+        <h2 className="text-[11px] font-medium uppercase tracking-wider text-faint">내 경험으로 보기</h2>
+        <p className="mt-1 text-[12px] leading-[1.6] text-mute">
+          경력이 없어도 괜찮아요. <strong className="font-medium text-ink">팀 프로젝트 · 인턴 · 전공 수업 · 동아리</strong> 경험도 그대로 분석됩니다.
         </p>
         <textarea
           value={text}
@@ -71,14 +71,14 @@ export default function ResumeInput({
           rows={9}
           maxLength={INPUT_GUARD.maxChars}
           placeholder={'무엇을 해 봤는지 적어주세요. 직함보다 \u0027한 일\u0027이 중요합니다.\n\n예) 팀 프로젝트에서 기능 명세서를 작성해 개발 팀원과 조율했고,\n    이용자 12명을 인터뷰해 불편 지점을 정리했습니다.'}
-          className="mt-3 w-full resize-y rounded-xl border border-black/10 bg-transparent p-4 text-sm leading-relaxed outline-none transition placeholder:opacity-35 focus:border-amber-400/60 dark:border-white/12"
+          className="mt-3 w-full resize-y rounded-md border border-hairline bg-elevated p-4 text-[13px] leading-[1.7] text-ink outline-none transition-colors placeholder:text-faint focus:border-link"
         />
 
         <div className="mt-2 flex items-center justify-between text-xs">
-          <span className={tooShort ? 'text-rose-500' : 'opacity-45'}>
+          <span className={tooShort ? 'text-rose-500' : 'text-faint'}>
             {text.trim().length.toLocaleString()} / {INPUT_GUARD.minChars}~{INPUT_GUARD.maxChars.toLocaleString()}자
           </span>
-          <span className="opacity-45">서버·DB에는 저장하지 않습니다</span>
+          <span className="text-faint">서버·DB에는 저장하지 않습니다</span>
         </div>
 
         {error && <p className="mt-3 text-xs text-rose-500">{error}</p>}
@@ -86,7 +86,7 @@ export default function ResumeInput({
         <button
           onClick={analyze}
           disabled={loading}
-          className="mt-5 w-full rounded-xl bg-amber-400 px-5 py-3.5 text-sm font-semibold text-black transition hover:bg-amber-300 disabled:opacity-45"
+          className="mt-5 w-full rounded-full bg-ink px-5 py-3.5 text-[15px] font-medium text-canvas transition-opacity hover:opacity-85 disabled:opacity-40"
         >
           {loading ? '분석하는 중…' : '경로 찾기'}
         </button>

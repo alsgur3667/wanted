@@ -12,7 +12,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
       className={`rounded-2xl border p-5 transition ${
         route.isHiddenRoute
           ? 'border-amber-400/60 bg-amber-400/[0.06]'
-          : 'border-black/10 dark:border-white/10'
+          : 'border-hairline'
       }`}
     >
       <header className="flex items-start justify-between gap-3">
@@ -33,7 +33,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
           {(route.salaryBand || route.prospect) && (
             <p className="mt-1 flex flex-wrap items-center gap-1.5 text-[11px]">
               {route.salaryBand && (
-                <span className="rounded bg-black/[0.06] px-1.5 py-0.5 tabular-nums dark:bg-white/10">
+                <span className="rounded bg-hairline-soft px-1.5 py-0.5 tabular-nums dark:bg-white/10">
                   연봉 {route.salaryBand}
                 </span>
               )}
@@ -45,7 +45,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
                       ? 'bg-emerald-500/15 text-emerald-700 dark:text-emerald-300'
                       : route.prospect.includes('감소')
                         ? 'bg-rose-500/15 text-rose-700 dark:text-rose-300'
-                        : 'bg-black/[0.06] dark:bg-white/10')
+                        : 'bg-hairline-soft dark:bg-white/10')
                   }
                 >
                   전망 {route.prospect}
@@ -88,8 +88,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
       </section>
 
       {/*
-        요구 역량 전부를 펼쳐 볼 수 있게 한다.
-        "8가지 중 5가지"라는 숫자만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
+        요구 역량 전부를 펼쳐 볼 수 있게 한다."8가지 중 5가지 "라는 숫자만 보여주면 무엇이 8개고 무엇을 갖췄는지 확인할 수 없다.
         대체재로 충족한 것은 어느 묶음으로 충족했는지 함께 적는다 —
         iOS 개발자가 Kotlin 을 안 가졌는데 충족으로 나오면 그 이유가 보여야 한다.
       */}
@@ -157,7 +156,7 @@ export default function RouteCard({ route, rank }: { route: Route; rank: number 
       </section>
 
       {route.marketNote && (
-        <p className="mt-4 border-t border-black/5 pt-3 text-xs opacity-55 dark:border-white/5">
+        <p className="mt-4 border-t border-hairline pt-3 text-xs opacity-55">
           {route.marketNote}
         </p>
       )}

@@ -29,45 +29,50 @@ export default function ResultView({
 
   return (
     <div>
-      <section className="rounded-2xl border border-black/10 p-5 dark:border-white/10">
+      <section className="animate-rise rounded-xl border border-hairline bg-elevated px-5 py-4">
         <div className="flex items-start justify-between gap-3">
           <div>
-            <h2 className="text-xs font-medium opacity-50">현재 위치</h2>
-            <p className="mt-2 text-lg font-semibold">
+            <h2 className="text-[11px] font-medium uppercase tracking-wider text-faint">현재 위치</h2>
+            <p className="mt-2 text-[19px] font-semibold tracking-[-0.02em] text-ink">
               {currentPosition.jobTitle}
-              <span className="ml-2 text-sm font-normal opacity-55">
+              <span className="ml-2 text-[13px] font-normal text-mute">
                 {isNewcomer(currentPosition.careerMonths)
                   ? '신입'
                   : `${Math.floor(currentPosition.careerMonths / 12)}년차`}
                 {currentPosition.industry && ` · ${currentPosition.industry}`}
               </span>
             </p>
-            <p className="mt-1.5 text-sm opacity-75">{currentPosition.summary}</p>
+            <p className="mt-2 text-[13px] leading-[1.6] text-body">{currentPosition.summary}</p>
           </div>
           <button
             onClick={onReset}
-            className="shrink-0 rounded-lg border border-black/10 px-3 py-1.5 text-xs opacity-70 transition hover:opacity-100 dark:border-white/15"
+            className="shrink-0 rounded-md border border-hairline px-3 py-1.5 text-[12px] text-body transition-colors hover:text-ink"
           >
             다시 하기
           </button>
         </div>
       </section>
 
+      {/* 위에서부터 차례로 떠오른다. 한꺼번에 나타나면 어디를 볼지 알 수 없다. */}
       <section className="mt-12">
         <div className="space-y-3">
-          {routes.map((r) => (
-            <RouteAccordion key={r.id} route={r} mySkills={skills} />
+          {routes.map((r, i) => (
+            <div key={r.id} className="animate-rise" style={{ animationDelay: `${150 + i * 170}ms` }}>
+              <RouteAccordion route={r} mySkills={skills} />
+            </div>
           ))}
         </div>
 
-        <div className="mt-4">
+        <div className="animate-rise mt-4" style={{ animationDelay: `${150 + routes.length * 170}ms` }}>
           <RankingTable routes={routes} mySkills={skills} />
         </div>
 
-        <JobExplorer mySkills={skills} shownJobTitles={routes.map((r) => r.destination)} />
+        <div className="animate-rise" style={{ animationDelay: `${320 + routes.length * 170}ms` }}>
+          <JobExplorer mySkills={skills} shownJobTitles={routes.map((r) => r.destination)} />
+        </div>
       </section>
 
-      <section className="mt-14">
+      <section className="animate-rise mt-14" style={{ animationDelay: `${490 + routes.length * 170}ms` }}>
         <SkillGroups skills={skills} />
       </section>
 

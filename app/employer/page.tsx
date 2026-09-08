@@ -36,19 +36,19 @@ export default function EmployerPage() {
   return (
     <main className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
       <header>
-        <Link href="/" className="text-xs opacity-45 transition hover:opacity-90">← 커리어 내비</Link>
+        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← 커리어 내비</Link>
         <h1 className="mt-3 text-2xl font-bold leading-snug sm:text-3xl">
           직무명으로는 보이지 않는
           <br />
           지원자를 찾습니다.
         </h1>
-        <p className="mt-3 text-sm leading-relaxed opacity-60">
+        <p className="mt-3 text-sm leading-relaxed text-mute">
           직무명이 아니라 역량으로 매칭합니다. 같은 일을 해 왔지만 직함이 다른 사람이 드러납니다.
         </p>
       </header>
 
       <section className="mt-10">
-        <label className="text-xs font-medium opacity-55">채용 직무</label>
+        <label className="text-xs font-medium text-mute">채용 직무</label>
         <div className="mt-2 flex flex-wrap gap-2">
           {JOB_REQUIREMENTS.map((j) => (
             <button
@@ -56,8 +56,8 @@ export default function EmployerPage() {
               onClick={() => setJobId(j.id)}
               className={`rounded-xl border px-4 py-2.5 text-sm transition ${
                 j.id === jobId
-                  ? 'border-amber-400 bg-amber-400/10 font-medium'
-                  : 'border-black/10 opacity-70 hover:opacity-100 dark:border-white/12'
+                  ? 'border-ink bg-hairline-soft font-medium text-ink'
+                  : 'border-hairline text-body hover:text-ink '
               }`}
             >
               {j.title}
@@ -65,21 +65,21 @@ export default function EmployerPage() {
           ))}
         </div>
 
-        <div className="mt-4 rounded-xl border border-black/10 p-4 text-xs dark:border-white/10">
+        <div className="mt-4 rounded-xl border border-hairline p-4 text-xs">
           <p>
-            <span className="opacity-50">필수</span>{' '}
+            <span className="text-mute">필수</span>{' '}
             <span className="font-medium">{req.mustSkills.join(' · ')}</span>
           </p>
           <p className="mt-1.5">
-            <span className="opacity-50">우대</span>{' '}
-            <span className="opacity-75">{req.niceSkills.join(' · ')}</span>
+            <span className="text-mute">우대</span>{' '}
+            <span className="text-body">{req.niceSkills.join(' · ')}</span>
           </p>
         </div>
       </section>
 
       <section className="mt-6">
-        <span className="text-xs font-medium opacity-55">경력 구분</span>
-        <div className="mt-2 inline-flex rounded-xl border border-black/10 p-1 dark:border-white/12">
+        <span className="text-xs font-medium text-mute">경력 구분</span>
+        <div className="mt-2 inline-flex rounded-xl border border-hairline p-1">
           {([
             ['all', '전체'],
             ['exp', '경력'],
@@ -89,7 +89,7 @@ export default function EmployerPage() {
               key={v}
               onClick={() => setSeniority(v)}
               className={`rounded-lg px-4 py-1.5 text-sm transition ${
-                seniority === v ? 'bg-amber-400/15 font-medium text-amber-700 dark:text-amber-300' : 'opacity-60 hover:opacity-100'
+                seniority === v ? 'bg-ink font-medium text-canvas' : 'text-mute hover:text-ink'
               }`}
             >
               {label}
@@ -99,19 +99,19 @@ export default function EmployerPage() {
       </section>
 
       <section className="mt-4">
-        <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-black/10 p-4 dark:border-white/10">
+        <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-hairline p-4">
           <input
             type="checkbox"
             checked={includeDifferentRole}
             onChange={(e) => setIncludeDifferentRole(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-amber-400"
+            className="mt-0.5 h-4 w-4 accent-[var(--link)]"
           />
           <span className="text-sm">
             직무명이 다른 후보도 포함
-            <span className="mt-1 block text-xs opacity-55">
+            <span className="mt-1 block text-xs text-mute">
               끄면 {sameRoleCount}명, 켜면 {sameRoleCount + hiddenCount}명
               {hiddenCount > 0 && (
-                <> · 직무명 검색으로는 <strong className="font-medium opacity-100">{hiddenCount}명을 놓칩니다</strong></>
+                <> · 직무명 검색으로는 <strong className="font-medium text-ink">{hiddenCount}명을 놓칩니다</strong></>
               )}
             </span>
           </span>
@@ -121,7 +121,7 @@ export default function EmployerPage() {
       <section className="mt-8">
         <div className="flex items-baseline justify-between">
           <h2 className="text-lg font-semibold">적합도 순 {result.matches.length}명</h2>
-          <span className="text-xs opacity-45">필수 3 : 우대 1 가중</span>
+          <span className="text-xs text-faint">필수 3 : 우대 1 가중</span>
         </div>
         <div className="mt-5 space-y-4">
           {result.matches.map((m, i) => (
@@ -134,14 +134,14 @@ export default function EmployerPage() {
             />
           ))}
           {result.matches.length === 0 && (
-            <p className="rounded-xl border border-black/10 p-8 text-center text-sm opacity-50 dark:border-white/10">
+            <p className="rounded-xl border border-hairline p-8 text-center text-sm text-mute">
               조건에 맞는 지원자가 없습니다.
             </p>
           )}
         </div>
       </section>
 
-      <footer className="mt-16 border-t border-black/5 pt-6 text-xs leading-relaxed opacity-45 dark:border-white/5">
+      <footer className="mt-16 border-t border-hairline pt-6 text-xs leading-relaxed text-faint">
         표시된 지원자는 실제 인물이 아닌 <strong className="font-medium">샘플 데이터</strong>입니다.
         실제 서비스에서는 지원자가 공개에 동의한 항목만 노출됩니다.
         <br />

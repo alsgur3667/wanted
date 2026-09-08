@@ -21,7 +21,7 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
   if (!hidden) return null;
 
   // 적합도(0~100) 대신 셀 수 있는 사실을 싣는다 — 이슈 #28 참고.
-  const detail = jobDetailOf(hidden.destination, result.skills);
+  const detail = jobDetailOf(hidden.destination, result.skills, hidden.requirements);
   const mustHeld = detail?.mustHeld ?? hidden.bridgeSkills.length;
   const mustTotal = detail?.mustTotal ?? hidden.bridgeSkills.length + hidden.gapSkills.length;
 
@@ -53,28 +53,28 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
   }
 
   return (
-    <section className="mt-12 rounded-2xl border border-black/10 p-5 dark:border-white/10">
-      <h3 className="text-sm font-medium">결과 공유하기</h3>
-      <p className="mt-1 text-xs leading-relaxed opacity-55">
+    <section className="mt-12 rounded-xl border border-hairline bg-elevated px-5 py-4">
+      <h3 className="text-[13px] font-medium text-ink">결과 공유하기</h3>
+      <p className="mt-1 text-[12px] leading-[1.6] text-mute">
         이미지에는 직무명과 역량만 들어갑니다. 입력한 이력서 내용은 포함되지 않습니다.
       </p>
 
-      <div className="mt-4 overflow-hidden rounded-xl border border-black/10 dark:border-white/10">
+      <div className="mt-4 overflow-hidden rounded-lg border border-hairline">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img src={imageUrl} alt="공유 카드 미리보기" className="w-full" />
+        <img src={imageUrl} alt="공유 카드 미리보기 " className="w-full" />
       </div>
 
       <div className="mt-4 flex flex-wrap gap-2">
         <a
           href={imageUrl}
           download="career-navi.png"
-          className="rounded-xl bg-amber-400 px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-amber-300"
+          className="rounded-full bg-ink px-4 py-2.5 text-[14px] font-medium text-canvas transition-opacity hover:opacity-85"
         >
           이미지 저장
         </a>
         <button
           onClick={copy}
-          className="rounded-xl border border-black/12 px-4 py-2.5 text-sm transition hover:bg-black/[0.03] dark:border-white/15 dark:hover:bg-white/[0.05]"
+          className="rounded-full border border-hairline bg-elevated px-4 py-2.5 text-[14px] text-ink transition-colors hover:border-mute"
         >
           {copied ? '복사됨' : '공유 문구 복사'}
         </button>

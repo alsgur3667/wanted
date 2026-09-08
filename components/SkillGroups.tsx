@@ -23,19 +23,19 @@ const GROUPS: { key: Quadrant; label: string; hint: string; tone: string }[] = [
     key: 'leverage',
     label: '어디서나 통하는 무기',
     hint: '여러 직군이 요구하는데, 갖춘 사람은 적어요',
-    tone: 'bg-amber-400/15 text-amber-700 dark:text-amber-300',
+    tone: 'border-warning/35 bg-warning-soft text-warning',
   },
   {
     key: 'lockin',
     label: '지금 자리에서 강한 것',
     hint: '이 직군에선 핵심인데, 밖에선 덜 쓰여요',
-    tone: 'bg-black/[0.05] dark:bg-white/[0.09]',
+    tone: 'border-hairline bg-elevated text-ink',
   },
   {
     key: 'common',
     label: '기본기',
     hint: '대부분의 직무가 기본으로 봐요',
-    tone: 'bg-black/[0.035] opacity-75 dark:bg-white/[0.06]',
+    tone: 'border-hairline bg-hairline-soft text-mute',
   },
 ];
 
@@ -49,13 +49,17 @@ function Group({ label, hint, tone, skills }: { label: string; hint: string; ton
   return (
     <div>
       <div className="flex items-baseline gap-2">
-        <h3 className="text-[15px] font-medium">{label}</h3>
-        <span className="text-xs opacity-40">{skills.length}가지</span>
+        <h3 className="text-[15px] font-medium tracking-[-0.015em] text-ink">{label}</h3>
+        <span className="text-[12px] tabular-nums text-faint">{skills.length}가지</span>
       </div>
-      <p className="mt-0.5 text-xs opacity-55">{hint}</p>
-      <ul className="mt-2 flex flex-wrap gap-1.5">
+      <p className="mt-1 text-[12px] text-mute">{hint}</p>
+      <ul className="mt-2.5 flex flex-wrap gap-1.5">
         {shown.map((s) => (
-          <li key={s.id} title={s.evidence} className={`rounded-full px-2.5 py-1 text-xs ${tone}`}>
+          <li
+            key={s.id}
+            title={s.evidence}
+            className={`rounded-md border px-2.5 py-1 text-[12px] ${tone}`}
+          >
             {s.name}
           </li>
         ))}
@@ -64,7 +68,7 @@ function Group({ label, hint, tone, skills }: { label: string; hint: string; ton
             <button
               type="button"
               onClick={() => setAll(true)}
-              className="rounded-full px-2 py-1 text-xs opacity-50 transition hover:opacity-90"
+              className="rounded-md px-2 py-1 text-[12px] text-faint transition-colors hover:text-ink"
             >
               +{rest}개 더
             </button>
@@ -85,16 +89,16 @@ export default function SkillGroups({ skills }: { skills: Skill[] }) {
 
   return (
     <section>
-      <h2 className="text-lg font-semibold">내 역량</h2>
-      <p className="mt-1 text-sm opacity-60">
+      <h2 className="text-[20px] font-semibold tracking-[-0.025em] text-ink">내 역량</h2>
+      <p className="mt-1.5 text-[13px] text-body">
         이력서에서 찾은 {skills.length}가지를 쓰임새로 묶었어요.
       </p>
 
-      <div className="mt-5 space-y-5">
+      <div className="mt-6 space-y-6">
         {noLeverage && (
-          <p className="rounded-xl border border-dashed border-black/12 p-3.5 text-xs leading-relaxed opacity-65 dark:border-white/15">
-            아직 직군을 넘나드는 무기는 안 보여요. 아래 경로의 <strong className="font-medium">첫 단계</strong>부터
-            하나씩 채우면 생깁니다.
+          <p className="rounded-md border border-hairline bg-hairline-soft px-3.5 py-3 text-[12px] leading-[1.6] text-body">
+            아직 직군을 넘나드는 무기는 안 보여요. 위 경로의{' '}
+            <strong className="font-medium text-ink">첫 단계</strong>부터 하나씩 채우면 생깁니다.
           </p>
         )}
         {grouped.map((g) => (
@@ -102,26 +106,33 @@ export default function SkillGroups({ skills }: { skills: Skill[] }) {
         ))}
       </div>
 
-      <div className="mt-6 border-t border-black/[0.07] pt-3 dark:border-white/[0.08]">
+      <div className="mt-7 border-t border-hairline pt-3.5">
         <button
           type="button"
           onClick={() => setMapOpen((v) => !v)}
           aria-expanded={mapOpen}
-          className="flex items-center gap-1.5 text-xs opacity-55 transition hover:opacity-95"
+          className="flex items-center gap-1.5 text-[12px] text-mute transition-colors hover:text-ink"
         >
-          <span aria-hidden className={`transition-transform ${mapOpen ? 'rotate-180' : ''}`}>▼</span>
+          <span aria-hidden className={`text-[10px] transition-transform duration-[620ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${mapOpen ? 'rotate-180' : ''}`}>
+            ▼
+          </span>
           분포도로 보기
         </button>
-        {mapOpen && (
-          <div className="mt-4">
-            <p className="mb-3 text-xs leading-relaxed opacity-55">
-              오른쪽 위로 갈수록{' '}
-              <strong className="font-medium opacity-90">여러 직무에 통하면서 학습 난이도가 높은</strong>{' '}
-              역량입니다. 세로축은 데이터 기반 추정치입니다.
-            </p>
-            <SkillMap skills={skills} />
+        <div className="collapsible" data-open={mapOpen}>
+          <div>
+            <div className="pt-4">
+              <p className="mb-3 text-[12px] leading-[1.6] text-mute">
+                오른쪽 위로 갈수록{' '}
+                <strong className="font-medium text-ink">여러 직무에 통하면서 학습 난이도가 높은</strong>{' '}
+                역량입니다. 세로축은 데이터 기반 추정치입니다.
+              </p>
+              {/* key 로 다시 마운트해 점 찍히는 애니메이션을 매번 재생한다.
+                  내용이 항상 그려져 있어(접힘 애니메이션 때문) 그냥 두면
+                  페이지가 뜰 때 보이지 않는 곳에서 이미 다 찍혀 버린다. */}
+              <SkillMap key={mapOpen ? 'open' : 'closed'} skills={skills} />
+            </div>
           </div>
-        )}
+        </div>
       </div>
     </section>
   );

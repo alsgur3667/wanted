@@ -12,17 +12,17 @@ function Card({
   return (
     <Link
       href={href}
-      className={`group flex flex-col rounded-2xl border p-6 transition hover:-translate-y-0.5 ${
+      className={`group flex flex-col rounded-xl border p-6 transition hover:-translate-y-0.5 ${
         accent
-          ? 'border-amber-400/50 bg-amber-400/[0.05] hover:border-amber-400'
-          : 'border-black/10 hover:border-black/25 dark:border-white/12 dark:hover:border-white/30'
+          ? 'border-warning/45 hover:border-warning'
+          : 'border-hairline hover:border-hairline '
       }`}
     >
-      <span className="text-xs font-medium opacity-50">{tag}</span>
+      <span className="text-xs font-medium text-mute">{tag}</span>
       <h2 className="mt-2 text-xl font-bold leading-snug">{title}</h2>
-      <p className="mt-2 text-sm leading-relaxed opacity-65">{lines}</p>
+      <p className="mt-2 text-sm leading-relaxed text-mute">{lines}</p>
 
-      <div className="mt-5 flex-1 rounded-xl bg-black/[0.03] p-4 dark:bg-white/[0.04]">{sample}</div>
+      <div className="mt-5 flex-1 rounded-lg border border-hairline bg-hairline-soft p-4">{sample}</div>
 
       <span className="mt-5 inline-flex items-center gap-1.5 text-sm font-medium">
         시작하기
@@ -36,13 +36,13 @@ export default function Landing() {
   return (
     <main className="mx-auto flex min-h-screen max-w-4xl flex-col justify-center px-5 py-14">
       <header>
-        <p className="text-xs font-medium tracking-wide opacity-50">커리어 내비</p>
+        <p className="text-xs font-medium tracking-wide text-mute">커리어 내비</p>
         <h1 className="mt-2.5 text-3xl font-bold leading-snug sm:text-4xl">
-          직무명이 아니라 <span className="text-amber-500 dark:text-amber-400">역량</span>으로
+          직무명이 아니라 <span className="text-link">역량</span>으로
           <br />
           연결합니다.
         </h1>
-        <p className="mt-4 max-w-xl text-sm leading-relaxed opacity-65">
+        <p className="mt-4 max-w-xl text-sm leading-relaxed text-mute">
           같은 일을 해 왔지만 직함이 달라 서로를 못 찾는 경우가 많습니다.
           공공 직업 데이터를 기반으로 가진 역량을 해석해, 양쪽에서 놓치던 연결을 찾아냅니다.
         </p>
@@ -57,13 +57,13 @@ export default function Landing() {
           accent={false}
           sample={
             <ul className="space-y-2 text-xs">
-              <li className="flex items-center justify-between"><span className="opacity-60">프로덕트 매니저</span><span className="font-semibold tabular-nums">84</span></li>
-              <li className="flex items-center justify-between"><span className="opacity-60">데이터 분석가</span><span className="font-semibold tabular-nums">76</span></li>
-              <li className="flex items-center justify-between rounded-md bg-amber-400/15 px-2 py-1">
-                <span className="font-medium text-amber-700 dark:text-amber-300">고객 성공 매니저</span>
+              <li className="flex items-center justify-between"><span className="text-mute">프로덕트 매니저</span><span className="font-semibold tabular-nums">84</span></li>
+              <li className="flex items-center justify-between"><span className="text-mute">데이터 분석가</span><span className="font-semibold tabular-nums">76</span></li>
+              <li className="flex items-center justify-between rounded-md border border-warning/30 bg-warning-soft px-2 py-1">
+                <span className="font-medium text-warning">고객 성공 매니저</span>
                 <span className="font-semibold tabular-nums">71</span>
               </li>
-              <li className="pt-0.5 text-[11px] opacity-45">↑ 몰랐던 경로</li>
+              <li className="pt-0.5 text-[11px] text-faint">↑ 몰랐던 경로</li>
             </ul>
           }
         />
@@ -76,22 +76,22 @@ export default function Landing() {
           accent
           sample={
             <ul className="space-y-2 text-xs">
-              <li className="flex items-center justify-between"><span className="opacity-60">프로덕트 매니저 3년차</span><span className="font-semibold tabular-nums">73</span></li>
-              <li className="flex items-center justify-between rounded-md bg-amber-400/15 px-2 py-1">
-                <span className="font-medium text-amber-700 dark:text-amber-300">IT QA 엔지니어</span>
+              <li className="flex items-center justify-between"><span className="text-mute">프로덕트 매니저 3년차</span><span className="font-semibold tabular-nums">73</span></li>
+              <li className="flex items-center justify-between rounded-md border border-warning/30 bg-warning-soft px-2 py-1">
+                <span className="font-medium text-warning">IT QA 엔지니어</span>
                 <span className="font-semibold tabular-nums">56</span>
               </li>
-              <li className="flex items-center justify-between rounded-md bg-amber-400/15 px-2 py-1">
-                <span className="font-medium text-amber-700 dark:text-amber-300">그로스 마케터</span>
+              <li className="flex items-center justify-between rounded-md border border-warning/30 bg-warning-soft px-2 py-1">
+                <span className="font-medium text-warning">그로스 마케터</span>
                 <span className="font-semibold tabular-nums">54</span>
               </li>
-              <li className="pt-0.5 text-[11px] opacity-45">↑ 직무명 검색으로는 놓치는 후보</li>
+              <li className="pt-0.5 text-[11px] text-faint">↑ 직무명 검색으로는 놓치는 후보</li>
             </ul>
           }
         />
       </div>
 
-      <p className="mt-8 text-center text-xs leading-relaxed opacity-45">
+      <p className="mt-8 text-center text-xs leading-relaxed text-faint">
         같은 역량 매칭 엔진이 양방향으로 동작합니다 · 원티드 AI Championship 2026
       </p>
     </main>

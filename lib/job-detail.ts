@@ -10,7 +10,7 @@ import {
   type SkillRow,
 } from '@/lib/skill-index';
 import oneLinersRaw from '@/data/job-oneliners.json';
-import type { Skill } from '@/types';
+import type { RouteRequirement, Skill } from '@/types';
 
 // ============================================================================
 //  직무 상세 — "이 직무에 필요한 것"을 화면이 그릴 수 있는 형태로 편다.
@@ -91,7 +91,19 @@ const MAX_PER_COLUMN = 8;
 /** 표본이 이보다 얇으면 화면에 낮은 확신을 표시한다 */
 export const LOW_CONFIDENCE = 0.8;
 
-export function jobDetailOf(destination: string, mySkills: Skill[]): JobDetail | null {
+/**
+ * @param routeReqs  경로가 실어 온 요구 역량(Route.requirements).
+ *   ⚠️ 주어지면 이쪽을 진실로 삼는다.
+ *   점수를 낸 쪽(lib/scoring.ts)이 무엇을 필수로 보고 무엇을 갖춘 것으로 쳤는지를
+ *   그대로 담고 있어서, 화면이 따로 세면 점수와 어긋난다. 실제로 예전에
+ *   "필수 5개 중 2개"라는데 옆의 '이미 가진 무기'에는 3개가 뜨는 일이 있었다.
+ *   추천 경로가 아닌 직무(직접 고른 경우)에는 없으므로 그때만 매트릭스에서 센다.
+ */
+export function jobDetailOf(
+  destination: string,
+  mySkills: Skill[],
+  routeReqs?: RouteRequirement[]
+): JobDetail | null {
   const job = byTitle.get(destination);
   if (!job) return null;
 
@@ -111,24 +123,33 @@ export function jobDetailOf(destination: string, mySkills: Skill[]): JobDetail |
   // 택일 관계 — iOS 개발자가 Kotlin 을 안 가진 것은 결함이 아니라 다른 길이다
   const coveredIds = new Set(satisfied([...mustSet, ...niceSet], haveIds).covered);
 
+  // 경로가 실어 온 판정이 있으면 그것으로 덮어쓴다
+  const byName = new Map(routeReqs?.map((r) => [r.name, r]) ?? []);
+
   const rows: RequirementRow[] = [];
   for (const r of jobRows) {
     const skill = getSkill(r.skillId);
     if (!skill) continue;
+    const fromRoute = byName.get(skill.name);
     const evidence = heldByName.get(skill.name);
-    const held = evidence !== undefined;
-    const substituted = !held && coveredIds.has(r.skillId);
-    const groupKey = substituted ? groupOf(r.skillId) : undefined;
+
+    const held = fromRoute ? fromRoute.met && !fromRoute.viaGroup : evidence !== undefined;
+    const via = fromRoute
+      ? fromRoute.viaGroup
+      : !held && coveredIds.has(r.skillId)
+        ? (groupLabelOf(groupOf(r.skillId) ?? '') ?? undefined)
+        : undefined;
+
     rows.push({
       skillId: r.skillId,
       name: skill.name,
       kind: kindOf(skill),
-      isMust: mustSet.has(r.skillId),
+      isMust: fromRoute ? fromRoute.tier === 'required' : mustSet.has(r.skillId),
       docFreq: r.docFreq ?? 0,
       held,
-      evidence,
-      coveredVia: groupKey ? (groupLabelOf(groupKey) ?? undefined) : undefined,
-      firstStep: held || substituted ? undefined : skill.firstStep,
+      evidence: held ? evidence : undefined,
+      coveredVia: via,
+      firstStep: held || via ? undefined : skill.firstStep,
     });
   }
 
@@ -136,8 +157,14 @@ export function jobDetailOf(destination: string, mySkills: Skill[]): JobDetail |
   const order = (a: RequirementRow, b: RequirementRow) =>
     Number(b.isMust) - Number(a.isMust) || b.docFreq - a.docFreq;
 
-  const countHeld = (ids: Set<string>) =>
-    [...ids].filter((id) => coveredIds.has(id)).length;
+  const countHeld = (ids: Set<string>) => [...ids].filter((id) => coveredIds.has(id)).length;
+
+  const tally = (tier: 'required' | 'preferred') => {
+    const list = routeReqs!.filter((r) => r.tier === tier);
+    return { total: list.length, held: list.filter((r) => r.met).length };
+  };
+  const mustTally = routeReqs ? tally('required') : { total: must.length, held: countHeld(mustSet) };
+  const niceTally = routeReqs ? tally('preferred') : { total: nice.length, held: countHeld(niceSet) };
 
   return {
     jobId: job.id,
@@ -148,9 +175,9 @@ export function jobDetailOf(destination: string, mySkills: Skill[]): JobDetail |
     confidence: confidenceOf(job.id),
     work: rows.filter((r) => r.kind === 'work').sort(order).slice(0, MAX_PER_COLUMN),
     tools: rows.filter((r) => r.kind === 'tool').sort(order).slice(0, MAX_PER_COLUMN),
-    mustHeld: countHeld(mustSet),
-    mustTotal: must.length,
-    niceHeld: countHeld(niceSet),
-    niceTotal: nice.length,
+    mustHeld: mustTally.held,
+    mustTotal: mustTally.total,
+    niceHeld: niceTally.held,
+    niceTotal: niceTally.total,
   };
 }
