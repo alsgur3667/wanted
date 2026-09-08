@@ -202,6 +202,8 @@ uv run python scripts/collect/eval_routes.py
 | | |
 |---|---|
 | [**FUNCTIONAL_SPEC**](./docs/FUNCTIONAL_SPEC.md) | 현재 구현된 화면·API·점수·저장 범위와 알려진 제약 |
+| [**FUNCTIONAL_SPEC_BRIEF**](./docs/FUNCTIONAL_SPEC_BRIEF.md) | 강사 설명용 기능 명세 요약과 시연 순서 |
+| [**FUNCTIONAL_SPEC_PDF**](./output/pdf/CAREER_NAVI_FUNCTIONAL_SPEC.pdf) | 강사에게 보여주기 위한 7쪽 기능 명세 요약 PDF |
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
