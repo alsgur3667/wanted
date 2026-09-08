@@ -41,8 +41,9 @@ export function matchCandidate(req: JobRequirement, c: Candidate): CandidateMatc
   const mustCov = req.mustSkills.length ? mustHit.length / req.mustSkills.length : 0;
   const niceCov = req.niceSkills.length ? niceHit.length / req.niceSkills.length : 0;
 
+  const activeNiceWeight = req.niceSkills.length ? NICE_WEIGHT : 0;
   const fitScore = Math.round(
-    (100 * (mustCov * MUST_WEIGHT + niceCov * NICE_WEIGHT)) / (MUST_WEIGHT + NICE_WEIGHT)
+    (100 * (mustCov * MUST_WEIGHT + niceCov * activeNiceWeight)) / (MUST_WEIGHT + activeNiceWeight)
   );
 
   const gapSkills = req.mustSkills.filter((s) => !has.has(s)).map(toGap);

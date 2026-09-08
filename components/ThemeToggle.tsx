@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState, useSyncExternalStore } from 'react';
 import { Moon, Sun } from 'lucide-react';
 
 // ============================================================================
@@ -15,14 +15,14 @@ import { Moon, Sun } from 'lucide-react';
 // ============================================================================
 
 type Theme = 'light' | 'dark';
+const subscribeToHydration = () => () => {};
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme | null>(null);
-
-  useEffect(() => {
-    const root = document.documentElement;
-    setTheme(root.classList.contains('dark') ? 'dark' : 'light');
-  }, []);
+  const hydrated = useSyncExternalStore(subscribeToHydration, () => true, () => false);
+  const [selectedTheme, setSelectedTheme] = useState<Theme | null>(null);
+  const theme = selectedTheme ?? (hydrated
+    ? document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    : null);
 
   function toggle() {
     const next: Theme = theme === 'dark' ? 'light' : 'dark';
@@ -32,7 +32,7 @@ export default function ThemeToggle() {
     } catch {
       /* 저장이 막힌 환경 — 이번 세션에만 적용된다 */
     }
-    setTheme(next);
+    setSelectedTheme(next);
   }
 
   // 마운트 전에는 아이콘을 정하지 않는다. 서버가 그린 것과 어긋나면 경고가 난다.

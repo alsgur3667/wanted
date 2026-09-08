@@ -21,4 +21,9 @@ describe('채용 직무명 필터', () => {
     const result = buildEmployerResult(requirement, candidates, { includeDifferentRole: false });
     expect(result.matches.map((m) => m.candidate.id)).toEqual(['same']);
   });
+
+  it('우대 역량이 비어 있어도 필수 역량을 모두 가지면 100점이다', () => {
+    const result = buildEmployerResult(requirement, candidates, { includeDifferentRole: true });
+    expect(result.matches[0].fitScore).toBe(100);
+  });
 });
