@@ -138,7 +138,7 @@ export interface AnalyzeRequest {
 }
 
 export type ErrorCode =
-  | 'TOO_SHORT'    // 이력서가 너무 짧음 (< 200자)
+  | 'TOO_SHORT'    // 이력서가 너무 짧음 (< 120자)
   | 'RATE_LIMIT'   // 일일 호출 상한 도달
   | 'LLM_FAILED'   // 추출 실패 / JSON 파싱 실패
   | 'UNKNOWN';

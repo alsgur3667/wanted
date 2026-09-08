@@ -115,7 +115,7 @@ npm run validate:demo-data
 # 가상 회사·공고의 참조와 표시 규칙 검증
 ```
 
-📄 [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+📄 [현재 기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
 
 ---
 
@@ -168,6 +168,7 @@ Anthropic 키를 설정해야 합니다.
 | `ANTHROPIC_API_KEY` | Anthropic 이력서 추출 |
 | `ANTHROPIC_MODEL` | Anthropic 모델명 (선택) |
 | `DAILY_CALL_LIMIT` | 프로세스별 일일 LLM 호출 상한 (데모 비용 방어) |
+| `POSTING_DRAFT_DAILY_LIMIT` | 프로세스별 일일 공고 AI 초안 호출 상한 (기본 80) |
 
 > `.env.local` 은 **절대 커밋하지 않습니다.** 유료 API 자부담이라 키 유출 = 요금 폭탄입니다.
 
@@ -200,6 +201,7 @@ uv run python scripts/collect/eval_routes.py
 
 | | |
 |---|---|
+| [**FUNCTIONAL_SPEC**](./docs/FUNCTIONAL_SPEC.md) | 현재 구현된 화면·API·점수·저장 범위와 알려진 제약 |
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
