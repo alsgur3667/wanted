@@ -4,11 +4,14 @@ const W = 520;
 const H = 460;
 const PAD = { l: 58, r: 26, t: 26, b: 52 };
 
-// 지침의 색을 그대로 쓴다. 사분면마다 다른 색을 주는 게 아니라
-// '피벗 무기'만 warning 으로 띄우고 나머지는 가라앉힌다.
+// 사분면마다 다른 색을 주지 않는다. '피벗 무기'만 청록으로 띄우고
+// 나머지는 회색 두 단계로 가라앉힌다.
+//
+// 보라(--violet)를 뺐다. 이 화면에서만 쓰이던 색이라 다른 어디와도 이어지지 않았고,
+// 다크 배경에서 글씨가 묻혔다. 락인과 흔한 역량은 ink / faint 로도 충분히 갈린다.
 const QUAD_COLOR: Record<Quadrant, string> = {
-  leverage: 'var(--warning)',
-  lockin: 'var(--violet)',
+  leverage: 'var(--link)',
+  lockin: 'var(--ink)',
   common: 'var(--mute)',
   noise: 'var(--faint)',
 };
@@ -77,7 +80,7 @@ export default function SkillMap({ skills }: { skills: Skill[] }) {
         <g className="plot-frame">
           {/* 사분면 배경 */}
           <rect x={x(0.5)} y={y(1)} width={iw / 2} height={ih / 2}
-                fill="var(--warning)" opacity="0.05" />
+                fill="var(--link)" opacity="0.06" />
 
           {/* 축 */}
           <line x1={PAD.l} y1={y(0)} x2={x(1)} y2={y(0)} stroke="var(--hairline)" strokeWidth="1" />
@@ -90,8 +93,8 @@ export default function SkillMap({ skills }: { skills: Skill[] }) {
 
           {/* 사분면 라벨 */}
           <text x={x(0.97)} y={y(0.96)} textAnchor="end" fontSize="11"
-                fill="var(--warning)" fontWeight="500">피벗 무기</text>
-          <text x={x(0.03)} y={y(0.96)} fontSize="11" fill="var(--violet)">도메인 락인</text>
+                fill="var(--link)" fontWeight="500">피벗 무기</text>
+          <text x={x(0.03)} y={y(0.96)} fontSize="11" fill="var(--mute)">도메인 락인</text>
           <text x={x(0.97)} y={y(0.04)} textAnchor="end" fontSize="11" fill="var(--faint)">흔한 역량</text>
 
           {/* 축 이름 */}
