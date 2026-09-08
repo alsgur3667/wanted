@@ -1,0 +1,3990 @@
+[
+  {
+    "id": "demo_candidate_001",
+    "alias": "지원자 001",
+    "currentJobId": "architect",
+    "currentJobTitle": "아키텍트",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "커머스",
+    "location": "경기",
+    "summary": "커머스 환경에서 아키텍트 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "azure",
+      "sql",
+      "rag"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "azure",
+        "evidence": "Azure를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 아키텍트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=architect;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_002",
+    "alias": "지원자 002",
+    "currentJobId": "architect",
+    "currentJobTitle": "아키텍트",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "콘텐츠",
+    "location": "인천",
+    "summary": "콘텐츠 환경에서 아키텍트 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "sql",
+      "rag"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "rag",
+        "evidence": "RAG를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 아키텍트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=architect;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_003",
+    "alias": "지원자 003",
+    "currentJobId": "architect",
+    "currentJobTitle": "아키텍트",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "헬스케어",
+    "location": "대전",
+    "summary": "헬스케어 환경에서 아키텍트 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "sql"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 아키텍트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 아키텍트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=architect;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_004",
+    "alias": "지원자 004",
+    "currentJobId": "be_dev",
+    "currentJobTitle": "백엔드 개발자",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "모빌리티",
+    "location": "부산",
+    "summary": "모빌리티 환경에서 백엔드 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "java",
+      "spring",
+      "python",
+      "docker",
+      "kubernetes",
+      "cassandra",
+      "spring_boot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "java",
+        "evidence": "Java를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "spring",
+        "evidence": "Spring를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 백엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=be_dev;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_005",
+    "alias": "지원자 005",
+    "currentJobId": "be_dev",
+    "currentJobTitle": "서버 개발",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "교육",
+    "location": "광주",
+    "summary": "교육 환경에서 서버 개발 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "java",
+      "spring",
+      "python",
+      "kubernetes",
+      "cassandra",
+      "spring_boot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "java",
+        "evidence": "Java를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "spring",
+        "evidence": "Spring를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "cassandra",
+        "evidence": "Cassandra를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 백엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=be_dev;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_006",
+    "alias": "지원자 006",
+    "currentJobId": "be_dev",
+    "currentJobTitle": "백엔드",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "IT/서비스",
+    "location": "서울",
+    "summary": "IT/서비스 환경에서 백엔드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "java",
+      "spring",
+      "kubernetes",
+      "cassandra"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "java",
+        "evidence": "Java를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "spring",
+        "evidence": "Spring를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "cassandra",
+        "evidence": "Cassandra를 활용해 백엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 백엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=be_dev;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_007",
+    "alias": "지원자 007",
+    "currentJobId": "biz_analyst",
+    "currentJobTitle": "데이터·비즈니스 기획",
+    "jobFamily": "기획",
+    "careerMonths": 8,
+    "industry": "제조",
+    "location": "경기",
+    "summary": "제조 환경에서 데이터·비즈니스 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_stakeholder",
+      "sql",
+      "bi",
+      "tableau",
+      "hive",
+      "data_analysis",
+      "hadoop"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "tableau",
+        "evidence": "Tableau를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터·비즈니스 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_analyst;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_008",
+    "alias": "지원자 008",
+    "currentJobId": "biz_analyst",
+    "currentJobTitle": "비즈니스 분석",
+    "jobFamily": "기획",
+    "careerMonths": 36,
+    "industry": "커머스",
+    "location": "인천",
+    "summary": "커머스 환경에서 비즈니스 분석 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_stakeholder",
+      "sql",
+      "bi",
+      "hive",
+      "data_analysis",
+      "hadoop"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "data_analysis",
+        "evidence": "데이터 분석를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터·비즈니스 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_analyst;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_009",
+    "alias": "지원자 009",
+    "currentJobId": "biz_analyst",
+    "currentJobTitle": "경영기획",
+    "jobFamily": "기획",
+    "careerMonths": 84,
+    "industry": "콘텐츠",
+    "location": "대전",
+    "summary": "콘텐츠 환경에서 경영기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_stakeholder",
+      "sql",
+      "hive",
+      "data_analysis"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "data_analysis",
+        "evidence": "데이터 분석를 활용해 데이터·비즈니스 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터·비즈니스 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_analyst;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_010",
+    "alias": "지원자 010",
+    "currentJobId": "biz_strategy",
+    "currentJobTitle": "사업·전략 기획",
+    "jobFamily": "기획",
+    "careerMonths": 8,
+    "industry": "금융",
+    "location": "부산",
+    "summary": "금융 환경에서 사업·전략 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_priority",
+      "bi",
+      "powerpoint",
+      "python",
+      "looker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "powerpoint",
+        "evidence": "PowerPoint를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 사업·전략 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_strategy;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_011",
+    "alias": "지원자 011",
+    "currentJobId": "biz_strategy",
+    "currentJobTitle": "사업 기획",
+    "jobFamily": "기획",
+    "careerMonths": 36,
+    "industry": "모빌리티",
+    "location": "광주",
+    "summary": "모빌리티 환경에서 사업 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_priority",
+      "powerpoint",
+      "python",
+      "looker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "powerpoint",
+        "evidence": "PowerPoint를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 사업·전략 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_strategy;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_012",
+    "alias": "지원자 012",
+    "currentJobId": "biz_strategy",
+    "currentJobTitle": "전략 기획",
+    "jobFamily": "기획",
+    "careerMonths": 84,
+    "industry": "교육",
+    "location": "서울",
+    "summary": "교육 환경에서 전략 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_requirement",
+      "powerpoint",
+      "python"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "powerpoint",
+        "evidence": "PowerPoint를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 사업·전략 기획 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 사업·전략 기획 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=biz_strategy;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_013",
+    "alias": "지원자 013",
+    "currentJobId": "data_analyst",
+    "currentJobTitle": "데이터 분석가",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "헬스케어",
+    "location": "경기",
+    "summary": "헬스케어 환경에서 데이터 분석가 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "bi",
+      "python",
+      "ws_metric",
+      "ws_abtest",
+      "hive",
+      "aws",
+      "skill"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_abtest",
+        "evidence": "A/B 테스트 설계를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 분석가 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_analyst;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_014",
+    "alias": "지원자 014",
+    "currentJobId": "data_analyst",
+    "currentJobTitle": "데이터 분석",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "제조",
+    "location": "인천",
+    "summary": "제조 환경에서 데이터 분석 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "bi",
+      "python",
+      "ws_metric",
+      "hive",
+      "aws",
+      "skill"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 분석가 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_analyst;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_015",
+    "alias": "지원자 015",
+    "currentJobId": "data_analyst",
+    "currentJobTitle": "데이터 분석",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "커머스",
+    "location": "대전",
+    "summary": "커머스 환경에서 데이터 분석 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "bi",
+      "python",
+      "hive",
+      "aws"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hive",
+        "evidence": "Hive를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 분석가 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 분석가 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_analyst;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_016",
+    "alias": "지원자 016",
+    "currentJobId": "data_eng",
+    "currentJobTitle": "데이터 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "IT/서비스",
+    "location": "부산",
+    "summary": "IT/서비스 환경에서 데이터 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "python",
+      "aws",
+      "etl",
+      "airflow",
+      "terraform",
+      "nosql",
+      "bi"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "etl",
+        "evidence": "ETL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "airflow",
+        "evidence": "Airflow를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_eng;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_017",
+    "alias": "지원자 017",
+    "currentJobId": "data_eng",
+    "currentJobTitle": "데이터 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "금융",
+    "location": "광주",
+    "summary": "금융 환경에서 데이터 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "python",
+      "aws",
+      "etl",
+      "terraform",
+      "nosql",
+      "bi"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "etl",
+        "evidence": "ETL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "nosql",
+        "evidence": "NoSQL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_eng;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_018",
+    "alias": "지원자 018",
+    "currentJobId": "data_eng",
+    "currentJobTitle": "데이터 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "모빌리티",
+    "location": "서울",
+    "summary": "모빌리티 환경에서 데이터 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "sql",
+      "python",
+      "aws",
+      "terraform",
+      "nosql"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "nosql",
+        "evidence": "NoSQL를 활용해 데이터 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_eng;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_019",
+    "alias": "지원자 019",
+    "currentJobId": "data_scientist",
+    "currentJobTitle": "데이터 사이언티스트",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "콘텐츠",
+    "location": "경기",
+    "summary": "콘텐츠 환경에서 데이터 사이언티스트 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "sql",
+      "llm",
+      "ws_metric",
+      "bi",
+      "langchain",
+      "airflow"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "llm",
+        "evidence": "LLM를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 사이언티스트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_scientist;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_020",
+    "alias": "지원자 020",
+    "currentJobId": "data_scientist",
+    "currentJobTitle": "머신러닝",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "헬스케어",
+    "location": "인천",
+    "summary": "헬스케어 환경에서 머신러닝 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "sql",
+      "llm",
+      "bi",
+      "langchain",
+      "airflow"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "llm",
+        "evidence": "LLM를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "langchain",
+        "evidence": "LangChain를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 사이언티스트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_scientist;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_021",
+    "alias": "지원자 021",
+    "currentJobId": "data_scientist",
+    "currentJobTitle": "머신러닝",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "제조",
+    "location": "대전",
+    "summary": "제조 환경에서 머신러닝 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "sql",
+      "bi",
+      "langchain"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bi",
+        "evidence": "BI를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "langchain",
+        "evidence": "LangChain를 활용해 데이터 사이언티스트 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 데이터 사이언티스트 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=data_scientist;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_022",
+    "alias": "지원자 022",
+    "currentJobId": "designer",
+    "currentJobTitle": "디자이너(일반)",
+    "jobFamily": "디자인",
+    "careerMonths": 8,
+    "industry": "교육",
+    "location": "부산",
+    "summary": "교육 환경에서 디자이너(일반) 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "photoshop",
+      "ws_visual",
+      "illustrator",
+      "figma",
+      "ws_prototype",
+      "skill",
+      "wordpress",
+      "css"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "skill",
+        "evidence": "AI 코딩 도구를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 디자이너(일반) 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=designer;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_023",
+    "alias": "지원자 023",
+    "currentJobId": "designer",
+    "currentJobTitle": "디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 36,
+    "industry": "IT/서비스",
+    "location": "광주",
+    "summary": "IT/서비스 환경에서 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "photoshop",
+      "ws_visual",
+      "illustrator",
+      "figma",
+      "skill",
+      "wordpress",
+      "css"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "skill",
+        "evidence": "AI 코딩 도구를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "wordpress",
+        "evidence": "WordPress를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 디자이너(일반) 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=designer;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_024",
+    "alias": "지원자 024",
+    "currentJobId": "designer",
+    "currentJobTitle": "디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 84,
+    "industry": "금융",
+    "location": "서울",
+    "summary": "금융 환경에서 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "photoshop",
+      "ws_visual",
+      "illustrator",
+      "skill",
+      "wordpress"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "skill",
+        "evidence": "AI 코딩 도구를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "wordpress",
+        "evidence": "WordPress를 활용해 디자이너(일반) 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 디자이너(일반) 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=designer;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_025",
+    "alias": "지원자 025",
+    "currentJobId": "devops_sre",
+    "currentJobTitle": "DevOps·SRE",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "커머스",
+    "location": "경기",
+    "summary": "커머스 환경에서 DevOps·SRE 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "terraform",
+      "kubernetes",
+      "aws",
+      "docker",
+      "azure",
+      "git",
+      "ruby",
+      "jira"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "azure",
+        "evidence": "Azure를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 DevOps·SRE 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=devops_sre;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_026",
+    "alias": "지원자 026",
+    "currentJobId": "devops_sre",
+    "currentJobTitle": "인프라",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "콘텐츠",
+    "location": "인천",
+    "summary": "콘텐츠 환경에서 인프라 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "terraform",
+      "kubernetes",
+      "aws",
+      "docker",
+      "git",
+      "ruby",
+      "jira"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ruby",
+        "evidence": "Ruby를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 DevOps·SRE 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=devops_sre;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_027",
+    "alias": "지원자 027",
+    "currentJobId": "devops_sre",
+    "currentJobTitle": "인프라",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "헬스케어",
+    "location": "대전",
+    "summary": "헬스케어 환경에서 인프라 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "terraform",
+      "kubernetes",
+      "aws",
+      "git",
+      "ruby"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "terraform",
+        "evidence": "Terraform를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ruby",
+        "evidence": "Ruby를 활용해 DevOps·SRE 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 DevOps·SRE 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=devops_sre;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_028",
+    "alias": "지원자 028",
+    "currentJobId": "embedded_dev",
+    "currentJobTitle": "임베디드·펌웨어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "모빌리티",
+    "location": "부산",
+    "summary": "모빌리티 환경에서 임베디드·펌웨어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "linux",
+      "c",
+      "python",
+      "bash",
+      "git",
+      "ubuntu",
+      "github",
+      "docker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "linux",
+        "evidence": "Linux를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "c",
+        "evidence": "C++를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bash",
+        "evidence": "Bash를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ubuntu",
+        "evidence": "Ubuntu를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 임베디드·펌웨어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=embedded_dev;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_029",
+    "alias": "지원자 029",
+    "currentJobId": "embedded_dev",
+    "currentJobTitle": "임베디드",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "교육",
+    "location": "광주",
+    "summary": "교육 환경에서 임베디드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "linux",
+      "c",
+      "python",
+      "bash",
+      "ubuntu",
+      "github",
+      "docker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "linux",
+        "evidence": "Linux를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "c",
+        "evidence": "C++를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "bash",
+        "evidence": "Bash를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ubuntu",
+        "evidence": "Ubuntu를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "github",
+        "evidence": "GitHub를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 임베디드·펌웨어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=embedded_dev;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_030",
+    "alias": "지원자 030",
+    "currentJobId": "embedded_dev",
+    "currentJobTitle": "펌웨어",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "IT/서비스",
+    "location": "서울",
+    "summary": "IT/서비스 환경에서 펌웨어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "linux",
+      "c",
+      "python",
+      "ubuntu",
+      "github"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "linux",
+        "evidence": "Linux를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "c",
+        "evidence": "C++를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ubuntu",
+        "evidence": "Ubuntu를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "github",
+        "evidence": "GitHub를 활용해 임베디드·펌웨어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 임베디드·펌웨어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=embedded_dev;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_031",
+    "alias": "지원자 031",
+    "currentJobId": "eng_lead",
+    "currentJobTitle": "엔지니어링 리더",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "제조",
+    "location": "경기",
+    "summary": "제조 환경에서 엔지니어링 리더 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_priority",
+      "ws_requirement",
+      "python",
+      "aws",
+      "ruby",
+      "java",
+      "iot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ruby",
+        "evidence": "Ruby를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 엔지니어링 리더 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=eng_lead;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_032",
+    "alias": "지원자 032",
+    "currentJobId": "eng_lead",
+    "currentJobTitle": "테크리드",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "커머스",
+    "location": "인천",
+    "summary": "커머스 환경에서 테크리드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_priority",
+      "ws_requirement",
+      "python",
+      "ruby",
+      "java",
+      "iot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ruby",
+        "evidence": "Ruby를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "java",
+        "evidence": "Java를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 엔지니어링 리더 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=eng_lead;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_033",
+    "alias": "지원자 033",
+    "currentJobId": "eng_lead",
+    "currentJobTitle": "테크리드",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "콘텐츠",
+    "location": "대전",
+    "summary": "콘텐츠 환경에서 테크리드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_priority",
+      "ws_requirement",
+      "ruby",
+      "java"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ruby",
+        "evidence": "Ruby를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "java",
+        "evidence": "Java를 활용해 엔지니어링 리더 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 엔지니어링 리더 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=eng_lead;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_034",
+    "alias": "지원자 034",
+    "currentJobId": "fe_dev",
+    "currentJobTitle": "프론트엔드 개발자",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "금융",
+    "location": "부산",
+    "summary": "금융 환경에서 프론트엔드 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "typescript",
+      "react",
+      "ws_component",
+      "ux_ui",
+      "html",
+      "node_js",
+      "git",
+      "redux"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프론트엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fe_dev;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_035",
+    "alias": "지원자 035",
+    "currentJobId": "fe_dev",
+    "currentJobTitle": "프론트엔드",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "모빌리티",
+    "location": "광주",
+    "summary": "모빌리티 환경에서 프론트엔드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "typescript",
+      "react",
+      "ws_component",
+      "ux_ui",
+      "node_js",
+      "git",
+      "redux"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프론트엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fe_dev;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_036",
+    "alias": "지원자 036",
+    "currentJobId": "fe_dev",
+    "currentJobTitle": "웹 퍼블리셔",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "교육",
+    "location": "서울",
+    "summary": "교육 환경에서 웹 퍼블리셔 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "typescript",
+      "react",
+      "ws_component",
+      "node_js",
+      "git"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "git",
+        "evidence": "Git를 활용해 프론트엔드 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프론트엔드 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fe_dev;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_037",
+    "alias": "지원자 037",
+    "currentJobId": "fullstack_dev",
+    "currentJobTitle": "풀스택 개발자",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "헬스케어",
+    "location": "경기",
+    "summary": "헬스케어 환경에서 풀스택 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "react",
+      "typescript",
+      "node_js",
+      "aws",
+      "ws_component",
+      "graphql",
+      "confluence",
+      "spring_boot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "graphql",
+        "evidence": "GraphQL를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 풀스택 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fullstack_dev;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_038",
+    "alias": "지원자 038",
+    "currentJobId": "fullstack_dev",
+    "currentJobTitle": "풀스택",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "제조",
+    "location": "인천",
+    "summary": "제조 환경에서 풀스택 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "react",
+      "typescript",
+      "node_js",
+      "aws",
+      "graphql",
+      "confluence",
+      "spring_boot"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "graphql",
+        "evidence": "GraphQL를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "confluence",
+        "evidence": "Confluence를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 풀스택 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fullstack_dev;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_039",
+    "alias": "지원자 039",
+    "currentJobId": "fullstack_dev",
+    "currentJobTitle": "풀스택",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "커머스",
+    "location": "대전",
+    "summary": "커머스 환경에서 풀스택 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "react",
+      "typescript",
+      "node_js",
+      "graphql",
+      "confluence"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "typescript",
+        "evidence": "TypeScript를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "node_js",
+        "evidence": "Node.js를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "graphql",
+        "evidence": "GraphQL를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "confluence",
+        "evidence": "Confluence를 활용해 풀스택 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 풀스택 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=fullstack_dev;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_040",
+    "alias": "지원자 040",
+    "currentJobId": "graphic_designer",
+    "currentJobTitle": "그래픽·브랜드 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 8,
+    "industry": "IT/서비스",
+    "location": "부산",
+    "summary": "IT/서비스 환경에서 그래픽·브랜드 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "ws_visual",
+      "ws_interaction",
+      "html"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_interaction",
+        "evidence": "인터랙션 구현를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 그래픽·브랜드 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=graphic_designer;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_041",
+    "alias": "지원자 041",
+    "currentJobId": "graphic_designer",
+    "currentJobTitle": "그래픽 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 36,
+    "industry": "금융",
+    "location": "광주",
+    "summary": "금융 환경에서 그래픽 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "illustrator",
+      "photoshop",
+      "figma",
+      "ws_visual",
+      "html"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 그래픽·브랜드 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=graphic_designer;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_042",
+    "alias": "지원자 042",
+    "currentJobId": "graphic_designer",
+    "currentJobTitle": "그래픽 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 84,
+    "industry": "모빌리티",
+    "location": "서울",
+    "summary": "모빌리티 환경에서 그래픽 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "illustrator",
+      "photoshop",
+      "figma"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 그래픽·브랜드 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 그래픽·브랜드 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=graphic_designer;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_043",
+    "alias": "지원자 043",
+    "currentJobId": "growth_marketing",
+    "currentJobTitle": "마케팅·그로스",
+    "jobFamily": "기획",
+    "careerMonths": 8,
+    "industry": "콘텐츠",
+    "location": "경기",
+    "summary": "콘텐츠 환경에서 마케팅·그로스 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_abtest",
+      "ws_funnel",
+      "ws_metric",
+      "crm",
+      "seo",
+      "html",
+      "looker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_abtest",
+        "evidence": "A/B 테스트 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_funnel",
+        "evidence": "퍼널 분석를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "crm",
+        "evidence": "CRM를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "seo",
+        "evidence": "SEO를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 마케팅·그로스 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=growth_marketing;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_044",
+    "alias": "지원자 044",
+    "currentJobId": "growth_marketing",
+    "currentJobTitle": "마케팅",
+    "jobFamily": "기획",
+    "careerMonths": 36,
+    "industry": "헬스케어",
+    "location": "인천",
+    "summary": "헬스케어 환경에서 마케팅 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_abtest",
+      "ws_funnel",
+      "ws_metric",
+      "crm",
+      "seo",
+      "html",
+      "looker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_abtest",
+        "evidence": "A/B 테스트 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_funnel",
+        "evidence": "퍼널 분석를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "crm",
+        "evidence": "CRM를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "seo",
+        "evidence": "SEO를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 마케팅·그로스 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=growth_marketing;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_045",
+    "alias": "지원자 045",
+    "currentJobId": "growth_marketing",
+    "currentJobTitle": "그로스",
+    "jobFamily": "기획",
+    "careerMonths": 84,
+    "industry": "제조",
+    "location": "대전",
+    "summary": "제조 환경에서 그로스 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_abtest",
+      "ws_funnel",
+      "ws_metric",
+      "seo",
+      "html"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_abtest",
+        "evidence": "A/B 테스트 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_funnel",
+        "evidence": "퍼널 분석를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "seo",
+        "evidence": "SEO를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "html",
+        "evidence": "HTML를 활용해 마케팅·그로스 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 마케팅·그로스 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=growth_marketing;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_046",
+    "alias": "지원자 046",
+    "currentJobId": "mobile_dev",
+    "currentJobTitle": "모바일 개발자",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "교육",
+    "location": "부산",
+    "summary": "교육 환경에서 모바일 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "android",
+      "kotlin",
+      "ios",
+      "ux_ui",
+      "ws_component",
+      "swift",
+      "react",
+      "github"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "android",
+        "evidence": "Android를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kotlin",
+        "evidence": "Kotlin를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "swift",
+        "evidence": "Swift를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모바일 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=mobile_dev;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_047",
+    "alias": "지원자 047",
+    "currentJobId": "mobile_dev",
+    "currentJobTitle": "iOS 개발자",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "IT/서비스",
+    "location": "광주",
+    "summary": "IT/서비스 환경에서 iOS 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "android",
+      "kotlin",
+      "ios",
+      "ux_ui",
+      "swift",
+      "react",
+      "github"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "android",
+        "evidence": "Android를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kotlin",
+        "evidence": "Kotlin를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "swift",
+        "evidence": "Swift를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모바일 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=mobile_dev;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_048",
+    "alias": "지원자 048",
+    "currentJobId": "mobile_dev",
+    "currentJobTitle": "안드로이드",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "금융",
+    "location": "서울",
+    "summary": "금융 환경에서 안드로이드 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "android",
+      "kotlin",
+      "ios",
+      "swift",
+      "react"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "android",
+        "evidence": "Android를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kotlin",
+        "evidence": "Kotlin를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "swift",
+        "evidence": "Swift를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 모바일 개발자 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모바일 개발자 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=mobile_dev;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_049",
+    "alias": "지원자 049",
+    "currentJobId": "motion_designer",
+    "currentJobTitle": "모션·영상 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 8,
+    "industry": "커머스",
+    "location": "경기",
+    "summary": "커머스 환경에서 모션·영상 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_interaction",
+      "ws_visual",
+      "ws_prototype",
+      "illustrator",
+      "photoshop",
+      "figma"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_interaction",
+        "evidence": "인터랙션 구현를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모션·영상 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=motion_designer;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_050",
+    "alias": "지원자 050",
+    "currentJobId": "motion_designer",
+    "currentJobTitle": "모션",
+    "jobFamily": "디자인",
+    "careerMonths": 36,
+    "industry": "콘텐츠",
+    "location": "인천",
+    "summary": "콘텐츠 환경에서 모션 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_interaction",
+      "ws_visual",
+      "ws_prototype",
+      "illustrator",
+      "photoshop",
+      "figma"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_interaction",
+        "evidence": "인터랙션 구현를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모션·영상 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=motion_designer;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_051",
+    "alias": "지원자 051",
+    "currentJobId": "motion_designer",
+    "currentJobTitle": "영상",
+    "jobFamily": "디자인",
+    "careerMonths": 84,
+    "industry": "헬스케어",
+    "location": "대전",
+    "summary": "헬스케어 환경에서 영상 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_interaction",
+      "ws_visual",
+      "ws_prototype",
+      "illustrator",
+      "photoshop"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_interaction",
+        "evidence": "인터랙션 구현를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_visual",
+        "evidence": "시각 위계 설계를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "illustrator",
+        "evidence": "Illustrator를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "photoshop",
+        "evidence": "Photoshop를 활용해 모션·영상 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 모션·영상 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=motion_designer;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_052",
+    "alias": "지원자 052",
+    "currentJobId": "product_designer",
+    "currentJobTitle": "프로덕트 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 8,
+    "industry": "모빌리티",
+    "location": "부산",
+    "summary": "모빌리티 환경에서 프로덕트 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ux_ui",
+      "ws_product_design",
+      "ws_ia",
+      "ws_prototype",
+      "figma",
+      "ios",
+      "hci",
+      "photoshop"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_product_design",
+        "evidence": "제품 디자인를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_ia",
+        "evidence": "정보 구조 설계를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "figma",
+        "evidence": "Figma를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_designer;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_053",
+    "alias": "지원자 053",
+    "currentJobId": "product_designer",
+    "currentJobTitle": "프로덕트 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 36,
+    "industry": "교육",
+    "location": "광주",
+    "summary": "교육 환경에서 프로덕트 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ux_ui",
+      "ws_product_design",
+      "ws_ia",
+      "ws_prototype",
+      "ios",
+      "hci",
+      "photoshop"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_product_design",
+        "evidence": "제품 디자인를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_ia",
+        "evidence": "정보 구조 설계를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_prototype",
+        "evidence": "프로토타이핑를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hci",
+        "evidence": "HCI를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_designer;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_054",
+    "alias": "지원자 054",
+    "currentJobId": "product_designer",
+    "currentJobTitle": "프로덕트 디자이너",
+    "jobFamily": "디자인",
+    "careerMonths": 84,
+    "industry": "IT/서비스",
+    "location": "서울",
+    "summary": "IT/서비스 환경에서 프로덕트 디자이너 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ux_ui",
+      "ws_product_design",
+      "ws_ia",
+      "ios",
+      "hci"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_product_design",
+        "evidence": "제품 디자인를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_ia",
+        "evidence": "정보 구조 설계를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ios",
+        "evidence": "iOS를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "hci",
+        "evidence": "HCI를 활용해 프로덕트 디자이너 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 디자이너 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_designer;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_055",
+    "alias": "지원자 055",
+    "currentJobId": "product_manager",
+    "currentJobTitle": "프로덕트 매니저",
+    "jobFamily": "기획",
+    "careerMonths": 8,
+    "industry": "제조",
+    "location": "경기",
+    "summary": "제조 환경에서 프로덕트 매니저 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_priority",
+      "ws_metric",
+      "ws_stakeholder",
+      "ws_interview",
+      "sql",
+      "jira",
+      "confluence"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_interview",
+        "evidence": "사용자 인터뷰를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_manager;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_056",
+    "alias": "지원자 056",
+    "currentJobId": "product_manager",
+    "currentJobTitle": "서비스 기획",
+    "jobFamily": "기획",
+    "careerMonths": 36,
+    "industry": "커머스",
+    "location": "인천",
+    "summary": "커머스 환경에서 서비스 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_priority",
+      "ws_metric",
+      "ws_stakeholder",
+      "sql",
+      "jira",
+      "confluence"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jira",
+        "evidence": "Jira를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_manager;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_057",
+    "alias": "지원자 057",
+    "currentJobId": "product_manager",
+    "currentJobTitle": "서비스 기획",
+    "jobFamily": "기획",
+    "careerMonths": 84,
+    "industry": "콘텐츠",
+    "location": "대전",
+    "summary": "콘텐츠 환경에서 서비스 기획 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_requirement",
+      "ws_priority",
+      "ws_metric",
+      "sql",
+      "jira"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jira",
+        "evidence": "Jira를 활용해 프로덕트 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로덕트 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=product_manager;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_058",
+    "alias": "지원자 058",
+    "currentJobId": "program_manager",
+    "currentJobTitle": "프로젝트·프로그램 매니저",
+    "jobFamily": "기획",
+    "careerMonths": 8,
+    "industry": "금융",
+    "location": "부산",
+    "summary": "금융 환경에서 프로젝트·프로그램 매니저 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_priority",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_policy",
+      "ws_metric",
+      "jira",
+      "sql",
+      "erp"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_policy",
+        "evidence": "정책·예외 설계를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_metric",
+        "evidence": "지표 설계를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jira",
+        "evidence": "Jira를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로젝트·프로그램 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=program_manager;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_059",
+    "alias": "지원자 059",
+    "currentJobId": "program_manager",
+    "currentJobTitle": "project manager",
+    "jobFamily": "기획",
+    "careerMonths": 36,
+    "industry": "모빌리티",
+    "location": "광주",
+    "summary": "모빌리티 환경에서 project manager 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_priority",
+      "ws_stakeholder",
+      "ws_requirement",
+      "ws_policy",
+      "jira",
+      "sql",
+      "erp"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_policy",
+        "evidence": "정책·예외 설계를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jira",
+        "evidence": "Jira를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로젝트·프로그램 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=program_manager;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_060",
+    "alias": "지원자 060",
+    "currentJobId": "program_manager",
+    "currentJobTitle": "program manager",
+    "jobFamily": "기획",
+    "careerMonths": 84,
+    "industry": "교육",
+    "location": "서울",
+    "summary": "교육 환경에서 program manager 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_priority",
+      "ws_stakeholder",
+      "ws_requirement",
+      "jira",
+      "sql"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_priority",
+        "evidence": "우선순위 관리를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jira",
+        "evidence": "Jira를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 프로젝트·프로그램 매니저 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 프로젝트·프로그램 매니저 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=program_manager;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_061",
+    "alias": "지원자 061",
+    "currentJobId": "qa_eng",
+    "currentJobTitle": "QA 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "헬스케어",
+    "location": "경기",
+    "summary": "헬스케어 환경에서 QA 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "selenium",
+      "playwright",
+      "ws_requirement",
+      "ux_ui",
+      "jenkins",
+      "gitlab",
+      "scala"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "selenium",
+        "evidence": "Selenium를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "playwright",
+        "evidence": "Playwright를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "jenkins",
+        "evidence": "Jenkins를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "gitlab",
+        "evidence": "GitLab를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 QA 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=qa_eng;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_062",
+    "alias": "지원자 062",
+    "currentJobId": "qa_eng",
+    "currentJobTitle": "품질",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "제조",
+    "location": "인천",
+    "summary": "제조 환경에서 품질 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "selenium",
+      "playwright",
+      "ws_requirement",
+      "ux_ui",
+      "gitlab",
+      "scala"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "selenium",
+        "evidence": "Selenium를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "playwright",
+        "evidence": "Playwright를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ux_ui",
+        "evidence": "UX/UI를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "gitlab",
+        "evidence": "GitLab를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "scala",
+        "evidence": "Scala를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 QA 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=qa_eng;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_063",
+    "alias": "지원자 063",
+    "currentJobId": "qa_eng",
+    "currentJobTitle": "품질",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "커머스",
+    "location": "대전",
+    "summary": "커머스 환경에서 품질 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "selenium",
+      "playwright",
+      "ws_requirement",
+      "gitlab"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "selenium",
+        "evidence": "Selenium를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "playwright",
+        "evidence": "Playwright를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "gitlab",
+        "evidence": "GitLab를 활용해 QA 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 QA 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=qa_eng;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_064",
+    "alias": "지원자 064",
+    "currentJobId": "security_eng",
+    "currentJobTitle": "보안 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "IT/서비스",
+    "location": "부산",
+    "summary": "IT/서비스 환경에서 보안 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "python",
+      "azure",
+      "siem",
+      "kubernetes",
+      "cissp",
+      "docker",
+      "linux"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "azure",
+        "evidence": "Azure를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "siem",
+        "evidence": "SIEM를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "cissp",
+        "evidence": "CISSP를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 보안 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=security_eng;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_065",
+    "alias": "지원자 065",
+    "currentJobId": "security_eng",
+    "currentJobTitle": "정보보안",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "금융",
+    "location": "광주",
+    "summary": "금융 환경에서 정보보안 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "python",
+      "azure",
+      "siem",
+      "cissp",
+      "docker",
+      "linux"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "azure",
+        "evidence": "Azure를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "siem",
+        "evidence": "SIEM를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "cissp",
+        "evidence": "CISSP를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 보안 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=security_eng;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_066",
+    "alias": "지원자 066",
+    "currentJobId": "security_eng",
+    "currentJobTitle": "보안",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "모빌리티",
+    "location": "서울",
+    "summary": "모빌리티 환경에서 보안 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "aws",
+      "python",
+      "azure",
+      "cissp",
+      "docker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "azure",
+        "evidence": "Azure를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "cissp",
+        "evidence": "CISSP를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 보안 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 보안 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=security_eng;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_067",
+    "alias": "지원자 067",
+    "currentJobId": "solutions_eng",
+    "currentJobTitle": "솔루션·세일즈 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "콘텐츠",
+    "location": "경기",
+    "summary": "콘텐츠 환경에서 솔루션·세일즈 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "erp",
+      "docker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "erp",
+        "evidence": "ERP를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 솔루션·세일즈 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=solutions_eng;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_068",
+    "alias": "지원자 068",
+    "currentJobId": "solutions_eng",
+    "currentJobTitle": "solutions engineer",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "헬스케어",
+    "location": "인천",
+    "summary": "헬스케어 환경에서 solutions engineer 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "python",
+      "erp",
+      "docker"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "erp",
+        "evidence": "ERP를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 솔루션·세일즈 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=solutions_eng;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_069",
+    "alias": "지원자 069",
+    "currentJobId": "solutions_eng",
+    "currentJobTitle": "sales engineer",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "제조",
+    "location": "대전",
+    "summary": "제조 환경에서 sales engineer 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "ws_stakeholder",
+      "ws_requirement",
+      "aws",
+      "erp"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "ws_stakeholder",
+        "evidence": "이해관계자 조율를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_requirement",
+        "evidence": "요구사항 정의를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "erp",
+        "evidence": "ERP를 활용해 솔루션·세일즈 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 솔루션·세일즈 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=solutions_eng;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_070",
+    "alias": "지원자 070",
+    "currentJobId": "sw_eng",
+    "currentJobTitle": "소프트웨어 엔지니어",
+    "jobFamily": "개발",
+    "careerMonths": 8,
+    "industry": "교육",
+    "location": "부산",
+    "summary": "교육 환경에서 소프트웨어 엔지니어 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "ws_component",
+      "kubernetes",
+      "react",
+      "docker",
+      "sql",
+      "typescript"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "react",
+        "evidence": "React를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 소프트웨어 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=sw_eng;variant=0",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_071",
+    "alias": "지원자 071",
+    "currentJobId": "sw_eng",
+    "currentJobTitle": "개발자",
+    "jobFamily": "개발",
+    "careerMonths": 36,
+    "industry": "IT/서비스",
+    "location": "광주",
+    "summary": "IT/서비스 환경에서 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "ws_component",
+      "kubernetes",
+      "docker",
+      "sql",
+      "typescript"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "kubernetes",
+        "evidence": "Kubernetes를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 소프트웨어 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=sw_eng;variant=1",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  },
+  {
+    "id": "demo_candidate_072",
+    "alias": "지원자 072",
+    "currentJobId": "sw_eng",
+    "currentJobTitle": "개발자",
+    "jobFamily": "개발",
+    "careerMonths": 84,
+    "industry": "금융",
+    "location": "서울",
+    "summary": "금융 환경에서 개발자 역할을 수행하며 협업과 실행 경험을 쌓은 가상 지원자입니다.",
+    "skillIds": [
+      "python",
+      "aws",
+      "ws_component",
+      "docker",
+      "sql"
+    ],
+    "skillEvidence": [
+      {
+        "skillId": "python",
+        "evidence": "Python를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "aws",
+        "evidence": "AWS를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "ws_component",
+        "evidence": "컴포넌트 설계를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "docker",
+        "evidence": "Docker를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      },
+      {
+        "skillId": "sql",
+        "evidence": "SQL를 활용해 소프트웨어 엔지니어 업무의 결과물을 개선했습니다."
+      }
+    ],
+    "experienceHighlights": [
+      "핵심 과제를 정의하고 소프트웨어 엔지니어 관점에서 실행 계획을 세웠습니다.",
+      "관련 팀과 진행 상황을 공유하고 결과 지표를 확인했습니다.",
+      "반복되는 업무를 정리해 팀이 재사용할 수 있는 기준을 남겼습니다."
+    ],
+    "desiredWorkModes": [
+      "remote",
+      "hybrid"
+    ],
+    "isSynthetic": true,
+    "synthesisBasis": "internal-job-matrix+synthetic-employer-flow:v1;job=sw_eng;variant=2",
+    "generatedAt": "2026-09-08T00:00:00+09:00"
+  }
+]
