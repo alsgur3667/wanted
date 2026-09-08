@@ -1,0 +1,1003 @@
+[
+  {
+    "id": "lumenflow",
+    "name": "루멘플로우",
+    "tagline": "팀의 의사결정을 한 흐름으로 연결합니다",
+    "description": "루멘플로우는 업무 데이터와 협업 기록을 연결하는 의사결정 SaaS를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "B2B SaaS",
+    "stage": "growth",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2020,
+    "headquarters": "서울 성동구",
+    "locations": [
+      "서울 성동구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "업무 데이터와 협업 기록을 연결하는 의사결정 SaaS",
+    "products": [
+      "업무 데이터와 협업 기록을 연결하는 의사결정 SaaS"
+    ],
+    "tags": [
+      "SaaS",
+      "협업",
+      "데이터"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "LF",
+      "colorFrom": "#F59E0B",
+      "colorTo": "#EA580C"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "pebblepay",
+    "name": "페블페이",
+    "tagline": "작은 사업자의 금융 업무를 가볍게 만듭니다",
+    "description": "페블페이는 소상공인 정산·현금흐름 관리 서비스를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "핀테크",
+    "stage": "growth",
+    "employeeCountRange": "101~300명",
+    "foundedYear": 2018,
+    "headquarters": "서울 영등포구",
+    "locations": [
+      "서울 영등포구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "소상공인 정산·현금흐름 관리 서비스",
+    "products": [
+      "소상공인 정산·현금흐름 관리 서비스"
+    ],
+    "tags": [
+      "핀테크",
+      "결제",
+      "보안"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "PP",
+      "colorFrom": "#14B8A6",
+      "colorTo": "#0F766E"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "mosaicmarket",
+    "name": "모자이크마켓",
+    "tagline": "취향이 다른 고객과 브랜드를 연결합니다",
+    "description": "모자이크마켓는 개인화 상품 탐색과 브랜드 운영 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "커머스",
+    "stage": "stable",
+    "employeeCountRange": "301~500명",
+    "foundedYear": 2015,
+    "headquarters": "서울 강남구",
+    "locations": [
+      "서울 강남구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "개인화 상품 탐색과 브랜드 운영 플랫폼",
+    "products": [
+      "개인화 상품 탐색과 브랜드 운영 플랫폼"
+    ],
+    "tags": [
+      "커머스",
+      "추천",
+      "브랜드"
+    ],
+    "culture": [
+      "역할과 책임을 명확하게 합의합니다",
+      "운영 안정성과 개선 속도를 함께 봅니다",
+      "데이터와 고객 근거로 결정합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램",
+      "장기근속 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "MM",
+      "colorFrom": "#EC4899",
+      "colorTo": "#BE185D"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "cloudforge",
+    "name": "클라우드포지",
+    "tagline": "서비스 운영의 복잡함을 자동화합니다",
+    "description": "클라우드포지는 멀티 클라우드 운영·관측 자동화 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "클라우드",
+    "stage": "stable",
+    "employeeCountRange": "101~300명",
+    "foundedYear": 2017,
+    "headquarters": "경기 성남시",
+    "locations": [
+      "경기 성남시"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "멀티 클라우드 운영·관측 자동화 플랫폼",
+    "products": [
+      "멀티 클라우드 운영·관측 자동화 플랫폼"
+    ],
+    "tags": [
+      "클라우드",
+      "DevOps",
+      "관측성"
+    ],
+    "culture": [
+      "역할과 책임을 명확하게 합의합니다",
+      "운영 안정성과 개선 속도를 함께 봅니다",
+      "데이터와 고객 근거로 결정합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램",
+      "장기근속 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "CF",
+      "colorFrom": "#3B82F6",
+      "colorTo": "#1D4ED8"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "nestcare",
+    "name": "네스트케어",
+    "tagline": "돌봄 과정의 빈틈을 데이터로 줄입니다",
+    "description": "네스트케어는 병원·보호자용 돌봄 일정 및 기록 서비스를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "디지털 헬스케어",
+    "stage": "growth",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2021,
+    "headquarters": "서울 송파구",
+    "locations": [
+      "서울 송파구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "병원·보호자용 돌봄 일정 및 기록 서비스",
+    "products": [
+      "병원·보호자용 돌봄 일정 및 기록 서비스"
+    ],
+    "tags": [
+      "헬스케어",
+      "B2B",
+      "개인정보"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "NC",
+      "colorFrom": "#22C55E",
+      "colorTo": "#15803D"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "mobiwave",
+    "name": "모비웨이브",
+    "tagline": "이동 데이터를 더 안전한 경험으로 바꿉니다",
+    "description": "모비웨이브는 차량·모바일 연동 이동 경험 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "모빌리티",
+    "stage": "growth",
+    "employeeCountRange": "101~300명",
+    "foundedYear": 2019,
+    "headquarters": "경기 성남시",
+    "locations": [
+      "경기 성남시"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "차량·모바일 연동 이동 경험 플랫폼",
+    "products": [
+      "차량·모바일 연동 이동 경험 플랫폼"
+    ],
+    "tags": [
+      "모빌리티",
+      "IoT",
+      "모바일"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "MW",
+      "colorFrom": "#06B6D4",
+      "colorTo": "#0E7490"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "pixelharbor",
+    "name": "픽셀하버",
+    "tagline": "브랜드가 기억되는 장면을 만듭니다",
+    "description": "픽셀하버는 숏폼 콘텐츠 제작·성과 분석 스튜디오를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "콘텐츠",
+    "stage": "early",
+    "employeeCountRange": "11~50명",
+    "foundedYear": 2023,
+    "headquarters": "서울 마포구",
+    "locations": [
+      "서울 마포구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "숏폼 콘텐츠 제작·성과 분석 스튜디오",
+    "products": [
+      "숏폼 콘텐츠 제작·성과 분석 스튜디오"
+    ],
+    "tags": [
+      "콘텐츠",
+      "영상",
+      "브랜드"
+    ],
+    "culture": [
+      "작은 단위로 실험하고 결과를 공유합니다",
+      "역할 경계보다 문제 해결을 우선합니다",
+      "결정 배경을 문서로 남깁니다"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "PH",
+      "colorFrom": "#A855F7",
+      "colorTo": "#7E22CE"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "safelayer",
+    "name": "세이프레이어",
+    "tagline": "보안을 개발 흐름 안에 자연스럽게 넣습니다",
+    "description": "세이프레이어는 클라우드 보안 진단과 대응 자동화 서비스를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "사이버 보안",
+    "stage": "stable",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2016,
+    "headquarters": "서울 금천구",
+    "locations": [
+      "서울 금천구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "클라우드 보안 진단과 대응 자동화 서비스",
+    "products": [
+      "클라우드 보안 진단과 대응 자동화 서비스"
+    ],
+    "tags": [
+      "보안",
+      "DevSecOps",
+      "B2B"
+    ],
+    "culture": [
+      "역할과 책임을 명확하게 합의합니다",
+      "운영 안정성과 개선 속도를 함께 봅니다",
+      "데이터와 고객 근거로 결정합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램",
+      "장기근속 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "SL",
+      "colorFrom": "#64748B",
+      "colorTo": "#334155"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "databridgelab",
+    "name": "데이터브릿지랩",
+    "tagline": "흩어진 데이터를 실행 가능한 답으로 연결합니다",
+    "description": "데이터브릿지랩는 기업용 데이터 통합·예측 분석 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "데이터 분석",
+    "stage": "growth",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2020,
+    "headquarters": "서울 서초구",
+    "locations": [
+      "서울 서초구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "기업용 데이터 통합·예측 분석 플랫폼",
+    "products": [
+      "기업용 데이터 통합·예측 분석 플랫폼"
+    ],
+    "tags": [
+      "데이터",
+      "AI",
+      "분석"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "DB",
+      "colorFrom": "#6366F1",
+      "colorTo": "#4338CA"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "greenlooptech",
+    "name": "그린루프테크",
+    "tagline": "에너지 낭비를 측정하고 줄이는 루프를 만듭니다",
+    "description": "그린루프테크는 사업장 에너지 사용량 분석·절감 서비스를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "기후테크",
+    "stage": "growth",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2021,
+    "headquarters": "대전 유성구",
+    "locations": [
+      "대전 유성구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "사업장 에너지 사용량 분석·절감 서비스",
+    "products": [
+      "사업장 에너지 사용량 분석·절감 서비스"
+    ],
+    "tags": [
+      "기후테크",
+      "에너지",
+      "IoT"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "GL",
+      "colorFrom": "#84CC16",
+      "colorTo": "#4D7C0F"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "cubelogics",
+    "name": "큐브로직스",
+    "tagline": "제조 현장의 판단을 더 빠르고 정확하게 만듭니다",
+    "description": "큐브로직스는 생산 설비 제어와 품질 예측 솔루션를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "스마트 제조",
+    "stage": "stable",
+    "employeeCountRange": "301~500명",
+    "foundedYear": 2012,
+    "headquarters": "경기 화성시",
+    "locations": [
+      "경기 화성시"
+    ],
+    "workModes": [
+      "onsite",
+      "hybrid"
+    ],
+    "productDescription": "생산 설비 제어와 품질 예측 솔루션",
+    "products": [
+      "생산 설비 제어와 품질 예측 솔루션"
+    ],
+    "tags": [
+      "제조",
+      "임베디드",
+      "산업 AI"
+    ],
+    "culture": [
+      "역할과 책임을 명확하게 합의합니다",
+      "운영 안정성과 개선 속도를 함께 봅니다",
+      "데이터와 고객 근거로 결정합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램",
+      "장기근속 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "CL",
+      "colorFrom": "#78716C",
+      "colorTo": "#44403C"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "studionova",
+    "name": "스튜디오노바",
+    "tagline": "복잡한 제품을 분명한 경험으로 번역합니다",
+    "description": "스튜디오노바는 디지털 제품·브랜드 경험 디자인 서비스를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "디자인 스튜디오",
+    "stage": "early",
+    "employeeCountRange": "11~50명",
+    "foundedYear": 2022,
+    "headquarters": "서울 용산구",
+    "locations": [
+      "서울 용산구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "디지털 제품·브랜드 경험 디자인 서비스",
+    "products": [
+      "디지털 제품·브랜드 경험 디자인 서비스"
+    ],
+    "tags": [
+      "디자인",
+      "브랜딩",
+      "프로덕트"
+    ],
+    "culture": [
+      "작은 단위로 실험하고 결과를 공유합니다",
+      "역할 경계보다 문제 해결을 우선합니다",
+      "결정 배경을 문서로 남깁니다"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "SN",
+      "colorFrom": "#F97316",
+      "colorTo": "#C2410C"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "retailscope",
+    "name": "리테일스코프",
+    "tagline": "매장의 변화를 숫자로 먼저 발견합니다",
+    "description": "리테일스코프는 온·오프라인 판매 및 재고 분석 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "리테일테크",
+    "stage": "stable",
+    "employeeCountRange": "101~300명",
+    "foundedYear": 2016,
+    "headquarters": "서울 중구",
+    "locations": [
+      "서울 중구"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "온·오프라인 판매 및 재고 분석 플랫폼",
+    "products": [
+      "온·오프라인 판매 및 재고 분석 플랫폼"
+    ],
+    "tags": [
+      "리테일",
+      "BI",
+      "데이터"
+    ],
+    "culture": [
+      "역할과 책임을 명확하게 합의합니다",
+      "운영 안정성과 개선 속도를 함께 봅니다",
+      "데이터와 고객 근거로 결정합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "종합 건강검진",
+      "사내 교육 프로그램",
+      "장기근속 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "온라인 과제",
+      "1차 직무 인터뷰",
+      "2차 조직 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "RS",
+      "colorFrom": "#EAB308",
+      "colorTo": "#A16207"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "eduspring",
+    "name": "에듀스프링",
+    "tagline": "배움의 다음 단계를 개인마다 다르게 설계합니다",
+    "description": "에듀스프링는 직무 학습 진단과 맞춤형 콘텐츠 플랫폼를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "에듀테크",
+    "stage": "growth",
+    "employeeCountRange": "51~100명",
+    "foundedYear": 2019,
+    "headquarters": "서울 관악구",
+    "locations": [
+      "서울 관악구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "직무 학습 진단과 맞춤형 콘텐츠 플랫폼",
+    "products": [
+      "직무 학습 진단과 맞춤형 콘텐츠 플랫폼"
+    ],
+    "tags": [
+      "교육",
+      "콘텐츠",
+      "개인화"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "ES",
+      "colorFrom": "#0EA5E9",
+      "colorTo": "#0369A1"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "worknexus",
+    "name": "워크넥서스",
+    "tagline": "사람과 조직의 성장 신호를 연결합니다",
+    "description": "워크넥서스는 인재 배치·역량 개발 HR SaaS를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "HR테크",
+    "stage": "growth",
+    "employeeCountRange": "101~300명",
+    "foundedYear": 2018,
+    "headquarters": "서울 종로구",
+    "locations": [
+      "서울 종로구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "인재 배치·역량 개발 HR SaaS",
+    "products": [
+      "인재 배치·역량 개발 HR SaaS"
+    ],
+    "tags": [
+      "HR테크",
+      "SaaS",
+      "B2B"
+    ],
+    "culture": [
+      "목표와 지표를 공개적으로 공유합니다",
+      "직군 간 리뷰를 기본 업무로 둡니다",
+      "회고에서 개선 과제를 정합니다"
+    ],
+    "benefits": [
+      "선택적 근로시간제",
+      "직무 교육비 지원",
+      "건강검진 지원",
+      "점심 식대 지원",
+      "리프레시 휴가"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "직무 인터뷰",
+      "협업 인터뷰",
+      "최종 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "WN",
+      "colorFrom": "#8B5CF6",
+      "colorTo": "#6D28D9"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "corestack",
+    "name": "코어스택",
+    "tagline": "개발팀이 제품 코드에 집중할 시간을 돌려줍니다",
+    "description": "코어스택는 백엔드 개발·배포 자동화 도구를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "개발자 도구",
+    "stage": "early",
+    "employeeCountRange": "11~50명",
+    "foundedYear": 2024,
+    "headquarters": "서울 성동구",
+    "locations": [
+      "서울 성동구"
+    ],
+    "workModes": [
+      "remote",
+      "hybrid"
+    ],
+    "productDescription": "백엔드 개발·배포 자동화 도구",
+    "products": [
+      "백엔드 개발·배포 자동화 도구"
+    ],
+    "tags": [
+      "개발자 도구",
+      "API",
+      "자동화"
+    ],
+    "culture": [
+      "작은 단위로 실험하고 결과를 공유합니다",
+      "역할 경계보다 문제 해결을 우선합니다",
+      "결정 배경을 문서로 남깁니다"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "CS",
+      "colorFrom": "#2563EB",
+      "colorTo": "#1E3A8A"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "insightlabs",
+    "name": "인사이트랩스",
+    "tagline": "현장의 질문을 검증 가능한 모델로 바꿉니다",
+    "description": "인사이트랩스는 산업 데이터 기반 예측·최적화 솔루션를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "AI 솔루션",
+    "stage": "early",
+    "employeeCountRange": "11~50명",
+    "foundedYear": 2023,
+    "headquarters": "대전 유성구",
+    "locations": [
+      "대전 유성구"
+    ],
+    "workModes": [
+      "hybrid",
+      "remote"
+    ],
+    "productDescription": "산업 데이터 기반 예측·최적화 솔루션",
+    "products": [
+      "산업 데이터 기반 예측·최적화 솔루션"
+    ],
+    "tags": [
+      "AI",
+      "머신러닝",
+      "산업 데이터"
+    ],
+    "culture": [
+      "작은 단위로 실험하고 결과를 공유합니다",
+      "역할 경계보다 문제 해결을 우선합니다",
+      "결정 배경을 문서로 남깁니다"
+    ],
+    "benefits": [
+      "업무 장비 선택 지원",
+      "자율 출퇴근",
+      "도서·교육비 지원",
+      "월 1회 팀 리프레시 데이"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "실무 인터뷰",
+      "팀 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "IL",
+      "colorFrom": "#10B981",
+      "colorTo": "#047857"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  },
+  {
+    "id": "brickwhale",
+    "name": "브릭웨일",
+    "tagline": "오래 즐길 수 있는 플레이 환경을 만듭니다",
+    "description": "브릭웨일는 멀티플랫폼 게임과 라이브 운영 도구를 만드는 가상 기업입니다. 사용자 문제와 운영 데이터를 함께 살피며 제품을 개선합니다.",
+    "industry": "게임 플랫폼",
+    "stage": "enterprise",
+    "employeeCountRange": "501~1,000명",
+    "foundedYear": 2010,
+    "headquarters": "경기 성남시",
+    "locations": [
+      "경기 성남시"
+    ],
+    "workModes": [
+      "hybrid",
+      "onsite"
+    ],
+    "productDescription": "멀티플랫폼 게임과 라이브 운영 도구",
+    "products": [
+      "멀티플랫폼 게임과 라이브 운영 도구"
+    ],
+    "tags": [
+      "게임",
+      "플랫폼",
+      "글로벌"
+    ],
+    "culture": [
+      "장기 목표와 실행 기준을 함께 관리합니다",
+      "전문 영역 간 협업 절차를 존중합니다",
+      "기술 품질과 사용자 영향을 함께 검토합니다"
+    ],
+    "benefits": [
+      "유연근무제",
+      "복지 포인트",
+      "가족 건강검진",
+      "사내 식당",
+      "직무·리더십 교육",
+      "장기근속 포상"
+    ],
+    "hiringProcess": [
+      "서류 검토",
+      "코딩·직무 과제",
+      "실무 인터뷰",
+      "리더 인터뷰",
+      "처우 협의"
+    ],
+    "websiteUrl": null,
+    "imageUrls": [],
+    "brand": {
+      "initials": "BW",
+      "colorFrom": "#EF4444",
+      "colorTo": "#991B1B"
+    },
+    "isSynthetic": true,
+    "synthesisBasis": "public-field-patterns+internal-job-matrix:v1",
+    "generatedAt": "2026-09-07T00:00:00+09:00"
+  }
+]

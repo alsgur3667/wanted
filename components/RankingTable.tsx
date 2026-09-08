@@ -6,13 +6,10 @@ import { jobDetailOf } from '@/lib/job-detail';
 //
 //  카드마다 이유를 적는 대신 셋을 나란히 놓아 순위가 스스로 설명되게 한다.
 //
-//  적합도 숫자는 한때 뺐다가 다시 넣었다(이슈 #28).
-//    뺀 이유 — fitScore 에 표본 신뢰도·직무 구조 보정이 섞여 있어 1위가 46 으로 나왔다.
-//              화면에 보이는 것은 커버율 둘뿐이라 그 숫자로 순서를 설명할 수 없었다.
-//    되돌린 이유 — 보정을 evidenceScore 로 분리해 화면 값과 정렬 기준이 같아졌다.
-//              이제 이 숫자가 곧 순서다.
-//
-//  커버율은 route.requirements 를 그대로 센다. 화면이 따로 세면 점수와 어긋난다.
+//  적합도 숫자는 기본 UI에서 일부러 뺀다.
+//  현재 fitScore 는 필수·우대 커버율, 강점 반영, 경력 적합도와 현재 직무 보너스를
+//  함께 계산한다. 순위 근거 표에는 사용자가 직접 확인할 수 있는 필수·우대 충족 수를
+//  우선 보여준다. 점수 공개가 필요하면 ResultView의 검토용 토글로 경로 카드에 표시한다.
 // ============================================================================
 
 function Bar({ n, total, strong }: { n: number; total: number; strong?: boolean }) {
@@ -32,7 +29,7 @@ function Bar({ n, total, strong }: { n: number; total: number; strong?: boolean 
   );
 }
 
-const COLS = 'grid-cols-[20px_minmax(0,1.3fr)_1fr_1fr_44px]';
+const COLS = 'grid-cols-[20px_minmax(0,1.4fr)_1fr_1fr]';
 
 export default function RankingTable({
   routes,
@@ -57,7 +54,6 @@ export default function RankingTable({
         <div>직무</div>
         <div>필수 역량</div>
         <div>우대 역량</div>
-        <div className="text-right">적합도</div>
       </div>
 
       {rows.map(({ route, detail }, i) => (
@@ -80,9 +76,6 @@ export default function RankingTable({
               <div className="text-[12px] text-faint">—</div>
             </>
           )}
-          <div className="text-right text-[15px] font-semibold tabular-nums tracking-[-0.02em] text-ink">
-            {route.fitScore}
-          </div>
         </div>
       ))}
 

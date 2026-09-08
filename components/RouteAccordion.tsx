@@ -18,9 +18,12 @@ import JobRequirements from './JobRequirements';
 export default function RouteAccordion({
   route,
   mySkills,
+  showFitScore = false,
 }: {
   route: Route;
   mySkills: Skill[];
+  /** 적합도 숫자 노출. 기본은 끈다 — 여러 요소가 섞인 값이라 맥락 없이 읽히면 오해가 된다 */
+  showFitScore?: boolean;
 }) {
   const [open, setOpen] = useState(false);
   const detail = jobDetailOf(route.destination, mySkills, route.requirements);
@@ -55,6 +58,11 @@ export default function RouteAccordion({
           </p>
         </div>
         <div className="flex shrink-0 items-center gap-3 pt-1">
+          {showFitScore && (
+            <span className="text-[15px] font-semibold tabular-nums tracking-[-0.02em] text-ink">
+              {route.fitScore}
+            </span>
+          )}
           <span className="whitespace-nowrap text-[12px] text-mute">{summary}</span>
           <span
             aria-hidden

@@ -18,6 +18,10 @@ import ShareButton from './ShareButton';
 //  자기 역량의 좌표가 아니라 어디로 갈 수 있는가다. (이슈 #23 a·b)
 // ============================================================================
 
+// UI 검토 중에만 true로 둔다. 커밋할 때 false로 바꾸면 새 UI는 유지하면서
+// 적합도 숫자만 감출 수 있고, 이후 점수 공개가 필요할 때 다시 켤 수 있다.
+const SHOW_FIT_SCORE_DURING_UI_REVIEW = false;
+
 export default function ResultView({
   result,
   onReset,
@@ -58,7 +62,11 @@ export default function ResultView({
         <div className="space-y-3">
           {routes.map((r, i) => (
             <div key={r.id} className="animate-rise" style={{ animationDelay: `${150 + i * 170}ms` }}>
-              <RouteAccordion route={r} mySkills={skills} />
+              <RouteAccordion
+                route={r}
+                mySkills={skills}
+                showFitScore={SHOW_FIT_SCORE_DURING_UI_REVIEW}
+              />
             </div>
           ))}
         </div>

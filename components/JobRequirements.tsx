@@ -1,4 +1,7 @@
+import Link from 'next/link';
 import { LOW_CONFIDENCE, type JobDetail, type RequirementRow } from '@/lib/job-detail';
+import { careerLabel, deadlineLabel, postingsForJob, WORK_MODE_LABEL } from '@/lib/company-index';
+import CompanyMark from './CompanyMark';
 
 // ============================================================================
 //  "이 직무에 필요한 것" — 추천 경로와 직접 고른 직무가 같은 화면을 쓴다.
@@ -53,6 +56,8 @@ function RequirementList({ rows, sampleSize }: { rows: RequirementRow[]; sampleS
 }
 
 export default function JobRequirements({ detail }: { detail: JobDetail }) {
+  const demoPostings = postingsForJob(detail.jobId, 2);
+
   return (
     <>
       <div className="flex items-baseline justify-between gap-3">
@@ -93,17 +98,43 @@ export default function JobRequirements({ detail }: { detail: JobDetail }) {
         )}
       </div>
 
-      {/* 회사명은 아직 공고 데이터에 없다. 자리를 먼저 두고 건수만 사실대로 쓴다.
-          없는 회사명을 지어 넣으면 나머지 숫자의 신뢰도까지 함께 잃는다. */}
-      <div className="mt-6 border-t border-hairline pt-4">
-        <div className="flex items-baseline justify-between gap-3">
-          <h4 className="text-[13px] font-medium text-ink">이 직무를 모집 중인 기업</h4>
-          <span className="text-[12px] text-body">공고 {detail.sampleSize}건</span>
+      {/* ⚠️ 여기 공고는 실제가 아니다. 서비스 흐름을 보이려고 만든 것이다.
+          그래서 '가상'이라는 말을 제목 옆과 목록 아래에 두 번 적는다 —
+          데이터에만 표시하고 화면에 안 쓰면 보는 사람은 실제로 받아들인다. */}
+      {demoPostings.length > 0 && (
+        <div className="mt-6 border-t border-hairline pt-4">
+          <div className="flex items-baseline justify-between gap-3">
+            <h4 className="text-[13px] font-medium text-ink">이 직무를 모집 중인 기업</h4>
+            <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[11px] font-medium text-warning">
+              가상 공고 {demoPostings.length}개
+            </span>
+          </div>
+
+          <div className="mt-3 space-y-2">
+            {demoPostings.map(({ posting, company }) => (
+              <Link
+                key={posting.id}
+                href={`/jobs/${posting.id}`}
+                className="flex items-center gap-3 rounded-lg border border-hairline bg-elevated p-3 transition-colors hover:border-mute"
+              >
+                <CompanyMark company={company} size="sm" />
+                <div className="min-w-0 flex-1">
+                  <p className="truncate text-[13px] font-medium text-ink">{posting.title}</p>
+                  <p className="mt-0.5 truncate text-[11px] text-mute">
+                    {company.name} · {careerLabel(posting)} · {WORK_MODE_LABEL[posting.workMode]}
+                  </p>
+                </div>
+                <span className="shrink-0 text-[11px] text-faint">{deadlineLabel(posting)} →</span>
+              </Link>
+            ))}
+          </div>
+
+          <p className="mt-2.5 text-[11px] leading-[1.6] text-faint">
+            실제 채용이 아닌 서비스 시연용 가상 기업·공고입니다. 요구 역량은 실제 공고{' '}
+            {detail.sampleSize}건에서 뽑았습니다.
+          </p>
         </div>
-        <p className="mt-2 text-[12px] leading-[1.6] text-faint">
-          분석에 쓴 공고 {detail.sampleSize}건에서 뽑은 요구 역량입니다. 회사명과 공고 링크는 준비 중입니다.
-        </p>
-      </div>
+      )}
     </>
   );
 }
