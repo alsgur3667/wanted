@@ -4,7 +4,6 @@ import { getSkill } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 import type { ApplicationStage, EmployerCandidateMatch } from '@/types';
 
-
 export default function EmployerCandidateDetail({ match, onStageChange }: {
   match: EmployerCandidateMatch;
   onStageChange: (stage: ApplicationStage) => void;
@@ -13,11 +12,11 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
   const evidence = new Map(candidate.skillEvidence.map((row) => [row.skillId, row.evidence]));
 
   return (
-    <aside className="rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
+    <aside className="animate-rise rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-[11px] text-faint">후보 상세 · 가상 지원자</p>
-          <h2 className="mt-1 text-xl font-semibold text-ink">{candidate.alias}</h2>
+          <h2 className="mt-1 text-xl font-semibold tracking-[-0.025em] text-ink">{candidate.alias}</h2>
           <p className="mt-1 text-[12px] text-mute">
             {candidate.currentJobTitle} · {isNewcomer(candidate.careerMonths) ? '신입' : `${Math.floor(candidate.careerMonths / 12)}년차`}
           </p>
@@ -83,7 +82,7 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
           id="application-stage"
           value={match.application.stage}
           onChange={(event) => onStageChange(event.target.value as ApplicationStage)}
-          className="mt-2 w-full rounded-lg border border-hairline bg-canvas px-3 py-2.5 text-[13px] text-ink outline-none focus:border-link"
+          className="mt-2 w-full rounded-md border border-hairline bg-canvas px-3 py-2.5 text-[13px] text-ink outline-none transition-colors focus:border-link"
         >
           {APPLICATION_STAGES.map((stage) => (
             <option key={stage} value={stage}>{APPLICATION_STAGE_LABEL[stage]}</option>

@@ -8,6 +8,8 @@ import { getSkill } from '@/lib/skill-index';
 import { isNewcomer } from '@/types';
 import type { PostingDraft } from '@/types';
 
+const FILTER_CLASS = 'rounded-md border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none transition-colors focus:border-link';
+
 export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
   const allMatches = useMemo(() => talentMatchesForDraft(draft), [draft]);
   const [query, setQuery] = useState('');
@@ -25,11 +27,11 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
   const selected = matches.find((match) => match.candidate.id === selectedId) ?? matches[0];
 
   return (
-    <section className="mt-8 border-t border-hairline pt-8">
+    <section className="animate-rise mt-8 border-t border-hairline pt-8">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="inline-flex items-center gap-1.5 text-[11px] font-medium text-link"><Sparkles className="size-3.5" />가상 인재풀 추천</p>
-          <h2 className="mt-1 text-xl font-semibold text-ink">아직 지원하지 않은 추천 인재</h2>
+          <h2 className="mt-1 text-xl font-semibold tracking-[-0.025em] text-ink">아직 지원하지 않은 추천 인재</h2>
           <p className="mt-1 text-[11px] text-mute">작성한 공고의 역량 조건으로 전체 가상 인재풀을 다시 계산했습니다.</p>
         </div>
         <span className="rounded-full bg-warning-soft px-3 py-1 text-[10px] text-warning">지원자 아님 · 연락 기능 없음</span>
@@ -39,9 +41,9 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
         <div className="grid gap-3 sm:grid-cols-[1fr_150px]">
           <label className="relative">
             <Search className="absolute left-3 top-2.5 size-4 text-faint" />
-            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="추천 인재 검색" placeholder="이름·직무·역량 검색" className="w-full rounded-lg border border-hairline bg-canvas py-2 pl-9 pr-3 text-[12px] text-ink outline-none focus:border-link" />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="추천 인재 검색" placeholder="이름·직무·역량 검색" className="w-full rounded-md border border-hairline bg-canvas py-2 pl-9 pr-3 text-[12px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link" />
           </label>
-          <select value={minimumFit} onChange={(event) => setMinimumFit(Number(event.target.value))} aria-label="추천 최소 적합도" className="rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none">
+          <select value={minimumFit} onChange={(event) => setMinimumFit(Number(event.target.value))} aria-label="추천 최소 적합도" className={FILTER_CLASS}>
             <option value={0}>전체 적합도</option><option value={40}>40점 이상</option><option value={60}>60점 이상</option><option value={80}>80점 이상</option>
           </select>
         </div>
@@ -54,11 +56,11 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
         <div className="space-y-3">
           <div className="flex items-center justify-between text-[11px] text-faint"><span>추천 {matches.length}명</span><span>적합도 높은 순 · 최대 18명</span></div>
           {matches.map((match) => (
-            <button key={match.candidate.id} type="button" onClick={() => setSelectedId(match.candidate.id)} className={`w-full rounded-xl border p-4 text-left transition-colors ${selected?.candidate.id === match.candidate.id ? 'border-link bg-link-soft/40' : 'border-hairline bg-elevated hover:border-mute'}`}>
+            <button key={match.candidate.id} type="button" onClick={() => setSelectedId(match.candidate.id)} aria-pressed={selected?.candidate.id === match.candidate.id} className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${selected?.candidate.id === match.candidate.id ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-mute'}`}>
               <div className="flex items-start gap-3">
                 <div className="grid size-10 shrink-0 place-items-center rounded-full bg-hairline-soft text-[12px] font-semibold text-ink">{match.candidate.alias.replace('지원자 ', '')}</div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-1.5"><strong className="text-[13px] text-ink">{match.candidate.alias}</strong>{match.isDifferentRole && <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[10px] text-warning">직무 전환</span>}</div>
+                  <div className="flex flex-wrap items-center gap-1.5"><strong className="text-[13px] font-semibold tracking-[-0.01em] text-ink">{match.candidate.alias}</strong>{match.isDifferentRole && <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[10px] font-medium text-warning">직무 전환</span>}</div>
                   <p className="mt-1 text-[12px] text-body">{match.candidate.currentJobTitle} · {isNewcomer(match.candidate.careerMonths) ? '신입' : `${Math.floor(match.candidate.careerMonths / 12)}년차`}</p>
                   <div className="mt-2 flex flex-wrap gap-1.5">{skillNames(match.matchedSkillIds).slice(0, 4).map((name) => <span key={name} className="rounded-md border border-link/20 px-2 py-0.5 text-[10px] text-link">{name}</span>)}</div>
                 </div>
@@ -70,10 +72,10 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
         </div>
 
         {selected ? (
-          <aside className="rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
+          <aside className="animate-rise rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
             <p className="inline-flex items-center gap-1.5 text-[10px] text-faint"><UserRoundSearch className="size-3.5" />추천 인재 상세 · 미지원</p>
             <div className="mt-2 flex items-start justify-between gap-4">
-              <div><h3 className="text-xl font-semibold text-ink">{selected.candidate.alias}</h3><p className="mt-1 text-[12px] text-mute">{selected.candidate.currentJobTitle} · {selected.candidate.location}</p></div>
+              <div><h3 className="text-xl font-semibold tracking-[-0.025em] text-ink">{selected.candidate.alias}</h3><p className="mt-1 text-[12px] text-mute">{selected.candidate.currentJobTitle} · {selected.candidate.location}</p></div>
               <div className="text-right"><strong className="text-3xl tabular-nums text-ink">{selected.fitScore}</strong><p className="text-[10px] text-faint">역량 적합도</p></div>
             </div>
             <p className="mt-5 text-[13px] leading-[1.7] text-body">{selected.candidate.summary}</p>

@@ -23,6 +23,9 @@ type SeniorityFilter = 'all' | 'new' | 'experienced';
 type StageFilter = 'all' | ApplicationStage;
 type WorkspaceMode = 'applications' | 'create';
 
+const CONTROL_CLASS = 'w-full rounded-md border border-hairline bg-canvas px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link';
+const FILTER_CLASS = 'rounded-md border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none transition-colors focus:border-link';
+
 export default function EmployerWorkspace() {
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('applications');
   const [companyId, setCompanyId] = useState(COMPANIES[0].id);
@@ -81,19 +84,19 @@ export default function EmployerWorkspace() {
 
   return (
     <div className="mt-10">
-      <nav aria-label="기업 채용 기능" className="mb-5 flex w-fit rounded-xl border border-hairline bg-elevated p-1">
-        <button type="button" onClick={() => setWorkspaceMode('applications')} className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'applications' ? 'bg-ink font-medium text-canvas' : 'text-mute hover:text-ink'}`}><UsersRound className="size-4" />지원자 관리</button>
-        <button type="button" onClick={() => setWorkspaceMode('create')} className={`inline-flex items-center gap-2 rounded-lg px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'create' ? 'bg-ink font-medium text-canvas' : 'text-mute hover:text-ink'}`}><FilePenLine className="size-4" />새 공고 만들기</button>
+      <nav aria-label="기업 채용 기능" className="mb-5 flex w-fit rounded-lg border border-hairline bg-elevated p-1">
+        <button type="button" onClick={() => setWorkspaceMode('applications')} className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'applications' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><UsersRound className="size-4" />지원자 관리</button>
+        <button type="button" onClick={() => setWorkspaceMode('create')} className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'create' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><FilePenLine className="size-4" />새 공고 만들기</button>
       </nav>
 
       {workspaceMode === 'create' ? (
         <>
-          <section className="rounded-xl border border-hairline bg-elevated p-5">
+          <section className="animate-rise rounded-xl border border-hairline bg-elevated p-5">
             <div className="flex flex-wrap items-center gap-3">
               <CompanyMark company={company} />
-              <div className="min-w-0 flex-1"><p className="text-[11px] text-faint">가상 채용 계정</p><p className="text-sm font-semibold text-ink">{company.name}</p></div>
+              <div className="min-w-0 flex-1"><p className="text-[11px] uppercase tracking-wider text-faint">가상 채용 계정</p><p className="mt-0.5 text-[14px] font-semibold tracking-[-0.02em] text-ink">{company.name}</p></div>
               <label className="w-full text-[10px] font-medium text-mute sm:w-auto sm:min-w-[220px]">작성 회사
-                <select value={companyId} onChange={(event) => changeCompany(event.target.value)} className="mt-1 w-full rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none focus:border-link">
+                <select value={companyId} onChange={(event) => changeCompany(event.target.value)} className={`mt-1 ${CONTROL_CLASS}`}>
                   {COMPANIES.map((row) => <option key={row.id} value={row.id}>{row.name} · {row.industry}</option>)}
                 </select>
               </label>
@@ -103,20 +106,20 @@ export default function EmployerWorkspace() {
         </>
       ) : (
         <>
-      <section className="rounded-xl border border-hairline bg-elevated p-5">
+      <section className="animate-rise rounded-xl border border-hairline bg-elevated p-5">
         <div className="flex items-center gap-3">
           <CompanyMark company={company} />
-          <div><p className="text-[11px] text-faint">가상 채용 계정</p><p className="text-sm font-semibold text-ink">{company.name}</p></div>
+          <div><p className="text-[11px] uppercase tracking-wider text-faint">가상 채용 계정</p><p className="mt-0.5 text-[14px] font-semibold tracking-[-0.02em] text-ink">{company.name}</p></div>
         </div>
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <label className="text-[11px] font-medium text-mute">회사 선택
-            <select value={companyId} onChange={(event) => changeCompany(event.target.value)} className="mt-2 w-full rounded-lg border border-hairline bg-canvas px-3 py-2.5 text-[13px] text-ink outline-none focus:border-link">
+            <select value={companyId} onChange={(event) => changeCompany(event.target.value)} className={`mt-2 ${CONTROL_CLASS}`}>
               {COMPANIES.map((row) => <option key={row.id} value={row.id}>{row.name} · {row.industry}</option>)}
             </select>
           </label>
           <label className="text-[11px] font-medium text-mute">채용공고 선택
-            <select value={posting.id} onChange={(event) => { setPostingId(event.target.value); setSelectedApplicationId(null); }} className="mt-2 w-full rounded-lg border border-hairline bg-canvas px-3 py-2.5 text-[13px] text-ink outline-none focus:border-link">
+            <select value={posting.id} onChange={(event) => { setPostingId(event.target.value); setSelectedApplicationId(null); }} className={`mt-2 ${CONTROL_CLASS}`}>
               {postings.map((row) => <option key={row.id} value={row.id}>{row.title}</option>)}
             </select>
           </label>
@@ -129,27 +132,27 @@ export default function EmployerWorkspace() {
         </div>
       </section>
 
-      <section className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
+      <section className="animate-rise mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4" style={{ animationDelay: '100ms' }}>
         {[
           ['전체 지원', `${allMatches.length}명`], ['진행 중', `${activeCount}명`],
           ['직무 전환 후보', `${differentRoleCount}명`], ['평균 적합도', `${averageFit}점`],
         ].map(([label, value]) => (
           <div key={label} className="rounded-xl border border-hairline bg-elevated px-4 py-3">
-            <p className="text-[10px] text-faint">{label}</p><p className="mt-1 text-lg font-semibold tabular-nums text-ink">{value}</p>
+            <p className="text-[10px] uppercase tracking-wider text-faint">{label}</p><p className="mt-1 text-lg font-semibold tabular-nums tracking-[-0.02em] text-ink">{value}</p>
           </div>
         ))}
       </section>
 
-      <section className="mt-5 rounded-xl border border-hairline bg-elevated p-4">
+      <section className="animate-rise mt-5 rounded-xl border border-hairline bg-elevated p-4" style={{ animationDelay: '180ms' }}>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
-          <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="후보 검색" placeholder="이름·직무·역량 검색" className="rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none placeholder:text-faint focus:border-link lg:col-span-2" />
-          <select value={stageFilter} onChange={(event) => setStageFilter(event.target.value as StageFilter)} aria-label="전형 상태 필터" className="rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none">
+          <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="후보 검색" placeholder="이름·직무·역량 검색" className={`${FILTER_CLASS} placeholder:text-faint lg:col-span-2`} />
+          <select value={stageFilter} onChange={(event) => setStageFilter(event.target.value as StageFilter)} aria-label="전형 상태 필터" className={FILTER_CLASS}>
             <option value="all">전체 상태</option>{APPLICATION_STAGES.map((stage) => <option key={stage} value={stage}>{APPLICATION_STAGE_LABEL[stage]}</option>)}
           </select>
-          <select value={seniority} onChange={(event) => setSeniority(event.target.value as SeniorityFilter)} aria-label="경력 필터" className="rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none">
+          <select value={seniority} onChange={(event) => setSeniority(event.target.value as SeniorityFilter)} aria-label="경력 필터" className={FILTER_CLASS}>
             <option value="all">전체 경력</option><option value="experienced">경력</option><option value="new">신입</option>
           </select>
-          <select value={minimumFit} onChange={(event) => setMinimumFit(Number(event.target.value))} aria-label="최소 적합도" className="rounded-lg border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none">
+          <select value={minimumFit} onChange={(event) => setMinimumFit(Number(event.target.value))} aria-label="최소 적합도" className={FILTER_CLASS}>
             <option value={0}>전체 적합도</option><option value={40}>40점 이상</option><option value={60}>60점 이상</option><option value={80}>80점 이상</option>
           </select>
         </div>
@@ -158,10 +161,10 @@ export default function EmployerWorkspace() {
         </label>
       </section>
 
-      <div className="mt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]">
+      <div className="animate-rise mt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]" style={{ animationDelay: '260ms' }}>
         <section>
           <div className="flex items-center justify-between">
-            <h2 className="inline-flex items-center gap-2 text-[14px] font-semibold text-ink"><UsersRound className="size-4" />후보 {matches.length}명</h2>
+            <h2 className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.02em] text-ink"><UsersRound className="size-4" />후보 {matches.length}명</h2>
             <span className="text-[10px] text-faint">적합도 높은 순</span>
           </div>
           <div className="mt-3 space-y-3">

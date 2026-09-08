@@ -3,7 +3,6 @@ import { APPLICATION_STAGE_LABEL } from '@/lib/employer-index';
 import { isNewcomer } from '@/types';
 import type { EmployerCandidateMatch } from '@/types';
 
-
 export default function EmployerCandidateCard({ match, selected, onSelect }: {
   match: EmployerCandidateMatch;
   selected: boolean;
@@ -14,8 +13,9 @@ export default function EmployerCandidateCard({ match, selected, onSelect }: {
     <button
       type="button"
       onClick={onSelect}
-      className={`w-full rounded-xl border p-4 text-left transition-colors ${
-        selected ? 'border-link bg-link-soft/40' : 'border-hairline bg-elevated hover:border-mute'
+      aria-pressed={selected}
+      className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${
+        selected ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-mute'
       }`}
     >
       <div className="flex items-start gap-3">
@@ -24,7 +24,7 @@ export default function EmployerCandidateCard({ match, selected, onSelect }: {
         </div>
         <div className="min-w-0 flex-1">
           <div className="flex flex-wrap items-center gap-1.5">
-            <strong className="text-[13px] text-ink">{candidate.alias}</strong>
+            <strong className="text-[13px] font-semibold tracking-[-0.01em] text-ink">{candidate.alias}</strong>
             {match.isDifferentRole && (
               <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[10px] font-medium text-warning">직무 전환</span>
             )}
