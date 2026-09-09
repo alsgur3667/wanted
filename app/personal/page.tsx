@@ -33,8 +33,11 @@ export default function Home() {
         )}
       </div>
 
+      {/* 자세한 안내는 입력 칸 옆(PrivacyNotice)에 있다. 결정을 내리는 자리에
+          있어야 읽히지, 화면 맨 아래 각주로 두면 아무도 안 본다.
+          여기서는 되풀이하지 않고 출처만 남긴다. */}
       <footer className="mt-16 border-t border-hairline pt-6 text-xs text-faint">
-        입력한 이력서는 서버·DB에 저장하지 않으며, 설정된 AI 제공자에 분석용으로 전송됩니다. · 원티드 AI Championship 2026
+        원티드 AI Championship 2026 · 회사·공고·지원자는 모두 가상 데이터입니다
       </footer>
     </main>
   );

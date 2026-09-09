@@ -327,3 +327,62 @@
 @media (prefers-reduced-motion: reduce) {
   .plot-frame, .plot-dot, .plot-label { animation: none; }
 }
+
+/* ============================================================================
+   커리어 지도
+
+   바닥이 먼저 깔리고 → 회사들이 흩어져 나타나고 → 출발지가 켜지고 →
+   경로가 한 줄씩 그려진다. 순서 자체가 "여기서 저기로 길을 찾는다"는
+   문장이라, 한꺼번에 나타나면 그림만 남고 뜻이 사라진다.
+
+   경로 그리기는 stroke-dasharray 를 선 길이만큼 주고 offset 을 0 으로 줄이는
+   고전적인 방법이다. pathLength 를 100 으로 못박아 두면 실제 길이를 재지 않아도
+   되고, 길이가 다른 세 경로가 같은 시간에 그려진다.
+   ========================================================================== */
+@keyframes map-draw {
+  from { stroke-dashoffset: 100; }
+  to   { stroke-dashoffset: 0; }
+}
+
+@keyframes map-pop {
+  from { opacity: 0; transform: scale(0.4); }
+  to   { opacity: 1; transform: none; }
+}
+
+@keyframes map-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+
+.map-grid   { animation: fade 900ms ease-out both; }
+.map-scatter { animation: fade 900ms ease-out 260ms both; }
+
+.map-origin {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-pop 620ms cubic-bezier(0.16, 1, 0.3, 1) 200ms both;
+}
+
+/* pathLength 는 CSS 속성이 아니라 SVG 속성이라 <path> 에 직접 준다.
+   그 덕에 길이가 제각각인 세 경로가 같은 시간 동안 그려진다. */
+.map-route {
+  stroke-dasharray: 100;
+  animation: map-draw 1150ms cubic-bezier(0.33, 0.9, 0.4, 1) both;
+}
+
+.map-stop {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-pop 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* 로딩 중에는 지금 그리고 있는 경로가 숨 쉰다 — 멈춘 화면이 아니라는 신호 */
+.map-searching .map-route:last-of-type { animation: map-draw 1150ms cubic-bezier(0.33, 0.9, 0.4, 1) both, map-pulse 1.5s ease-in-out 1.15s infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .map-grid, .map-scatter, .map-origin, .map-route, .map-stop,
+  .map-searching .map-route:last-of-type {
+    animation: none;
+    stroke-dashoffset: 0;
+  }
+}

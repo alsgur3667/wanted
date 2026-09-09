@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
-import ThemeToggle from '@/components/ThemeToggle';
+import SiteHeader from '@/components/SiteHeader';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -41,9 +41,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="antialiased">
-        <div className="fixed right-4 top-4 z-50">
-          <ThemeToggle />
-        </div>
+        {/* 테마 토글은 헤더 안으로 들어갔다. 화면 구석에 떠 있으면
+            어느 화면에서도 소속이 없어 보이고, 로그인 버튼과 나란히 두면
+            둘 다 '내 계정 쪽 도구'로 읽힌다. */}
+        <SiteHeader />
         {children}
       </body>
     </html>
