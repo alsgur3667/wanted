@@ -138,7 +138,7 @@ export interface AnalyzeRequest {
 }
 
 export type ErrorCode =
-  | 'TOO_SHORT'    // 이력서가 너무 짧음 (< 200자)
+  | 'TOO_SHORT'    // 이력서가 너무 짧음 (< 120자)
   | 'RATE_LIMIT'   // 일일 호출 상한 도달
   | 'LLM_FAILED'   // 추출 실패 / JSON 파싱 실패
   | 'UNKNOWN';
@@ -243,6 +243,109 @@ export interface JobPosting {
   synthesisBasis: string;
   generatedAt: string;
 }
+
+export type PostingDraftSource = 'manual' | 'ai';
+
+/**
+ * 게시 전 공고 초안. 게시 일시·마감일·공개 상태처럼 아직 사실이 아닌 값은
+ * JobPosting에 맞추려고 만들지 않는다. 실제 게시 시 검증 후 JobPosting으로 변환한다.
+ */
+export interface PostingDraft {
+  companyId: string;
+  jobId: string;
+  title: string;
+  jobFamily: string;
+  level: PostingLevel;
+  minCareerMonths: number;
+  maxCareerMonths: number | null;
+  employmentType: '정규직' | '계약직';
+  workMode: WorkMode;
+  location: string;
+  summary: string;
+  responsibilities: string[];
+  mustSkillIds: string[];
+  niceSkillIds: string[];
+  benefits: string[];
+  hiringProcess: string[];
+  applicationDocuments: string[];
+  salary: PostingSalary;
+  status: 'draft';
+  source: PostingDraftSource;
+  isSynthetic: true;
+}
+
+export interface PostingDraftRequest {
+  companyId: string;
+  jobId: string;
+  level: PostingLevel;
+  employmentType: '정규직' | '계약직';
+  workMode: WorkMode;
+  location: string;
+  context: string;
+  mustSkillIds: string[];
+  niceSkillIds: string[];
+}
+
+export type PostingDraftResponse =
+  | { ok: true; data: PostingDraft; provider: 'gemini' | 'anthropic' | 'mock'; warnings: string[] }
+  | { ok: false; code: 'INVALID_INPUT' | 'RATE_LIMIT' | 'LLM_FAILED'; message: string };
+
+export type ApplicationStage = 'new' | 'screening' | 'interview' | 'offer' | 'hold' | 'rejected';
+
+export interface CandidateSkillEvidence {
+  skillId: string;
+  evidence: string;
+}
+
+/** 기업용 목업 지원자. 실제 연동 시 지원자 동의 범위 안의 필드만 매핑한다. */
+export interface EmployerCandidate {
+  id: string;
+  alias: string;
+  currentJobId: string;
+  currentJobTitle: string;
+  jobFamily: string;
+  careerMonths: number;
+  industry: string | null;
+  location: string;
+  summary: string;
+  skillIds: string[];
+  skillEvidence: CandidateSkillEvidence[];
+  experienceHighlights: string[];
+  desiredWorkModes: WorkMode[];
+  isSynthetic: true;
+  synthesisBasis: string;
+  generatedAt: string;
+}
+
+/** 한 지원자가 특정 공고에 지원한 사실과 현재 전형 상태를 분리해 보관한다. */
+export interface CandidateApplication {
+  id: string;
+  postingId: string;
+  candidateId: string;
+  appliedAt: string;
+  stage: ApplicationStage;
+  source: 'direct' | 'recommendation';
+  isSynthetic: true;
+  synthesisBasis: string;
+  generatedAt: string;
+}
+
+export interface EmployerCandidateMatch {
+  candidate: EmployerCandidate;
+  application: CandidateApplication;
+  fitScore: number;
+  mustCoverage: number;
+  niceCoverage: number;
+  matchedSkillIds: string[];
+  coveredViaSkillIds: string[];
+  gapSkillIds: string[];
+  onboardingMonths: number;
+  careerFit: boolean;
+  isDifferentRole: boolean;
+}
+
+/** 지원 이력이 없는 인재풀 후보의 평가 결과. */
+export type TalentCandidateMatch = Omit<EmployerCandidateMatch, 'application'>;
 
 // ============================================================================
 //  기업 화면 (B2B) — 직무 → 지원자 매칭

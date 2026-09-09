@@ -4,24 +4,32 @@
 각 항목은 **"지금 구조에서 무엇만 추가하면 되는가"** 를 함께 적는다.
 붙일 자리가 이미 있다는 것이 확장 가능성의 근거다.
 
+현재 화면·API·점수·저장 범위의 기준은 [기능 명세](./FUNCTIONAL_SPEC.md)에서 관리한다.
+
 ---
 
 ## 현재 (v1)
 
 ```
 개인   이력서 텍스트 입력  →  역량 추출  →  갈 수 있는 경로 3개
-기업   채용 직무 선택      →  역량 매칭  →  지원자 적합도 순 정렬
+기업   공고 직접·AI 작성   →  인재풀 추천 / 기존 공고 지원자 관리
 ```
 
-두 화면은 **같은 매칭 엔진을 방향만 바꿔 호출**한다.
+두 화면은 같은 직무·스킬 ID와 역량 커버율 규칙을 공유하고, 입력 방향에 맞는 함수를 호출한다.
 
 ```
-lib/matching.ts   buildEmployerResult(requirement, candidates)
-lib/scoring.ts    buildAnalysis(extractedProfile)
-        └ 공통 기반: lib/skill-index.ts (직무 × 스킬 매트릭스)
+lib/employer-index.ts   scoreEmployerCandidate(posting, candidate)
+                        matchEmployerCandidate(posting, candidate, application)
+lib/posting-ai.ts       generatePostingDraft(input)
+lib/scoring.ts          buildAnalysis(extractedProfile)
+             └ 공통 기반: lib/skill-index.ts (직무 × 스킬 매트릭스)
 ```
 
-**현재 제약** — 기업 화면의 지원자는 샘플 15명(고정)이다. 실제 지원자 데이터를 받는 경로가 없다.
+기업 목업에는 회사 18개·공고 48개·지원자 72명·지원 이력 288건이 연결되어 있습니다. 공고를 직접 작성하거나
+AI로 문구 초안을 만들고, 새 공고는 지원자가 아닌 가상 인재풀 추천으로 확인할 수 있습니다. 후보 상세 근거와
+기존 공고의 전형 상태 변경까지 확인할 수 있지만 모두 가상 데이터이며, 초안과 상태는 서버에 저장하지 않습니다.
+
+**현재 제약** — 실제 지원자 파일을 받는 경로, 채용 계정, 영속 저장소와 개인정보 처리 절차가 없습니다.
 
 ---
 
@@ -36,7 +44,7 @@ lib/scoring.ts    buildAnalysis(extractedProfile)
       ↓  텍스트 추출
       ↓  LLM 역량 추출        ← 이미 구현됨 (lib/llm.ts)
       ↓  온톨로지 정규화       ← 이미 구현됨 (resolveSkill)
-      ↓  적합도 계산          ← 이미 구현됨 (lib/matching.ts)
+      ↓  적합도 계산          ← 이미 구현됨 (lib/employer-index.ts)
 정렬된 지원자 목록 + 직무 전환 후보 표시
 ```
 
@@ -46,13 +54,13 @@ lib/scoring.ts    buildAnalysis(extractedProfile)
 |---|---|
 | 역량 추출 프롬프트 | ✅ 구현 (`lib/prompts/extract.ts`) |
 | 표기 정규화 (별칭 매칭) | ✅ 구현 (`resolveSkill`) |
-| 적합도·부족역량·온보딩 계산 | ✅ 구현 (`lib/matching.ts`) |
-| 지원자 데이터 구조 | ✅ 정의됨 (`types.ts` 의 `Candidate`) |
+| 적합도·부족역량·온보딩 계산 | ✅ 구현 (`lib/employer-index.ts`) |
+| 지원자·지원 이력 데이터 구조 | ✅ 정의됨 (`EmployerCandidate`·`CandidateApplication`) |
 | **파일 파싱** | ❌ 미구현 |
 | **배치 처리 · 진행률** | ❌ 미구현 |
 
-`buildEmployerResult(requirement, candidates)` 는 `Candidate[]` 만 받으면 동작한다.
-**현재는 그 배열이 하드코딩일 뿐이고, 파일 파싱 결과로 바꾸면 그대로 돌아간다.**
+`matchEmployerCandidate(posting, candidate, application)`은 ID 기반 계약만 받습니다.
+실제 파일 파싱 결과를 같은 지원자 계약으로 정규화하면 회사·공고 화면을 유지한 채 입력 계층을 교체할 수 있습니다.
 
 ### 왜 이번 범위에 넣지 않았는가
 

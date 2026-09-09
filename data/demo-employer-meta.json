@@ -1,0 +1,59 @@
+{
+  "schemaVersion": "1.0",
+  "snapshotDate": "2026-09-08",
+  "seed": 20260908,
+  "isSynthetic": true,
+  "purpose": "회사·공고·후보 검토·전형 상태 변경을 잇는 기업용 목업",
+  "actualDataUse": "실제 인물이나 실제 지원 이력을 사용하지 않음",
+  "counts": {
+    "companies": 18,
+    "postings": 48,
+    "candidates": 72,
+    "applications": 288
+  },
+  "distribution": {
+    "candidatesByJob": {
+      "architect": 3,
+      "be_dev": 3,
+      "biz_analyst": 3,
+      "biz_strategy": 3,
+      "data_analyst": 3,
+      "data_eng": 3,
+      "data_scientist": 3,
+      "designer": 3,
+      "devops_sre": 3,
+      "embedded_dev": 3,
+      "eng_lead": 3,
+      "fe_dev": 3,
+      "fullstack_dev": 3,
+      "graphic_designer": 3,
+      "growth_marketing": 3,
+      "mobile_dev": 3,
+      "motion_designer": 3,
+      "product_designer": 3,
+      "product_manager": 3,
+      "program_manager": 3,
+      "qa_eng": 3,
+      "security_eng": 3,
+      "solutions_eng": 3,
+      "sw_eng": 3
+    },
+    "applicationsPerPosting": {
+      "6": 48
+    },
+    "applicationsByStage": {
+      "hold": 48,
+      "interview": 48,
+      "new": 96,
+      "screening": 96
+    },
+    "applicationsBySource": {
+      "direct": 144,
+      "recommendation": 144
+    }
+  },
+  "replaceableContracts": [
+    "EmployerCandidate",
+    "CandidateApplication"
+  ]
+}

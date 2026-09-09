@@ -1,151 +1,28 @@
-'use client';
-
-import { useMemo, useState } from 'react';
 import Link from 'next/link';
-import { JOB_REQUIREMENTS } from '@/data/job-requirements';
-import { CANDIDATES } from '@/data/candidates';
-import { buildEmployerResult, isSameRoleTitle } from '@/lib/matching';
-import { isNewcomer } from '@/types';
-import CandidateCard from '@/components/CandidateCard';
+import EmployerWorkspace from '@/components/EmployerWorkspace';
+import SyntheticNotice from '@/components/SyntheticNotice';
 
 export default function EmployerPage() {
-  const [jobId, setJobId] = useState(JOB_REQUIREMENTS[0].id);
-  const [includeDifferentRole, setIncludeDifferentRole] = useState(true);
-  const [seniority, setSeniority] = useState<'all' | 'exp' | 'new'>('all');
-
-  const req = JOB_REQUIREMENTS.find((j) => j.id === jobId)!;
-
-  const pool = useMemo(
-    () =>
-      CANDIDATES.filter((c) =>
-        seniority === 'all' ? true : seniority === 'new' ? isNewcomer(c.careerMonths) : !isNewcomer(c.careerMonths)
-      ),
-    [seniority]
-  );
-
-  const result = useMemo(
-    () => buildEmployerResult(req, pool, { includeDifferentRole }),
-    [req, pool, includeDifferentRole]
-  );
-  const sameRoleCount = useMemo(
-    () => buildEmployerResult(req, pool, { includeDifferentRole: false }).matches.length,
-    [req, pool]
-  );
-  const hiddenCount = result.matches.filter((m) => !isSameRoleTitle(req, m.candidate)).length;
-
   return (
-    <main className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
+    <main className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
       <header>
-        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← 커리어 내비</Link>
-        <h1 className="mt-3 text-2xl font-bold leading-snug sm:text-3xl">
-          직무명으로는 보이지 않는
-          <br />
-          지원자를 찾습니다.
+        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">
+          ← 커리어 내비
+        </Link>
+        <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.18em] text-faint">Employer workspace</p>
+        <h1 className="mt-2 text-2xl font-bold leading-snug tracking-[-0.04em] text-ink sm:text-3xl">
+          공고를 만들고, 역량 근거로<br className="hidden sm:block" /> 인재를 검토합니다.
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-mute">
-          직무명이 아니라 역량으로 매칭합니다. 같은 일을 해 왔지만 직함이 다른 사람이 드러납니다.
+        <p className="mt-3 max-w-2xl text-[13px] leading-[1.7] text-body">
+          직접 작성하거나 AI로 초안을 만든 뒤 추천 인재를 확인하고, 기존 공고의 지원자 전형도 함께 관리합니다.
         </p>
       </header>
 
-      <section className="mt-10">
-        <label className="text-xs font-medium text-mute">채용 직무</label>
-        <div className="mt-2 flex flex-wrap gap-2">
-          {JOB_REQUIREMENTS.map((j) => (
-            <button
-              key={j.id}
-              onClick={() => setJobId(j.id)}
-              className={`rounded-xl border px-4 py-2.5 text-sm transition ${
-                j.id === jobId
-                  ? 'border-ink bg-hairline-soft font-medium text-ink'
-                  : 'border-hairline text-body hover:text-ink '
-              }`}
-            >
-              {j.title}
-            </button>
-          ))}
-        </div>
+      <div className="mt-6 max-w-2xl"><SyntheticNotice /></div>
+      <EmployerWorkspace />
 
-        <div className="mt-4 rounded-xl border border-hairline p-4 text-xs">
-          <p>
-            <span className="text-mute">필수</span>{' '}
-            <span className="font-medium">{req.mustSkills.join(' · ')}</span>
-          </p>
-          <p className="mt-1.5">
-            <span className="text-mute">우대</span>{' '}
-            <span className="text-body">{req.niceSkills.join(' · ')}</span>
-          </p>
-        </div>
-      </section>
-
-      <section className="mt-6">
-        <span className="text-xs font-medium text-mute">경력 구분</span>
-        <div className="mt-2 inline-flex rounded-xl border border-hairline p-1">
-          {([
-            ['all', '전체'],
-            ['exp', '경력'],
-            ['new', '신입'],
-          ] as const).map(([v, label]) => (
-            <button
-              key={v}
-              onClick={() => setSeniority(v)}
-              className={`rounded-lg px-4 py-1.5 text-sm transition ${
-                seniority === v ? 'bg-ink font-medium text-canvas' : 'text-mute hover:text-ink'
-              }`}
-            >
-              {label}
-            </button>
-          ))}
-        </div>
-      </section>
-
-      <section className="mt-4">
-        <label className="flex cursor-pointer items-start gap-3 rounded-xl border border-hairline p-4">
-          <input
-            type="checkbox"
-            checked={includeDifferentRole}
-            onChange={(e) => setIncludeDifferentRole(e.target.checked)}
-            className="mt-0.5 h-4 w-4 accent-[var(--link)]"
-          />
-          <span className="text-sm">
-            직무명이 다른 후보도 포함
-            <span className="mt-1 block text-xs text-mute">
-              끄면 {sameRoleCount}명, 켜면 {sameRoleCount + hiddenCount}명
-              {hiddenCount > 0 && (
-                <> · 직무명 검색으로는 <strong className="font-medium text-ink">{hiddenCount}명을 놓칩니다</strong></>
-              )}
-            </span>
-          </span>
-        </label>
-      </section>
-
-      <section className="mt-8">
-        <div className="flex items-baseline justify-between">
-          <h2 className="text-lg font-semibold">적합도 순 {result.matches.length}명</h2>
-          <span className="text-xs text-faint">필수 3 : 우대 1 가중</span>
-        </div>
-        <div className="mt-5 space-y-4">
-          {result.matches.map((m, i) => (
-            <CandidateCard
-              key={m.candidate.id}
-              match={m}
-              rank={i + 1}
-              requiredSkills={req.mustSkills}
-              isDifferentRole={!isSameRoleTitle(req, m.candidate)}
-            />
-          ))}
-          {result.matches.length === 0 && (
-            <p className="rounded-xl border border-hairline p-8 text-center text-sm text-mute">
-              조건에 맞는 지원자가 없습니다.
-            </p>
-          )}
-        </div>
-      </section>
-
-      <footer className="mt-16 border-t border-hairline pt-6 text-xs leading-relaxed text-faint">
-        표시된 지원자는 실제 인물이 아닌 <strong className="font-medium">샘플 데이터</strong>입니다.
-        실제 서비스에서는 지원자가 공개에 동의한 항목만 노출됩니다.
-        <br />
-        원티드 AI Championship 2026
+      <footer className="mt-16 border-t border-hairline pt-6 text-[11px] leading-[1.6] text-faint">
+        회사·공고·지원자·추천 인재는 모두 가상 데이터입니다. 공고 초안과 상태 변경은 현재 세션에만 적용되며 서버나 DB에 저장되지 않습니다.
       </footer>
     </main>
   );

@@ -33,10 +33,10 @@
                   직무 × 역량 매트릭스 (공고 1,435건)
                               │
               ┌───────────────┴───────────────┐
-         개인 이력서 입력                기업 채용 직무 선택
+         개인 이력서 입력                기업 공고 작성·선택
               ▼                               ▼
-        갈 수 있는 경로 3개              적합도 순 지원자 목록
-        적합도 · 부족 역량 · 첫 단계      전환 후보 · 신입 · 온보딩
+        갈 수 있는 경로 3개              지원자 관리 / 추천 인재풀
+        적합도 · 부족 역량 · 첫 단계      직접 작성 · AI 초안 · 역량 근거
 ```
 
 같은 매칭 엔진을 **방향만 바꿔** 호출합니다.
@@ -106,7 +106,7 @@ weight   = 스킬이 등장한 공고 수 ÷ 그 직무의 전체 공고 수
 
 근거를 필드로 구분합니다 — `"source": "JD"` (공고 빈도) / `"source": "manual"` (수동 매핑)
 
-지원자용 회사 조회에는 **가상 회사 18개와 가상 공고 48개**를 사용합니다. 실제 회사의 문구나 로고를 복제한 데이터가 아니며, 추후 실제 공급원을 같은 계약으로 교체하기 위한 목업입니다. 추천 점수 계산과 모델 평가에는 사용하지 않습니다.
+지원자용 회사 조회와 기업용 채용 화면에는 **가상 회사 18개·가상 공고 48개·가상 지원자 72명·지원 이력 288건**을 사용합니다. 기업은 공고를 직접 작성하거나 AI로 문구 초안을 만든 뒤 같은 72명의 가상 인재풀에서 추천 후보를 확인할 수 있습니다. 실제 회사나 인물의 문구·로고·이력서를 복제한 데이터가 아니며, 추후 실제 공급원을 같은 계약으로 교체하기 위한 목업입니다. 추천 모델 평가에는 사용하지 않습니다.
 
 ```bash
 node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json
@@ -115,7 +115,7 @@ npm run validate:demo-data
 # 가상 회사·공고의 참조와 표시 규칙 검증
 ```
 
-📄 [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+📄 [현재 기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
 
 ---
 
@@ -127,15 +127,18 @@ app/
   personal/         이력서 입력 → 결과
   companies/        가상 회사 목록 → 회사 상세
   jobs/             가상 채용공고 상세 → 지원 흐름
-  employer/         지원자 매칭
+  employer/         공고 직접·AI 작성 → 추천 인재 / 기존 지원자 관리
+  api/employer/     공고 문구 초안 생성 (gemini | anthropic | mock)
   api/analyze/      역량 추출 → 적합도 산출
   api/og/           공유 카드 이미지
 lib/
   skill-index.ts    직무×스킬 매트릭스 · 전이성 지수
   company-index.ts  회사·공고 조회와 직무·스킬 연결
-  scoring.ts        개인 방향        matching.ts  기업 방향
+  employer-index.ts 공고·지원자·인재풀 연결과 ID 기반 적합도
+  posting-draft.ts  게시 전 공고 계약·검증·금지 표현 경고
+  scoring.ts        개인 방향        employer-index.ts  기업 방향
   llm.ts            제공자 추상화 (gemini | anthropic | mock)
-data/               수집 데이터 + 수동 보강분 + 가상 회사·공고
+data/               수집 데이터 + 수동 보강분 + 가상 회사·공고·지원자
 scripts/            수집(Python) · 생성 · 검증 · 병합
 types.ts            개인/기업 공통 계약
 ```
@@ -165,6 +168,7 @@ Anthropic 키를 설정해야 합니다.
 | `ANTHROPIC_API_KEY` | Anthropic 이력서 추출 |
 | `ANTHROPIC_MODEL` | Anthropic 모델명 (선택) |
 | `DAILY_CALL_LIMIT` | 프로세스별 일일 LLM 호출 상한 (데모 비용 방어) |
+| `POSTING_DRAFT_DAILY_LIMIT` | 프로세스별 일일 공고 AI 초안 호출 상한 (기본 80) |
 
 > `.env.local` 은 **절대 커밋하지 않습니다.** 유료 API 자부담이라 키 유출 = 요금 폭탄입니다.
 
@@ -197,6 +201,9 @@ uv run python scripts/collect/eval_routes.py
 
 | | |
 |---|---|
+| [**FUNCTIONAL_SPEC**](./docs/FUNCTIONAL_SPEC.md) | 현재 구현된 화면·API·점수·저장 범위와 알려진 제약 |
+| [**FUNCTIONAL_SPEC_BRIEF**](./docs/FUNCTIONAL_SPEC_BRIEF.md) | 강사 설명용 기능 명세 요약과 시연 순서 |
+| [**FUNCTIONAL_SPEC_PDF**](./output/pdf/CAREER_NAVI_FUNCTIONAL_SPEC.pdf) | 강사에게 보여주기 위한 7쪽 기능 명세 요약 PDF |
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
@@ -207,9 +214,10 @@ uv run python scripts/collect/eval_routes.py
 
 ## 로드맵
 
-현재 기업 화면의 지원자와 지원자용 회사·공고는 **샘플·가상 데이터**입니다.
+현재 기업 화면의 회사·공고·지원자·지원 이력은 **가상 데이터**입니다. 새 공고 초안과 전형 상태 변경도 현재 화면에서만 유지됩니다. 새 공고의 결과는 지원 이력이 없는 `추천 인재`로 구분합니다.
 이력서 파일 일괄 분석은 **비용 제어와 개인정보 처리 정책**이 선행되어야 해 이번 범위에서 제외했습니다.
-매칭 엔진은 `Candidate[]` 만 받으면 동작하므로, 파일 파싱과 배치 처리만 추가하면 연결됩니다.
+기업 매칭은 `JobPosting`·`EmployerCandidate`·`CandidateApplication` 계약을 받으므로, 파일 파싱 결과를
+같은 형태로 정규화하면 조회 UI를 유지한 채 실제 입력으로 교체할 수 있습니다.
 
 ```
 v2  이력서 파일 일괄 분석    파일 파싱 + 배치 처리
