@@ -115,7 +115,7 @@ npm run validate:demo-data
 # 가상 회사·공고의 참조와 표시 규칙 검증
 ```
 
-📄 [현재 기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+📄 [서비스 기획서](./docs/SERVICE_PLAN.md) · [현재 기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
 
 ---
 
@@ -201,6 +201,7 @@ uv run python scripts/collect/eval_routes.py
 
 | | |
 |---|---|
+| [**SERVICE_PLAN**](./docs/SERVICE_PLAN.md) | 타깃·문제·핵심 가치·기능 구조와 브랜드 메시지 기준 |
 | [**FUNCTIONAL_SPEC**](./docs/FUNCTIONAL_SPEC.md) | 현재 구현된 화면·API·점수·저장 범위와 알려진 제약 |
 | [**FUNCTIONAL_SPEC_BRIEF**](./docs/FUNCTIONAL_SPEC_BRIEF.md) | 강사 설명용 기능 명세 요약과 시연 순서 |
 | [**FUNCTIONAL_SPEC_PDF**](./output/pdf/CAREER_NAVI_FUNCTIONAL_SPEC.pdf) | 강사에게 보여주기 위한 7쪽 기능 명세 요약 PDF |
@@ -208,7 +209,7 @@ uv run python scripts/collect/eval_routes.py
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
-| [**PLAN**](./docs/PLAN.md) | 개발 일정과 마일스톤 |
+| [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 공모전 실행계획과 마일스톤 |
 
 ---
 
