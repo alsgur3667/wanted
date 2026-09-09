@@ -165,7 +165,7 @@ export default function PostingComposer({ company }: { company: Company }) {
 
         <div className="mt-5 flex flex-wrap items-center gap-3">
           {source === 'ai' ? <button type="button" onClick={generateWithAi} disabled={loading} className={PRIMARY_ACTION_CLASS}>{loading ? <LoaderCircle className="size-4 animate-spin" /> : <Sparkles className="size-4" />}{loading ? '초안 생성 중' : 'AI로 초안 만들기'}</button> : <button type="button" onClick={previewManual} className={PRIMARY_ACTION_CLASS}><Check className="size-4" />작성 내용 검토</button>}
-          {draft && dirty && <button type="button" onClick={updateDraftCopy} className="rounded-md border border-hairline px-4 py-2.5 text-[12px] font-medium text-ink transition-colors hover:border-mute">수정 내용 반영</button>}
+          {draft && dirty && <button type="button" onClick={updateDraftCopy} className="rounded-md border border-hairline px-4 py-2.5 text-[12px] font-medium text-ink transition-colors hover:border-link/50">수정 내용 반영</button>}
           {provider && <span className="text-[10px] text-faint">생성 제공자: {provider} · AI 생성 초안</span>}
         </div>
       </section>

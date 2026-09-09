@@ -15,7 +15,7 @@ export default function EmployerCandidateCard({ match, selected, onSelect }: {
       onClick={onSelect}
       aria-pressed={selected}
       className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${
-        selected ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-mute'
+        selected ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-link/50'
       }`}
     >
       <div className="flex items-start gap-3">

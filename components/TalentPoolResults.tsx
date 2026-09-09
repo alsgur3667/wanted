@@ -56,7 +56,7 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
         <div className="space-y-3">
           <div className="flex items-center justify-between text-[11px] text-faint"><span>추천 {matches.length}명</span><span>적합도 높은 순 · 최대 18명</span></div>
           {matches.map((match) => (
-            <button key={match.candidate.id} type="button" onClick={() => setSelectedId(match.candidate.id)} aria-pressed={selected?.candidate.id === match.candidate.id} className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${selected?.candidate.id === match.candidate.id ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-mute'}`}>
+            <button key={match.candidate.id} type="button" onClick={() => setSelectedId(match.candidate.id)} aria-pressed={selected?.candidate.id === match.candidate.id} className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${selected?.candidate.id === match.candidate.id ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-link/50'}`}>
               <div className="flex items-start gap-3">
                 <div className="grid size-10 shrink-0 place-items-center rounded-full bg-hairline-soft text-[12px] font-semibold text-ink">{match.candidate.alias.replace('지원자 ', '')}</div>
                 <div className="min-w-0 flex-1">
