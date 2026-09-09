@@ -99,7 +99,7 @@ export default async function CompanyPage({ params }: { params: Promise<{ compan
             <Link
               key={posting.id}
               href={`/jobs/${posting.id}`}
-              className="block rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-mute"
+              className="block rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-link/50 hover:bg-link-soft"
             >
               <div className="flex items-start justify-between gap-4">
                 <div>

@@ -61,7 +61,7 @@ export default function JobExplorer({
           id="job-explorer"
           value={picked}
           onChange={(e) => setPicked(e.target.value)}
-          className="min-w-56 rounded-md border border-hairline bg-elevated px-3 py-2 text-[13px] text-ink transition-colors hover:border-mute"
+          className="min-w-56 rounded-md border border-hairline bg-elevated px-3 py-2 text-[13px] text-ink transition-colors hover:border-link/50"
         >
           <option value="" className="bg-elevated text-ink">
             직무를 골라 보세요

@@ -43,7 +43,7 @@ export default function CompanyDirectory() {
             <Link
               key={company.id}
               href={`/companies/${company.id}`}
-              className="group rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-mute"
+              className="group rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-link/50 hover:bg-link-soft"
             >
               <div className="flex items-start gap-3">
                 <CompanyMark company={company} />

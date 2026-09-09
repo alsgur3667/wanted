@@ -32,17 +32,17 @@ export default function RouteAccordion({
     ? `필수 ${detail.mustTotal}개 중 ${detail.mustHeld}개`
     : `적합도 ${route.fitScore}`;
 
+  // 히든 경로임을 테두리로도, 배지로도 말하면 같은 사실을 두 번 칠하는 것이다.
+  // 목록에서 그 카드만 노랗게 뜨면 나머지 두 개가 덜 중요해 보이기도 한다.
+  // 사실은 배지 하나가 말하고, 색은 마우스를 올린 카드에만 청록으로 켠다 —
+  // 랜딩·예시 버튼과 같은 규칙이다.
   return (
-    <article
-      className={`overflow-hidden rounded-xl border bg-elevated transition-colors ${
-        route.isHiddenRoute ? 'border-warning/45' : 'border-hairline'
-      }`}
-    >
+    <article className="group overflow-hidden rounded-xl border border-hairline bg-elevated transition-colors hover:border-link/50">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
-        className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-hairline-soft"
+        className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-link-soft"
       >
         <div className="min-w-0">
           {route.isHiddenRoute && (

@@ -6,7 +6,9 @@ import Link from 'next/link';
 
 // 두 카드는 같은 무게다. 개인이든 기업이든 같은 엔진의 두 입구일 뿐이라
 // 한쪽만 색 테두리를 두르면 "기업 쪽이 본편"이라는 잘못된 신호가 된다.
-// 앰버는 카드가 아니라 카드 '안'의 놓치던 항목에만 붙는다.
+//
+// 가만히 있을 때 이 화면은 흑백이다. 색은 마우스를 올린 카드에만 켜진다 —
+// '예시로 바로 보기' 버튼과 같은 규칙이라 처음 보는 사람도 두 번째에는 안다.
 function Card({
   href, tag, title, lines, sample,
 }: {
@@ -15,7 +17,7 @@ function Card({
   return (
     <Link
       href={href}
-      className="group flex flex-col rounded-xl border border-hairline bg-elevated p-6 transition-colors hover:border-mute"
+      className="group flex flex-col rounded-xl border border-hairline bg-elevated p-6 transition-colors hover:border-link/50 hover:bg-link-soft"
     >
       <span className="text-[11px] font-medium uppercase tracking-wider text-faint">{tag}</span>
       <h2 className="mt-2 whitespace-pre-line text-xl font-bold leading-snug tracking-[-0.03em] text-ink">
@@ -23,7 +25,11 @@ function Card({
       </h2>
       <p className="mt-2 text-[13px] leading-[1.6] text-body">{lines}</p>
 
-      <div className="mt-5 flex-1 rounded-lg border border-hairline bg-canvas p-4">{sample}</div>
+      {/* 안쪽 판은 호버 때 배경을 비운다. 그대로 두면 카드에 깔린 청록 위로
+          회색 판이 떠서 색이 카드 가장자리에만 걸린 것처럼 보인다. */}
+      <div className="mt-5 flex-1 rounded-lg border border-hairline bg-canvas p-4 transition-colors group-hover:border-link/20 group-hover:bg-transparent">
+        {sample}
+      </div>
 
       <span className="mt-5 inline-flex items-center gap-1.5 text-[13px] font-medium text-ink">
         시작하기
@@ -34,12 +40,13 @@ function Card({
 }
 
 // 샘플 한 줄. 놓치던 항목은 배경 박스가 아니라 왼쪽 세로 막대 하나로 표시한다.
-// 박스를 쓰면 세 줄 중 두 줄이 칠해져 '강조'가 아니라 '기본'이 되어 버린다.
+// 막대는 평소 회색이고 카드에 마우스를 올렸을 때만 청록으로 켜진다 —
+// 랜딩에서 앰버를 쓰면 아직 아무 맥락도 없는 사람에게 경고처럼 읽힌다.
 function Row({ name, score, hidden = false }: { name: string; score: number; hidden?: boolean }) {
   return (
     <li
       className={`flex items-center justify-between py-0.5 ${
-        hidden ? 'border-l-2 border-warning pl-2' : 'pl-[10px]'
+        hidden ? 'border-l-2 border-mute pl-2 transition-colors group-hover:border-link' : 'pl-[10px]'
       }`}
     >
       <span className={hidden ? 'font-medium text-ink' : 'text-mute'}>{name}</span>
@@ -98,7 +105,7 @@ export default function Landing() {
 
       <Link
         href="/companies"
-        className="group mt-4 flex items-center justify-between rounded-xl border border-dashed border-hairline px-5 py-4 transition-colors hover:border-mute"
+        className="group mt-4 flex items-center justify-between rounded-xl border border-dashed border-hairline px-5 py-4 transition-colors hover:border-link/50 hover:bg-link-soft"
       >
         <span>
           <span className="block text-[13px] font-medium text-ink">가상 회사·채용공고 둘러보기</span>

@@ -18,7 +18,7 @@ export default function CandidateCard({
   // 목록 전체가 노랗게 되어 강조가 아니라 배경이 된다. 사실을 말하는 일은
   // 배지 하나에 맡기고, 테두리는 마우스를 올린 카드에만 청록으로 켠다.
   return (
-    <article className="rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-link/60">
+    <article className="rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-link/50 hover:bg-link-soft">
       <header className="flex items-start gap-4">
         <div className="w-12 shrink-0 text-center">
           <div className="text-2xl font-bold tabular-nums leading-none text-ink">{fitScore}</div>

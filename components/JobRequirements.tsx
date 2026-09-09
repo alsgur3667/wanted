@@ -115,7 +115,7 @@ export default function JobRequirements({ detail }: { detail: JobDetail }) {
               <Link
                 key={posting.id}
                 href={`/jobs/${posting.id}`}
-                className="flex items-center gap-3 rounded-lg border border-hairline bg-elevated p-3 transition-colors hover:border-mute"
+                className="flex items-center gap-3 rounded-lg border border-hairline bg-elevated p-3 transition-colors hover:border-link/50 hover:bg-link-soft"
               >
                 <CompanyMark company={company} size="sm" />
                 <div className="min-w-0 flex-1">

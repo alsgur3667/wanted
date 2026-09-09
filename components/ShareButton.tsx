@@ -74,7 +74,7 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
         </a>
         <button
           onClick={copy}
-          className="rounded-full border border-hairline bg-elevated px-4 py-2.5 text-[14px] text-ink transition-colors hover:border-mute"
+          className="rounded-full border border-hairline bg-elevated px-4 py-2.5 text-[14px] text-ink transition-colors hover:border-link/50"
         >
           {copied ? '복사됨' : '공유 문구 복사'}
         </button>
