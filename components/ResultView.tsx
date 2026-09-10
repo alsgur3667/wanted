@@ -59,6 +59,8 @@ export default function ResultView({
 
       {/* 위에서부터 차례로 떠오른다. 한꺼번에 나타나면 어디를 볼지 알 수 없다. */}
       <section className="mt-12">
+        <h2 className="text-xl font-semibold text-ink">탐색할 커리어 경로</h2>
+        <p className="mb-5 mt-2 text-sm leading-6 text-mute">각 경로를 열어 연결되는 역량과 준비할 내용을 확인해 보세요.</p>
         <div className="space-y-3">
           {routes.map((r, i) => (
             <div key={r.id} className="animate-rise" style={{ animationDelay: `${150 + i * 170}ms` }}>

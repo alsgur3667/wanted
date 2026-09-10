@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import { skillNames, WORK_MODE_LABEL } from '@/lib/company-index';
 import { APPLICATION_STAGE_LABEL, APPLICATION_STAGES } from '@/lib/employer-index';
 import { getSkill } from '@/lib/skill-index';
@@ -9,6 +10,7 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
   onStageChange: (stage: ApplicationStage) => void;
 }) {
   const candidate = match.candidate;
+  const stageId = useId();
   const evidence = new Map(candidate.skillEvidence.map((row) => [row.skillId, row.evidence]));
 
   return (
@@ -77,9 +79,9 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
       </section>
 
       <section className="mt-6 border-t border-hairline pt-4">
-        <label htmlFor="application-stage" className="text-[11px] font-medium text-mute">전형 상태</label>
+        <label htmlFor={stageId} className="text-[11px] font-medium text-mute">전형 상태</label>
         <select
-          id="application-stage"
+          id={stageId}
           value={match.application.stage}
           onChange={(event) => onStageChange(event.target.value as ApplicationStage)}
           className="mt-2 w-full rounded-md border border-hairline bg-canvas px-3 py-2.5 text-[13px] text-ink outline-none transition-colors focus:border-link"

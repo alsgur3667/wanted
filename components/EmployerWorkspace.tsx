@@ -23,8 +23,8 @@ type SeniorityFilter = 'all' | 'new' | 'experienced';
 type StageFilter = 'all' | ApplicationStage;
 type WorkspaceMode = 'applications' | 'create';
 
-const CONTROL_CLASS = 'w-full rounded-md border border-hairline bg-canvas px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link';
-const FILTER_CLASS = 'rounded-md border border-hairline bg-canvas px-3 py-2 text-[12px] text-ink outline-none transition-colors focus:border-link';
+const CONTROL_CLASS = 'min-h-11 w-full rounded-lg border border-hairline bg-canvas px-3 py-2.5 text-sm text-ink transition-colors placeholder:text-faint focus:border-link';
+const FILTER_CLASS = 'min-h-11 min-w-0 rounded-lg border border-hairline bg-canvas px-3 py-2 text-sm text-ink transition-colors focus:border-link';
 
 export default function EmployerWorkspace() {
   const [workspaceMode, setWorkspaceMode] = useState<WorkspaceMode>('applications');
@@ -83,11 +83,14 @@ export default function EmployerWorkspace() {
   }
 
   return (
-    <div className="mt-10">
-      <nav aria-label="기업 채용 기능" className="mb-5 flex w-fit rounded-lg border border-hairline bg-elevated p-1">
-        <button type="button" onClick={() => setWorkspaceMode('applications')} className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'applications' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><UsersRound className="size-4" />지원자 관리</button>
-        <button type="button" onClick={() => setWorkspaceMode('create')} className={`inline-flex items-center gap-2 rounded-md px-4 py-2 text-[12px] transition-colors ${workspaceMode === 'create' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><FilePenLine className="size-4" />새 공고 만들기</button>
-      </nav>
+    <div className="mt-6">
+      <div className="mb-6 flex flex-wrap items-center justify-between gap-3">
+        <nav aria-label="기업 채용 기능" className="flex rounded-xl border border-hairline bg-elevated p-1">
+          <button type="button" aria-pressed={workspaceMode === 'applications'} onClick={() => setWorkspaceMode('applications')} className={`inline-flex min-h-11 items-center gap-2 rounded-lg px-4 text-sm transition-colors ${workspaceMode === 'applications' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><UsersRound className="size-4" />지원자 관리</button>
+          <button type="button" aria-pressed={workspaceMode === 'create'} onClick={() => setWorkspaceMode('create')} className={`inline-flex min-h-11 items-center gap-2 rounded-lg px-4 text-sm transition-colors ${workspaceMode === 'create' ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'}`}><FilePenLine className="size-4" />새 공고 만들기</button>
+        </nav>
+        <span className="rounded-full border border-hairline px-3 py-1.5 text-xs text-mute">데모 환경 · 변경사항은 저장되지 않습니다</span>
+      </div>
 
       {workspaceMode === 'create' ? (
         <>
@@ -137,13 +140,14 @@ export default function EmployerWorkspace() {
           ['전체 지원', `${allMatches.length}명`], ['진행 중', `${activeCount}명`],
           ['직무 전환 후보', `${differentRoleCount}명`], ['평균 적합도', `${averageFit}점`],
         ].map(([label, value]) => (
-          <div key={label} className="rounded-xl border border-hairline bg-elevated px-4 py-3">
-            <p className="text-[10px] uppercase tracking-wider text-faint">{label}</p><p className="mt-1 text-lg font-semibold tabular-nums tracking-[-0.02em] text-ink">{value}</p>
+          <div key={label} className="rounded-xl border border-hairline bg-elevated px-5 py-5">
+            <p className="text-xs text-mute">{label}</p><p className="mt-3 text-3xl font-semibold tabular-nums tracking-[-0.02em] text-ink">{value}</p>
           </div>
         ))}
       </section>
 
       <section className="animate-rise mt-5 rounded-xl border border-hairline bg-elevated p-4" style={{ animationDelay: '180ms' }}>
+        <div className="mb-3 flex items-center justify-between"><h2 className="text-sm font-semibold text-ink">지원자 검색 및 필터</h2><button type="button" onClick={resetFilters} className="min-h-9 rounded-md px-2 text-xs text-link hover:bg-link-soft">필터 초기화</button></div>
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-5">
           <input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="후보 검색" placeholder="이름·직무·역량 검색" className={`${FILTER_CLASS} placeholder:text-faint lg:col-span-2`} />
           <select value={stageFilter} onChange={(event) => setStageFilter(event.target.value as StageFilter)} aria-label="전형 상태 필터" className={FILTER_CLASS}>
@@ -164,12 +168,15 @@ export default function EmployerWorkspace() {
       <div className="animate-rise mt-6 grid items-start gap-6 lg:grid-cols-[minmax(0,1.08fr)_minmax(360px,0.92fr)]" style={{ animationDelay: '260ms' }}>
         <section>
           <div className="flex items-center justify-between">
-            <h2 className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.02em] text-ink"><UsersRound className="size-4" />후보 {matches.length}명</h2>
+            <h2 aria-live="polite" className="inline-flex items-center gap-2 text-[14px] font-semibold tracking-[-0.02em] text-ink"><UsersRound className="size-4" />후보 {matches.length}명</h2>
             <span className="text-[10px] text-faint">적합도 높은 순</span>
           </div>
           <div className="mt-3 space-y-3">
             {matches.map((match) => (
-              <EmployerCandidateCard key={match.application.id} match={match} selected={selected?.application.id === match.application.id} onSelect={() => setSelectedApplicationId(match.application.id)} />
+              <div key={match.application.id}>
+                <EmployerCandidateCard match={match} selected={selected?.application.id === match.application.id} onSelect={() => setSelectedApplicationId(match.application.id)} />
+                {selectedApplicationId === match.application.id && <div className="mt-3 lg:hidden"><EmployerCandidateDetail match={match} onStageChange={(stage) => setStageByApplication((current) => ({ ...current, [match.application.id]: stage }))} /></div>}
+              </div>
             ))}
             {matches.length === 0 && (
               <div className="rounded-xl border border-hairline p-10 text-center">
@@ -180,7 +187,7 @@ export default function EmployerWorkspace() {
           </div>
         </section>
         {selected ? (
-          <EmployerCandidateDetail match={selected} onStageChange={(stage) => setStageByApplication((current) => ({ ...current, [selected.application.id]: stage }))} />
+          <div className="hidden lg:sticky lg:top-24 lg:block"><EmployerCandidateDetail match={selected} onStageChange={(stage) => setStageByApplication((current) => ({ ...current, [selected.application.id]: stage }))} /></div>
         ) : (
           <aside className="rounded-xl border border-dashed border-hairline p-8 text-center text-sm text-mute">왼쪽에서 후보를 선택해 주세요.</aside>
         )}

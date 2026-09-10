@@ -1,124 +1,51 @@
 import Link from 'next/link';
+import { ArrowRight, Compass, ScanSearch, ChartNoAxesCombined } from 'lucide-react';
 import EntrySplit from '@/components/EntrySplit';
 import HeroCareerMap from '@/components/HeroCareerMap';
-import NaviMark from '@/components/NaviMark';
-import CorpusPanel from '@/components/CorpusPanel';
-import ScrollFade from '@/components/ScrollFade';
+import { CORPUS } from '@/lib/corpus-stats';
 
-// ============================================================================
-//  랜딩
-//
-//    1  히어로 — 지도 위에 경로가 그려진다
-//    2  갈림길 — 개인 / 기업
-//    3  둘러보기 — 로그인 없이 볼 수 있는 곳
-//
-//  히어로를 먼저 두는 이유는 이 제품이 무엇인지가 이름만으로는 안 서기
-//  때문이다. '커리어 내비'는 들으면 그럴듯하지만 뭘 하는지는 모른다.
-//  경로가 그려지는 걸 3초 보고 나면 그다음 갈림길이 이해된다.
-// ============================================================================
+const benefits = [
+  { icon: Compass, title: '연결되는 경험', description: '직함이 달라도 활용할 수 있는 역량을 찾습니다.' },
+  { icon: ScanSearch, title: '확인할 수 있는 근거', description: '보유 역량과 요구 역량을 나란히 비교합니다.' },
+  { icon: ChartNoAxesCombined, title: '다음 행동의 실마리', description: '개인은 준비할 역량을, 기업은 검토할 근거를 확인합니다.' },
+];
 
 export default function Landing() {
   return (
-    <main>
-      {/* ── 1. 히어로 ── */}
-      <section className="relative overflow-hidden border-b border-hairline">
-        {/* ── 폭 ──
-            max-w-6xl(1152px) 고정을 걷어낸다. 창을 최대화해도 그 폭 그대로라
-            좌우로 400px 넘게 남았고, 창을 키울수록 여백만 커졌다.
-            이제 창 폭을 따라가고 아주 넓은 화면에서만 상한이 걸린다.
-
-            ── 두 열 ──
-            왼쪽에 글과 지도를 세로로 쌓고, 남는 오른쪽을 데이터 규모 패널이
-            채운다. 1280px 아래에서는 한 열로 돌아간다 — 좁은 화면에서 옆에
-            붙이면 지도가 손톱만 해진다. */}
-        <div className="mx-auto max-w-[1800px] px-5 pt-16 sm:px-8 sm:pt-24 xl:px-14">
-          <div className="grid gap-10 xl:grid-cols-[minmax(0,1fr)_340px] xl:items-start xl:gap-14">
-            <div>
-              {/* 이름이 먼저다.
-                  심사에서 "프로젝트 이름이 안 보여 찾는 데 오래 걸렸다"는 말을 들었다.
-                  화면을 처음 본 사람이 3초 안에 답해야 하는 질문은 '무슨 기능인가'가
-                  아니라 '이게 뭐라고 불리는가'다. 그래서 제품명을 제일 큰 글씨로 올리고,
-                  하던 말(직무명이 아니라 역량으로)은 그 아래 부제로 내렸다.
-
-                  ⚠️ 부제의 '역량'에 있던 청록을 뺐다. 이름의 'Navi'가 이미 청록이라
-                     한 화면에 강조가 둘이면 어느 쪽도 강조가 아니게 된다. */}
-              <div className="max-w-2xl">
-                <p className="animate-fade text-[11px] font-medium uppercase tracking-[0.16em] text-faint">
-                  원티드 AI Championship 2026
-                </p>
-
-                <h1
-                  className="animate-rise mt-4 flex items-center gap-3 text-[40px] font-bold leading-[1.05] tracking-[-0.05em] text-ink sm:gap-4 sm:text-[64px]"
-                  style={{ animationDelay: '80ms' }}
-                >
-                  <NaviMark className="size-[38px] shrink-0 sm:size-[58px]" />
-                  <span>
-                    Career <span className="text-link">Navi</span>
-                  </span>
-                </h1>
-
-                <p
-                  className="animate-rise mt-5 text-[19px] font-semibold leading-[1.4] tracking-[-0.03em] text-ink sm:text-[26px]"
-                  style={{ animationDelay: '160ms' }}
-                >
-                  직무명이 아니라 역량으로 연결합니다.
-                </p>
-
-                <p
-                  className="animate-rise mt-4 max-w-xl text-[14px] leading-[1.75] text-body sm:text-[15px]"
-                  style={{ animationDelay: '240ms' }}
-                >
-                  같은 일을 해 왔지만 직함이 달라 서로를 못 찾는 경우가 많습니다. 공공 직업 데이터를
-                  기반으로 가진 역량을 해석해, 양쪽에서 놓치던 연결을 찾아냅니다.
-                </p>
-              </div>
-
-              {/* 지도는 아래로 잘려 나간다. 화면 밖으로 이어지는 것처럼 보여야
-                  '여기가 전부가 아니다'라는 느낌이 남는다.
-                  4.5초마다 다른 다섯 갈래를 그린다 — HeroCareerMap 참고.
-                  스크롤을 내리면 뒤로 누우며 멀어진다 — ScrollFade 참고. */}
-              <ScrollFade className="-mx-5 mt-10 sm:-mx-8 sm:mt-14 xl:mx-0">
-                <HeroCareerMap className="w-full" />
-              </ScrollFade>
+    <main id="main-content">
+      <section className="landing-hero border-b border-hairline">
+        <div className="site-container grid items-center gap-10 py-12 lg:grid-cols-2 lg:gap-14 lg:py-20">
+          <div>
+            <p className="eyebrow"><span className="size-1.5 rounded-full bg-link" />역량으로 연결하는 커리어 플랫폼</p>
+            <h1 className="mt-6 text-[38px] font-semibold leading-[1.25] text-ink sm:text-[52px] xl:text-[58px]">지금의 경험에서,<br /><span className="text-link">다음의 가능성으로.</span></h1>
+            <p className="mt-6 max-w-lg text-base leading-[1.9] text-body">개인에게는 경험을 이어갈 커리어 경로를.<br />기업에게는 직무명 너머의 역량 있는 인재를.<br />Career Navi에서 다음 연결을 찾아보세요.</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/login?role=personal" className="action-primary">개인 · 내 커리어 찾기 <ArrowRight className="size-4" /></Link>
+              <Link href="/login?role=employer" className="action-secondary">기업 · 채용 시작하기 <ArrowRight className="size-4" /></Link>
             </div>
-
-            {/* 오른쪽 열. 좁은 화면에서는 지도 아래로 내려온다 */}
-            <CorpusPanel />
+            <p className="mt-4 text-xs leading-6 text-mute">데모 계정으로 체험할 수 있습니다. 회원가입은 필요하지 않습니다.</p>
+          </div>
+          <div className="map-preview overflow-hidden rounded-3xl border border-hairline bg-elevated">
+            <div className="flex items-center justify-between gap-2 border-b border-hairline px-6 py-4"><span className="flex items-center gap-2 text-sm font-semibold text-ink"><Compass className="size-4 text-link" />경험이 연결되는 방식</span><span className="shrink-0 rounded-full bg-link-soft px-2.5 py-1 text-[11px] text-link">경로 예시</span></div>
+            <HeroCareerMap className="w-full" />
+            <div className="mx-6 mb-5 border-t border-hairline pt-4 text-xs leading-6 text-mute">하나의 경험도 여러 직무로 이어질 수 있습니다.<br />보유 역량과 채용공고의 요구 역량을 비교해 연결합니다.</div>
           </div>
         </div>
       </section>
-
-      {/* ── 2. 갈림길 ── */}
       <EntrySplit />
-
-      {/* ── 3. 로그인 없이 둘러보기 ── */}
-      <section className="border-t border-hairline bg-canvas">
-        <div className="mx-auto max-w-[1800px] px-5 py-10 sm:px-8 xl:px-14">
-          <Link
-            href="/companies"
-            className="group flex items-center justify-between gap-4 rounded-xl border border-dashed border-hairline bg-elevated px-5 py-4 transition-colors hover:border-link/50 hover:bg-link-soft"
-          >
-            <span>
-              <span className="block text-[13px] font-medium text-ink">
-                가상 회사·채용공고 둘러보기
-              </span>
-              <span className="mt-1 block text-[12px] text-mute">
-                로그인 없이 18개 회사와 48개 데모 공고에서 회사 정보와 지원 흐름을 확인합니다.
-              </span>
-            </span>
-            <span
-              className="shrink-0 text-mute transition-transform group-hover:translate-x-0.5"
-              aria-hidden
-            >
-              →
-            </span>
-          </Link>
-
-          <p className="mt-8 text-center text-[12px] leading-[1.7] text-faint">
-            같은 역량 매칭 엔진이 양방향으로 동작합니다 · 회사·공고·지원자는 모두 가상 데이터입니다
-          </p>
+      <section className="border-y border-hairline bg-elevated py-14 sm:py-20">
+        <div className="site-container">
+          <p className="eyebrow">추천의 근거</p>
+          <div className="mt-3 grid gap-8 lg:grid-cols-2 lg:gap-20">
+            <div><h2 className="text-3xl font-semibold leading-snug text-ink">가능성을 제안하고,<br />그 이유까지 보여드립니다.</h2><p className="mt-4 max-w-lg text-sm leading-7 text-body">어떤 역량이 연결되는지, 무엇을 보완해야 하는지 확인하세요. 수집한 채용공고와 직무 데이터를 바탕으로 판단에 필요한 근거를 제공합니다.</p></div>
+            <dl className="grid grid-cols-2 gap-x-8 gap-y-7">
+              {[[CORPUS.postings, '분석한 채용공고'], [CORPUS.jobs, '분석 대상 직무'], [CORPUS.skills, '역량 항목'], [CORPUS.pairs, '직무·역량 연결']].map(([value, label]) => <div key={label} className="border-b border-hairline pb-4"><dt className="text-xs text-mute">{label}</dt><dd className="mt-2 text-3xl font-semibold tabular-nums text-ink">{value.toLocaleString()}</dd></div>)}
+            </dl>
+          </div>
+          <div className="mt-12 grid gap-6 md:grid-cols-3">{benefits.map(({icon: Icon, title, description}) => <div key={title} className="border-t border-hairline pt-5"><Icon className="size-5 text-link" /><h3 className="mt-4 text-base font-semibold text-ink">{title}</h3><p className="mt-2 text-sm leading-7 text-mute">{description}</p></div>)}</div>
         </div>
       </section>
+      <footer className="site-container flex flex-col justify-between gap-4 py-8 text-xs leading-6 text-mute sm:flex-row"><span className="font-semibold text-ink">Career Navi</span><p>회사·공고·지원자는 가상 데이터입니다. 실제 채용으로 연결되지 않습니다.</p><Link href="/companies" className="text-link hover:underline">회사·공고 둘러보기 →</Link></footer>
     </main>
   );
 }

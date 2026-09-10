@@ -1,29 +1,16 @@
 import Link from 'next/link';
+import { BriefcaseBusiness, ArrowUpRight } from 'lucide-react';
 import EmployerWorkspace from '@/components/EmployerWorkspace';
-import SyntheticNotice from '@/components/SyntheticNotice';
 
 export default function EmployerPage() {
   return (
-    <main className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
-      <header>
-        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">
-          ← Career Navi
-        </Link>
-        <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.18em] text-faint">Employer workspace</p>
-        <h1 className="mt-2 text-2xl font-bold leading-snug tracking-[-0.04em] text-ink sm:text-3xl">
-          공고를 만들고, 역량 근거로<br className="hidden sm:block" /> 인재를 검토합니다.
-        </h1>
-        <p className="mt-3 max-w-2xl text-[13px] leading-[1.7] text-body">
-          직접 작성하거나 AI로 초안을 만든 뒤 추천 인재를 확인하고, 기존 공고의 지원자 전형도 함께 관리합니다.
-        </p>
+    <main id="main-content" className="site-container py-8 sm:py-10">
+      <header className="flex flex-wrap items-start justify-between gap-4 border-b border-hairline pb-6">
+        <div><p className="eyebrow"><BriefcaseBusiness className="size-4" />기업 · 채용 워크스페이스</p><h1 className="mt-3 text-[30px] font-semibold text-ink">채용 관리</h1><p className="mt-2 text-sm leading-6 text-body">공고별 지원 현황을 확인하고, 역량 근거를 바탕으로 다음 전형을 검토하세요.</p></div>
+        <Link href="/companies" className="action-secondary">회사·공고 둘러보기<ArrowUpRight className="size-4" /></Link>
       </header>
-
-      <div className="mt-6 max-w-2xl"><SyntheticNotice /></div>
       <EmployerWorkspace />
-
-      <footer className="mt-16 border-t border-hairline pt-6 text-[11px] leading-[1.6] text-faint">
-        회사·공고·지원자·추천 인재는 모두 가상 데이터입니다. 공고 초안과 상태 변경은 현재 세션에만 적용되며 서버나 DB에 저장되지 않습니다.
-      </footer>
+      <footer className="mt-10 border-t border-hairline pt-5 text-xs leading-6 text-mute">데모 워크스페이스 · 회사·공고·지원자는 가상 데이터입니다. 작성 내용과 전형 상태는 서버에 저장되지 않으며 새로고침하면 초기화됩니다.</footer>
     </main>
   );
 }

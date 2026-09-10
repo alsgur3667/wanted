@@ -20,23 +20,27 @@ export default function CompanyDirectory() {
 
   return (
     <>
-      <div className="mt-8">
+      <div className="workspace-panel mt-8">
         <label htmlFor="company-search" className="text-[11px] font-medium uppercase tracking-wider text-faint">
           회사·산업·태그 검색
         </label>
         <input
+          type="search"
           id="company-search"
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           placeholder="예: 핀테크, 데이터, SaaS"
           className="mt-2 w-full rounded-md border border-hairline bg-elevated px-4 py-3 text-[13px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link"
         />
-        <p className="mt-2 text-[12px] text-mute">
+        <div className="mt-4 flex flex-wrap gap-2" aria-label="빠른 산업 검색">
+          {['전체', 'SaaS', '핀테크', '데이터', '커머스', '디자인'].map((tag) => <button key={tag} type="button" aria-pressed={tag === '전체' ? !query : query === tag} onClick={() => setQuery(tag === '전체' ? '' : tag)} className={`min-h-9 rounded-full border px-4 text-xs transition-colors ${(tag === '전체' ? !query : query === tag) ? 'border-link bg-link-soft font-semibold text-link' : 'border-hairline text-body hover:border-link'}`}>{tag}</button>)}
+        </div>
+        <p aria-live="polite" className="mt-4 text-[12px] text-mute">
           전체 {COMPANIES.length}개 중 {companies.length}개
         </p>
       </div>
 
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
+      <div className="mt-6 grid gap-5 sm:grid-cols-2 xl:grid-cols-3">
         {companies.map((company) => {
           const postings = postingsForCompany(company.id);
           return (
@@ -77,9 +81,7 @@ export default function CompanyDirectory() {
       </div>
 
       {companies.length === 0 && (
-        <p className="mt-6 rounded-xl border border-hairline p-8 text-center text-[13px] text-mute">
-          검색 결과가 없습니다.
-        </p>
+        <div className="workspace-panel mt-6 text-center"><h2 className="text-base font-semibold text-ink">검색 조건에 맞는 회사가 없습니다.</h2><p className="mt-2 text-sm text-mute">다른 산업이나 회사 이름으로 검색해 보세요.</p><button type="button" onClick={() => setQuery('')} className="action-secondary mt-5">전체 회사 보기</button></div>
       )}
     </>
   );

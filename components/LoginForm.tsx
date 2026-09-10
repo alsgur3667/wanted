@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import Link from 'next/link';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { ArrowRight, Loader2, BriefcaseBusiness, UsersRound, ClipboardCheck } from 'lucide-react';
 import {
   DEMO_ACCOUNTS,
   isRole,
@@ -62,17 +62,22 @@ export default function LoginForm() {
     // 잠깐 멈춘다. 즉시 넘어가면 눌렀는지 아닌지 알 수 없다.
     setPending(true);
     signIn(role);
+    window.dispatchEvent(new Event('navi-session-change'));
     setTimeout(() => router.push(account.next), 420);
   }
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-[1fr_460px]">
+    <main id="main-content" className="grid min-h-[calc(100svh-72px)] lg:grid-cols-[1fr_520px]">
       {/* ── 왼쪽: 지도 ──
           로그인 화면은 대개 비어 있다. 그 자리에 우리가 뭘 하는 곳인지 둔다.
           큰 화면에서만 보인다 — 좁은 화면에서 이걸 위에 얹으면 폼이 접혀 내려간다. */}
       <div className="relative hidden overflow-hidden border-r border-hairline bg-canvas lg:block">
         <div className="absolute inset-0 flex items-center justify-center p-10">
-          <CareerMap className="w-full max-w-[720px]" />
+          {role === 'personal' ? <CareerMap className="w-full max-w-[720px]" /> : <div className="w-full max-w-md space-y-4">{[
+            { icon: BriefcaseBusiness, title: '채용 기준을 구체적으로', text: '공고에 필요한 역할과 역량을 정리합니다.' },
+            { icon: UsersRound, title: '경험과 역량으로 인재 탐색', text: '공고와 연결되는 인재의 역량 근거를 확인합니다.' },
+            { icon: ClipboardCheck, title: '검토부터 다음 전형까지', text: '지원자별 검토 내용과 전형 상태를 관리합니다.' },
+          ].map(({icon: Icon, title, text}, i) => <div key={title} className="flex items-center gap-4 rounded-2xl border border-hairline bg-elevated p-6"><Icon className="size-6 shrink-0 text-link" /><div><p className="text-xs text-mute">0{i+1}</p><h2 className="mt-1 font-semibold text-ink">{title}</h2><p className="mt-2 text-xs leading-6 text-body">{text}</p></div></div>)}</div>}
         </div>
         <div className="absolute bottom-10 left-10 right-10">
           <p className="flex items-center gap-2.5 text-[26px] font-bold tracking-[-0.04em] text-ink">
@@ -80,7 +85,7 @@ export default function LoginForm() {
             Career <span className="text-link">Navi</span>
           </p>
           <p className="mt-2 max-w-md text-[14px] leading-[1.7] text-body">
-            직무명이 아니라 역량으로 연결합니다.
+            {role === 'personal' ? '당신의 경험이 이어질 다음 가능성을 찾아보세요.' : '우리 팀에 필요한 역량을 가진 인재를 찾아보세요.'}
           </p>
         </div>
       </div>
@@ -92,21 +97,20 @@ export default function LoginForm() {
             ← 처음으로
           </Link>
 
-          <h1 className="mt-6 text-[26px] font-bold tracking-[-0.035em] text-ink">로그인</h1>
+          <p className="eyebrow mt-6">{role === 'personal' ? '개인 · 커리어 탐색' : '기업 · 채용 워크스페이스'}</p>
+          <h1 className="mt-3 text-[28px] font-semibold tracking-[-0.035em] text-ink">{role === 'personal' ? '다음 커리어를 찾아보세요.' : '팀의 다음 인재를 만나보세요.'}</h1>
           <p className="mt-2 text-[13px] leading-[1.6] text-body">{account.blurb}</p>
 
           {/* 역할 전환 — 탭 하나로 계정까지 같이 바뀐다 */}
           <div
-            role="tablist"
             aria-label="로그인 유형"
             className="mt-7 flex rounded-lg border border-hairline bg-canvas p-1"
           >
             {ROLES.map((r) => (
               <button
                 key={r}
-                role="tab"
                 type="button"
-                aria-selected={role === r}
+                aria-pressed={role === r}
                 onClick={() => switchRole(r)}
                 className={`flex-1 rounded-md px-4 py-2 text-[13px] transition-colors ${
                   role === r ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'
@@ -144,7 +148,7 @@ export default function LoginForm() {
               className="mt-1.5 w-full rounded-md border border-hairline bg-elevated px-3.5 py-2.5 text-[13px] text-ink outline-none transition-colors focus:border-link"
             />
 
-            {error && <p className="mt-3 text-[12px] text-error">{error}</p>}
+            {error && <p role="alert" className="mt-3 text-[12px] text-error">{error}</p>}
 
             <button
               type="submit"
@@ -182,6 +186,6 @@ export default function LoginForm() {
           </p>
         </div>
       </div>
-    </div>
+    </main>
   );
 }

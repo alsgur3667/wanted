@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import type { Route, Skill } from '@/types';
 import { jobDetailOf } from '@/lib/job-detail';
 import JobRequirements from './JobRequirements';
@@ -26,6 +26,7 @@ export default function RouteAccordion({
   showFitScore?: boolean;
 }) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
   const detail = jobDetailOf(route.destination, mySkills, route.requirements);
 
   const summary = detail
@@ -42,6 +43,7 @@ export default function RouteAccordion({
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-controls={detail ? panelId : undefined}
         className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-link-soft"
       >
         <div className="min-w-0">
@@ -76,7 +78,7 @@ export default function RouteAccordion({
       {/* 내용을 조건부로 지우지 않는다 — 지우면 높이를 잴 수 없어 애니메이션이 안 된다.
           .collapsible 이 grid-template-rows 로 실제 높이를 계산해 접었다 편다. */}
       {detail && (
-        <div className="collapsible" data-open={open}>
+        <div id={panelId} className="collapsible" data-open={open} inert={!open} aria-hidden={!open}>
           <div>
             <div className="border-t border-hairline px-5 pb-5 pt-4">
               <JobRequirements detail={detail} />

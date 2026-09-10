@@ -68,6 +68,7 @@ export default function ResumeFileDrop({ onText }: { onText: (text: string) => v
         <input
           ref={inputRef}
           type="file"
+          aria-label="이력서 파일 선택"
           accept={ACCEPT}
           className="sr-only"
           onChange={(e) => {

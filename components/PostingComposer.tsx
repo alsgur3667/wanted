@@ -10,7 +10,7 @@ import type { Company, PostingDraft, PostingDraftResponse, PostingDraftSource, P
 
 const LEVELS: PostingLevel[] = ['신입', '주니어', '미들', '시니어', '리드'];
 const WORK_MODES: WorkMode[] = ['onsite', 'hybrid', 'remote'];
-const FIELD_CLASS = 'mt-2 w-full rounded-md border border-hairline bg-canvas px-3 py-2.5 text-[12px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link';
+const FIELD_CLASS = 'mt-2 min-h-11 w-full rounded-lg border border-hairline bg-canvas px-3 py-2.5 text-sm text-ink transition-colors placeholder:text-faint focus:border-link';
 const PRIMARY_ACTION_CLASS = 'inline-flex items-center gap-2 rounded-md bg-ink px-4 py-2.5 text-[12px] font-medium text-elevated transition-opacity hover:opacity-85 disabled:opacity-40';
 
 function SkillEditor({ label, ids, blocked, onChange }: { label: string; ids: string[]; blocked: string[]; onChange: (ids: string[]) => void }) {
@@ -24,8 +24,8 @@ function SkillEditor({ label, ids, blocked, onChange }: { label: string; ids: st
       </div>
       <label className="mt-2 flex items-center gap-2">
         <Plus className="size-3.5 text-faint" />
-        <select value="" onChange={(event) => event.target.value && onChange([...ids, event.target.value])} className="min-w-0 flex-1 rounded-md border border-hairline bg-canvas px-2 py-1.5 text-[11px] text-body outline-none transition-colors focus:border-link">
-          <option value="">온톨로지에서 역량 추가</option>
+        <select aria-label={`${label} 추가`} value="" onChange={(event) => event.target.value && onChange([...ids, event.target.value])} className="min-h-10 min-w-0 flex-1 rounded-md border border-hairline bg-canvas px-2 py-1.5 text-[12px] text-body transition-colors focus:border-link">
+          <option value="">역량 목록에서 추가</option>
           {available.map((skill) => <option key={skill.id} value={skill.id}>{skill.name}</option>)}
         </select>
       </label>
