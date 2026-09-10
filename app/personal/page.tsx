@@ -9,10 +9,11 @@ import './personal.css';
 
 export default function Home() {
   const [result, setResult] = useState<AnalysisResult | null>(null);
+  const [searching, setSearching] = useState(false);
 
   return (
     <main className={result ? 'mx-auto max-w-3xl px-5 py-12 sm:py-16' : 'personal-page'}>
-      <header className={!result ? 'personal-intro' : undefined}>
+      {!searching && <header className={!result ? 'personal-intro' : undefined}>
         <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← Career Navi</Link>
         <h1 className="mt-2 text-2xl font-bold leading-snug sm:text-3xl">
           {result ? '당신의 다음 커리어를,' : '쌓아온 경험에서,'}
@@ -24,9 +25,9 @@ export default function Home() {
           <br className="hidden sm:block" />
           직무명보다 어떤 일을 했는지가 중요합니다.
         </p>
-      </header>
+      </header>}
 
-      {!result && <ol className="personal-progress" aria-label="커리어 탐색 순서">
+      {!result && !searching && <ol className="personal-progress" aria-label="커리어 탐색 순서">
         <li aria-current="step"><span>01</span> 경험 입력</li>
         <li><span>02</span> 역량 분석</li>
         <li><span>03</span> 커리어 경로 확인</li>
@@ -36,7 +37,7 @@ export default function Home() {
         {result ? (
           <ResultView result={result} onReset={() => setResult(null)} />
         ) : (
-          <ResumeInput onResult={setResult} />
+          <ResumeInput onResult={setResult} onSearchingChange={setSearching} />
         )}
       </div>
 

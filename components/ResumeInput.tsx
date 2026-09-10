@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, FilePenLine, Route, ScanText, Compass } from 'lucide-react';
 import { SAMPLE_PROFILES } from '@/data/samples';
 import type { AnalysisResult } from '@/types';
@@ -19,8 +19,10 @@ const DEMO_RESUME_TEXT = `${SAMPLE_PROFILES[0].resumeText}
 // 실패했을 때 사용자가 써 둔 이력서가 통째로 날아간다.
 export default function ResumeInput({
   onResult,
+  onSearchingChange,
 }: {
   onResult: (r: AnalysisResult) => void;
+  onSearchingChange?: (searching: boolean) => void;
 }) {
   const [text, setText] = useState('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
@@ -28,6 +30,12 @@ export default function ResumeInput({
   const [error, setError] = useState<string | null>(null);
   const [searching, setSearching] = useState(false);
   const [pending, setPending] = useState<AnalysisResult | null>(null);
+  const requestRef = useRef<AbortController | null>(null);
+  useEffect(() => () => requestRef.current?.abort(), []);
+  function updateSearching(value: boolean) {
+    setSearching(value);
+    onSearchingChange?.(value);
+  }
 
   const tooShort = text.trim().length > 0 && text.trim().length < INPUT_GUARD.minChars;
 
@@ -41,27 +49,38 @@ export default function ResumeInput({
     // 탐색 화면을 먼저 띄우고 그 뒤에서 분석을 돌린다.
     // 순서를 바꾸면 사용자가 빈 화면을 보다가 탐색 화면을 또 보게 된다.
     setPending(null);
-    setSearching(true);
+    updateSearching(true);
+    const request = new AbortController();
+    requestRef.current = request;
+    const timeout = setTimeout(() => request.abort('timeout'), 60000);
     try {
       const res = await fetch('/api/analyze', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ resumeText: text }),
+        signal: request.signal,
       });
       const json = await res.json();
+      if (request.signal.aborted) return;
       if (!json.ok) {
         setError(json.message ?? '분석에 실패했습니다.');
-        setSearching(false);
+        updateSearching(false);
         return;
       }
       setPending(json.data);
     } catch (e) {
+      if (request.signal.aborted && request.signal.reason !== 'timeout') return;
       setError(
-        e instanceof Error
+        request.signal.reason === 'timeout'
+          ? '분석 응답이 늦어 중단했습니다. 입력 내용은 그대로 있으니 다시 시도해주세요.'
+          : e instanceof Error
           ? `분석 서버와 통신하지 못했습니다: ${e.message}`
           : '분석 서버와 통신하지 못했습니다.'
       );
-      setSearching(false);
+      updateSearching(false);
+    } finally {
+      clearTimeout(timeout);
+      if (requestRef.current === request) requestRef.current = null;
     }
   }
 
@@ -69,14 +88,19 @@ export default function ResumeInput({
   function showSample(result: AnalysisResult) {
     setError(null);
     setPending(result);
-    setSearching(true);
+    updateSearching(true);
   }
 
   if (searching) {
     return (
       <RouteSearchLoader
         ready={pending !== null}
-        onDone={() => pending && onResult(pending)}
+        onDone={() => { if (pending) { onSearchingChange?.(false); onResult(pending); } }}
+        onCancel={() => {
+          requestRef.current?.abort();
+          setPending(null);
+          updateSearching(false);
+        }}
       />
     );
   }
