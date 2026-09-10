@@ -1,89 +1,63 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
+import { ArrowDown, RotateCcw, Sparkles } from 'lucide-react';
 import { isNewcomer, type AnalysisResult } from '@/types';
 import SkillGroups from './SkillGroups';
 import RouteAccordion from './RouteAccordion';
 import RankingTable from './RankingTable';
 import JobExplorer from './JobExplorer';
 import ShareButton from './ShareButton';
+import './result-view.css';
 
-// ============================================================================
-//  결과 화면 배치
-//
-//    1  경로 (아코디언, 전부 접힘)
-//    2  왜 이 순서인가요 (표)
-//    3  궁금한 직무 직접 보기
-//    4  내 역량 (묶음 · 분포도는 접힘)
-//
-//  기존에는 상단이 2×2 산점도였고 경로가 아래였다. 순서를 뒤집었다.
-//  "직관적이지 않다"는 피드백의 핵심이 여기였다 — 사용자가 궁금한 것은
-//  자기 역량의 좌표가 아니라 어디로 갈 수 있는가다. (이슈 #23 a·b)
-// ============================================================================
-
-// UI 검토 중에만 true로 둔다. 커밋할 때 false로 바꾸면 새 UI는 유지하면서
-// 적합도 숫자만 감출 수 있고, 이후 점수 공개가 필요할 때 다시 켤 수 있다.
-const SHOW_FIT_SCORE_DURING_UI_REVIEW = false;
-
-export default function ResultView({
-  result,
-  onReset,
-}: {
-  result: AnalysisResult;
-  onReset: () => void;
-}) {
+export default function ResultView({ result, onReset }: { result: AnalysisResult; onReset: () => void }) {
   const { currentPosition, skills, routes } = result;
-
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+    headingRef.current?.focus({ preventScroll: true });
+  }, []);
+  const strengths = skills.filter(skill => skill.quadrant === 'leverage').slice(0, 3);
+  const highlights = strengths.length ? strengths : skills.filter(skill => skill.quadrant !== 'noise').slice(0, 3);
   return (
-    <div>
-      <section className="animate-rise rounded-xl border border-hairline bg-elevated px-5 py-4">
-        <div className="flex items-start justify-between gap-3">
-          <div>
-            <h2 className="text-[11px] font-medium uppercase tracking-wider text-faint">현재 위치</h2>
-            <p className="mt-2 text-[19px] font-semibold tracking-[-0.02em] text-ink">
-              {currentPosition.jobTitle}
-              <span className="ml-2 text-[13px] font-normal text-mute">
-                {isNewcomer(currentPosition.careerMonths)
-                  ? '신입'
-                  : `${Math.floor(currentPosition.careerMonths / 12)}년차`}
-                {currentPosition.industry && ` · ${currentPosition.industry}`}
-              </span>
-            </p>
-            <p className="mt-2 text-[13px] leading-[1.6] text-body">{currentPosition.summary}</p>
+    <div className="career-result">
+      <header className="result-heading">
+        <div><p className="result-eyebrow">YOUR CAREER DIRECTIONS</p>
+          <h1 ref={headingRef} tabIndex={-1}>경험은 이어지고,<br />선택지는 넓어집니다.</h1>
+          <p>입력한 경험에서 찾은 역량을 바탕으로 다음 커리어를 살펴보세요.</p>
+        </div>
+        <button type="button" onClick={onReset} className="result-reset"><RotateCcw size={14} aria-hidden />다시 하기</button>
+      </header>
+      <nav className="result-navigation" aria-label="분석 결과 바로가기">
+        <a href="#result-routes">추천 경로 <span>{routes.length}</span></a>
+        <a href="#result-skills">내 역량 <span>{skills.length}</span></a>
+        <a href="#result-explore">다른 직무 탐색 <ArrowDown size={13} aria-hidden /></a>
+      </nav>
+      <div className="result-layout">
+        <aside className="result-summary" aria-label="내 경험 분석 요약">
+          <p className="result-eyebrow">MY STARTING POINT</p>
+          <h2>지금, 나의 출발점</h2>
+          <p className="result-job-title">{currentPosition.jobTitle}</p>
+          {!(isNewcomer(currentPosition.careerMonths) && currentPosition.jobTitle === '신입' && !currentPosition.industry) && <p className="result-career">{isNewcomer(currentPosition.careerMonths) ? '신입' : `${Math.floor(currentPosition.careerMonths / 12)}년차`}{currentPosition.industry && ` · ${currentPosition.industry}`}</p>}
+          <p className="result-summary-copy">{currentPosition.summary}</p>
+          <div className="result-highlights">
+            <h3><Sparkles size={15} aria-hidden />{strengths.length ? '다른 직무에도 연결되는 강점' : '경험에서 확인한 역량'}</h3>
+            {highlights.map(skill => <details key={skill.id}><summary>{skill.name}</summary><p>{skill.evidence || '입력한 경험에서 확인한 역량입니다.'}</p></details>)}
+            {!highlights.length && <p className="result-summary-copy">구체적인 역할과 수행한 일을 추가하면 역량을 더 자세히 살펴볼 수 있습니다.</p>}
           </div>
-          <button
-            onClick={onReset}
-            className="shrink-0 rounded-md border border-hairline px-3 py-1.5 text-[12px] text-body transition-colors hover:text-ink"
-          >
-            다시 하기
-          </button>
+          <p className="result-summary-note">입력된 경험을 바탕으로 한 탐색 결과입니다. 추천 직무의 요구 역량과 근거를 함께 확인해주세요.</p>
+        </aside>
+        <div className="result-main">
+          <section id="result-routes" className="result-section">
+            <div className="result-section-heading"><p className="result-eyebrow">01 · CAREER ROUTES</p><h2>나의 경험과 연결되는 직무</h2><p>추천 이유를 살펴보고, 각 직무를 펼쳐 보유 역량과 보완할 부분을 확인하세요.</p></div>
+            <div className="result-route-list">{routes.map((route, index) => <RouteAccordion key={route.id} route={route} mySkills={skills} rank={index + 1} />)}</div>
+            {!routes.length && <p className="result-empty">추천할 근거가 충분하지 않습니다. 아래에서 관심 직무를 직접 살펴보거나 경험을 더 구체적으로 입력해주세요.</p>}
+            {!!routes.length && <details className="result-comparison"><summary>추천 직무의 역량 충족 현황 비교</summary><RankingTable routes={routes} mySkills={skills} /></details>}
+          </section>
+          <section id="result-explore" className="result-section result-explore"><p className="result-eyebrow">EXPLORE MORE</p><JobExplorer mySkills={skills} shownJobTitles={routes.map(route => route.destination)} /></section>
         </div>
-      </section>
-
-      {/* 위에서부터 차례로 떠오른다. 한꺼번에 나타나면 어디를 볼지 알 수 없다. */}
-      <section className="mt-12">
-        <div className="space-y-3">
-          {routes.map((r, i) => (
-            <div key={r.id} className="animate-rise" style={{ animationDelay: `${150 + i * 170}ms` }}>
-              <RouteAccordion
-                route={r}
-                mySkills={skills}
-                showFitScore={SHOW_FIT_SCORE_DURING_UI_REVIEW}
-              />
-            </div>
-          ))}
-        </div>
-
-        <div className="animate-rise mt-4" style={{ animationDelay: `${150 + routes.length * 170}ms` }}>
-          <RankingTable routes={routes} mySkills={skills} />
-        </div>
-
-        <div className="animate-rise" style={{ animationDelay: `${320 + routes.length * 170}ms` }}>
-          <JobExplorer mySkills={skills} shownJobTitles={routes.map((r) => r.destination)} />
-        </div>
-      </section>
-
-      <section className="animate-rise mt-14" style={{ animationDelay: `${490 + routes.length * 170}ms` }}>
-        <SkillGroups skills={skills} />
-      </section>
-
+      </div>
+      <section id="result-skills" className="result-section result-skills"><p className="result-eyebrow">02 · MY SKILLS</p><SkillGroups skills={skills} /></section>
       <ShareButton result={result} />
     </div>
   );
