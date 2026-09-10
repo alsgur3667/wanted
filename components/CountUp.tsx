@@ -35,13 +35,12 @@ export default function CountUp({
   delay?: number;
   className?: string;
 }) {
-  const [value, setValue] = useState(0);
+  const [value, setValue] = useState(to);
   const done = useRef(false);
 
   useEffect(() => {
     // 움직임을 줄여 달라고 한 사용자에게는 결과만 보여준다
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      setValue(to);
       return;
     }
 
