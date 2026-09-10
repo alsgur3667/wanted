@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <main className="mx-auto max-w-3xl px-5 py-12 sm:py-16">
       <header>
-        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← 커리어 내비</Link>
+        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← Career Navi</Link>
         <h1 className="mt-2 text-2xl font-bold leading-snug sm:text-3xl">
           당신의 다음 커리어를,
           <br />

@@ -1,105 +1,108 @@
+import Image from 'next/image';
 import Link from 'next/link';
-import EntrySplit from '@/components/EntrySplit';
-import HeroCareerMap from '@/components/HeroCareerMap';
+import { ArrowDown, ArrowRight, ArrowUpRight, Check, Compass, FileText, UsersRound } from 'lucide-react';
 import NaviMark from '@/components/NaviMark';
-
-// ============================================================================
-//  랜딩
-//
-//    1  히어로 — 지도 위에 경로가 그려진다
-//    2  갈림길 — 개인 / 기업
-//    3  둘러보기 — 로그인 없이 볼 수 있는 곳
-//
-//  히어로를 먼저 두는 이유는 이 제품이 무엇인지가 이름만으로는 안 서기
-//  때문이다. '커리어 내비'는 들으면 그럴듯하지만 뭘 하는지는 모른다.
-//  경로가 그려지는 걸 3초 보고 나면 그다음 갈림길이 이해된다.
-// ============================================================================
+import LandingReveal from '@/components/LandingReveal';
+import { CORPUS } from '@/lib/corpus-stats';
+import './landing.css';
 
 export default function Landing() {
   return (
-    <main>
-      {/* ── 1. 히어로 ── */}
-      <section className="relative overflow-hidden border-b border-hairline">
-        <div className="mx-auto max-w-6xl px-5 pt-16 sm:pt-24">
-          {/* 이름이 먼저다.
-              심사에서 "프로젝트 이름이 안 보여 찾는 데 오래 걸렸다"는 말을 들었다.
-              화면을 처음 본 사람이 3초 안에 답해야 하는 질문은 '무슨 기능인가'가
-              아니라 '이게 뭐라고 불리는가'다. 그래서 제품명을 제일 큰 글씨로 올리고,
-              하던 말(직무명이 아니라 역량으로)은 그 아래 부제로 내렸다.
-
-              ⚠️ 부제의 '역량'에 있던 청록을 뺐다. 이름의 '내비'가 이미 청록이라
-                 한 화면에 강조가 둘이면 어느 쪽도 강조가 아니게 된다. */}
-          <div className="max-w-2xl">
-            <p className="animate-fade text-[11px] font-medium uppercase tracking-[0.16em] text-faint">
-              원티드 AI Championship 2026
-            </p>
-
-            <h1
-              className="animate-rise mt-4 flex items-center gap-3 text-[40px] font-bold leading-[1.05] tracking-[-0.05em] text-ink sm:gap-4 sm:text-[64px]"
-              style={{ animationDelay: '80ms' }}
-            >
-              <NaviMark className="size-[38px] shrink-0 sm:size-[58px]" />
-              <span>
-                커리어 <span className="text-link">내비</span>
-              </span>
-            </h1>
-
-            <p
-              className="animate-rise mt-5 text-[19px] font-semibold leading-[1.4] tracking-[-0.03em] text-ink sm:text-[26px]"
-              style={{ animationDelay: '160ms' }}
-            >
-              직무명이 아니라 역량으로 연결합니다.
-            </p>
-
-            <p
-              className="animate-rise mt-4 max-w-xl text-[14px] leading-[1.75] text-body sm:text-[15px]"
-              style={{ animationDelay: '240ms' }}
-            >
-              같은 일을 해 왔지만 직함이 달라 서로를 못 찾는 경우가 많습니다. 공공 직업 데이터를
-              기반으로 가진 역량을 해석해, 양쪽에서 놓치던 연결을 찾아냅니다.
-            </p>
+    <main id="landing-main" className="navi-landing">
+      <section className="navi-hero" aria-labelledby="hero-title">
+        <Image src="/landing/hero-v2.png" alt="아침 햇살이 비치는 도심에서 다음 일터를 향해 걸어가는 사람" fill preload sizes="100vw" className="navi-hero-image" />
+        <div className="navi-hero-shade" />
+        <div className="navi-hero-content">
+          <p className="navi-hero-label">CAREER NAVI</p>
+          <h1 id="hero-title">경험이 쌓인 만큼,<br />가능성은 더 넓게.</h1>
+          <p className="navi-hero-description">나의 다음 커리어도, 우리 팀의 다음 동료도.<br />직무명 너머의 역량에서 시작하세요.</p>
+          <div className="navi-hero-actions">
+            <Link className="navi-button navi-button-white" href="/login?role=personal">개인 · 커리어 찾기<ArrowUpRight size={18} /></Link>
+            <Link className="navi-button navi-button-glass" href="/login?role=employer">기업 · 인재 찾기<ArrowUpRight size={18} /></Link>
           </div>
+        </div>
+        <a href="#personal" className="navi-scroll-cue" aria-label="개인 서비스 알아보기"><span>더 알아보기</span><ArrowDown size={18} /></a>
+      </section>
 
-          {/* 지도는 아래로 잘려 나간다. 화면 밖으로 이어지는 것처럼 보여야
-              '여기가 전부가 아니다'라는 느낌이 남는다.
-              4.5초마다 다른 다섯 갈래를 그린다 — HeroCareerMap 참고. */}
-          <div className="-mx-5 mt-10 sm:mt-14">
-            <HeroCareerMap className="w-full" />
+      <section className="navi-introduction">
+        <LandingReveal>
+          <p className="navi-overline">직무가 달라도, 경험은 이어지니까</p>
+          <h2>해 온 일의 가치를 발견하고,<br />아직 만나지 못한 기회로.</h2>
+          <p className="navi-intro-copy">개인에게는 새로운 커리어의 방향을.<br />기업에게는 함께 성장할 인재의 가능성을.<br />Career Navi는 경험 속 역량으로 서로를 연결합니다.</p>
+        </LandingReveal>
+      </section>
+
+      <section id="personal" className="navi-personal navi-section-anchor" aria-labelledby="personal-title">
+        <div className="navi-content-width">
+          <LandingReveal className="navi-editorial-heading">
+            <span className="navi-overline">개인을 위한 Career Navi</span>
+            <h2 id="personal-title">내 경험으로 갈 수 있는 길,<br />더 넓게 살펴보세요.</h2>
+          </LandingReveal>
+          <div className="navi-editorial-grid">
+            <LandingReveal className="navi-personal-photo">
+              <Image src="/entry/personal.webp" alt="갈림길 앞에서 지도를 보며 다음 방향을 살펴보는 사람들" fill sizes="(max-width: 800px) 100vw, 58vw" />
+              <div className="navi-photo-caption"><Compass size={18} /><span>다음 방향을 찾는 일, 경험에서 시작해 보세요.</span></div>
+            </LandingReveal>
+            <LandingReveal className="navi-editorial-copy">
+              <span className="navi-section-number">01 / PERSONAL</span>
+              <h3>이력서 한 장에서<br />다음 커리어의 실마리를.</h3>
+              <p>이직을 준비하고 계신가요?<br />혹은 첫 커리어를 고민하고 계신가요?<br />어떤 일을 해 봤는지 알려주세요.<br />경험을 활용할 수 있는 직무를 함께 살펴봅니다.</p>
+              <ul className="navi-feature-list">
+                <li><Check size={17} />이력서·프로젝트 경험으로 역량 분석</li>
+                <li><Check size={17} />연결 가능한 커리어 경로와 근거 확인</li>
+                <li><Check size={17} />부족한 역량과 다음 준비 살펴보기</li>
+              </ul>
+              <Link href="/login?role=personal" className="navi-text-link">내 커리어 탐색하기<ArrowRight size={18} /></Link>
+              <span className="navi-small-note">완성된 이력서가 없어도 예시로 체험할 수 있어요.</span>
+            </LandingReveal>
           </div>
         </div>
       </section>
 
-      {/* ── 2. 갈림길 ── */}
-      <EntrySplit />
-
-      {/* ── 3. 로그인 없이 둘러보기 ── */}
-      <section className="border-t border-hairline bg-canvas">
-        <div className="mx-auto max-w-6xl px-5 py-10">
-          <Link
-            href="/companies"
-            className="group flex items-center justify-between gap-4 rounded-xl border border-dashed border-hairline bg-elevated px-5 py-4 transition-colors hover:border-link/50 hover:bg-link-soft"
-          >
-            <span>
-              <span className="block text-[13px] font-medium text-ink">
-                가상 회사·채용공고 둘러보기
-              </span>
-              <span className="mt-1 block text-[12px] text-mute">
-                로그인 없이 18개 회사와 48개 데모 공고에서 회사 정보와 지원 흐름을 확인합니다.
-              </span>
-            </span>
-            <span
-              className="shrink-0 text-mute transition-transform group-hover:translate-x-0.5"
-              aria-hidden
-            >
-              →
-            </span>
-          </Link>
-
-          <p className="mt-8 text-center text-[12px] leading-[1.7] text-faint">
-            같은 역량 매칭 엔진이 양방향으로 동작합니다 · 회사·공고·지원자는 모두 가상 데이터입니다
-          </p>
+      <section id="employer" className="navi-employer navi-section-anchor" aria-labelledby="employer-title">
+        <div className="navi-business-visual">
+          <Image src="/entry/employer.webp" alt="오피스 건물 사이로 출근하는 사람들" fill sizes="100vw" />
+          <div className="navi-business-shade" />
+          <LandingReveal className="navi-business-title">
+            <span className="navi-overline">기업을 위한 Career Navi</span>
+            <h2 id="employer-title">우리 팀에 필요한 사람,<br />직무명만으로<br className="navi-mobile-break" /> 놓치지 않도록.</h2>
+            <p>같은 일을 해 왔어도, 직함은 다를 수 있습니다.<br />지원자의 경험과 역량을 채용 기준에 나란히 놓고 살펴보세요.</p>
+            <Link href="/login?role=employer" className="navi-button navi-button-white">기업 채용 시작하기<ArrowUpRight size={18} /></Link>
+          </LandingReveal>
+        </div>
+        <div className="navi-business-details navi-content-width">
+          <div className="navi-business-intro"><span className="navi-section-number">02 / BUSINESS</span><h3>공고를 만드는 순간부터,<br />인재를 검토하는 순간까지.</h3></div>
+          <div className="navi-business-steps">
+            {[
+              { icon: FileText, title: '채용의 기준을 세우고', text: '직접 작성하거나 AI로 초안을 만들며, 공고에 필요한 역할과 역량을 정리합니다.' },
+              { icon: Compass, title: '역량으로 인재를 찾고', text: '공고의 요구 역량과 연결되는 인재를 탐색하고, 추천 근거를 확인합니다.' },
+              { icon: UsersRound, title: '경험을 보고 검토하세요', text: '지원자별 역량 근거를 살펴보고 다음 전형으로의 진행 상태를 관리합니다.' },
+            ].map(({icon: Icon, title, text}, i) => <LandingReveal key={title} className="navi-business-step"><div className="navi-step-top"><Icon size={24} strokeWidth={1.6} /><span>0{i + 1}</span></div><h4>{title}</h4><p>{text}</p></LandingReveal>)}
+          </div>
         </div>
       </section>
+
+      <section id="evidence" className="navi-evidence navi-section-anchor">
+        <div className="navi-content-width">
+          <LandingReveal><p className="navi-overline">데이터로 설명하는 연결</p><h2>추천에는,<br />확인할 수 있는 이유가 있어야 하니까.</h2><p className="navi-evidence-copy">채용공고와 직무 데이터에서 요구 역량을 찾고,<br />나의 경험과 어떤 부분이 연결되는지 보여드립니다.</p></LandingReveal>
+          <dl className="navi-statistics">
+            {[
+              { value: CORPUS.postings, label: '분석한 채용공고', unit: '건' },
+              { value: CORPUS.jobs, label: '분석 대상 직무', unit: '개' },
+              { value: CORPUS.skills, label: '직무에 연결된 역량', unit: '개' },
+              { value: CORPUS.pairs, label: '직무·역량 연결', unit: '쌍' },
+            ].map(({value, label, unit}) => <div key={label}><dt>{label}</dt><dd>{value.toLocaleString()}<span>{unit}</span></dd></div>)}
+          </dl>
+          <p className="navi-small-note">수집한 표본 기준이며, 전체 채용시장을 대표하지 않습니다. 추천은 커리어 탐색과 인재 검토를 돕는 참고 정보입니다.</p>
+        </div>
+      </section>
+
+      <section className="navi-closing">
+        <LandingReveal><NaviMark className="navi-closing-mark" /><h2>다음 연결을,<br />지금 시작해 보세요.</h2></LandingReveal>
+        <div className="navi-closing-actions"><Link href="/login?role=personal" className="navi-button navi-button-teal">개인 · 내 커리어 찾기<ArrowRight size={18} /></Link><Link href="/login?role=employer" className="navi-button navi-button-dark">기업 · 우리 팀 인재 찾기<ArrowRight size={18} /></Link></div>
+        <p className="navi-small-note">회원가입 없이 데모 계정으로 체험할 수 있습니다.</p>
+      </section>
+      <footer className="navi-footer"><div className="navi-content-width"><div className="navi-footer-top"><Link href="/" className="navi-footer-brand"><NaviMark />Career Navi</Link><nav aria-label="하단 메뉴"><Link href="/login?role=personal">개인 서비스</Link><Link href="/login?role=employer">기업 서비스</Link><Link href="/companies">회사·공고 둘러보기</Link></nav></div><p>회사·공고·지원자는 서비스 체험을 위한 가상 데이터이며, 실제 채용으로 연결되지 않습니다.</p><p className="navi-footer-credit">Career Navi · 원티드 AI Championship 2026</p></div></footer>
     </main>
   );
 }

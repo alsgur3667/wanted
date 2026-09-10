@@ -77,7 +77,7 @@ export default function LoginForm() {
         <div className="absolute bottom-10 left-10 right-10">
           <p className="flex items-center gap-2.5 text-[26px] font-bold tracking-[-0.04em] text-ink">
             <NaviMark className="size-[26px] shrink-0" />
-            커리어 <span className="text-link">내비</span>
+            Career <span className="text-link">Navi</span>
           </p>
           <p className="mt-2 max-w-md text-[14px] leading-[1.7] text-body">
             직무명이 아니라 역량으로 연결합니다.

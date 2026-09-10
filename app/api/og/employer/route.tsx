@@ -21,7 +21,7 @@ export async function GET(req: Request) {
   const missed = all.matches.filter((m) => !isSameRoleTitle(req_, m.candidate)).slice(0, 2);
 
   const text =
-    `커리어 내비 채용 중 직무명으로 검색 역량으로 검색 명 놓치고 있던 적합도 ` +
+    `Career Navi 채용 중 직무명으로 검색 역량으로 검색 명 놓치고 있던 적합도 ` +
     `직무명이 아니라 역량으로 연결합니다 원티드 AI Championship 2026 ${req_.title}` +
     missed.map((m) => m.candidate.currentJobTitle).join('');
 
@@ -43,7 +43,7 @@ export async function GET(req: Request) {
         background: BG, color: '#ededed', padding: '64px 72px', fontFamily: 'Noto' }}>
 
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline' }}>
-          <div style={{ display: 'flex', fontSize: 26, color: '#8a8a8a', fontWeight: 400 }}>커리어 내비</div>
+          <div style={{ display: 'flex', fontSize: 26, color: '#8a8a8a', fontWeight: 400 }}>Career Navi</div>
           <div style={{ display: 'flex', fontSize: 30, color: '#d4d4d4', fontWeight: 700 }}>
             {req_.title} 채용 중
           </div>

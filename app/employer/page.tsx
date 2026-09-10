@@ -7,7 +7,7 @@ export default function EmployerPage() {
     <main className="mx-auto max-w-6xl px-5 py-12 sm:py-16">
       <header>
         <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">
-          ← 커리어 내비
+          ← Career Navi
         </Link>
         <p className="mt-8 text-[11px] font-medium uppercase tracking-[0.18em] text-faint">Employer workspace</p>
         <h1 className="mt-2 text-2xl font-bold leading-snug tracking-[-0.04em] text-ink sm:text-3xl">
