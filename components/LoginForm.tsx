@@ -12,8 +12,7 @@ import {
   verifyDemoCredentials,
   type Role,
 } from '@/lib/demo-auth';
-import CareerMap from './CareerMap';
-import NaviMark from './NaviMark';
+import LoginJourney from './LoginJourney';
 
 // ============================================================================
 //  데모 로그인 화면
@@ -42,6 +41,10 @@ export default function LoginForm() {
   const [pending, setPending] = useState(false);
 
   const account = DEMO_ACCOUNTS[role];
+  const personal = role === 'personal';
+  const steps = personal
+    ? [['경험 정리', '이력서에서 나의 역량을 발견해요.'], ['경로 탐색', '연결되는 직무와 이유를 살펴봐요.'], ['다음 단계', '부족한 역량과 준비 방향을 확인해요.']]
+    : [['채용 조건 정리', '우리 팀에 필요한 역량을 정의해요.'], ['후보자 탐색', '직무를 넘어 연결되는 경험을 찾아요.'], ['근거 확인', '적합한 이유와 역량 차이를 비교해요.']];
 
   function switchRole(next: Role) {
     setRole(next);
@@ -66,47 +69,42 @@ export default function LoginForm() {
   }
 
   return (
-    <div className="grid min-h-screen lg:grid-cols-[1fr_460px]">
-      {/* ── 왼쪽: 지도 ──
-          로그인 화면은 대개 비어 있다. 그 자리에 우리가 뭘 하는 곳인지 둔다.
-          큰 화면에서만 보인다 — 좁은 화면에서 이걸 위에 얹으면 폼이 접혀 내려간다. */}
-      <div className="relative hidden overflow-hidden border-r border-hairline bg-canvas lg:block">
-        <div className="absolute inset-0 flex items-center justify-center p-10">
-          <CareerMap className="w-full max-w-[720px]" />
+    <div className="login-page">
+      {/* 모바일에서는 짧은 서비스 소개를 남기고 지도와 단계 안내를 접는다. */}
+      <section className="login-story" aria-label={personal ? '개인 서비스 안내' : '기업 서비스 안내'}>
+        <p className="login-eyebrow">{personal ? 'FOR YOUR NEXT CHAPTER' : 'FOR YOUR NEXT TEAM'}</p>
+        <h2>{personal ? <>쌓아온 경험이, <br />새로운 길의 시작이 되도록.</> : <>직무명보다 깊이, <br />우리 팀에 맞는 역량을.</>}</h2>
+        <p className="login-story-copy">{personal ? '이력서 속 강점부터 미처 생각하지 못한 직무까지.\n나의 경험으로 이어지는 다음 커리어를 살펴보세요.' : '채용 조건을 역량으로 정리하고, 다양한 경험을 가진\n후보자가 우리 팀과 어떻게 연결되는지 살펴보세요.'}</p>
+        <LoginJourney role={role} />
+        <div className="login-steps">
+          {steps.map(([title, description], i) => <div key={title}>
+            <span>0{i + 1}</span><h3>{title}</h3><p>{description}</p>
+          </div>)}
         </div>
-        <div className="absolute bottom-10 left-10 right-10">
-          <p className="flex items-center gap-2.5 text-[26px] font-bold tracking-[-0.04em] text-ink">
-            <NaviMark className="size-[26px] shrink-0" />
-            Career <span className="text-link">Navi</span>
-          </p>
-          <p className="mt-2 max-w-md text-[14px] leading-[1.7] text-body">
-            직무명이 아니라 역량으로 연결합니다.
-          </p>
-        </div>
-      </div>
+      </section>
 
       {/* ── 오른쪽: 폼 ── */}
-      <div className="flex flex-col justify-center px-6 py-14 sm:px-10">
-        <div className="mx-auto w-full max-w-sm">
+      <div className="login-form-side">
+        <div className="login-form-inner">
           <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">
             ← 처음으로
           </Link>
 
-          <h1 className="mt-6 text-[26px] font-bold tracking-[-0.035em] text-ink">로그인</h1>
+          <h1 className="mt-6 text-[26px] font-bold tracking-[-0.035em] text-ink">{personal ? '나의 다음 커리어 찾기' : '우리 팀의 인재 찾기'}</h1>
           <p className="mt-2 text-[13px] leading-[1.6] text-body">{account.blurb}</p>
 
           {/* 역할 전환 — 탭 하나로 계정까지 같이 바뀐다 */}
           <div
-            role="tablist"
+            role="group"
             aria-label="로그인 유형"
             className="mt-7 flex rounded-lg border border-hairline bg-canvas p-1"
           >
             {ROLES.map((r) => (
               <button
                 key={r}
-                role="tab"
                 type="button"
-                aria-selected={role === r}
+                aria-pressed={role === r}
+                disabled={pending}
                 onClick={() => switchRole(r)}
                 className={`flex-1 rounded-md px-4 py-2 text-[13px] transition-colors ${
                   role === r ? 'bg-ink font-medium text-elevated' : 'text-mute hover:text-ink'
@@ -125,6 +123,9 @@ export default function LoginForm() {
               id="email"
               name="email"
               type="email"
+              required
+              aria-invalid={!!error}
+              aria-describedby={error ? 'login-error' : undefined}
               autoComplete="off"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
@@ -138,13 +139,16 @@ export default function LoginForm() {
               id="password"
               name="password"
               type="password"
+              required
+              aria-invalid={!!error}
+              aria-describedby={error ? 'login-error' : undefined}
               autoComplete="off"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               className="mt-1.5 w-full rounded-md border border-hairline bg-elevated px-3.5 py-2.5 text-[13px] text-ink outline-none transition-colors focus:border-link"
             />
 
-            {error && <p className="mt-3 text-[12px] text-error">{error}</p>}
+            {error && <p id="login-error" role="alert" className="mt-3 text-[12px] text-error">{error}</p>}
 
             <button
               type="submit"

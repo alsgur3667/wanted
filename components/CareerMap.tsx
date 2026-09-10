@@ -23,8 +23,6 @@ import {
 //  색: 청록은 '찾아낸 길', 앰버는 '몰랐던 길'. 화면 나머지 규칙과 같다.
 // ============================================================================
 
-const originPoint = project(ORIGIN.u, ORIGIN.v);
-
 // 경로 하나가 그려지기 시작하는 간격. 다섯 갈래가 되면서 줄였다 —
 // 원래 간격(420ms)이면 마지막 경로가 2.5초 뒤에야 시작해 로딩 한 바퀴를 넘긴다.
 const DRAW_GAP = 260;
@@ -40,23 +38,34 @@ export default function CareerMap({
       묶음만 갈아 끼우며 반복할 때는 꺼 둔다 — 매번 바닥까지 다시 나타나면
       지도가 깜빡이는 것처럼 보이고, 정작 봐야 할 경로에서 눈이 떠난다. */
   animateBase = true,
+  presentation = 'default',
+  originLabel = ORIGIN.name,
+  origin = ORIGIN,
+  brandOrigin = false,
+  direction = 'outgoing',
   className = '',
 }: {
   destinations?: MapNode[];
   reveal?: number;
   animated?: boolean;
   animateBase?: boolean;
+  presentation?: 'default' | 'login';
+  originLabel?: string;
+  origin?: MapNode;
+  brandOrigin?: boolean;
+  direction?: 'outgoing' | 'incoming';
   className?: string;
 }) {
   const shown = destinations.slice(0, reveal ?? destinations.length);
   const baseAnim = animated && animateBase;
+  const originPoint = project(origin.u, origin.v);
 
   return (
     <svg
-      viewBox={`0 0 ${MAP_W} ${MAP_H}`}
+      viewBox={presentation === 'login' ? `200 80 800 435` : `0 0 ${MAP_W} ${MAP_H}`}
       className={className}
       role="img"
-      aria-label="커리어에서 여러 직무로 뻗어 나가는 경로 지도"
+      aria-label={direction === 'incoming' ? `여러 직무의 경험을 가진 인재가 ${originLabel}로 모이는 경로 지도` : `${originLabel}에서 여러 가능성으로 뻗어 나가는 경로 지도`}
     >
       <defs>
         {/* 멀어질수록 바닥이 사라진다. 지평선을 선으로 긋는 것보다 자연스럽다 */}
@@ -113,7 +122,7 @@ export default function CareerMap({
             key={d.id}
             className={animated ? 'map-route' : undefined}
             style={animated ? { animationDelay: `${380 + i * DRAW_GAP}ms` } : undefined}
-            d={routePath(ORIGIN, d)}
+            d={direction === 'incoming' ? routePath(d, origin) : routePath(origin, d)}
             pathLength={100}
             stroke={d.hidden ? 'var(--warning)' : 'var(--link)'}
             strokeWidth={d.hidden ? 2.4 : 2}
@@ -145,13 +154,13 @@ export default function CareerMap({
               />
               <text
                 x={p.x}
-                y={p.y - 16 * s}
+                y={p.y - (presentation === 'login' ? 20 : 16 * s)}
                 textAnchor="middle"
-                fontSize={13 * s}
+                fontSize={presentation === 'login' ? 20 : 13 * s}
                 fontWeight="500"
                 fill="var(--ink)"
                 stroke="var(--canvas)"
-                strokeWidth={3.5 * s}
+                strokeWidth={presentation === 'login' ? 5 : 3.5 * s}
                 paintOrder="stroke"
               >
                 {d.name}
@@ -177,14 +186,14 @@ export default function CareerMap({
           x={originPoint.x}
           y={originPoint.y + 30}
           textAnchor="middle"
-          fontSize="14"
+          fontSize={presentation === 'login' ? 19 : 14}
           fontWeight="600"
           fill="var(--ink)"
           stroke="var(--canvas)"
           strokeWidth="4"
           paintOrder="stroke"
         >
-          {ORIGIN.name}
+          {brandOrigin ? <>Career <tspan fill="var(--link)">Navi</tspan></> : originLabel}
         </text>
       </g>
     </svg>
