@@ -7,7 +7,7 @@ export default function CompaniesPage() {
     <main className="mx-auto max-w-4xl px-5 py-12 sm:py-16">
       <header>
         <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">
-          ← 커리어 내비
+          ← Career Navi
         </Link>
         <h1 className="mt-3 text-2xl font-bold text-ink sm:text-3xl">회사와 채용공고 둘러보기</h1>
         <p className="mt-3 max-w-2xl text-[13px] leading-[1.6] text-body">

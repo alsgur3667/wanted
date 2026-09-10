@@ -38,8 +38,8 @@ export default function ShareButton({ result }: { result: AnalysisResult }) {
 
   const shareText =
     (hiddenRoute
-      ? `커리어 내비로 분석해 봤더니 몰랐던 "${hidden.destination}" 경로가 나왔어요 (필수 역량 ${mustTotal}개 중 ${mustHeld}개 보유)\n`
-      : `커리어 내비로 분석해 봤더니 "${hidden.destination}"의 필수 역량 ${mustTotal}개 중 ${mustHeld}개를 이미 갖고 있대요\n`) +
+      ? `Career Navi로 분석해 봤더니 몰랐던 "${hidden.destination}" 경로가 나왔어요 (필수 역량 ${mustTotal}개 중 ${mustHeld}개 보유)\n`
+      : `Career Navi로 분석해 봤더니 "${hidden.destination}"의 필수 역량 ${mustTotal}개 중 ${mustHeld}개를 이미 갖고 있대요\n`) +
     `직무명이 아니라 역량으로 커리어를 연결해 주는 서비스예요.\n${CONTEST_URL}`;
 
   async function copy() {

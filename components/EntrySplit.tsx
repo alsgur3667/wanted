@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight } from 'lucide-react';
 import { DEMO_ACCOUNTS, ROLES, type Role } from '@/lib/demo-auth';
 
@@ -14,26 +15,38 @@ import { DEMO_ACCOUNTS, ROLES, type Role } from '@/lib/demo-auth';
 //
 //  마우스를 올린 쪽이 넓어진다. 고르기 전에 어느 쪽을 보고 있는지가 먼저 보인다.
 //
-//  ── 그림에 대하여
-//  사진을 쓰지 않는다. 쓸 만한 사진이 없기도 하고, 우리가 파는 것이 분위기가
-//  아니라 구조이기 때문이다. 대신 같은 도형 언어를 좌우로 뒤집어 쓴다.
+//  ── 사진과 도형을 같이 쓴다
+//  사진은 분위기를 세우고, 도형은 구조를 말한다. 둘 중 하나만으로는 부족했다.
 //
-//    개인  한 점에서 여러 갈래로 퍼진다   — 나는 어디로 갈 수 있나
-//    기업  여러 점이 한 곳으로 모인다     — 이 자리에 누가 맞나
+//    개인  갈림길 앞에서 지도를 보는 사람   /  한 점에서 여러 갈래로 퍼지는 도형
+//    기업  건물 사이로 걸어 들어가는 사람들 /  여러 점이 한 곳으로 모이는 도형
 //
-//  같은 엔진이 양방향으로 동작한다는 말을 글로 쓰기 전에 그림이 먼저 한다.
+//  도형을 좌우로 뒤집은 것이 핵심이다. 같은 엔진이 양방향으로 동작한다는 말을
+//  글로 쓰기 전에 그림이 먼저 한다.
+//
+//  ── 마우스를 올리면 사진이 흐려진다
+//  혼다가 사진을 뒤로 물리는 것과 같은 원리다. 사진은 "여기가 무엇에 대한
+//  곳인가"를 3초 만에 말하고 나면 할 일이 끝난다. 읽을 것이 나타나는 순간
+//  뒤로 빠져야 글이 앞에 선다. 흐림과 어두워짐을 같이 걸어야 글자가 확실히 읽힌다.
 // ============================================================================
 
-const PANEL: Record<Role, { title: string; line: string; cta: string }> = {
+const PANEL: Record<
+  Role,
+  { title: string; line: string; cta: string; photo: string; alt: string }
+> = {
   personal: {
     title: '내가 갈 수 있는\n다음 커리어',
     line: '이력서를 넣으면 도달 가능한 경로를 찾습니다. 그중 하나는 스스로는 떠올리기 어려운 길입니다.',
     cta: '경로 찾기',
+    photo: '/entry/personal.webp',
+    alt: '갈림길 앞에서 지도 앱을 보며 어느 길로 갈지 살피는 사람들',
   },
   employer: {
     title: '직무명으로는\n보이지 않는 지원자',
     line: '공고를 만들면 역량 기준으로 인재를 정렬합니다. 직함이 달라 검색에 안 잡히던 사람이 드러납니다.',
     cta: '인재 찾기',
+    photo: '/entry/employer.webp',
+    alt: '오피스 건물 사이 광장을 걸어가는 직장인들',
   },
 };
 
@@ -95,11 +108,59 @@ export default function EntrySplit() {
             // flex-grow 를 전환한다. width 를 % 로 주고 바꾸면 두 패널이
             // 각자 계산해 사이가 벌어지거나 겹친다.
             style={{ flexGrow: active ? 1.32 : dimmed ? 0.82 : 1 }}
-            className={`group relative flex flex-1 flex-col justify-between overflow-hidden border-hairline p-8 transition-[flex-grow,background-color] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:p-12 ${
+            className={`group relative flex flex-1 flex-col justify-between overflow-hidden border-hairline p-8 transition-[flex-grow] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] md:p-12 ${
               role === 'personal' ? 'border-b md:border-b-0 md:border-r' : ''
-            } ${active ? 'bg-link-soft' : 'bg-elevated'}`}
+            }`}
           >
-            <div>
+            {/* ── 사진 ──
+                next/image 대신 CSS 배경으로 두지 않는 이유: 배경 이미지는
+                미리 불러오지 않아 화면에 늦게 뜬다. 첫 화면에 보이는 그림이라
+                priority 로 먼저 받는다.
+
+                aria-hidden 은 아니다 — alt 를 준다. 이 사진들은 장식이 아니라
+                각 패널이 무엇에 대한 곳인지 말하고 있다. */}
+            <Image
+              src={panel.photo}
+              alt={panel.alt}
+              fill
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+              className={`object-cover transition-[filter,opacity,transform] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${
+                active
+                  ? 'scale-105 opacity-25 blur-[7px]'
+                  : 'scale-100 opacity-100 blur-0 dark:opacity-75'
+              }`}
+            />
+
+            {/* ── 덮개 ──
+                처음에는 사진 전체에 바탕색을 균일하게 깔았다. 라이트 모드에서
+                흰 덮개가 사진을 통째로 씻어내 거의 안 보였다 — 실제로 남는 건
+                15% 남짓이었다.
+
+                글은 왼쪽에만 있다. 그러니 덮개도 왼쪽에만 있으면 된다.
+                왼→오 그라데이션으로 글이 앉는 쪽만 덮고 오른쪽은 사진을 살린다.
+                두 사진 다 오른쪽에 볼 것이 있어서 구도와도 맞는다.
+
+                ⚠️ 알파 값을 라이트/다크로 나눈 이유 — 같은 70% 라도 흰 덮개는
+                   사진을 지우고 검은 덮개는 가라앉힐 뿐이다. 눈에 닿는 결과가
+                   달라서 한 값으로 둘 다 맞출 수 없다. */}
+            <div
+              className="absolute inset-0 bg-canvas/20 dark:bg-canvas/45"
+              aria-hidden
+            />
+            <div
+              className="absolute inset-0 bg-gradient-to-r from-canvas/96 via-canvas/78 to-canvas/15 dark:from-canvas/95 dark:via-canvas/70 dark:to-canvas/10"
+              aria-hidden
+            />
+            {/* 마우스를 올리면 큰 제목이 나온다. 그때는 전면을 덮어야 읽힌다 */}
+            <div
+              className={`absolute inset-0 transition-opacity duration-[600ms] ${
+                active ? 'bg-canvas/75 opacity-100 dark:bg-canvas/80' : 'opacity-0'
+              }`}
+              aria-hidden
+            />
+            {/* 아래부터가 글이다. 사진·덮개가 absolute 라 relative 를 줘야 위에 선다 */}
+            <div className="relative">
               {/* 역할 이름. 이 패널이 누구 것인지 말하는 유일한 단어라
                   캡션 크기로 두면 못 찾는다 */}
               <span className="text-[17px] font-semibold tracking-[-0.02em] text-ink md:text-[19px]">
@@ -147,7 +208,7 @@ export default function EntrySplit() {
               </div>
             </div>
 
-            <div className="mt-10 flex items-end justify-between gap-6">
+            <div className="relative mt-10 flex items-end justify-between gap-6">
               <span className="inline-flex items-center gap-2 text-[14px] font-medium text-ink">
                 {panel.cta}
                 <ArrowRight

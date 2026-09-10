@@ -33,11 +33,13 @@ export default function SiteHeader() {
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/85 backdrop-blur">
-      <div className="mx-auto flex h-14 max-w-6xl items-center justify-between gap-4 px-5">
+      {/* ⚠️ 폭·여백을 랜딩 히어로(app/page.tsx)와 같은 값으로 맞춘다.
+             다르면 헤더 로고와 h1 의 왼쪽 선이 어긋나 보인다. */}
+      <div className="mx-auto flex h-14 max-w-[1800px] items-center justify-between gap-4 px-5 sm:px-8 xl:px-14">
         <Link href="/" className="flex items-center gap-2">
           <NaviMark />
           <span className="text-[14px] font-semibold tracking-[-0.02em] text-ink">
-            커리어 <span className="text-link">내비</span>
+            Career <span className="text-link">Navi</span>
           </span>
         </Link>
 
