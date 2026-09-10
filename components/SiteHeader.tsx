@@ -1,11 +1,12 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
-import { DEMO_ACCOUNTS, currentRole, signOut, type Role } from '@/lib/demo-auth';
+import { DEMO_ACCOUNTS, currentRole, signOut } from '@/lib/demo-auth';
 import ThemeToggle from './ThemeToggle';
 import NaviMark from './NaviMark';
+import LandingHeader from './LandingHeader';
 
 // ============================================================================
 //  상단 바
@@ -14,22 +15,19 @@ import NaviMark from './NaviMark';
 //  로고가 왼쪽에 고정돼 있고, 오른쪽 끝에 계정이 있고, 스크롤해도 따라온다 —
 //  그 형태만으로 '제품'으로 읽힌다.
 //
-//  ⚠️ 로그인 상태는 sessionStorage 에 있어서 서버는 모른다. 서버가 그린 것과
-//     다르면 하이드레이션 경고가 나므로, 마운트 전에는 아무것도 그리지 않고
-//     자리만 잡아 둔다. 그래야 버튼이 나중에 나타나도 줄이 밀리지 않는다.
+//  서버는 비로그인 상태로 렌더링하고 클라이언트에서 세션 스냅샷을 읽는다.
+//  usePathname이 페이지 이동 시 다시 렌더링하므로 로그인 직후에도 갱신된다.
 // ============================================================================
 
+const subscribe = () => () => {};
+const serverRole = () => null;
+
 export default function SiteHeader() {
-  const [role, setRole] = useState<Role | null>(null);
-  const [mounted, setMounted] = useState(false);
+  const role = useSyncExternalStore(subscribe, currentRole, serverRole);
   const pathname = usePathname();
   const router = useRouter();
 
-  // 페이지가 바뀔 때마다 다시 읽는다 — 로그인 직후에도 바로 반영된다
-  useEffect(() => {
-    setRole(currentRole());
-    setMounted(true);
-  }, [pathname]);
+  if (pathname === '/') return <LandingHeader />;
 
   return (
     <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/85 backdrop-blur">
@@ -46,10 +44,7 @@ export default function SiteHeader() {
         <div className="flex items-center gap-1.5">
           <ThemeToggle />
 
-          {/* 마운트 전에는 폭만 잡아 둔다 */}
-          {!mounted ? (
-            <div className="h-8 w-[76px]" />
-          ) : role ? (
+          {role ? (
             <>
               <span className="hidden px-2 text-[12px] text-mute sm:inline">
                 {DEMO_ACCOUNTS[role].displayName}
@@ -58,7 +53,6 @@ export default function SiteHeader() {
                 type="button"
                 onClick={() => {
                   signOut();
-                  setRole(null);
                   router.push('/');
                 }}
                 className="rounded-md border border-hairline px-3 py-1.5 text-[12px] text-body transition-colors hover:border-link/50 hover:text-ink"
