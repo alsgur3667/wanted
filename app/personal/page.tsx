@@ -12,8 +12,8 @@ export default function Home() {
   const [searching, setSearching] = useState(false);
 
   return (
-    <main className={result ? 'mx-auto max-w-3xl px-5 py-12 sm:py-16' : 'personal-page'}>
-      {!searching && <header className={!result ? 'personal-intro' : undefined}>
+    <main className="personal-page">
+      {!searching && !result && <header className="personal-intro">
         <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← Career Navi</Link>
         <h1 className="mt-2 text-2xl font-bold leading-snug sm:text-3xl">
           {result ? '당신의 다음 커리어를,' : '쌓아온 경험에서,'}
@@ -33,7 +33,7 @@ export default function Home() {
         <li><span>03</span> 커리어 경로 확인</li>
       </ol>}
 
-      <div className={result ? 'mt-12' : 'personal-content'}>
+      <div className={result ? undefined : 'personal-content'}>
         {result ? (
           <ResultView result={result} onReset={() => setResult(null)} />
         ) : (

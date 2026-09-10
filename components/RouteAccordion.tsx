@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import type { Route, Skill } from '@/types';
 import { jobDetailOf } from '@/lib/job-detail';
 import JobRequirements from './JobRequirements';
@@ -19,32 +19,37 @@ export default function RouteAccordion({
   route,
   mySkills,
   showFitScore = false,
+  rank,
 }: {
   route: Route;
   mySkills: Skill[];
   /** 적합도 숫자 노출. 기본은 끈다 — 여러 요소가 섞인 값이라 맥락 없이 읽히면 오해가 된다 */
   showFitScore?: boolean;
+  rank?: number;
 }) {
   const [open, setOpen] = useState(false);
+  const panelId = useId();
   const detail = jobDetailOf(route.destination, mySkills, route.requirements);
 
   const summary = detail
     ? `필수 ${detail.mustTotal}개 중 ${detail.mustHeld}개`
-    : `적합도 ${route.fitScore}`;
+    : '추천 근거 확인';
 
   // 히든 경로임을 테두리로도, 배지로도 말하면 같은 사실을 두 번 칠하는 것이다.
   // 목록에서 그 카드만 노랗게 뜨면 나머지 두 개가 덜 중요해 보이기도 한다.
   // 사실은 배지 하나가 말하고, 색은 마우스를 올린 카드에만 청록으로 켠다 —
   // 랜딩·예시 버튼과 같은 규칙이다.
   return (
-    <article className="group overflow-hidden rounded-xl border border-hairline bg-elevated transition-colors hover:border-link/50">
+    <article className="result-route group overflow-hidden rounded-xl border border-hairline bg-elevated transition-colors hover:border-link/50">
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
+        aria-controls={panelId}
         className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-link-soft"
       >
         <div className="min-w-0">
+          {rank && <span className="result-route-rank">추천 경로 {String(rank).padStart(2, '0')}</span>}
           {route.isHiddenRoute && (
             <span className="mb-2 inline-block rounded-full bg-warning-soft px-2.5 py-0.5 text-[11px] font-medium text-warning">
               이 길도 있어요
@@ -56,6 +61,7 @@ export default function RouteAccordion({
           <p className="mt-1.5 text-[13px] leading-[1.6] text-body">
             {detail?.oneLiner || route.reason}
           </p>
+          {route.reason && detail?.oneLiner && <p className="result-route-reason"><span>연결 근거</span>{route.reason}</p>}
         </div>
         <div className="flex shrink-0 items-center gap-3 pt-1">
           {showFitScore && (
@@ -75,11 +81,10 @@ export default function RouteAccordion({
 
       {/* 내용을 조건부로 지우지 않는다 — 지우면 높이를 잴 수 없어 애니메이션이 안 된다.
           .collapsible 이 grid-template-rows 로 실제 높이를 계산해 접었다 편다. */}
-      {detail && (
-        <div className="collapsible" data-open={open}>
+        <div id={panelId} className="collapsible" data-open={open} inert={!open}>
           <div>
             <div className="border-t border-hairline px-5 pb-5 pt-4">
-              <JobRequirements detail={detail} />
+              {detail ? <JobRequirements detail={detail} /> : <p className="text-sm leading-relaxed text-body">{route.reason}</p>}
 
               {route.marketNote && (
                 <p className="mt-4 border-t border-hairline pt-3 text-[12px] leading-[1.6] text-faint">
@@ -89,7 +94,6 @@ export default function RouteAccordion({
             </div>
           </div>
         </div>
-      )}
     </article>
   );
 }
