@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import 'lenis/dist/lenis.css';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import SiteHeader from '@/components/SiteHeader';
+import SmoothScroll from '@/components/SmoothScroll';
 
 const geist = Geist({ subsets: ['latin'], variable: '--font-sans' });
 
@@ -41,6 +43,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className="antialiased">
+        {/* 휠 스크롤을 매끄럽게 만든다. 스크롤에 물린 애니메이션도 같이 부드러워진다 */}
+        <SmoothScroll />
         {/* 테마 토글은 헤더 안으로 들어갔다. 화면 구석에 떠 있으면
             어느 화면에서도 소속이 없어 보이고, 로그인 버튼과 나란히 두면
             둘 다 '내 계정 쪽 도구'로 읽힌다. */}

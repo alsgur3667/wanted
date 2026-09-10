@@ -1,4 +1,5 @@
 import { CORPUS } from '@/lib/corpus-stats';
+import CountUp from './CountUp';
 
 // ============================================================================
 //  데이터 규모 — 히어로 오른쪽
@@ -17,11 +18,17 @@ import { CORPUS } from '@/lib/corpus-stats';
 //  숫자는 lib/corpus-stats 가 파일을 세어 온다. 손으로 적지 않는다.
 // ============================================================================
 
+// 패널이 떠오른 뒤(340ms + rise 950ms)에 세기 시작한다.
+// 떠오르는 중에 세면 두 움직임이 겹쳐 어느 쪽도 눈에 안 들어온다.
+const COUNT_START = 900;
+/** 한 줄씩 시차를 둔다. 넷이 동시에 돌아가면 화면이 소란스럽다 */
+const COUNT_GAP = 130;
+
 const ROWS = [
-  { value: CORPUS.postings.toLocaleString(), unit: '건', label: '분석한 채용공고' },
-  { value: CORPUS.jobs.toLocaleString(), unit: '개', label: '직무' },
-  { value: CORPUS.skills.toLocaleString(), unit: '개', label: '역량' },
-  { value: CORPUS.pairs.toLocaleString(), unit: '쌍', label: '직무 × 역량 연결' },
+  { value: CORPUS.postings, unit: '건', label: '분석한 채용공고' },
+  { value: CORPUS.jobs, unit: '개', label: '직무' },
+  { value: CORPUS.skills, unit: '개', label: '역량' },
+  { value: CORPUS.pairs, unit: '쌍', label: '직무 × 역량 연결' },
 ];
 
 export default function CorpusPanel() {
@@ -31,12 +38,14 @@ export default function CorpusPanel() {
       <p className="text-[11px] font-medium uppercase tracking-[0.16em] text-faint">무엇으로 찾나</p>
 
       <dl className="mt-6 space-y-6">
-        {ROWS.map((row) => (
+        {ROWS.map((row, i) => (
           <div key={row.label}>
             <dd className="flex items-baseline gap-1.5">
-              <span className="text-[30px] font-bold tabular-nums leading-none tracking-[-0.04em] text-ink">
-                {row.value}
-              </span>
+              <CountUp
+                to={row.value}
+                delay={COUNT_START + i * COUNT_GAP}
+                className="text-[30px] font-bold tabular-nums leading-none tracking-[-0.04em] text-ink"
+              />
               <span className="text-[13px] text-mute">{row.unit}</span>
             </dd>
             <dt className="mt-1.5 text-[12px] text-mute">{row.label}</dt>
