@@ -210,6 +210,8 @@ uv run python scripts/collect/eval_routes.py
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
 | [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 공모전 실행계획과 마일스톤 |
+| [**RESUME_EVAL**](./docs/RESUME_EVAL.md) | 이력서를 넣어 추천이 말이 되는지 보는 테스트 — 실행법·채점 기준·기준선 |
+| [**OPEN_PROBLEMS**](./docs/OPEN_PROBLEMS.md) | 찾았지만 아직 못 고친 것 (이슈가 없는 것들이 여기 원본) |
 
 ---
 

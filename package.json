@@ -10,6 +10,7 @@
     "test": "vitest run",
     "test:data-tools": "uv run --cache-dir .uv-cache python -m unittest discover -s scripts/collect -p test_*.py",
     "test:watch": "vitest",
+    "eval:resumes": "vitest run scripts/eval/resume_eval.test.ts --reporter=dot --silent=false",
     "build:demo-data": "uv run --cache-dir .uv-cache python scripts/mock/build_company_data.py && uv run --cache-dir .uv-cache python scripts/mock/build_employer_data.py",
     "validate:demo-data": "uv run --cache-dir .uv-cache python scripts/mock/validate_company_data.py && uv run --cache-dir .uv-cache python scripts/mock/validate_employer_data.py",
     "validate:data": "node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json && node scripts/validate-data.mjs data/interim/jobs.json data/interim/skills.json data/interim/job-skills.json",

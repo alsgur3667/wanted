@@ -135,8 +135,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     //  택일 관계는 면제한다 — iOS 개발자에게 Kotlin 을 부족 역량으로 요구하지 않는다.
     //  covered 는 '채워진 것으로 치는 요구', hit 은 '실제로 가진 것'이다.
     const { must, nice } = requirementsOf(job.id);
-    const m = satisfied(must, have);
-    const n = satisfied(nice, have);
+    const m = satisfied(must, have, job.id);
+    const n = satisfied(nice, have, job.id);
     const mustHit = m.hit, niceHit = n.hit;
     //  ⚠️ 칸 수가 아니라 무게로 센다. 이유는 skill-index.coverage() 주석 참조.
     //     칸을 세면 택일 묶음이 칸을 부풀리고(Angular 하나로 3칸), 목록을 다듬으면
@@ -213,11 +213,30 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   //  '필수'로 제한하는 것이 핵심이다. 우대까지 세면 Slack·HTML 같은 게 다리로 잡힌다.
   //  실측 — 기술만 적은 8년차 iOS 개발자가 Slack·HTML·CSS 를 다리로 그래픽 디자이너에 연결됐다.
   //  Slack 은 어느 직군에나 있지만 그것 때문에 디자이너가 되지는 않는다.
-  //  다리가 있어도 적합도가 너무 낮으면 붙이지 않는다.
-  //  실측 — 8년차 iOS 개발자에게 HTML·CSS 두 개를 다리로 그래픽 디자이너(순위점수 30)가 붙었다.
-  //  둘 다 직군을 넘나드는 역량인 것은 맞지만, 그것만으로 디자이너를 권할 수는 없다.
-  //  내부 순위점수 40 은 도달 가능한 값이다 — 진짜 전환 후보는 79·51 로 나온다.
-  const HIDDEN_MIN_EVIDENCE_SCORE = 40;
+  //  다리가 있어도 적합도가 너무 낮으면 붙이지 않는다. 문턱은 **두 개**다.
+  //    · 표시 적합도 45 — 사용자가 보는 숫자. 배지는 이 숫자 옆에 붙는다.
+  //    · 순위점수 25 — 표본이 얇거나 남에게 흡수되는 직무를 걸러 내는 보조 문턱.
+  //
+  //  ⚠️ 예전에는 순위점수 40 하나만 봤다. 그 값은 **적합도를 무게 기반으로 갈아엎기 전**
+  //     척도에서 고른 것이라, 갈아엎은 뒤에는 사실상 아무도 통과하지 못했다 —
+  //     샘플 4개 전부 배지가 안 붙었고, 데모에서 이 기능이 죽어 있었다(이슈 #28 후속).
+  //     순위점수는 원점수에 표본 신뢰도·직무 보정을 곱한 값이라 표시 적합도의 0.5~0.8배다.
+  //     즉 40 은 "다른 직군에서 표시 적합도 50~72" 를 요구하는 셈이었다.
+  //
+  //  다시 쟀다 — 설문 프로필 2,142건(직무 18개) + 손으로 만든 대조군 3건.
+  //    순위점수 40            배지 9.0%  · 개발 직무 0.1% · 평균 표시 적합도 69.4
+  //    순위점수 25 · 적합도 45 배지 12.2% · 개발 직무 0.5% · 평균 표시 적합도 61.5
+  //    순위점수 25 (바닥 없음) 배지 14.4% · 개발 직무 1.2% · 평균 표시 적합도 56.6  ← 샌다
+  //  실제로 거르는 일을 하는 것은 **표시 적합도 바닥**이었다. 순위점수는 대부분 통과시킨다.
+  //  35~55 를 훑어도 대조군 판정은 바뀌지 않아, 가운데인 45 로 둔다.
+  //
+  //  대조군(사람이 정답을 아는 것)
+  //    기술만 나열한 8년차 iOS 개발자 → 배지 없음. 옛 오탐이던 그래픽·브랜드 디자이너는
+  //      지금 순위점수 4 라 어느 문턱에서도 안 붙는다(무게 기반 적합도가 이미 걸렀다).
+  //    퍼블리싱까지 하는 UI 디자이너 → 프론트엔드 개발자(62). 필수 다리 4개.
+  //    지표 파이프라인을 겸한 백엔드   → 데이터·비즈니스 기획(50). 넓은 다리 3개.
+  const HIDDEN_MIN_EVIDENCE_SCORE = 25;
+  const HIDDEN_MIN_FIT_SCORE = 45;   // 사용자가 보는 숫자. 실제로 거르는 일은 이쪽이 한다
   const HIDDEN_MIN_MUST_BRIDGES = 2;
   const HIDDEN_MIN_WIDE_BRIDGES = 3;
   const EASY_SKILL = 0.3;   // 이보다 쉬우면 다리로 세지 않는다
@@ -230,7 +249,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
   };
 
   const crossJobs = withSurprise
-    .filter((s) => s.cross && s.evidenceScore >= HIDDEN_MIN_EVIDENCE_SCORE && s.job.id !== currentJobId)
+    .filter((s) => s.cross && s.evidenceScore >= HIDDEN_MIN_EVIDENCE_SCORE
+      && s.fitScore >= HIDDEN_MIN_FIT_SCORE && s.job.id !== currentJobId)
     .map((s) => ({ ...s, b: bridgesOf(s) }));
 
   //  ③ 직무 간 인접은 **문턱을 낮추는 데 쓰지 않는다.** 자격을 갖춘 것들 사이의 우선순위에만 쓴다.
@@ -275,6 +295,7 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
         && !already.has(p.jobId)                       // 이미 앞에 나온 직무가 아니고
         && cand !== undefined
         && cand.evidenceScore >= HIDDEN_MIN_EVIDENCE_SCORE // 표본 보정 뒤에도 권할 만하고
+        && cand.fitScore >= HIDDEN_MIN_FIT_SCORE        // 화면에 보이는 숫자도 권할 만하고
         && cand.job.id !== scored[0]?.job.id           // 점수 1위에 배지를 겹쳐 붙이지 않는다
         && cand.job.id !== currentJobId;               // 지금 하고 있는 그 직무가 아니어야 한다
     });

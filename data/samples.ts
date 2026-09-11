@@ -64,7 +64,7 @@ const INPUTS: SampleInput[] = [
     label: '프론트엔드 개발자 3년차',
     hint: '개발 외 다른 길이 있는지 궁금',
     resumeText:
-      '프론트엔드 개발자 3년차입니다. 재사용 컴포넌트 40여 개를 정리해 사내 UI 라이브러리로 배포했고, 온보딩 애니메이션을 직접 설계해 이탈률을 9% 줄였습니다. 번들 크기를 절반으로 줄여 초기 로딩을 2.1초 단축했습니다.',
+      '프론트엔드 개발자 3년차입니다. 재사용 컴포넌트 40여 개를 정리해 사내 UI 라이브러리로 배포했고, 온보딩 애니메이션을 직접 설계해 이탈률을 9% 줄였습니다. 번들 크기를 절반으로 줄여 초기 로딩을 2.1초 단축했습니다. 디자인 시스템 토큰을 디자이너와 함께 정의하고 Figma 라이브러리와 코드 컴포넌트를 1:1로 맞췄습니다. 새 기능은 클릭 가능한 프로토타입으로 먼저 만들어 팀 리뷰를 받았습니다.',
     extracted: {
       currentPosition: {
         jobTitle: '프론트엔드 개발자',
@@ -82,6 +82,10 @@ const INPUTS: SampleInput[] = [
         { name: 'React', evidenceText: 'React 기반 서비스 3개를 운영' },
         { name: 'TypeScript', evidenceText: '전 프로젝트를 TypeScript로 마이그레이션' },
         { name: 'Git', evidenceText: '코드 리뷰 문화를 팀에 도입' },
+        { name: '디자인 시스템', evidenceText: '디자인 시스템 토큰을 디자이너와 함께 정의' },
+        { name: 'Figma', evidenceText: 'Figma 라이브러리와 코드 컴포넌트를 1:1로 맞춤' },
+        { name: '프로토타이핑', evidenceText: '새 기능은 클릭 가능한 프로토타입으로 먼저 만들어 팀 리뷰를 받음' },
+        { name: 'UX/UI', evidenceText: '온보딩 애니메이션을 직접 설계해 이탈률을 9% 줄임' },
       ],
     },
   },
@@ -113,7 +117,7 @@ const INPUTS: SampleInput[] = [
     label: 'UI 디자이너 4년차',
     hint: '커리어 폭을 넓히고 싶음',
     resumeText:
-      'UI 디자이너 4년차입니다. 컬러·타이포·컴포넌트 규칙을 문서화해 4개 팀에 배포했고, 메뉴 구조를 재편해 주요 기능 도달 단계를 4단계에서 2단계로 줄였습니다. 컴포넌트 스펙 문서를 만들어 개발 문의를 절반으로 줄였습니다.',
+      'UI 디자이너 4년차입니다. 컬러·타이포·컴포넌트 규칙을 문서화해 4개 팀에 배포했고, 메뉴 구조를 재편해 주요 기능 도달 단계를 4단계에서 2단계로 줄였습니다. 컴포넌트 스펙 문서를 만들어 개발 문의를 절반으로 줄였습니다. 랜딩 페이지는 HTML·CSS를 직접 고쳐 배포했고, 컴포넌트 스타일을 바꿀 때는 JavaScript 동작까지 확인한 뒤 개발자에게 넘겼습니다. 분기마다 이용자 5명을 불러 사용성 테스트를 진행해 다음 개선 과제를 정했습니다.',
     extracted: {
       currentPosition: {
         jobTitle: 'UI 디자이너',
@@ -130,6 +134,11 @@ const INPUTS: SampleInput[] = [
         { name: '개발 핸드오프', evidenceText: '컴포넌트 스펙 문서를 만들어 개발 문의를 절반으로 줄임' },
         { name: '프로토타이핑', evidenceText: '주요 흐름을 클릭 가능한 시안으로 만들어 팀 리뷰에 사용' },
         { name: 'Figma', evidenceText: '컴포넌트 규칙을 Figma 라이브러리로 배포' },
+        { name: 'HTML', evidenceText: '랜딩 페이지는 HTML·CSS를 직접 고쳐 배포' },
+        { name: 'CSS', evidenceText: '랜딩 페이지는 HTML·CSS를 직접 고쳐 배포' },
+        { name: 'JavaScript', evidenceText: '컴포넌트 스타일을 바꿀 때는 JavaScript 동작까지 확인한 뒤 개발자에게 넘김' },
+        { name: 'UX/UI', evidenceText: '메뉴 구조를 재편해 주요 기능 도달 단계를 4단계에서 2단계로 줄임' },
+        { name: '사용성 테스트', evidenceText: '분기마다 이용자 5명을 불러 사용성 테스트를 진행해 다음 개선 과제를 정함' },
       ],
     },
   },
