@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { ArrowDown, ArrowRight, ArrowUpRight, Check, Compass, FileText, UsersRound } from 'lucide-react';
 import NaviMark from '@/components/NaviMark';
 import LandingReveal from '@/components/LandingReveal';
+import CountUp from '@/components/CountUp';
 import { CORPUS } from '@/lib/corpus-stats';
 import './landing.css';
 
@@ -39,11 +40,11 @@ export default function Landing() {
             <h2 id="personal-title">내 경험으로 갈 수 있는 길,<br />더 넓게 살펴보세요.</h2>
           </LandingReveal>
           <div className="navi-editorial-grid">
-            <LandingReveal className="navi-personal-photo">
+            <LandingReveal className="navi-personal-photo" from="left">
               <Image src="/entry/personal.webp" alt="갈림길 앞에서 지도를 보며 다음 방향을 살펴보는 사람들" fill sizes="(max-width: 800px) 100vw, 58vw" />
               <div className="navi-photo-caption"><Compass size={18} /><span>다음 방향을 찾는 일, 경험에서 시작해 보세요.</span></div>
             </LandingReveal>
-            <LandingReveal className="navi-editorial-copy">
+            <LandingReveal className="navi-editorial-copy" from="right" delay={0.12}>
               <span className="navi-section-number">01 / PERSONAL</span>
               <h3>이력서 한 장에서<br />다음 커리어의 실마리를.</h3>
               <p>이직을 준비하고 계신가요?<br />혹은 첫 커리어를 고민하고 계신가요?<br />어떤 일을 해 봤는지 알려주세요.<br />경험을 활용할 수 있는 직무를 함께 살펴봅니다.</p>
@@ -77,7 +78,7 @@ export default function Landing() {
               { icon: FileText, title: '채용의 기준을 세우고', text: '직접 작성하거나 AI로 초안을 만들며, 공고에 필요한 역할과 역량을 정리합니다.' },
               { icon: Compass, title: '역량으로 인재를 찾고', text: '공고의 요구 역량과 연결되는 인재를 탐색하고, 추천 근거를 확인합니다.' },
               { icon: UsersRound, title: '경험을 보고 검토하세요', text: '지원자별 역량 근거를 살펴보고 다음 전형으로의 진행 상태를 관리합니다.' },
-            ].map(({icon: Icon, title, text}, i) => <LandingReveal key={title} className="navi-business-step"><div className="navi-step-top"><Icon size={24} strokeWidth={1.6} /><span>0{i + 1}</span></div><h4>{title}</h4><p>{text}</p></LandingReveal>)}
+            ].map(({icon: Icon, title, text}, i) => <LandingReveal key={title} className="navi-business-step" delay={i * 0.1}><div className="navi-step-top"><Icon size={24} strokeWidth={1.6} /><span>0{i + 1}</span></div><h4>{title}</h4><p>{text}</p></LandingReveal>)}
           </div>
         </div>
       </section>
@@ -91,7 +92,15 @@ export default function Landing() {
               { value: CORPUS.jobs, label: '분석 대상 직무', unit: '개' },
               { value: CORPUS.skills, label: '직무에 연결된 역량', unit: '개' },
               { value: CORPUS.pairs, label: '직무·역량 연결', unit: '쌍' },
-            ].map(({value, label, unit}) => <div key={label}><dt>{label}</dt><dd>{value.toLocaleString()}<span>{unit}</span></dd></div>)}
+            ].map(({value, label, unit}, i) => (
+              <LandingReveal key={label} delay={i * 0.09}>
+                <dt>{label}</dt>
+                {/* ⚠️ 단위에 이름을 준다. CountUp 이 숫자를 <span> 으로 감싸는데,
+                    '.navi-statistics dd span' 같은 막연한 선택자를 그대로 두면
+                    숫자까지 단위 크기(16px·회색)로 끌려간다. */}
+                <dd><CountUp to={value} startOnView delay={260} /><span className="navi-stat-unit">{unit}</span></dd>
+              </LandingReveal>
+            ))}
           </dl>
           <p className="navi-small-note">수집한 표본 기준이며, 전체 채용시장을 대표하지 않습니다. 추천은 커리어 탐색과 인재 검토를 돕는 참고 정보입니다.</p>
         </div>
