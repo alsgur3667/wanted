@@ -15,6 +15,7 @@
 ⚠️ 설문 원본과 파생 표본은 재배포하지 않는다(ODbL). data/raw/ 에만 두고 커밋하지 않는다.
 """
 import json
+import os
 import math
 import random
 import sys
@@ -178,9 +179,23 @@ def evaluate(profiles, J, S, M, G, verbose=True):
     mx_adj = max(adjust.values(), default=0) or 1
     adjust = {k: v / mx_adj for k, v in adjust.items()}
 
-    def covered(req, have):
-        ok = {grp[i] for i in have if i in grp}
-        return [i for i in req if i in have or (i in grp and grp[i] in ok)]
+    #  앱의 skill-index.substitutable 과 같은 계산이다. 한쪽만 고치면 채점이 어긋난다.
+    #  앱은 0.5 로 고정돼 있다(lib/skill-index.ts). 여기만 환경변수로 열어 두는 것은
+    #  문턱을 다시 쓸어 보기 위해서다. 값을 바꿔 채택하려면 **앱도 같이** 고친다.
+    SUB_MIN_RATIO = float(os.environ.get("SUB_MIN_RATIO", "0.5"))
+
+    def substitutable(jid, missing, have):
+        g = grp.get(missing)
+        if g is None:
+            return False
+        mine = [h for h in have if grp.get(h) == g]
+        if not mine:            # 그 묶음의 무언가를 실제로 갖고 있어야 한다
+            return False
+        best = max(demand.get((jid, h), 0.0) for h in mine)
+        return best >= SUB_MIN_RATIO * demand.get((jid, missing), 0.0)
+
+    def covered(jid, req, have):
+        return [i for i in req if i in have or substitutable(jid, i, have)]
 
     #  요구 비율 — 충족률의 무게. 앱의 demandOf 와 같은 값이다.
 
@@ -195,7 +210,6 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         """
         if not req:
             return 0.0
-        ok = {grp[i] for i in have if i in grp}
         slots, at = [], {}
         for i in req:
             w = demand.get((jid, i), 0.0)
@@ -213,7 +227,7 @@ def evaluate(profiles, J, S, M, G, verbose=True):
         if not tot:
             return 0.0
         got = sum(w for mem, w in slots
-                  if any(i in have or (i in grp and grp[i] in ok) for i in mem))
+                  if any(i in have or substitutable(jid, i, have) for i in mem))
         return got / tot
 
     def experience_fit(jid, work_years):

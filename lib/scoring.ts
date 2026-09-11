@@ -135,8 +135,8 @@ export function buildAnalysis(ex: Extracted): AnalysisResult {
     //  택일 관계는 면제한다 — iOS 개발자에게 Kotlin 을 부족 역량으로 요구하지 않는다.
     //  covered 는 '채워진 것으로 치는 요구', hit 은 '실제로 가진 것'이다.
     const { must, nice } = requirementsOf(job.id);
-    const m = satisfied(must, have);
-    const n = satisfied(nice, have);
+    const m = satisfied(must, have, job.id);
+    const n = satisfied(nice, have, job.id);
     const mustHit = m.hit, niceHit = n.hit;
     //  ⚠️ 칸 수가 아니라 무게로 센다. 이유는 skill-index.coverage() 주석 참조.
     //     칸을 세면 택일 묶음이 칸을 부풀리고(Angular 하나로 3칸), 목록을 다듬으면

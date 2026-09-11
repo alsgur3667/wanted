@@ -22,8 +22,24 @@ DROP = {
     "rocket", "ros", "temporal", "vault", "ray", "pulsar", "canva",
     # 두 글자라 뜻이 갈린다 — 위 Photoshop 주석 참조
     "ps",
+    #  "UI" 를 뺀다. 이력서 테스트에서 QA 엔지니어의 "UI 자동화 테스트"가
+    #  UX/UI 역량으로 잡혔다. 코퍼스에서 재 봤더니 'UI' 만 잡히고 UX 계열이 없는
+    #  공고 41건이 **전부 개발 문맥**이었다 — UI components · UI library ·
+    #  Server-Driven UI framework · UI tests · UI-Frameworks. 디자인 역량이 아니다.
+    #  UX 는 155건으로 뜻이 갈리지 않아 그대로 둔다.
+    #  ⚠️ MERGE 에서만 빼면 안 된다. 코퍼스에 119건 있어 별도 스킬로 남는다.
+    "ui",
     # 회사명 — 그 회사를 쓰는 것이 역량은 아니다
     "doordash", "coca-cola", "nvidia", "shopify", "stripe", "salesforce", "hubspot",
+    #  아래 셋은 이력서 테스트에서 임베디드 우대 목록을 보다 찾았다. 원문을 직접 확인했다.
+    #    AMD    "backed by AMD, Atreides, Benchmark Capital…"  → 투자사 목록
+    #    Lenovo "brands - including Walmart, Uber, Shopify, Lenovo…" → 고객사 목록
+    #           "Freie Wahl zwischen MacBook und Lenovo"             → 복지 문구
+    #    Lucid  7건 전부 Lucid Motors(고객사)·Lucid Vision(카메라 제조사). 작도 도구가 아니다.
+    #  ⚠️ Arm 은 남긴다 — "Arm SoC with real-time processing" 로 진짜 기술이다.
+    #  ⚠️ 이 방식으로 자동 판별을 시도했더니 Keras·XGBoost·Asana 처럼 진짜 도구가
+    #     "such as …" 목록에 나온다는 이유로 같이 잡혔다. 눈으로 확인한 것만 넣는다.
+    "amd", "lenovo", "lucid",
     # 기관·법령 — 공공기관 공고 상용구
     "개인정보 보호법", "근로기준법", "사전검증", "적용 운영", "체계 구축",
     "위탁사업 운영", "사업운영", "기획운영", "원인 분석", "기술 분석",
@@ -39,9 +55,11 @@ MERGE = {
     # 같은 것의 표기 차이
     "LLM": ["LLMs", "GenAI"],
     "REST API": ["RESTful", "RESTful API"],
+    #  같은 도구가 두 스킬로 갈려 있었다 — 이력서 테스트에서 잡혔다.
+    "GA4": ["Google Analytics"],
     "Spring": ["Spring Framework"],
     "HTML": ["HTML5"],
-    "UX/UI": ["UX", "UI"],
+    "UX/UI": ["UX"],
     # ⚠️ ALIAS 에만 적으면 안 된다. 코퍼스에 그 표기가 실제로 있으면 **별도 스킬로 남아**
     #    같은 기술이 둘로 갈린다. 실제로 Airflow/Apache Airflow, Photoshop/Adobe Photoshop,
     #    Vue/Vue.js, MSA/마이크로서비스 아키텍처 가 각각 두 스킬로 세어지고 있었다.
@@ -115,6 +133,16 @@ ALIAS = {
     "Node.js": ["NodeJS", "Node"],
     "Kubernetes": ["쿠버네티스", "k8s", "K8S"],
     "Docker": ["도커"],
+    #  마케팅 어휘. 이력서 테스트에서 퍼포먼스 마케터 이력서의 역량을 2개밖에
+    #  못 잡아 직군을 '개발'로 읽었다. 실제 공고는 GA4·메타/구글 광고·ROAS 를 요구한다.
+    #
+    #  ⚠️ 맨 "GA" 는 넣지 않는다. 코퍼스에서 재 봤더니 5건 중 4건이 거짓이었다 —
+    #     "GA drawings"(General Arrangement) · "GA release"(General Availability).
+    #     한국어 이력서의 "GA" 를 놓치는 것은 알고 두는 빚이다.
+    "GA4": ["구글 애널리틱스", "구글애널리틱스", "Google Analytics 4"],
+    "Google Ads": ["구글 광고", "구글 애즈", "Google AdWords", "애드워즈", "구글애즈"],
+    #  ⚠️ CPA 는 우리 사전에서 공인회계사 자격증이다. 광고 지표로 쓰면 안 된다.
+    "성과 분석": ["ROAS", "CTR", "CVR", "광고 성과", "매체 성과", "전환 성과"],
     "AWS": ["아마존 웹서비스", "Amazon Web Services"],
     "Azure": ["애저", "Microsoft Azure"],
     "SQL": ["에스큐엘", "쿼리", "관계형 데이터베이스", "RDB"],
@@ -144,7 +172,8 @@ ALIAS = {
     "Tableau": ["태블로"],
     "PyTorch": ["파이토치"],
     "TensorFlow": ["텐서플로우", "텐서플로"],
-    "UX/UI": ["UI/UX", "유엑스", "사용자 경험", "사용자 인터페이스"],
+    "UX/UI": ["UI/UX", "유엑스", "사용자 경험", "사용자 인터페이스",
+              "UI 디자인", "UI/UX 디자인", "UX 디자인"],
     "LLM": ["대규모 언어모델", "거대언어모델"],
     "REST API": ["레스트 API", "RESTful 아키텍처"],
     "MSA": ["마이크로서비스", "마이크로서비스 아키텍처"],

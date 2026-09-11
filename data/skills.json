@@ -200,12 +200,14 @@
   "name": "UX/UI",
   "type": "domain",
   "aliases": [
-   "UI",
    "UX",
    "UI/UX",
    "유엑스",
    "사용자 경험",
-   "사용자 인터페이스"
+   "사용자 인터페이스",
+   "UI 디자인",
+   "UI/UX 디자인",
+   "UX 디자인"
   ],
   "learnDifficulty": 0.31,
   "firstStep": "최근 쓰면서 헤맸던 앱 화면 하나를 골라 무엇이 왜 막혔는지 세 줄로 적어 보세요.",
@@ -2348,7 +2350,13 @@
   "id": "google_ads",
   "name": "Google Ads",
   "type": "tool",
-  "aliases": [],
+  "aliases": [
+   "구글 광고",
+   "구글 애즈",
+   "Google AdWords",
+   "애드워즈",
+   "구글애즈"
+  ],
   "learnDifficulty": 0.51,
   "firstStep": "Google Ads 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
   "sourceType": "tool",
@@ -2728,19 +2736,6 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "google_analytics",
-  "name": "Google Analytics",
-  "type": "tool",
-  "aliases": [],
-  "learnDifficulty": 0.44,
-  "firstStep": "Google Analytics 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
   "id": "google_sheets",
   "name": "Google Sheets",
   "type": "tool",
@@ -2757,7 +2752,12 @@
   "id": "ga4",
   "name": "GA4",
   "type": "domain",
-  "aliases": [],
+  "aliases": [
+   "Google Analytics",
+   "구글 애널리틱스",
+   "구글애널리틱스",
+   "Google Analytics 4"
+  ],
   "learnDifficulty": 0.39,
   "firstStep": "GA4 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
   "sourceType": "domain",
@@ -2927,19 +2927,6 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "lucid",
-  "name": "Lucid",
-  "type": "tool",
-  "aliases": [],
-  "learnDifficulty": 0.44,
-  "firstStep": "Lucid 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
   "id": "webpack",
   "name": "webpack",
   "type": "tool",
@@ -3012,7 +2999,14 @@
   "id": "analysis_2",
   "name": "성과 분석",
   "type": "hard",
-  "aliases": [],
+  "aliases": [
+   "ROAS",
+   "CTR",
+   "CVR",
+   "광고 성과",
+   "매체 성과",
+   "전환 성과"
+  ],
   "learnDifficulty": 0.58,
   "firstStep": "성과 분석 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
   "sourceType": "skill_ko",
@@ -3608,19 +3602,6 @@
   "difficultySource": "estimate:type+scarcity"
  },
  {
-  "id": "amd",
-  "name": "AMD",
-  "type": "tool",
-  "aliases": [],
-  "learnDifficulty": 0.38,
-  "firstStep": "AMD 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
   "id": "tga",
   "name": "TGA",
   "type": "tool",
@@ -3783,19 +3764,6 @@
   "aliases": [],
   "learnDifficulty": 0.39,
   "firstStep": "NASA 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
-  "sourceType": "tool",
-  "isCertification": false,
-  "onMap": true,
-  "firstStepSource": "template",
-  "difficultySource": "estimate:type+scarcity"
- },
- {
-  "id": "lenovo",
-  "name": "Lenovo",
-  "type": "tool",
-  "aliases": [],
-  "learnDifficulty": 0.39,
-  "firstStep": "Lenovo 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,

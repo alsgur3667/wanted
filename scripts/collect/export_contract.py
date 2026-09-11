@@ -61,7 +61,7 @@ ROLE_ID = {
     "프로덕트 매니저": ("product_manager", ["product manager", "product owner", "서비스 기획", "PM"]),
     "프로젝트·프로그램 매니저": ("program_manager", ["project manager", "program manager", "PMO"]),
     "사업·전략 기획": ("biz_strategy", ["strategy", "business development", "사업 기획", "전략 기획"]),
-    "마케팅·그로스": ("growth_marketing", ["growth", "marketing", "마케팅", "그로스"]),
+    "마케팅·그로스": ("growth_marketing", ["growth", "marketing", "마케팅", "그로스", "마케터", "퍼포먼스 마케터", "콘텐츠 마케터"]),
     "데이터·비즈니스 기획": ("biz_analyst", ["business analyst", "비즈니스 분석", "경영기획"]),
 }
 

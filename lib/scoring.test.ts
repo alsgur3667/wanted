@@ -28,7 +28,12 @@ describe('iOS 경력자 회귀', () => {
     expect(result.currentPosition.careerMonths).toBe(108);
     expect(result.routes[0].destination).toBe('모바일 개발자');
     expect(mobile?.fitScore).toBeGreaterThanOrEqual(70);
-    expect(mobile?.reason).toContain('가중 65%');
+    //  ⚠️ 예전에는 '가중 65%' 를 그대로 박아 뒀는데, 그 숫자는 이 테스트가 지키려는
+    //     것(표본 보정이 적합도를 깎지 않는다)과 상관이 없다. 요구 목록이 바뀌면
+    //     같이 바뀌는 값이라, 어휘를 고칠 때마다 이 테스트가 엉뚱하게 깨진다.
+    //     실제로 'UI' 별칭을 빼자 모바일 개발자 필수에서 UX/UI 가 우대로 밀려 100% 가 됐다.
+    //     지켜야 할 것은 '가중치로 설명한다'는 사실이지 특정 백분율이 아니다.
+    expect(mobile?.reason).toMatch(/가중 \d+%/);
     expect(mobile?.reason).toContain('현재 직무 표기와 일치');
   });
 });

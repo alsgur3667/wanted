@@ -435,6 +435,44 @@ export function resolveJobTitle(title?: string | null): string | undefined {
  *
  *  실측 (설문 3,391명) — 1위 31.1% → 32.3% · 3위 안 55.1% → 55.8%
  */
+//  택일 묶음 대체 인정의 문턱.
+//
+//  묶음만 보고 대체를 인정하면 **그 직무가 거의 요구하지 않는 것으로 핵심 요구를 채운다.**
+//  실측 — Java·Spring 백엔드 5년차에게 데이터 사이언티스트가 45점으로 2위였다.
+//  서버 언어 묶음(Java·Python·C#…) 때문에 Java 보유자가 DS 의 Python(무게 0.81)을
+//  대체 인정으로 채운 것이다. 그런데 DS 에서 Java 의 무게는 0.19 다.
+//  DS 의 Python 은 언어가 아니라 pandas·sklearn 생태계이고, Java 로 바꿔 낄 수 없다.
+//
+//  그래서 **그 직무 안에서의 요구 무게**로 건다 — 내가 가진 동료가 빠진 것의
+//  절반만큼은 요구되어야 대체로 본다. 이러면
+//    · 모바일 개발자의 iOS(0.56) ↔ Android(0.50) 는 그대로 대체된다
+//    · 백엔드의 Java ↔ Python 도 그대로다
+//    · DS 의 Python(0.81) 을 Java(0.19) 로 채우는 것은 막힌다
+//  실측 — 설문 3,420건. 채점기(eval_routes.py)에 같은 계산을 넣고 쓸었다.
+//    0   (묶음만 봄 · 예전)  1위 32.0%  3위 안 56.9%
+//    0.3                   1위 32.3%  3위 안 57.2%
+//    0.5                   1위 32.4%  3위 안 57.5%   ← 채택
+//    0.7                   1위 31.9%  3위 안 57.3%
+//  ⚠️ 채점기에도 같은 값이 있다. 한쪽만 고치면 채점이 어긋난다.
+const SUB_MIN_RATIO = 0.5;
+
+/** 빠진 요구를 같은 묶음의 보유 역량으로 채운 것으로 볼 수 있나 */
+export function substitutable(jobId: string, missing: string, have: Set<string>): boolean {
+  const g = GROUP_OF.get(missing);
+  if (!g) return false;
+  //  ⚠️ 그 묶음의 무언가를 **실제로 갖고 있어야** 한다. 이 줄이 없으면
+  //     아무것도 안 가진 사람도 무게 0 끼리 비교돼 통과한다(문턱 0 에서 1위 32%→25%).
+  let held = false;
+  let best = 0;
+  for (const h of have) {
+    if (GROUP_OF.get(h) !== g) continue;
+    held = true;
+    best = Math.max(best, demandOf(jobId, h));
+  }
+  if (!held) return false;
+  return best >= SUB_MIN_RATIO * demandOf(jobId, missing);
+}
+
 export function coverage(jobId: string, required: string[], have: Set<string>): number {
   if (!required.length) return 0;
   const okGroups = new Set<string>();
@@ -462,27 +500,29 @@ export function coverage(jobId: string, required: string[], have: Set<string>): 
   if (!total) return 0;
   let got = 0;
   for (const s of slots) {
-    const ok = s.members.some((id) => have.has(id)
-      || (GROUP_OF.has(id) && okGroups.has(GROUP_OF.get(id)!)));
+    const ok = s.members.some((id) => have.has(id) || substitutable(jobId, id, have));
     if (ok) got += s.w;
   }
   return got / total;
 }
 
-export function satisfied(required: string[], have: Set<string>) {
-  const okGroups = new Set<string>();
-  for (const id of have) {
-    const g = GROUP_OF.get(id);
-    if (g) okGroups.add(g);
-  }
+export function satisfied(required: string[], have: Set<string>, jobId?: string) {
   const hit: string[] = [];       // 실제로 가진 것 (화면에 보여줄 것)
   const covered: string[] = [];   // 채워진 것으로 치는 요구 (점수 분자)
   for (const id of required) {
     if (have.has(id)) { hit.push(id); covered.push(id); continue; }
-    const g = GROUP_OF.get(id);
-    if (g && okGroups.has(g)) covered.push(id);   // 대체재를 갖고 있다
+    //  jobId 가 없으면 예전처럼 묶음만 본다 — 직무를 모르면 무게를 볼 수 없다.
+    if (jobId ? substitutable(jobId, id, have) : sameGroupHeld(id, have)) covered.push(id);
   }
   return { hit, covered };
+}
+
+/** 같은 묶음의 무엇이든 갖고 있나 (직무를 모를 때 쓰는 옛 규칙) */
+function sameGroupHeld(missing: string, have: Set<string>): boolean {
+  const g = GROUP_OF.get(missing);
+  if (!g) return false;
+  for (const h of have) if (GROUP_OF.get(h) === g) return true;
+  return false;
 }
 
 /** 이 직무가 그 스킬의 수요에서 차지하는 몫. iOS·Swift 처럼 한 직무에 몰린 스킬은 1에 가깝다. */
