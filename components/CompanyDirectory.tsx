@@ -11,76 +11,15 @@ import {
   WORK_MODE_LABEL,
 } from '@/lib/company-index';
 
-// 색은 ink → body → mute → faint 네 단계만 쓴다. 투명도로 위계를 만들지 않는다.
-// 청록(--link)은 포커스 한 곳에만 — 지금 입력 중인 칸이 어디인지 말하는 용도다.
-
 export default function CompanyDirectory() {
-  const [query, setQuery] = useState('');
-  const companies = useMemo(() => searchCompanies(query), [query]);
-
-  return (
-    <>
-      <div className="mt-8">
-        <label htmlFor="company-search" className="text-[11px] font-medium uppercase tracking-wider text-faint">
-          회사·산업·태그 검색
-        </label>
-        <input
-          id="company-search"
-          value={query}
-          onChange={(event) => setQuery(event.target.value)}
-          placeholder="예: 핀테크, 데이터, SaaS"
-          className="mt-2 w-full rounded-md border border-hairline bg-elevated px-4 py-3 text-[13px] text-ink outline-none transition-colors placeholder:text-faint focus:border-link"
-        />
-        <p className="mt-2 text-[12px] text-mute">
-          전체 {COMPANIES.length}개 중 {companies.length}개
-        </p>
-      </div>
-
-      <div className="mt-6 grid gap-4 sm:grid-cols-2">
-        {companies.map((company) => {
-          const postings = postingsForCompany(company.id);
-          return (
-            <Link
-              key={company.id}
-              href={`/companies/${company.id}`}
-              className="group rounded-xl border border-hairline bg-elevated p-5 transition-colors hover:border-link/50 hover:bg-link-soft"
-            >
-              <div className="flex items-start gap-3">
-                <CompanyMark company={company} />
-                <div className="min-w-0">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h2 className="text-[15px] font-semibold tracking-[-0.02em] text-ink">{company.name}</h2>
-                    <span className="rounded bg-warning-soft px-1.5 py-0.5 text-[10px] font-medium text-warning">
-                      가상
-                    </span>
-                  </div>
-                  <p className="mt-1 text-[12px] text-mute">
-                    {company.industry} · {company.employeeCountRange}
-                  </p>
-                </div>
-              </div>
-              <p className="mt-4 text-[13px] leading-[1.6] text-body">{company.tagline}</p>
-              <div className="mt-4 flex flex-wrap gap-1.5 text-[11px] text-faint">
-                <span>{STAGE_LABEL[company.stage]}</span>
-                <span>·</span>
-                <span>{company.workModes.map((mode) => WORK_MODE_LABEL[mode]).join(' · ')}</span>
-              </div>
-              <div className="mt-4 flex items-center justify-between border-t border-hairline pt-3 text-[12px]">
-                <span className="text-mute">채용 중 {postings.length}개</span>
-                <span className="font-medium text-ink transition-transform group-hover:translate-x-0.5">
-                  회사 보기 →
-                </span>
-              </div>
-            </Link>
-          );
-        })}
-      </div>
-
-      {companies.length === 0 && (
-        <p className="mt-6 rounded-xl border border-hairline p-8 text-center text-[13px] text-mute">
-          검색 결과가 없습니다.
-        </p>
-      )}
-    </>
-  );
+ const [query,setQuery]=useState('');
+ const [mode,setMode]=useState('all');
+ const companies=useMemo(()=>searchCompanies(query).filter(c=>mode==='all'||c.workModes.some(m=>m===mode)),[query,mode]);
+ function reset(){setQuery('');setMode('all');}
+ return <>
+ <div className="company-search"><label htmlFor="company-search">어떤 팀을 찾고 계신가요?</label><div className="company-search-row"><input id="company-search" type="search" value={query} onChange={e=>setQuery(e.target.value)} placeholder="회사명, 산업 또는 관심 분야 검색"/><select aria-label="근무 방식 필터" value={mode} onChange={e=>setMode(e.target.value)}><option value="all">모든 근무 방식</option>{Object.entries(WORK_MODE_LABEL).map(([v,l])=><option key={v} value={v}>{l}</option>)}</select></div></div>
+ <div className="company-count"><p role="status">전체 {COMPANIES.length}개 중 <strong>{companies.length}개 회사</strong></p>{(query||mode!=='all')&&<button className="company-reset" onClick={reset}>검색 조건 초기화</button>}</div>
+ <div className="company-grid">{companies.map(c=><Link key={c.id} href={'/companies/'+c.id} className="company-card"><div className="company-card-head"><CompanyMark company={c}/><div><h2>{c.name}</h2><p>{c.industry} · {c.employeeCountRange}</p></div></div><p className="company-card-description">{c.tagline}</p><div className="company-tags"><span>{STAGE_LABEL[c.stage]}</span>{c.workModes.map(m=><span key={m}>{WORK_MODE_LABEL[m]}</span>)}</div><div className="company-card-footer"><span>채용 중 {postingsForCompany(c.id).length}개</span><span>팀 알아보기 →</span></div></Link>)}</div>
+ {!companies.length&&<div className="company-empty"><p>조건에 맞는 회사가 없습니다.</p><p className="mt-2 text-xs">검색어를 줄이거나 근무 방식 조건을 바꿔보세요.</p><button className="company-reset mt-3" onClick={reset}>전체 회사 보기</button></div>}
+ </>;
 }
