@@ -8,11 +8,11 @@
    "파이썬"
   ],
   "learnDifficulty": 0.59,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Python 로 다시 써 보세요.",
+  "firstStep": "지금 엑셀이나 손으로 하는 집계 하나를 pandas 로 옮겨 같은 숫자가 나오는지 맞춰 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -24,11 +24,11 @@
    "Amazon Web Services"
   ],
   "learnDifficulty": 0.55,
-  "firstStep": "AWS 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "가진 서비스 하나를 EC2 나 S3 에 직접 올려 보고 월 비용이 얼마인지 계산해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -46,11 +46,11 @@
    "RDB"
   ],
   "learnDifficulty": 0.57,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 SQL 로 다시 써 보세요.",
+  "firstStep": "주간 리포트에 쓰는 숫자 하나를 직접 쿼리로 뽑아 기존 값과 대조해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -63,11 +63,11 @@
    "k8s"
   ],
   "learnDifficulty": 0.55,
-  "firstStep": "Kubernetes 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "컨테이너 하나를 로컬 k8s(kind·minikube)에 올리고, 파드를 일부러 죽여 어떻게 살아나는지 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -79,11 +79,11 @@
    "자바"
   ],
   "learnDifficulty": 0.54,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Java 로 다시 써 보세요.",
+  "firstStep": "다른 언어로 짠 작은 프로그램 하나를 Java 로 다시 쓰고 실행 시간을 비교해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -95,11 +95,11 @@
    "Microsoft Azure"
   ],
   "learnDifficulty": 0.47,
-  "firstStep": "Azure 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "가진 앱 하나를 App Service 에 올리고 실패 로그를 포털에서 직접 읽어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -111,11 +111,11 @@
    "도커"
   ],
   "learnDifficulty": 0.53,
-  "firstStep": "Docker 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "만든 것을 Dockerfile 로 감싸 다른 컴퓨터에서 그대로 뜨는지 확인해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -129,11 +129,11 @@
    "ReactJS"
   ],
   "learnDifficulty": 0.5,
-  "firstStep": "React 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "지금 화면에서 반복되는 UI 하나를 컴포넌트로 떼어내 props 로 바꿔 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -146,11 +146,11 @@
    "TS"
   ],
   "learnDifficulty": 0.58,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 TypeScript 로 다시 써 보세요.",
+  "firstStep": "기존 JS 파일 하나를 타입부터 붙여 옮기고, any 를 몇 개까지 지울 수 있는지 세 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -173,11 +173,11 @@
    "AI coding assistant"
   ],
   "learnDifficulty": 0.46,
-  "firstStep": "AI 코딩 도구 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "지금 맡은 작업 하나를 AI 에게 시켜 보고, 직접 고쳐야 했던 부분을 목록으로 남겨 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -188,11 +188,11 @@
    "terraform"
   ],
   "learnDifficulty": 0.65,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Terraform 로 다시 써 보세요.",
+  "firstStep": "손으로 만든 클라우드 자원 하나를 코드로 옮기고 apply 와 destroy 를 왕복해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -208,11 +208,11 @@
    "사용자 인터페이스"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "UX/UI 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+  "firstStep": "최근 쓰면서 헤맸던 앱 화면 하나를 골라 무엇이 왜 막혔는지 세 줄로 적어 보세요.",
   "sourceType": "domain",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -224,11 +224,11 @@
    "리눅스"
   ],
   "learnDifficulty": 0.43,
-  "firstStep": "Linux 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "매번 반복하는 작업 하나를 셸에서 파이프로 이어 한 줄로 끝내 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -242,11 +242,11 @@
    "거대언어모델"
   ],
   "learnDifficulty": 0.7,
-  "firstStep": "LLM 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "firstStep": "반복해 쓰는 문서 한 종류를 프롬프트로 만들고, 빗나간 답 3개를 모아 프롬프트를 고쳐 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -258,11 +258,11 @@
    "스프링"
   ],
   "learnDifficulty": 0.42,
-  "firstStep": "Spring 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "엔드포인트 하나짜리 REST API 를 만들어 Postman 으로 직접 호출해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -274,11 +274,11 @@
    "깃허브"
   ],
   "learnDifficulty": 0.41,
-  "firstStep": "GitHub 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "남의 저장소에 이슈를 하나 열고 작은 PR 을 보내 리뷰를 받아 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -290,11 +290,11 @@
    "깃"
   ],
   "learnDifficulty": 0.46,
-  "firstStep": "Git 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "일부러 충돌을 내고 rebase 로 풀어 보세요. 로그가 어떻게 남는지가 핵심입니다.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -307,11 +307,11 @@
    "자바스크립트"
   ],
   "learnDifficulty": 0.5,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 JavaScript 로 다시 써 보세요.",
+  "firstStep": "지금 보고 있는 웹페이지의 동작 하나를 콘솔에서 직접 바꿔 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -320,11 +320,11 @@
   "type": "domain",
   "aliases": [],
   "learnDifficulty": 0.42,
-  "firstStep": "BI 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+  "firstStep": "팀이 매주 손으로 만드는 표 하나를 대시보드로 옮겨 자동으로 갱신되게 해 보세요.",
   "sourceType": "domain",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -335,11 +335,11 @@
    "피그마"
   ],
   "learnDifficulty": 0.32,
-  "firstStep": "Figma 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "최근 본 앱 화면 하나를 컴포넌트와 오토레이아웃만 써서 다시 그려 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -350,11 +350,11 @@
    "android"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "Android 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "화면 하나짜리 앱을 만들어 실제 안드로이드 기기에 설치해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -363,11 +363,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.52,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 C++ 로 다시 써 보세요.",
+  "firstStep": "작은 프로그램 하나를 짜고, 메모리 해제를 빠뜨렸을 때 무슨 일이 나는지 확인해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -378,11 +378,11 @@
    "IOS"
   ],
   "learnDifficulty": 0.33,
-  "firstStep": "iOS 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "화면 하나짜리 앱을 만들어 실제 아이폰에 올려 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -394,11 +394,11 @@
    "지라"
   ],
   "learnDifficulty": 0.38,
-  "firstStep": "Jira 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "팀이 실제로 쓰는 흐름을 워크플로로 만들고 이슈 하나를 끝까지 흘려 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -409,11 +409,11 @@
    "고객관계관리"
   ],
   "learnDifficulty": 0.43,
-  "firstStep": "CRM 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+  "firstStep": "지금 고객 정보를 어디에 어떻게 쌓고 있는지 표로 그려 빠진 칸을 찾아 보세요.",
   "sourceType": "domain",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -426,11 +426,11 @@
    "에어플로우"
   ],
   "learnDifficulty": 0.56,
-  "firstStep": "Airflow 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "손으로 돌리는 배치 하나를 DAG 로 옮기고, 실패했을 때 재시도되는지 확인해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -439,11 +439,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.49,
-  "firstStep": "Snowflake 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "CSV 한 개를 올려 쿼리해 보고, 웨어하우스 크기를 바꿔 비용이 어떻게 변하는지 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -469,11 +469,11 @@
    "코틀린"
   ],
   "learnDifficulty": 0.63,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Kotlin 로 다시 써 보세요.",
+  "firstStep": "Java 로 된 클래스 하나를 Kotlin 으로 옮기고 줄 수가 얼마나 줄었는지 세 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -485,11 +485,11 @@
    "태블로"
   ],
   "learnDifficulty": 0.56,
-  "firstStep": "Tableau 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "손에 있는 CSV 한 개를 올려 필터가 걸리는 대시보드 한 장을 만들어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -502,11 +502,11 @@
    "Node"
   ],
   "learnDifficulty": 0.54,
-  "firstStep": "Node.js 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "정적 파일만 돌려주는 작은 서버를 띄우고 요청 로그를 찍어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -515,11 +515,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.52,
-  "firstStep": "Grafana 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "서비스 지표 하나를 대시보드로 올리고 임계값 알림을 걸어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -530,11 +530,11 @@
    "IOT"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "IoT 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+  "firstStep": "집에 있는 기기 하나의 통신 방식을 찾아보고 데이터가 어디로 가는지 그려 보세요.",
   "sourceType": "domain",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -543,11 +543,11 @@
   "type": "hard",
   "aliases": [],
   "learnDifficulty": 0.65,
-  "firstStep": "NoSQL 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "firstStep": "관계형으로 짠 표 하나를 문서 구조로 다시 설계하고 무엇이 쉬워지는지 적어 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -558,11 +558,11 @@
    "레디스"
   ],
   "learnDifficulty": 0.58,
-  "firstStep": "Redis 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "자주 조회하는 값 하나를 캐시에 넣고 응답 시간이 얼마나 줄었는지 재 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -571,11 +571,11 @@
   "type": "hard",
   "aliases": [],
   "learnDifficulty": 0.49,
-  "firstStep": "MLOps 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "firstStep": "만든 모델 하나를 API 로 띄우고, 입력 분포가 바뀌면 무엇이 깨지는지 적어 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -584,11 +584,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.5,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 C# 로 다시 써 보세요.",
+  "firstStep": "콘솔 프로그램 하나를 만들어 .NET 으로 빌드하고 실행해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -615,11 +615,11 @@
    "앵귤러"
   ],
   "learnDifficulty": 0.3,
-  "firstStep": "Angular 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "컴포넌트 하나와 서비스 하나를 만들어 의존성 주입으로 연결해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -648,11 +648,11 @@
    "포토샵"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "Photoshop 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "사진 한 장을 보정과 누끼까지 끝내 실제로 쓸 수 있는 소재로 만들어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -734,11 +734,11 @@
    "Gitlab"
   ],
   "learnDifficulty": 0.34,
-  "firstStep": "GitLab 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "저장소 하나에 CI 파이프라인을 붙여 push 할 때마다 테스트가 돌게 해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -792,11 +792,11 @@
    "전사적자원관리"
   ],
   "learnDifficulty": 0.43,
-  "firstStep": "ERP 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
+  "firstStep": "회사의 구매나 재고 흐름 하나를 따라가 시스템에 안 들어가는 단계를 찾아 보세요.",
   "sourceType": "domain",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -838,11 +838,11 @@
    "VueJS"
   ],
   "learnDifficulty": 0.63,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Vue 로 다시 써 보세요.",
+  "firstStep": "지금 화면에서 반복되는 UI 하나를 컴포넌트로 떼어내 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -879,11 +879,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.6,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Ruby 로 다시 써 보세요.",
+  "firstStep": "작은 스크립트 하나를 Ruby 로 써 보고 gem 하나를 직접 설치해 써 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -912,11 +912,11 @@
    "AI(일러스트)"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "Illustrator 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "좋아하는 로고 하나를 펜 툴로 따라 그려 벡터로 만들어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -927,11 +927,11 @@
    "bash"
   ],
   "learnDifficulty": 0.6,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Bash 로 다시 써 보세요.",
+  "firstStep": "매번 손으로 치는 명령 묶음 하나를 스크립트로 만들어 이름을 붙여 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -981,11 +981,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.35,
-  "firstStep": "Jenkins 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "빌드 한 개를 잡으로 만들어 커밋할 때마다 자동으로 돌게 해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1011,11 +1011,11 @@
    "data analysis"
   ],
   "learnDifficulty": 0.62,
-  "firstStep": "데이터 분석 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
+  "firstStep": "손에 있는 데이터 하나로 무엇이 왜 변했는지 한 장짜리 보고서를 써 보세요.",
   "sourceType": "skill_ko",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1024,11 +1024,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.58,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 CSS 로 다시 써 보세요.",
+  "firstStep": "지금 화면 하나를 Flexbox 와 Grid 만으로 다시 배치해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1037,11 +1037,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.54,
-  "firstStep": "Looker 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "자주 보는 지표 하나를 LookML 로 정의해 팀이 같은 정의를 쓰게 해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1080,11 +1080,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.67,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 GraphQL 로 다시 써 보세요.",
+  "firstStep": "지금 쓰는 REST 엔드포인트 하나를 스키마로 다시 정의해 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1098,11 +1098,11 @@
    "RESTful 아키텍처"
   ],
   "learnDifficulty": 0.52,
-  "firstStep": "REST API 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "firstStep": "쓰고 있는 API 하나의 요청과 응답을 직접 그려 보고 잘못된 상태 코드를 찾아 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1124,11 +1124,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.41,
-  "firstStep": "Playwright 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "지금 손으로 확인하는 화면 점검 하나를 테스트 코드로 옮겨 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1193,11 +1193,11 @@
    "데이터 파이프라인"
   ],
   "learnDifficulty": 0.66,
-  "firstStep": "ETL 을(를) 적용하기 전과 후의 구조를 그림 한 장으로 비교해 보세요.",
+  "firstStep": "손으로 옮기는 데이터 하나를 추출·변환·적재 세 단계로 나눠 스크립트로 만들어 보세요.",
   "sourceType": "concept",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1261,11 +1261,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.5,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Scala 로 다시 써 보세요.",
+  "firstStep": "작은 데이터 처리 하나를 Scala 로 써 보고 컴파일 오류가 무엇을 막아 줬는지 적어 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1274,11 +1274,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.48,
-  "firstStep": "DynamoDB 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "테이블 하나를 만들고, 파티션 키를 잘못 잡았을 때 어떤 조회가 막히는지 확인해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1302,11 +1302,11 @@
    "HTML5"
   ],
   "learnDifficulty": 0.61,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 HTML 로 다시 써 보세요.",
+  "firstStep": "아무 페이지나 하나 골라 시맨틱 태그만으로 구조를 다시 짜 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1459,11 +1459,11 @@
    "스위프트"
   ],
   "learnDifficulty": 0.54,
-  "firstStep": "지금 다른 언어로 만든 작은 스크립트 하나를 Swift 로 다시 써 보세요.",
+  "firstStep": "화면 하나짜리 앱을 SwiftUI 로 만들어 시뮬레이터에서 돌려 보세요.",
   "sourceType": "language",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1524,11 +1524,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.42,
-  "firstStep": "React Native 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "화면 하나짜리 앱을 만들어 iOS 와 Android 양쪽에서 동시에 띄워 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1707,11 +1707,11 @@
    "Junit"
   ],
   "learnDifficulty": 0.31,
-  "firstStep": "JUnit 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "지금 있는 함수 하나에 테스트를 붙이고 일부러 깨뜨려 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -1867,11 +1867,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.45,
-  "firstStep": "Selenium 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "매번 손으로 하는 로그인 확인 하나를 자동 테스트로 만들어 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {
@@ -2080,11 +2080,11 @@
   "type": "tool",
   "aliases": [],
   "learnDifficulty": 0.6,
-  "firstStep": "Hive 로 지금 손으로 하는 작업 하나를 자동화해 보세요.",
+  "firstStep": "큰 로그 파일 하나를 테이블로 올리고 파티션을 나눠 조회 시간을 비교해 보세요.",
   "sourceType": "tool",
   "isCertification": false,
   "onMap": true,
-  "firstStepSource": "template",
+  "firstStepSource": "manual",
   "difficultySource": "estimate:type+scarcity"
  },
  {

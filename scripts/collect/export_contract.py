@@ -36,7 +36,10 @@ ROLE_ID = {
     "백엔드 개발자": ("be_dev", ["backend", "back-end", "서버 개발", "백엔드"]),
     "프론트엔드 개발자": ("fe_dev", ["frontend", "front-end", "프론트엔드", "웹 퍼블리셔"]),
     "풀스택 개발자": ("fullstack_dev", ["full stack", "fullstack", "풀스택"]),
-    "모바일 개발자": ("mobile_dev", ["android", "iOS developer", "mobile engineer", "안드로이드"]),
+    #  ⚠️ "iOS 개발자" 는 예전에 생성물(data/jobs.json)에 손으로 박혀 있었다.
+    #     다시 돌리면 지워져 resolveJobTitle 이 그 이름을 못 알아본다. 별칭은 여기에 적는다.
+    "모바일 개발자": ("mobile_dev", ["android", "iOS developer", "iOS 개발자",
+                                 "mobile engineer", "안드로이드"]),
     "데이터 엔지니어": ("data_eng", ["data engineer", "데이터 엔지니어", "data platform engineer"]),
     "데이터 사이언티스트": ("data_scientist", ["data scientist", "ML engineer", "AI engineer", "머신러닝"]),
     "데이터 분석가": ("data_analyst", ["data analyst", "데이터 분석", "analytics engineer", "BI analyst"]),
@@ -80,7 +83,12 @@ BASE_DIFFICULTY = {
 }
 
 # firstStep 템플릿. 계약이 "추상어 금지, 오늘 당장 할 수 있는 행동"을 요구한다.
-# 템플릿은 그 수준에 못 미치므로 firstStepSource 로 표시해 두고 나중에 LLM 으로 다시 쓴다.
+# 템플릿은 그 수준에 못 미치므로 firstStepSource 로 표시해 둔다.
+#
+# ⚠️ 템플릿은 type 하나당 문장 하나다. 그래서 "tool" 템플릿 한 줄이 193개 역량에
+#    똑같이 붙었다 — Figma·Photoshop·Git·React·iOS 가 전부 "…로 지금 손으로 하는
+#    작업 하나를 자동화해 보세요." 가 됐다. 화면에 그대로 나와서 바로 들킨다.
+#    그래서 화면에 뜨는 것부터 data/first-steps.json 에 손으로 적어 덮어쓴다.
 FIRST_STEP = {
     "certification": "{n} 최근 기출 한 회차를 시간 재고 풀어 보세요. 몇 점이 나오는지가 출발점입니다.",
     "language": "지금 다른 언어로 만든 작은 스크립트 하나를 {n} 로 다시 써 보세요.",
@@ -90,6 +98,10 @@ FIRST_STEP = {
     "domain": "{n} 관점에서 지금 서비스의 문제 하나를 찾아 한 문단으로 써 보세요.",
     "skill_ko": "{n} 을(를) 실제로 해 본 결과물 하나를 만들어 남겨 보세요.",
 }
+
+#  사람이 손으로 쓴 첫 단계. 템플릿을 덮어쓴다. 키는 역량 이름이다.
+_hs = REPO / "data" / "first-steps.json"
+HAND_STEPS = json.loads(_hs.read_text(encoding="utf-8"))["steps"] if _hs.exists() else {}
 
 # 한국어 스킬 id 를 만들 때 쓰는 형태소 대응.
 KO_ROMAN = {
@@ -233,6 +245,10 @@ def run():
             "firstStepSource": "template",
             "difficultySource": "estimate:type+scarcity",
         }
+        #  사람이 쓴 문장이 있으면 그것이 이긴다.
+        if s["name"] in HAND_STEPS:
+            rec["firstStep"] = HAND_STEPS[s["name"]]
+            rec["firstStepSource"] = "manual"
         skills.append(rec)
 
     # ── jobs.json · job-skills.json ──────────────────────────────────
@@ -737,14 +753,20 @@ def run():
         lines = "\n".join(f"    '{a}' 는 [{n}] 의 별칭인데 그 자체로도 스킬이다" for n, a in clash)
         raise SystemExit("같은 기술이 두 스킬로 갈렸다 — synonyms.MERGE 에 넣어 흡수하라:\n" + lines)
 
-    (OUT / "skills.json").write_text(json.dumps(skills, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "jobs.json").write_text(json.dumps(jobs, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "job-skills.json").write_text(json.dumps(matrix, ensure_ascii=False, indent=1), encoding="utf-8")
-    (OUT / "job-adjacency.json").write_text(json.dumps({
+    #  끝에 개행을 붙인다. 없으면 다시 돌릴 때마다 마지막 줄이 diff 로 잡혀
+    #  "무엇이 진짜 바뀌었는지"가 파묻힌다.
+    def _dump(name, obj):
+        (OUT / name).write_text(json.dumps(obj, ensure_ascii=False, indent=1) + "\n",
+                                encoding="utf-8")
+
+    _dump("skills.json", skills)
+    _dump("jobs.json", jobs)
+    _dump("job-skills.json", matrix)
+    _dump("job-adjacency.json", {
         "note": "계약에 없는 추가 제안. 역할 간 요구 스킬 겹침. "
                 "crossFamily 가 true 면 직군을 건너뛰는 경로이고 Route.isHiddenRoute 의 근거가 된다.",
         "edges": adjacency,
-    }, ensure_ascii=False, indent=1), encoding="utf-8")
+    })
 
     print(f"\n직무 {len(jobs)}개 · 스킬 {len(skills)}개 · 매핑 {len(matrix)}건 · 인접 {len(adjacency)}건")
     if dropped:
