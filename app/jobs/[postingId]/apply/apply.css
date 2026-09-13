@@ -1,44 +1,44 @@
 .application-page { max-width:1080px; margin:auto; padding:36px 32px 48px; }
-.application-back { display:inline-flex; align-items:center; gap:8px; color:var(--mute); font-size:12px; }
+.application-back { display:inline-flex; align-items:center; gap:8px; color:var(--mute); font-size:14px; }
 .application-header { margin:32px 0 26px; }
-.application-eyebrow { font-size:10px; letter-spacing:.12em; font-weight:600; color:var(--link); }
+.application-eyebrow { font-size:14px; letter-spacing:.12em; font-weight:600; color:var(--link); }
 .application-header h1 { margin-top:12px; font-size:clamp(28px,3vw,38px); line-height:1.35; font-weight:650; letter-spacing:-.04em; word-break:keep-all; }
-.application-header > p:last-child { margin-top:14px; color:var(--mute); font-size:13px; line-height:1.8; }
+.application-header > p:last-child { margin-top:14px; color:var(--mute); font-size:14px; line-height:1.8; }
 .application-posting { display:flex; align-items:center; gap:16px; border:1px solid var(--hairline); border-radius:16px; padding:22px 24px; background:var(--elevated); }
 .application-posting > div { min-width:0; }
-.application-posting p { font-size:12px; color:var(--mute); }
+.application-posting p { font-size:14px; color:var(--mute); }
 .application-posting h2 { font-size:19px; line-height:1.4; font-weight:600; letter-spacing:-.025em; margin:4px 0 6px; word-break:keep-all; }
-.application-posting span { font-size:11px; color:var(--mute); }
+.application-posting span { font-size:14px; color:var(--mute); }
 .application-notice { margin-top:14px; }
 .application-layout { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:36px; align-items:start; margin-top:32px; }
 .application-section { padding:8px 0 28px; }
 .application-section + .application-section { padding-top:28px; border-top:1px solid var(--hairline); }
 .application-section h2,.application-confirm h2 { margin-top:10px; font-size:23px; line-height:1.45; font-weight:650; letter-spacing:-.03em; word-break:keep-all; }
-.application-description { margin-top:10px; font-size:12px; line-height:1.8; color:var(--mute); word-break:keep-all; }
+.application-description { margin-top:10px; font-size:14px; line-height:1.8; color:var(--mute); word-break:keep-all; }
 .application-documents { display:grid; gap:10px; margin-top:20px; }
 .application-documents li { display:flex; align-items:center; gap:14px; padding:16px; border:1px solid var(--hairline); border-radius:12px; background:var(--elevated); }
 .application-documents li > span { display:grid; place-items:center; width:36px; height:36px; border-radius:9px; background:var(--link-soft); color:var(--link); flex-shrink:0; }
-.application-documents li > p { font-size:13px; line-height:1.7; color:var(--body); }
+.application-documents li > p { font-size:14px; line-height:1.7; color:var(--body); }
 .application-process { margin-top:22px; display:grid; gap:0; }
 .application-process li { position:relative; display:flex; gap:16px; align-items:flex-start; padding-bottom:24px; }
 .application-process li:not(:last-child)::before { content:''; position:absolute; width:1px; background:var(--hairline); top:32px; bottom:0; left:16px; }
 .application-process li:last-child { padding-bottom:0; }
-.application-process span { display:grid; place-items:center; width:33px; height:33px; flex-shrink:0; border-radius:50%; background:var(--link-soft); color:var(--link); font-size:11px; font-weight:600; }
-.application-process p { font-size:13px; line-height:1.7; color:var(--body); padding-top:6px; }
+.application-process span { display:grid; place-items:center; width:33px; height:33px; flex-shrink:0; border-radius:50%; background:var(--link-soft); color:var(--link); font-size:14px; font-weight:600; }
+.application-process p { font-size:14px; line-height:1.7; color:var(--body); padding-top:6px; }
 .application-confirm { padding:26px; border:1px solid var(--hairline); border-radius:18px; background:var(--elevated); min-height:480px; }
 .application-confirm.is-complete { border-color:color-mix(in srgb,var(--link) 30%,var(--hairline)); }
 .application-confirm-job { display:grid; gap:6px; padding:16px 0; margin-top:18px; border-block:1px solid var(--hairline); }
-.application-confirm-job span { font-size:11px; color:var(--mute); }
-.application-confirm-job strong { font-size:13px; font-weight:500; line-height:1.6; }
+.application-confirm-job span { font-size:14px; color:var(--mute); }
+.application-confirm-job strong { font-size:14px; font-weight:500; line-height:1.6; }
 .application-demo-notes { display:grid; gap:10px; margin:20px 0; }
-.application-demo-notes li { display:flex; align-items:center; gap:8px; color:var(--body); font-size:11px; }
+.application-demo-notes li { display:flex; align-items:center; gap:8px; color:var(--body); font-size:14px; }
 .application-demo-notes svg { color:var(--link); flex-shrink:0; }
-.application-primary { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:48px; background:var(--link); color:var(--canvas); border-radius:10px; font-size:13px; font-weight:600; cursor:pointer; padding:10px; }
+.application-primary { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:48px; background:var(--link); color:var(--canvas); border-radius:10px; font-size:14px; font-weight:600; cursor:pointer; padding:10px; }
 .application-primary:hover { opacity:.88; }
-.application-small { margin-top:12px; color:var(--mute); font-size:10px; text-align:center; line-height:1.6; }
+.application-small { margin-top:12px; color:var(--mute); font-size:14px; text-align:center; line-height:1.6; }
 .application-complete-icon { display:grid; place-items:center; width:48px; height:48px; margin-top:18px; border-radius:50%; background:var(--link-soft); color:var(--link); }
 .is-complete .application-primary { margin-top:20px; }
-.application-secondary { display:block; text-align:center; margin-top:10px; padding:12px; border:1px solid var(--hairline); border-radius:10px; font-size:12px; color:var(--body); }
-.application-restart { display:flex; align-items:center; justify-content:center; gap:7px; width:100%; margin-top:14px; padding:8px; font-size:11px; color:var(--mute); cursor:pointer; }
+.application-secondary { display:block; text-align:center; margin-top:10px; padding:12px; border:1px solid var(--hairline); border-radius:10px; font-size:14px; color:var(--body); }
+.application-restart { display:flex; align-items:center; justify-content:center; gap:7px; width:100%; margin-top:14px; padding:8px; font-size:14px; color:var(--mute); cursor:pointer; }
 .application-page button:focus-visible,.application-page a:focus-visible { outline:2px solid var(--link); outline-offset:4px; }
 @media(max-width:800px) { .application-page { padding:26px 20px 36px; } .application-header { margin-top:26px; } .application-posting { padding:20px 16px; gap:12px; } .application-posting h2 { font-size:17px; } .application-layout { grid-template-columns:1fr; gap:20px; margin-top:26px; } .application-confirm { padding:24px; min-height:0; } .application-section h2,.application-confirm h2 { font-size:22px; } }

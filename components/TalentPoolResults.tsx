@@ -20,7 +20,7 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const normalized = query.trim().toLocaleLowerCase('ko-KR');
   const matches = allMatches.filter((match) => {
-    const target = [match.candidate.alias, match.candidate.currentJobTitle, ...skillNames(match.candidate.skillIds)]
+    const target = [match.candidate.alias.replace(/^지원자/, '인재'), match.candidate.currentJobTitle, ...skillNames(match.candidate.skillIds)]
       .join(' ').toLocaleLowerCase('ko-KR');
     return match.fitScore >= minimumFit
       && (includeDifferentRole || !match.isDifferentRole)
@@ -29,7 +29,7 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
   const selected = matches.find((match) => match.candidate.id === selectedId) ?? matches[0];
 
   return (
-    <section className="animate-rise mt-8 border-t border-hairline pt-8">
+    <section className="talent-results animate-rise">
       <div className="flex flex-wrap items-end justify-between gap-3">
         <div>
           <p className="inline-flex items-center gap-1.5 text-[11px] font-medium text-link"><Sparkles className="size-3.5" />가상 인재풀 추천</p>
@@ -62,7 +62,7 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
               <div className="flex items-start gap-3">
                 <div className="grid size-10 shrink-0 place-items-center rounded-full bg-hairline-soft text-[12px] font-semibold text-ink">{match.candidate.alias.replace('지원자 ', '')}</div>
                 <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-1.5"><strong className="text-[13px] font-semibold tracking-[-0.01em] text-ink">{match.candidate.alias}</strong>{match.isDifferentRole && <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[10px] font-medium text-warning">직무 전환</span>}</div>
+                  <div className="flex flex-wrap items-center gap-1.5"><strong className="text-[13px] font-semibold tracking-[-0.01em] text-ink">{match.candidate.alias.replace(/^지원자/, '인재')}</strong>{match.isDifferentRole && <span className="rounded-full bg-warning-soft px-2 py-0.5 text-[10px] font-medium text-warning">직무 전환</span>}</div>
                   <p className="mt-1 text-[12px] text-body">{match.candidate.currentJobTitle} · {isNewcomer(match.candidate.careerMonths) ? '신입' : `${Math.floor(match.candidate.careerMonths / 12)}년차`}</p>
                   <div className="mt-2 flex flex-wrap gap-1.5">{skillNames(match.matchedSkillIds).slice(0, 4).map((name) => <span key={name} className="rounded-md border border-link/20 px-2 py-0.5 text-[10px] text-link">{name}</span>)}</div>
                 </div>
@@ -77,7 +77,7 @@ export default function TalentPoolResults({ draft }: { draft: PostingDraft }) {
           <aside ref={detailRef} tabIndex={-1} className="employer-detail employer-detail-anchor animate-rise rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
             <a href="#talent-list" className="employer-back-list">← 추천 인재 목록으로</a><p className="inline-flex items-center gap-1.5 text-[10px] text-faint"><UserRoundSearch className="size-3.5" />추천 인재 상세 · 미지원</p>
             <div className="mt-2 flex items-start justify-between gap-4">
-              <div><h3 className="text-xl font-semibold tracking-[-0.025em] text-ink">{selected.candidate.alias}</h3><p className="mt-1 text-[12px] text-mute">{selected.candidate.currentJobTitle} · {selected.candidate.location}</p></div>
+              <div><h3 className="text-xl font-semibold tracking-[-0.025em] text-ink">{selected.candidate.alias.replace(/^지원자/, '인재')}</h3><p className="mt-1 text-[12px] text-mute">{selected.candidate.currentJobTitle} · {selected.candidate.location}</p></div>
               <div className="text-right"><strong className="text-3xl tabular-nums text-ink">{selected.fitScore}</strong><p className="text-[10px] text-faint">역량 적합도</p></div>
             </div>
             <p className="mt-5 text-[13px] leading-[1.7] text-body">{selected.candidate.summary}</p>

@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { ArrowRight, FilePenLine, Route, ScanText, Compass } from 'lucide-react';
+import { DEMO_RESUMES } from '@/lib/demo-resumes';
 import { SAMPLE_PROFILES } from '@/data/samples';
 import type { AnalysisResult } from '@/types';
 import { INPUT_GUARD } from '@/lib/prompts/extract';
@@ -9,11 +10,7 @@ import RouteSearchLoader from './RouteSearchLoader';
 import PrivacyNotice from './PrivacyNotice';
 import ResumeFileDrop from './ResumeFileDrop';
 
-const DEMO_RESUME_TEXT = `${SAMPLE_PROFILES[0].resumeText}
 
-사용자 인터뷰 결과를 바탕으로 문제를 분류하고, 개선할 기능의 우선순위와 요구사항을 문서로 정리했습니다. 디자이너와 개발자에게 분석 내용을 공유하고 실험 일정과 지표를 함께 조율했습니다.
-
-앞으로는 고객의 문제를 정의하고 제품 개선을 이끄는 일을 하고 싶습니다. 지금까지 쌓은 실험 설계, 데이터 분석, 사용자 인터뷰 경험을 다른 직무에서도 활용할 수 있을지 알고 싶습니다.`;
 
 // 경로 탐색 화면을 이 컴포넌트 안에서 띄운다. 부모가 띄우면 입력 폼이 언마운트되어
 // 실패했을 때 사용자가 써 둔 이력서가 통째로 날아간다.
@@ -24,6 +21,8 @@ export default function ResumeInput({
   onResult: (r: AnalysisResult) => void;
   onSearchingChange?: (searching: boolean) => void;
 }) {
+  const [demoOpen, setDemoOpen] = useState(false);
+  const [inputMode, setInputMode] = useState('text');
   const [text, setText] = useState('');
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const [demoNotice, setDemoNotice] = useState('');
@@ -119,10 +118,10 @@ export default function ResumeInput({
         {/* 파일에서 뽑은 글자는 아래 칸으로 들어간다. 곧장 분석으로 보내지 않는
             이유는 ResumeFileDrop 위에 적어 두었다 — 요약하면, 보내기 전에
             무엇이 보내지는지 사용자가 볼 수 있어야 한다. */}
-        <div className="personal-file-drop">
+        <div className="product-tabs" aria-label="경험 입력 방식"><button type="button" aria-pressed={inputMode === 'text'} onClick={() => setInputMode('text')}>직접 입력</button><button type="button" aria-pressed={inputMode === 'file'} onClick={() => setInputMode('file')}>파일 업로드</button></div><div hidden={inputMode !== 'file'} className="personal-file-drop">
           <ResumeFileDrop
             onText={(t) => {
-              setText(t);
+              setText(t); setInputMode('text');
               setError(null);
               setDemoNotice('');
             }}
@@ -130,22 +129,18 @@ export default function ResumeInput({
         </div>
 
         <div className="mt-5 flex flex-wrap items-center justify-between gap-3">
-          <label htmlFor="resume-text" className="text-[12px] font-medium text-body">또는 직접 적기</label>
+          <label htmlFor="resume-text" className="text-[12px] font-medium text-body">나의 경험</label>
           <button
             type="button"
-            onClick={() => {
-              setText(DEMO_RESUME_TEXT);
-              setError(null);
-              setDemoNotice('그로스 마케터의 가상 경력 예시를 입력했습니다. 내용을 수정하거나 경로 찾기를 눌러주세요.');
-              inputRef.current?.focus({ preventScroll: true });
-            }}
+            aria-expanded={demoOpen} aria-controls="demo-options" onClick={() => setDemoOpen(!demoOpen)}
             className="inline-flex min-h-10 items-center gap-2 rounded-lg border border-link/25 bg-link-soft px-3.5 text-[12px] font-medium text-link transition-colors hover:border-link/60 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
           >
             <FilePenLine className="size-4" aria-hidden />
-            데모 내용 자동 입력
+            데모 예시 선택 ▾
           </button>
         </div>
 
+        {demoOpen && <div id="demo-options" className="demo-options"><p>체험할 직업을 선택하세요. 입력창의 내용이 선택한 예시로 바뀝니다.</p><div>{DEMO_RESUMES.map(demo => <button key={demo.id} type="button" onClick={() => {setText(demo.text);setInputMode('text');setDemoOpen(false);setError(null);setDemoNotice(`${demo.label} 가상 예시를 입력했습니다. 수정한 뒤 분석을 시작하세요.`);inputRef.current?.focus();}}><strong>{demo.label}</strong><span>{demo.hint}</span></button>)}</div><button type="button" onClick={() => setDemoOpen(false)}>닫기</button></div>}
         <textarea
           id="resume-text"
           ref={inputRef}
@@ -196,7 +191,7 @@ export default function ResumeInput({
         <h2>먼저 결과가 궁금하다면</h2>
         <p className="personal-sample-description">준비된 예시로 분석 결과를 둘러보세요.</p>
         <div className="personal-sample-list">
-          {SAMPLE_PROFILES.map((s) => (
+          {SAMPLE_PROFILES.filter(sample => sample.id !== 'sp_marketer').map((s) => (
             <button
               key={s.id}
               onClick={() => showSample(s.cachedResult)}

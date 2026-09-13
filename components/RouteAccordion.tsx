@@ -5,16 +5,6 @@ import type { Route, Skill } from '@/types';
 import { jobDetailOf } from '@/lib/job-detail';
 import JobRequirements from './JobRequirements';
 
-// ============================================================================
-//  경로 하나 = 접힌 카드 하나. 눌러야 펼쳐진다.
-//
-//  전부 접힌 채로 시작한다 — 이 화면의 첫 메시지가
-//  "너는 이 세 곳에 갈 수 있어" 하나로 떨어져야 하기 때문이다.
-//
-//  카드는 1px 헤어라인과 배경 한 단계로만 떠 있다. 그림자를 쓰지 않는다.
-//  색은 히든 경로 배지 한 곳에만 허용한다 — 그 배지가 이 제품의 메시지다.
-// ============================================================================
-
 export default function RouteAccordion({
   route,
   mySkills,
@@ -32,13 +22,12 @@ export default function RouteAccordion({
   const detail = jobDetailOf(route.destination, mySkills, route.requirements);
 
   const summary = detail
-    ? `필수 ${detail.mustTotal}개 중 ${detail.mustHeld}개`
+    ? `필수 역량 ${detail.mustHeld} / ${detail.mustTotal}개 보유`
     : '추천 근거 확인';
 
-  // 히든 경로임을 테두리로도, 배지로도 말하면 같은 사실을 두 번 칠하는 것이다.
-  // 목록에서 그 카드만 노랗게 뜨면 나머지 두 개가 덜 중요해 보이기도 한다.
-  // 사실은 배지 하나가 말하고, 색은 마우스를 올린 카드에만 청록으로 켠다 —
-  // 랜딩·예시 버튼과 같은 규칙이다.
+  const requirements = detail ? [...detail.work, ...detail.tools] : [];
+  const held = requirements.filter(row => row.held).slice(0, 2);
+  const gaps = requirements.filter(row => row.isMust && !row.held).slice(0, 2);
   return (
     <article className="result-route group overflow-hidden rounded-xl border border-hairline bg-elevated transition-colors hover:border-link/50">
       <button
@@ -46,7 +35,7 @@ export default function RouteAccordion({
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls={panelId}
-        className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-link-soft"
+        className="flex w-full items-start justify-between gap-4 px-5 py-4 text-left transition-colors hover:bg-hairline-soft"
       >
         <div className="min-w-0">
           {rank && <span className="result-route-rank">추천 경로 {String(rank).padStart(2, '0')}</span>}
@@ -61,21 +50,18 @@ export default function RouteAccordion({
           <p className="mt-1.5 text-[13px] leading-[1.6] text-body">
             {detail?.oneLiner || route.reason}
           </p>
-          {route.reason && detail?.oneLiner && <p className="result-route-reason"><span>연결 근거</span>{route.reason}</p>}
+          {detail && <div className="route-preview"><span className="route-held">✓ 보유 · {held.map(row => row.name).join(', ') || '확인된 역량 없음'}</span><span className="route-gap">＋ 보완 · {gaps.map(row => row.name).join(', ') || (detail.mustHeld === detail.mustTotal ? '필수 역량 충족' : '상세 요구 역량 확인')}</span></div>}
         </div>
-        <div className="flex shrink-0 items-center gap-3 pt-1">
+        <div className="route-coverage shrink-0 pt-1">
           {showFitScore && (
             <span className="text-[15px] font-semibold tabular-nums tracking-[-0.02em] text-ink">
               {route.fitScore}
             </span>
           )}
           <span className="whitespace-nowrap text-[12px] text-mute">{summary}</span>
-          <span
-            aria-hidden
-            className={`text-[10px] text-faint transition-transform duration-[620ms] ease-[cubic-bezier(0.16,1,0.3,1)] ${open ? 'rotate-180' : ''}`}
-          >
-            ▼
-          </span>
+          {detail && detail.mustTotal > 0 && <span className="coverage-track" aria-hidden="true"><span style={{width: `${Math.round(detail.mustHeld / detail.mustTotal * 100)}%`}} /></span>}
+          <span className="route-detail-action">{open ? '상세 접기 −' : '상세 보기 ＋'}</span>
+
         </div>
       </button>
 
@@ -84,6 +70,7 @@ export default function RouteAccordion({
         <div id={panelId} className="collapsible" data-open={open} inert={!open}>
           <div>
             <div className="border-t border-hairline px-5 pb-5 pt-4">
+              {detail && <p className="mb-5 text-body leading-relaxed"><strong>추천 근거</strong><br />{route.reason}</p>}
               {detail ? <JobRequirements detail={detail} /> : <p className="text-sm leading-relaxed text-body">{route.reason}</p>}
 
               {route.marketNote && (

@@ -30,14 +30,14 @@ export default function SiteHeader() {
   if (pathname === '/') return <LandingHeader />;
 
   return (
-    <header className="sticky top-0 z-40 border-b border-hairline bg-canvas/85 backdrop-blur">
+    <header className="product-header sticky top-0 z-40 border-b border-hairline bg-canvas/85 backdrop-blur">
       {/* ⚠️ 폭·여백을 랜딩 히어로(app/page.tsx)와 같은 값으로 맞춘다.
              다르면 헤더 로고와 h1 의 왼쪽 선이 어긋나 보인다. */}
-      <div className="mx-auto flex h-14 max-w-[1800px] items-center justify-between gap-4 px-5 sm:px-8 xl:px-14">
-        <Link href="/" className="flex items-center gap-2">
-          <NaviMark />
-          <span className="text-[14px] font-semibold tracking-[-0.02em] text-ink">
-            Career <span className="text-link">Navi</span>
+      <div className="mx-auto flex h-[76px] max-w-[1440px] items-center justify-between gap-4 px-5 sm:px-8 xl:px-14">
+        <Link href="/" className="product-brand flex items-center gap-[9px]">
+          <NaviMark className="size-7" />
+          <span className="text-[20px] font-bold tracking-[-0.04em] text-ink">
+            Career <b className="text-[#087f70] dark:text-link">Navi</b>
           </span>
         </Link>
 
@@ -46,7 +46,7 @@ export default function SiteHeader() {
 
           {role ? (
             <>
-              <span className="hidden px-2 text-[12px] text-mute sm:inline">
+              <span className="hidden px-2 text-[14px] text-mute sm:inline">
                 {DEMO_ACCOUNTS[role].displayName}
               </span>
               <button
@@ -55,7 +55,7 @@ export default function SiteHeader() {
                   signOut();
                   router.push('/');
                 }}
-                className="rounded-md border border-hairline px-3 py-1.5 text-[12px] text-body transition-colors hover:border-link/50 hover:text-ink"
+                className="rounded-md border border-hairline px-3 py-1.5 text-[14px] text-body transition-colors hover:border-link/50 hover:text-ink"
               >
                 로그아웃
               </button>
@@ -63,7 +63,7 @@ export default function SiteHeader() {
           ) : (
             <Link
               href="/login"
-              className="rounded-md bg-ink px-3.5 py-1.5 text-[12px] font-medium text-elevated transition-opacity hover:opacity-85"
+              className="rounded-md bg-ink px-3.5 py-1.5 text-[14px] font-medium text-elevated transition-opacity hover:opacity-85"
             >
               로그인
             </Link>

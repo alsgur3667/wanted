@@ -44,14 +44,14 @@ export default function ThemeToggle() {
       onClick={toggle}
       aria-label={label}
       title={label}
-      className="grid size-9 place-items-center rounded-md border border-hairline bg-elevated text-mute transition-colors hover:text-ink"
+      className="inline-flex size-11 shrink-0 items-center justify-center rounded-lg border border-hairline bg-elevated text-mute transition-colors hover:bg-hairline-soft hover:text-ink focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-link"
     >
       {theme === null ? (
-        <span className="size-4" />
+        <span className="size-5" aria-hidden />
       ) : theme === 'dark' ? (
-        <Sun className="size-4" />
+        <Sun className="size-5" aria-hidden />
       ) : (
-        <Moon className="size-4" />
+        <Moon className="size-5" aria-hidden />
       )}
     </button>
   );
