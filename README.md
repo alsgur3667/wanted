@@ -1,6 +1,6 @@
 <div align="center">
 
-# 커리어 내비 · Career Navi
+# Career Navi
 
 **직무명이 아니라 역량으로 커리어를 연결합니다.**
 
@@ -10,9 +10,9 @@
 채용공고 1,435건에서 만든 직무–역량 매트릭스로<br/>
 갈 수 있는 커리어 경로를 찾고, 직무명으로는 보이지 않던 지원자를 드러냅니다.
 
-[**🔗 데모**](https://wantedai-teal.vercel.app) · [문서](#-문서) · [로드맵](./docs/ROADMAP.md)
+[**🔗 데모**](https://wantedai-teal.vercel.app) · [바로 보기](#-데모-둘러보기) · [문서](#-문서) · [로드맵](./docs/ROADMAP.md)
 
-`Next.js 16` `TypeScript` `Tailwind v4` `Gemini API` `Vercel`
+`Next.js 16` `React 19` `TypeScript` `Tailwind v4` `Gemini` `Claude` `Vercel`
 
 </div>
 
@@ -45,6 +45,21 @@
 |---|---|---|
 | **개인** | 내 역량 | 갈 수 있는 직무 |
 | **기업** | 요구 역량 | 맞는 사람 |
+
+---
+
+## 🎬 데모 둘러보기
+
+로그인은 **실제 인증이 아닙니다.** 계정이 클라이언트 코드에 그대로 들어 있고, 뒤에 지킬 것이 없기 때문입니다 — 회사·공고·지원자가 전부 가상 데이터이고, 이력서는 브라우저를 떠나지 않으며, 서버에도 DB에도 아무것도 저장하지 않습니다.
+
+| 역할 | 계정 | 보게 되는 것 |
+|---|---|---|
+| **개인** | `demo@career-navi.dev` / `navi-demo-2026` | 이력서 입력 → 갈 수 있는 커리어 경로 |
+| **기업** | `hr@career-navi.dev` / `navi-demo-2026` | 공고 작성 → 역량 근거로 인재 검토 |
+
+**개인 흐름** — 경험을 직접 쓰거나, PDF·DOCX·TXT 이력서 파일을 넣습니다. 파일은 브라우저 안에서 글자만 뽑아 입력칸에 채우고, **무엇이 AI에 보내질지 눈으로 확인한 뒤** 분석을 시작합니다. 결과는 역량 묶음 · 경로 3개 · 각 경로의 부족 역량과 첫 단계입니다.
+
+**기업 흐름** — 공고를 직접 쓰거나 AI 초안으로 시작하고, 같은 인재풀에서 직무명 검색으로는 걸리지 않는 후보를 역량 근거와 함께 봅니다.
 
 ---
 
@@ -94,7 +109,25 @@ weight   = 스킬이 등장한 공고 수 ÷ 그 직무의 전체 공고 수
 
 코사인 유사도 대신 **커버율**을 씁니다. *"프론트엔드 공고 26건 중 17건에 React가 있었다"* 를 그대로 화면에 쓸 수 있기 때문입니다.
 현재 직무가 정확히 일치하면 최대 8점을 더하고, 추천 순위는 `fitScore`를 우선하되 동점일 때만 표본 신뢰도와 직무 보정을 사용합니다.
-**LLM은 추출만 하고, 점수는 코드가 계산합니다** — 같은 입력에 같은 결과가 나와야 하므로.
+
+---
+
+## 🤖 AI를 어디에 썼는가
+
+역할을 나눴습니다. **뽑는 일은 LLM이, 세는 일은 코드가** 합니다.
+
+| | 담당 | 왜 |
+|---|---|---|
+| 이력서에서 역량 뽑기 | **LLM** | 서술형 문장·표현 변형은 규칙으로 못 잡습니다 |
+| 뽑은 역량 검증 | 코드 | 원문에 근거가 있는지 다시 확인하고, 확인되지 않으면 버립니다 |
+| 적합도·순위 계산 | 코드 | 셀 수 있어야 추천 이유를 화면에 그대로 씁니다 |
+| 공고 문구 초안 | **LLM** | 문장은 LLM이 쓰되, 요구 역량은 매트릭스에서 가져옵니다 |
+
+점수를 LLM에 맡기지 않은 이유는 규모가 커질수록 더 분명해집니다 — 사용자 × 공고 수만큼 비용이 늘고, 같은 이력서에 매번 다른 점수가 나오면 개선 여부를 알 수 없으며, *"왜 이 직무인가"* 에 답할 수 없습니다.
+
+파일 파싱(`pdfjs-dist`·`mammoth`)은 브라우저에서 돌고 서버로 올라가지 않습니다. LLM 호출은 사용자가 내용을 확인하고 분석을 누를 때 **한 번** 일어납니다.
+
+제공자는 `gemini`·`anthropic`·`mock` 중에서 고릅니다. 운영 환경에서 호출이 실패하면 mock 추천으로 조용히 바꾸지 않고 오류를 반환합니다.
 
 ---
 
@@ -106,16 +139,37 @@ weight   = 스킬이 등장한 공고 수 ÷ 그 직무의 전체 공고 수
 
 근거를 필드로 구분합니다 — `"source": "JD"` (공고 빈도) / `"source": "manual"` (수동 매핑)
 
-지원자용 회사 조회와 기업용 채용 화면에는 **가상 회사 18개·가상 공고 48개·가상 지원자 72명·지원 이력 288건**을 사용합니다. 기업은 공고를 직접 작성하거나 AI로 문구 초안을 만든 뒤 같은 72명의 가상 인재풀에서 추천 후보를 확인할 수 있습니다. 실제 회사나 인물의 문구·로고·이력서를 복제한 데이터가 아니며, 추후 실제 공급원을 같은 계약으로 교체하기 위한 목업입니다. 추천 모델 평가에는 사용하지 않습니다.
+지원자용 회사 조회와 기업용 채용 화면에는 **가상 회사 18개·가상 공고 48개·가상 지원자 72명·지원 이력 288건**을 사용합니다. 실제 회사나 인물의 문구·로고·이력서를 복제한 데이터가 아니며, 추후 실제 공급원을 같은 계약으로 교체하기 위한 목업입니다. 추천 모델 평가에는 사용하지 않습니다.
 
 ```bash
-node scripts/validate-data.mjs data/jobs.json data/skills.json data/job-skills.json
-# 오류 0건이어야 앱에 투입
-npm run validate:demo-data
-# 가상 회사·공고의 참조와 표시 규칙 검증
+npm run validate:data          # 원본·중간 데이터 계약 검사
+npm run validate:demo-data     # 가상 회사·공고의 참조와 표시 규칙 검증
 ```
 
-📄 [서비스 기획서](./docs/SERVICE_PLAN.md) · [현재 기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+📄 [서비스 기획서](./docs/SERVICE_PLAN.md) · [기능 명세](./docs/FUNCTIONAL_SPEC.md) · [데이터 계약](./docs/DATA_SPEC.md) · [회사·공고 계약](./docs/COMPANY_DATA.md) · [수집 방법](./docs/DATA_COLLECTION.md)
+
+---
+
+## 🧪 추천이 말이 되는지 어떻게 확인했나
+
+숫자로 잡히는 오류와 안 잡히는 오류를 **따로** 봅니다.
+
+```bash
+npm run eval:resumes    # 사람이 쓴 이력서 12건을 넣고 화면이 납득되는지
+```
+
+API 키가 없어도 돌고, 누가 돌려도 같은 결과가 나옵니다.
+
+**기준선 · 2026-09-11**
+
+```
+1위 적중 11/11  ·  연차 적중 12/12  ·  금지 직무가 1위 0건
+채점기(설문 3,420건)  1위 32.4% · 3위 안 57.5%
+```
+
+이 테스트로 **결함 5건**을 찾아 고쳤습니다 — 우대 역량에 섞인 회사명, `UI` 별칭의 오탐, 마케팅 어휘 누락, 대체 인정 과다, 기간형 경력 표기 미인식. 각 항목의 수정 내용과 **재발 확인법**은 [RESUME_EVAL](./docs/RESUME_EVAL.md)에 있습니다.
+
+아직 못 고친 것도 같은 문서에 이유와 함께 적어 두었습니다. 예를 들어 한국어 이력서의 맨 `GA`는 잡지 않습니다 — 코퍼스에서 `GA` 5건 중 4건이 General Arrangement·General Availability였기 때문입니다. **알고 두는 빚**입니다.
 
 ---
 
@@ -124,22 +178,24 @@ npm run validate:demo-data
 ```
 app/
   page.tsx          랜딩 (개인 / 기업 분기)
-  personal/         이력서 입력 → 결과
+  login/            데모 로그인
+  personal/         이력서 입력·파일 업로드 → 결과
   companies/        가상 회사 목록 → 회사 상세
   jobs/             가상 채용공고 상세 → 지원 흐름
   employer/         공고 직접·AI 작성 → 추천 인재 / 기존 지원자 관리
-  api/employer/     공고 문구 초안 생성 (gemini | anthropic | mock)
-  api/analyze/      역량 추출 → 적합도 산출
-  api/og/           공유 카드 이미지
+  api/analyze/            역량 추출 → 적합도 산출
+  api/employer/posting-draft/   공고 문구 초안 생성
+  api/og/                 공유 카드 이미지
 lib/
   skill-index.ts    직무×스킬 매트릭스 · 전이성 지수
-  company-index.ts  회사·공고 조회와 직무·스킬 연결
-  employer-index.ts 공고·지원자·인재풀 연결과 ID 기반 적합도
-  posting-draft.ts  게시 전 공고 계약·검증·금지 표현 경고
   scoring.ts        개인 방향        employer-index.ts  기업 방향
+  company-index.ts  회사·공고 조회와 직무·스킬 연결
+  posting-draft.ts  게시 전 공고 계약·검증·금지 표현 경고
+  resume-file.ts    PDF·DOCX·TXT 브라우저 파싱
+  demo-auth.ts      데모 로그인 (인증 아님 — 파일 상단 경고 참조)
   llm.ts            제공자 추상화 (gemini | anthropic | mock)
 data/               수집 데이터 + 수동 보강분 + 가상 회사·공고·지원자
-scripts/            수집(Python) · 생성 · 검증 · 병합
+scripts/            수집(Python) · 생성 · 검증 · 평가
 types.ts            개인/기업 공통 계약
 ```
 
@@ -150,43 +206,33 @@ types.ts            개인/기업 공통 계약
 ```bash
 git clone https://github.com/alsgur3667/wanted.git && cd wanted
 npm install
-cp .env.example .env.local
+cp .env.example .env.local     # PowerShell: Copy-Item .env.example .env.local
 npm run dev
 ```
 
-Windows PowerShell에서는 `Copy-Item .env.example .env.local`을 사용합니다. 예시 설정은
-`mock` 모드라 키 없이 E2E 흐름을 확인할 수 있지만, 실제 추천 품질 검증에는 Gemini 또는
-Anthropic 키를 설정해야 합니다.
+예시 설정은 `mock` 모드라 키 없이 전체 흐름을 확인할 수 있습니다. 추천 품질을 검증하려면 Gemini 또는 Anthropic 키가 필요합니다.
 
 ### 환경 변수
 
 | 환경변수 | |
 |---|---|
 | `LLM_PROVIDER` | `mock` · `gemini` · `anthropic` 중 선택 |
-| `GEMINI_API_KEY` | Gemini 이력서 추출 |
-| `GEMINI_MODEL` | Gemini 모델명 (선택) |
-| `ANTHROPIC_API_KEY` | Anthropic 이력서 추출 |
-| `ANTHROPIC_MODEL` | Anthropic 모델명 (선택) |
+| `GEMINI_API_KEY` · `GEMINI_MODEL` | Gemini 이력서 추출 (모델명은 선택) |
+| `ANTHROPIC_API_KEY` · `ANTHROPIC_MODEL` | Anthropic 이력서 추출 (모델명은 선택) |
 | `DAILY_CALL_LIMIT` | 프로세스별 일일 LLM 호출 상한 (데모 비용 방어) |
 | `POSTING_DRAFT_DAILY_LIMIT` | 프로세스별 일일 공고 AI 초안 호출 상한 (기본 80) |
 
 > `.env.local` 은 **절대 커밋하지 않습니다.** 유료 API 자부담이라 키 유출 = 요금 폭탄입니다.
 
-운영 환경에서 provider 호출이 실패하면 mock 추천으로 바꾸지 않고 오류를 반환합니다. 또한 현재 호출
-상한은 프로세스 메모리 기준이므로, 여러 인스턴스로 배포할 때는 플랫폼 rate limit이나 공유 저장소가
-추가로 필요합니다.
+호출 상한은 프로세스 메모리 기준이므로, 여러 인스턴스로 배포할 때는 플랫폼 rate limit이나 공유 저장소가 추가로 필요합니다.
 
-입력 이력서와 분석 결과는 애플리케이션 서버·DB에 저장하지 않습니다. 다만 실제 LLM provider를
-사용하면 입력 내용이 해당 AI 제공자에 분석 목적으로 전송됩니다.
+입력 이력서와 분석 결과는 애플리케이션 서버·DB에 저장하지 않습니다. 다만 실제 provider를 쓰면 입력 내용이 해당 AI 제공자에 분석 목적으로 전송됩니다. 화면에도 이 사실을 그대로 적습니다.
 
 ### 검증
 
 ```bash
-npm run verify
+npm run verify    # lint · 단위/API 테스트 · 데이터 계약 검사 · production build
 ```
-
-위 명령은 lint, 단위·API 관통 테스트, 원본·중간 데이터 계약 검사, production build를 순서대로
-실행합니다.
 
 데이터 수집·평가용 Python 환경은 [uv](https://docs.astral.sh/uv/) lock 파일로 고정합니다.
 
@@ -203,24 +249,21 @@ uv run python scripts/collect/eval_routes.py
 |---|---|
 | [**SERVICE_PLAN**](./docs/SERVICE_PLAN.md) | 타깃·문제·핵심 가치·기능 구조와 브랜드 메시지 기준 |
 | [**FUNCTIONAL_SPEC**](./docs/FUNCTIONAL_SPEC.md) | 현재 구현된 화면·API·점수·저장 범위와 알려진 제약 |
-| [**FUNCTIONAL_SPEC_BRIEF**](./docs/FUNCTIONAL_SPEC_BRIEF.md) | 강사 설명용 기능 명세 요약과 시연 순서 |
-| [**FUNCTIONAL_SPEC_PDF**](./output/pdf/CAREER_NAVI_FUNCTIONAL_SPEC.pdf) | 강사에게 보여주기 위한 7쪽 기능 명세 요약 PDF |
+| [**FUNCTIONAL_SPEC_BRIEF**](./docs/FUNCTIONAL_SPEC_BRIEF.md) | 설명용 기능 명세 요약과 시연 순서 |
+| [**RESUME_EVAL**](./docs/RESUME_EVAL.md) | 추천이 말이 되는지 보는 테스트 — 실행법·채점 기준·기준선·남은 결함 |
+| [**OPEN_PROBLEMS**](./docs/OPEN_PROBLEMS.md) | 찾았지만 아직 못 고친 것 |
 | [**ROADMAP**](./docs/ROADMAP.md) | 이력서 일괄 분석 · 원티드 데이터 연동 · 자기개선 루프 |
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
-| [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 공모전 실행계획과 마일스톤 |
-| [**RESUME_EVAL**](./docs/RESUME_EVAL.md) | 이력서를 넣어 추천이 말이 되는지 보는 테스트 — 실행법·채점 기준·기준선 |
-| [**OPEN_PROBLEMS**](./docs/OPEN_PROBLEMS.md) | 찾았지만 아직 못 고친 것 (이슈가 없는 것들이 여기 원본) |
+| [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 실행계획과 마일스톤 |
 
 ---
 
 ## 로드맵
 
-현재 기업 화면의 회사·공고·지원자·지원 이력은 **가상 데이터**입니다. 새 공고 초안과 전형 상태 변경도 현재 화면에서만 유지됩니다. 새 공고의 결과는 지원 이력이 없는 `추천 인재`로 구분합니다.
-이력서 파일 일괄 분석은 **비용 제어와 개인정보 처리 정책**이 선행되어야 해 이번 범위에서 제외했습니다.
-기업 매칭은 `JobPosting`·`EmployerCandidate`·`CandidateApplication` 계약을 받으므로, 파일 파싱 결과를
-같은 형태로 정규화하면 조회 UI를 유지한 채 실제 입력으로 교체할 수 있습니다.
+기업 화면의 회사·공고·지원자·지원 이력은 **가상 데이터**입니다. 새 공고 초안과 전형 상태 변경도 현재 화면에서만 유지됩니다.
+이력서 파일 **일괄** 분석은 비용 제어와 개인정보 처리 정책이 선행되어야 해 이번 범위에서 제외했습니다. 기업 매칭이 `JobPosting`·`EmployerCandidate`·`CandidateApplication` 계약을 받으므로, 파싱 결과를 같은 형태로 정규화하면 조회 UI를 유지한 채 실제 입력으로 교체할 수 있습니다.
 
 ```
 v2  이력서 파일 일괄 분석    파일 파싱 + 배치 처리
