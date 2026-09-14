@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import './globals.css';
+import './product.css';
 import 'lenis/dist/lenis.css';
 import { Geist } from 'next/font/google';
 import { cn } from '@/lib/utils';

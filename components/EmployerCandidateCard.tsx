@@ -14,7 +14,7 @@ export default function EmployerCandidateCard({ match, selected, onSelect }: {
       type="button"
       onClick={onSelect}
       aria-pressed={selected}
-      className={`w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${
+      className={`employer-candidate w-full rounded-xl border p-4 text-left transition-colors focus-visible:border-link focus-visible:outline-none ${
         selected ? 'border-link bg-link-soft' : 'border-hairline bg-elevated hover:border-link/50'
       }`}
     >
@@ -49,6 +49,7 @@ export default function EmployerCandidateCard({ match, selected, onSelect }: {
           </span>
         </div>
       </div>
+      <span className="employer-card-action">역량 근거 살펴보기 →</span>
     </button>
   );
 }

@@ -12,7 +12,7 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
   const evidence = new Map(candidate.skillEvidence.map((row) => [row.skillId, row.evidence]));
 
   return (
-    <aside className="animate-rise rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
+    <aside className="employer-detail animate-rise rounded-xl border border-hairline bg-elevated p-5 lg:sticky lg:top-16">
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-[11px] text-faint">후보 상세 · 가상 지원자</p>
@@ -22,7 +22,7 @@ export default function EmployerCandidateDetail({ match, onStageChange }: {
           </p>
         </div>
         <div className="text-right">
-          <strong className="text-3xl tabular-nums text-ink">{match.fitScore}</strong>
+          <strong className="employer-fit text-3xl tabular-nums text-ink">{match.fitScore}</strong>
           <p className="text-[10px] text-faint">역량 적합도</p>
         </div>
       </div>

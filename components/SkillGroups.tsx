@@ -24,8 +24,8 @@ import SkillMap from './SkillMap';
 const GROUPS: { key: Quadrant; label: string; hint: string; tone: string }[] = [
   {
     key: 'leverage',
-    label: '어디서나 통하는 무기',
-    hint: '여러 직군이 요구하는데, 갖춘 사람은 적어요',
+    label: '여러 직무에 연결되는 강점',
+    hint: '직무 수요와 역량 분포를 바탕으로 분류했습니다.',
     tone: 'border-link/30 bg-link-soft text-link-deep dark:text-link',
   },
   {
@@ -44,7 +44,7 @@ const GROUPS: { key: Quadrant; label: string; hint: string; tone: string }[] = [
 
 const VISIBLE_PER_GROUP = 6;
 
-function Group({ label, hint, tone, skills }: { label: string; hint: string; tone: string; skills: Skill[] }) {
+function Group({ label, hint, tone, skills, selectedId, onSelect }: { label: string; hint: string; tone: string; skills: Skill[]; selectedId?: string; onSelect: (skill: Skill) => void }) {
   const [all, setAll] = useState(false);
   const shown = all ? skills : skills.slice(0, VISIBLE_PER_GROUP);
   const rest = skills.length - shown.length;
@@ -58,13 +58,7 @@ function Group({ label, hint, tone, skills }: { label: string; hint: string; ton
       <p className="mt-1 text-[12px] text-mute">{hint}</p>
       <ul className="mt-2.5 flex flex-wrap gap-1.5">
         {shown.map((s) => (
-          <li
-            key={s.id}
-            title={s.evidence}
-            className={`rounded-md border px-2.5 py-1 text-[12px] ${tone}`}
-          >
-            {s.name}
-          </li>
+          <li key={s.id}><button type="button" className={`skill-choice ${tone}`} aria-pressed={selectedId === s.id} onClick={() => onSelect(s)}>{s.name} <span aria-hidden>↗</span></button></li>
         ))}
         {rest > 0 && (
           <li>
@@ -83,6 +77,7 @@ function Group({ label, hint, tone, skills }: { label: string; hint: string; ton
 }
 
 export default function SkillGroups({ skills }: { skills: Skill[] }) {
+  const [selected, setSelected] = useState<Skill | null>(null);
   const [mapOpen, setMapOpen] = useState(false);
   const grouped = GROUPS.map((g) => ({ ...g, skills: skills.filter((s) => s.quadrant === g.key) })).filter(
     (g) => g.skills.length > 0
@@ -94,21 +89,22 @@ export default function SkillGroups({ skills }: { skills: Skill[] }) {
     <section>
       <h2 className="text-[20px] font-semibold tracking-[-0.025em] text-ink">내 역량</h2>
       <p className="mt-1.5 text-[13px] text-body">
-        이력서에서 찾은 {skills.length}가지를 쓰임새로 묶었어요.
+        확인된 역량 {skills.filter(skill => skill.quadrant !== 'noise').length}가지를 쓰임새로 묶었습니다. 역량을 누르면 입력한 경험 속 근거를 볼 수 있습니다.
       </p>
 
       <div className="mt-6 space-y-6">
         {noLeverage && (
           <p className="rounded-md border border-hairline bg-hairline-soft px-3.5 py-3 text-[12px] leading-[1.6] text-body">
-            아직 직군을 넘나드는 무기는 안 보여요. 위 경로의{' '}
-            <strong className="font-medium text-ink">첫 단계</strong>부터 하나씩 채우면 생깁니다.
+            여러 직군에 연결되는 강점을 확인할 근거가 부족합니다. 추천 경로의{' '}
+            <strong className="font-medium text-ink">첫 단계</strong>에서 보완할 경험을 살펴보세요.
           </p>
         )}
         {grouped.map((g) => (
-          <Group key={g.key} label={g.label} hint={g.hint} tone={g.tone} skills={g.skills} />
+          <Group key={g.key} label={g.label} hint={g.hint} tone={g.tone} skills={g.skills} selectedId={selected?.id} onSelect={setSelected} />
         ))}
       </div>
 
+      {selected && <aside className="skill-evidence" aria-live="polite"><h3>{selected.name} · 확인 근거</h3><p>{selected.evidence || '구체적인 경험 근거가 제공되지 않았습니다.'}</p></aside>}
       <div className="mt-7 border-t border-hairline pt-3.5">
         <button
           type="button"
@@ -121,7 +117,7 @@ export default function SkillGroups({ skills }: { skills: Skill[] }) {
           </span>
           분포도로 보기
         </button>
-        <div className="collapsible" data-open={mapOpen}>
+        <div className="collapsible" data-open={mapOpen} inert={!mapOpen}>
           <div>
             <div className="pt-4">
               <p className="mb-3 text-[12px] leading-[1.6] text-mute">
