@@ -4,7 +4,6 @@ import { useSyncExternalStore } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { DEMO_ACCOUNTS, currentRole, signOut } from '@/lib/demo-auth';
-import ThemeToggle from './ThemeToggle';
 import NaviMark from './NaviMark';
 import LandingHeader from './LandingHeader';
 
@@ -42,8 +41,6 @@ export default function SiteHeader() {
         </Link>
 
         <div className="flex items-center gap-1.5">
-          <ThemeToggle />
-
           {role ? (
             <>
               <span className="hidden px-2 text-[14px] text-mute sm:inline">

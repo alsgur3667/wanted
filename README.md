@@ -259,7 +259,15 @@ uv run python scripts/collect/eval_routes.py
 | [**DATA_SPEC**](./docs/DATA_SPEC.md) | 데이터 계약 — 3개 파일 스키마와 규칙 |
 | [**COMPANY_DATA**](./docs/COMPANY_DATA.md) | 가상 회사·공고 계약, 생성 원칙과 실제 데이터 교체 절차 |
 | [**DATA_COLLECTION**](./docs/DATA_COLLECTION.md) | 수집 파이프라인과 감안할 점 |
+<<<<<<< HEAD
 | [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 실행계획과 마일스톤 |
+=======
+| [**PLAN**](./docs/PLAN.md) | 2026-08-26에 작성한 초기 공모전 실행계획과 마일스톤 |
+| [**RESUME_EVAL**](./docs/RESUME_EVAL.md) | 이력서를 넣어 추천이 말이 되는지 보는 테스트 — 실행법·채점 기준·기준선 |
+| [**AI_USAGE_REPORT**](./docs/AI_USAGE_REPORT.md) | AI 활용 방식 및 결과 — 서비스 AI·개발 AI·검증 범위와 한계 |
+| [**AI_USAGE_EVIDENCE**](./docs/AI_USAGE_EVIDENCE.md) | AI 활용 보고서의 코드·변경·평가·시안 보관 근거 |
+| [**OPEN_PROBLEMS**](./docs/OPEN_PROBLEMS.md) | 찾았지만 아직 못 고친 것 (이슈가 없는 것들이 여기 원본) |
+>>>>>>> origin/docs/ai-usage-report
 
 ---
 
