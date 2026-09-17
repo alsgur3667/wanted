@@ -1,0 +1,62 @@
+/* companies-v2.css — Career Navi · 2026-09-17
+   /preview/companies-v2 전용. redesign.css 위에 얹는다. 기존 companies.css 와 무관. */
+
+.companies-v2 .hero { padding-block: 36px 40px; }
+.companies-v2 .hero .wrap { grid-template-columns: .9fr 1.1fr; }
+.companies-v2 .hero .lead { max-width: 460px; }
+.companies-v2 .hero-visual { aspect-ratio: 21 / 9; }
+.companies-v2 .hero-visual img { object-position: 70% center; }
+.companies-v2 .hero-visual::after { background: linear-gradient(90deg, var(--canvas) 0%, transparent 20%); }
+
+/* 검색·필터 */
+.companies-v2 .filters { display: grid; grid-template-columns: 2.3fr repeat(4, 1fr); gap: 14px; }
+.companies-v2 .search { display: flex; align-items: center; gap: 10px; background: var(--field); border: 1px solid var(--hairline); border-radius: var(--r-md); padding: 4px 4px 4px 16px; min-height: 48px; color: var(--mute); }
+.companies-v2 .search:focus-within { border-color: var(--brand); }
+.companies-v2 .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink); }
+.companies-v2 .search input::placeholder { color: var(--faint); }
+.companies-v2 .sel { position: relative; display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; background: var(--field); border: 1px solid var(--hairline); border-radius: var(--r-md); color: var(--mute); cursor: pointer; }
+.companies-v2 .sel:focus-within { border-color: var(--brand); }
+.companies-v2 .sel select { flex: 1; min-width: 0; appearance: none; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 500; color: var(--body); cursor: pointer; padding-right: 20px; }
+.companies-v2 .sel .chev { position: absolute; right: 12px; pointer-events: none; }
+.companies-v2 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+.companies-v2 .count { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 14px; font-size: 13px; color: var(--mute); }
+.companies-v2 .count strong { color: var(--ink); }
+.companies-v2 .count .textlink { background: none; border: 0; padding: 0; cursor: pointer; }
+
+/* 목록 */
+.companies-v2 .list-sec { padding-block: 40px 56px; }
+.companies-v2 .list-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-bottom: 28px; }
+.companies-v2 .list-head h2 { font-size: clamp(24px, 2.6vw, 32px); line-height: 1.3; margin-top: 12px; }
+.companies-v2 .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.companies-v2 .ccard { display: block; position: relative; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 22px 24px 24px; color: var(--body); transition: transform .2s, border-color .2s, box-shadow .2s; }
+.companies-v2 .ccard:hover { border-color: var(--brand); transform: translateY(-3px); box-shadow: var(--shadow-hover); }
+.companies-v2 .ccard .head { display: flex; align-items: center; gap: 12px; }
+.companies-v2 .ccard h3 { font-size: 17px; line-height: 1.2; font-weight: 600; }
+.companies-v2 .ccard .head p { font-size: 13px; color: var(--mute); margin-top: 4px; }
+.companies-v2 .badge { margin-left: auto; align-self: flex-start; background: var(--brand-soft); color: var(--brand-deep); font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 10px; border-radius: var(--r-sm); white-space: nowrap; }
+.companies-v2 .meta { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; font-size: 12px; color: var(--mute); list-style: none; padding: 0; white-space: nowrap; }
+.companies-v2 .meta li { display: flex; align-items: center; gap: 4px; }
+.companies-v2 .meta li + li { padding-left: 8px; border-left: 1px solid var(--hairline); }
+.companies-v2 .desc { margin-top: 14px; font-size: 13px; line-height: 1.7; padding-right: 28px; }
+.companies-v2 .go { position: absolute; right: 22px; bottom: 20px; color: var(--ink); }
+.companies-v2 .empty { padding: 50px 20px; border: 1px dashed var(--hairline); border-radius: var(--r-lg); text-align: center; color: var(--mute); font-size: 14px; display: grid; gap: 8px; justify-items: center; }
+
+/* 추천 이유 밴드 */
+.companies-v2 .why { padding-block: 0 64px; }
+.companies-v2 .why .box { background: var(--canvas-alt); border: 1px solid var(--hairline); border-radius: var(--r-lg); padding: 36px 40px; display: grid; grid-template-columns: .8fr 2.2fr; gap: 40px; align-items: center; }
+.companies-v2 .why .box h2 { font-size: clamp(22px, 2.2vw, 28px); line-height: 1.3; margin-top: 12px; }
+.companies-v2 .why .items { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; border-left: 1px solid var(--hairline); padding-left: 40px; }
+
+@media (max-width: 1000px) {
+  .companies-v2 .filters { grid-template-columns: 1fr 1fr; }
+  .companies-v2 .search { grid-column: 1 / -1; }
+  .companies-v2 .grid { grid-template-columns: 1fr 1fr; }
+  .companies-v2 .why .box { grid-template-columns: 1fr; }
+  .companies-v2 .why .items { border-left: 0; padding-left: 0; border-top: 1px solid var(--hairline); padding-top: 28px; }
+}
+@media (max-width: 760px) {
+  .companies-v2 .filters, .companies-v2 .grid, .companies-v2 .why .items { grid-template-columns: 1fr; }
+  .companies-v2 .hero { padding-block: 24px; }
+  .companies-v2 .list-head { flex-direction: column; align-items: flex-start; }
+  .companies-v2 .why .box { padding: 24px 20px; }
+}

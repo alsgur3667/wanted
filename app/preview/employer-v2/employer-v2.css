@@ -1,0 +1,145 @@
+/* employer-v2.css — Career Navi · 2026-09-17 · /preview/employer-v2 전용. 기존 employer.css 와 무관. */
+
+.employer-v2 .emp-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding-block: 40px 24px; }
+.employer-v2 .emp-head h1 { margin-top: 12px; font-size: clamp(30px, 3.2vw, 40px); line-height: 1.22; }
+.employer-v2 .emp-head p { margin-top: 10px; font-size: 15px; color: var(--mute); }
+.employer-v2 .synthetic { padding: 10px 14px; border: 1px solid var(--hairline); border-radius: var(--r-sm); background: var(--canvas-alt); font-size: 12px; line-height: 1.6; color: var(--mute) !important; margin-top: 0 !important; }
+.employer-v2 .synthetic strong { color: #b06f0a; font-weight: 600; }
+.employer-v2 .emp-foot { margin-top: 48px; padding: 20px 0 56px; border-top: 1px solid var(--hairline); font-size: 12px; color: var(--mute); }
+
+/* 모드 전환 */
+.employer-v2 .emp-modes { display: inline-flex; gap: 4px; padding: 4px; background: var(--hairline-soft); border-radius: 999px; }
+.employer-v2 .emp-modes button { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 999px; font-size: 14px; font-weight: 600; color: var(--body); }
+.employer-v2 .emp-modes button[aria-pressed="true"] { background: var(--ink); color: var(--on-ink); }
+
+/* 회사·공고 밴드 */
+.employer-v2 .emp-context { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 20px; align-items: center; margin-top: 20px; padding: 22px 26px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); box-shadow: var(--shadow-card); }
+.employer-v2 .emp-context-text h2 { margin-top: 6px; font-size: 22px; line-height: 1.25; }
+.employer-v2 .emp-context-text p { margin-top: 4px; font-size: 13px; color: var(--mute); }
+.employer-v2 .emp-selects { display: flex; gap: 10px; flex-wrap: wrap; }
+.employer-v2 .sel { position: relative; display: flex; align-items: center; gap: 8px; min-height: 48px; padding: 0 36px 0 14px; background: var(--field); border: 1px solid var(--hairline); border-radius: var(--r-md); color: var(--mute); font-size: 12px; cursor: pointer; min-width: 200px; }
+.employer-v2 .sel:focus-within { border-color: var(--brand); }
+.employer-v2 .sel > span { white-space: nowrap; }
+.employer-v2 .sel select { flex: 1; min-width: 0; appearance: none; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; font-weight: 600; color: var(--ink); cursor: pointer; }
+.employer-v2 .sel .chev { position: absolute; right: 12px; pointer-events: none; }
+
+/* KPI */
+.employer-v2 .emp-kpis { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; list-style: none; padding: 0; }
+.employer-v2 .emp-kpis li { display: grid; grid-template-columns: 1fr auto; align-items: baseline; row-gap: 6px; padding: 18px 22px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
+.employer-v2 .emp-kpis li span { grid-column: 1 / -1; font-size: 12px; color: var(--mute); }
+.employer-v2 .emp-kpis li b { font-size: 34px; line-height: 1; color: var(--ink); }
+.employer-v2 .emp-kpis li small { font-size: 12px; color: var(--mute); margin-left: 4px; }
+.employer-v2 .emp-kpis li.is-accent { background: var(--brand-soft); border-color: transparent; }
+.employer-v2 .emp-kpis li.is-accent b { color: var(--brand-deep); }
+
+/* 전형 단계 필 */
+.employer-v2 .emp-stages { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.employer-v2 .emp-stages button { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--elevated); font-size: 13px; color: var(--body); }
+.employer-v2 .emp-stages button b { font-weight: 600; color: var(--ink); font-variant-numeric: tabular-nums; }
+.employer-v2 .emp-stages button[aria-pressed="true"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.employer-v2 .emp-stages button[aria-pressed="true"] b { color: var(--on-ink); }
+
+/* 검색·필터 */
+.employer-v2 .emp-filters { display: grid; grid-template-columns: 2fr 1fr 1fr auto auto; gap: 12px; align-items: center; margin-top: 14px; padding: 14px 16px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
+.employer-v2 .emp-filters .search { display: flex; align-items: center; gap: 10px; min-height: 48px; padding: 0 14px; background: var(--field); border: 1px solid var(--hairline); border-radius: var(--r-md); color: var(--mute); }
+.employer-v2 .emp-filters .search:focus-within { border-color: var(--brand); }
+.employer-v2 .emp-filters .search input { flex: 1; min-width: 0; border: 0; outline: 0; background: transparent; font: inherit; font-size: 14px; color: var(--ink); }
+.employer-v2 .emp-filters .sel { min-width: 0; }
+.employer-v2 .emp-filters .sel select { font-weight: 500; color: var(--body); }
+.employer-v2 .check { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--body); white-space: nowrap; cursor: pointer; }
+.employer-v2 .check input { width: 16px; height: 16px; accent-color: var(--brand); }
+.employer-v2 .emp-filters .textlink { background: none; border: 0; padding: 0; white-space: nowrap; }
+
+/* 목록 + 상세 */
+.employer-v2 .emp-body { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(360px, .95fr); gap: 24px; align-items: start; margin-top: 24px; }
+.employer-v2 .emp-list-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.employer-v2 .emp-list-head h2 { display: inline-flex; align-items: center; gap: 8px; font-size: 16px; font-weight: 600; }
+.employer-v2 .emp-list-head span { font-size: 12px; color: var(--faint); }
+.employer-v2 .emp-cards { display: grid; gap: 12px; }
+.employer-v2 .emp-empty { padding: 40px 20px; border: 1px dashed var(--hairline); border-radius: var(--r-lg); text-align: center; color: var(--mute); font-size: 14px; display: grid; gap: 8px; justify-items: center; }
+
+.employer-v2 .cand-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 16px; width: 100%; padding: 18px 20px 14px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); text-align: left; transition: border-color .2s, box-shadow .2s, transform .2s; }
+.employer-v2 .cand-card:hover { border-color: color-mix(in srgb, var(--brand) 50%, var(--hairline)); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.employer-v2 .cand-card.is-selected { border-color: var(--brand); box-shadow: inset 3px 0 var(--brand); }
+.employer-v2 .cand-avatar { width: 44px; height: 44px; border-radius: 999px; background: var(--sun-soft); border: 1px solid var(--sun); display: grid; place-items: center; font-size: 13px; font-weight: 600; color: var(--ink); }
+.employer-v2 .cand-title { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.employer-v2 .cand-title strong { font-size: 15px; color: var(--ink); }
+.employer-v2 .tag { padding: 3px 8px; border-radius: 999px; border: 1px solid var(--hairline); font-size: 11px; color: var(--mute); }
+.employer-v2 .tag-amber { background: #fff4dd; border-color: transparent; color: #8a5a26; font-weight: 600; }
+.employer-v2 .cand-main > p { margin-top: 4px; font-size: 13px; color: var(--body); }
+.employer-v2 .cand-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; list-style: none; padding: 0; }
+.employer-v2 .cand-skills li { padding: 4px 9px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-deep); font-size: 11px; font-weight: 500; }
+.employer-v2 .cand-side { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.employer-v2 .ring { position: relative; width: 52px; height: 52px; display: grid; place-items: center; }
+.employer-v2 .ring svg { position: absolute; inset: 0; }
+.employer-v2 .ring b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.employer-v2 .stage { padding: 4px 8px; border-radius: var(--r-sm); background: var(--hairline-soft); font-size: 11px; color: var(--body); white-space: nowrap; }
+.employer-v2 .cand-action { grid-column: 1 / -1; display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px; margin-top: 4px; padding-top: 10px; border-top: 1px solid var(--hairline); font-size: 12px; font-weight: 600; color: var(--brand); }
+
+.employer-v2 .emp-detail-anchor { min-width: 0; scroll-margin-top: 96px; outline: none; }
+.employer-v2 .emp-back-list { display: none; }
+.employer-v2 .cand-detail { padding: 26px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); box-shadow: var(--shadow-card); }
+.employer-v2 .cd-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+.employer-v2 .cd-head h2 { margin-top: 8px; font-size: 24px; line-height: 1.25; }
+.employer-v2 .cd-head p { margin-top: 4px; font-size: 13px; color: var(--mute); }
+.employer-v2 .cd-fit { position: relative; width: 72px; height: 72px; display: grid; place-items: center; text-align: center; flex-shrink: 0; }
+.employer-v2 .cd-fit svg { position: absolute; inset: 0; }
+.employer-v2 .cd-fit b { font-size: 20px; font-weight: 700; color: var(--ink); line-height: 1; font-variant-numeric: tabular-nums; }
+.employer-v2 .cd-fit span { position: absolute; top: 100%; margin-top: 4px; font-size: 10px; color: var(--mute); white-space: nowrap; }
+.employer-v2 .cd-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 16px; margin-top: 28px; padding: 14px 0; border-block: 1px solid var(--hairline); }
+.employer-v2 .cd-facts dt { font-size: 11px; color: var(--mute); }
+.employer-v2 .cd-facts dd { margin-top: 2px; font-size: 13px; color: var(--ink); font-weight: 500; }
+.employer-v2 .cd-summary { margin-top: 16px; font-size: 14px; line-height: 1.8; color: var(--body); }
+.employer-v2 .cd-coverage { display: grid; gap: 8px; margin-top: 16px; }
+.employer-v2 .cd-coverage > div { display: grid; grid-template-columns: 64px 1fr 40px; align-items: center; gap: 10px; font-size: 12px; color: var(--mute); }
+.employer-v2 .cd-coverage > div > i { display: block; height: 6px; border-radius: 3px; background: var(--hairline); overflow: hidden; }
+.employer-v2 .cd-coverage > div > i > i { display: block; height: 100%; background: var(--brand); border-radius: 3px; }
+.employer-v2 .cd-coverage > div > i > i.nice { background: var(--sun); }
+.employer-v2 .cd-coverage b { text-align: right; color: var(--ink); font-variant-numeric: tabular-nums; }
+.employer-v2 .cd-section { margin-top: 22px; }
+.employer-v2 .cd-section h3 { font-size: 14px; font-weight: 600; }
+.employer-v2 .cd-evidence { display: grid; gap: 8px; margin-top: 10px; list-style: none; padding: 0; }
+.employer-v2 .cd-evidence li { padding: 10px 12px; background: var(--canvas); border-radius: var(--r-sm); }
+.employer-v2 .cd-evidence p { font-size: 13px; font-weight: 600; color: var(--ink); }
+.employer-v2 .cd-evidence span { display: block; margin-top: 3px; font-size: 12px; line-height: 1.6; color: var(--mute); }
+.employer-v2 .cd-gaps { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.employer-v2 .cd-gaps span { padding: 5px 10px; border-radius: 999px; background: #fff4dd; color: #8a5a26; font-size: 12px; font-weight: 500; }
+.employer-v2 .cd-fine { margin-top: 8px; font-size: 11px; line-height: 1.6; color: var(--faint); }
+.employer-v2 .cd-highlights { display: grid; gap: 6px; margin-top: 10px; list-style: none; padding: 0; font-size: 13px; line-height: 1.7; color: var(--body); }
+.employer-v2 .cd-highlights li { position: relative; padding-left: 14px; }
+.employer-v2 .cd-highlights li::before { content: ""; position: absolute; left: 0; top: 9px; width: 5px; height: 5px; border-radius: 50%; background: var(--sun); }
+.employer-v2 .cd-stage { padding-top: 18px; border-top: 1px solid var(--hairline); }
+.employer-v2 .cd-stage label { font-size: 12px; font-weight: 600; color: var(--body); }
+.employer-v2 .cd-stage select { display: block; width: 100%; min-height: 46px; margin-top: 8px; padding: 0 14px; border: 1px solid var(--hairline); border-radius: var(--r-md); background: var(--field); font: inherit; font-size: 14px; color: var(--ink); }
+
+/* 새 공고 만들기 — 기존 PostingComposer 를 카드 안에 그대로 두고 톤만 맞춘다 */
+.employer-v2 .emp-composer { margin-top: 16px; }
+.employer-v2 .emp-composer .posting-composer > section:first-child { border-radius: var(--r-xl); padding: 32px; background: var(--elevated); box-shadow: var(--shadow-card); }
+.employer-v2 .emp-composer h2 { font-size: 24px; }
+.employer-v2 .emp-composer :is(input:not([type=checkbox]), select, textarea) { min-height: 44px; border-radius: var(--r-md); font-size: 14px; background: var(--field); }
+.employer-v2 .emp-composer textarea { padding: 14px; }
+.employer-v2 .emp-composer .composer-progress button { border-radius: 999px; }
+.employer-v2 .emp-composer .composer-progress [aria-current="step"] { background: var(--ink); border-color: var(--ink); color: var(--on-ink); }
+.employer-v2 .emp-composer .composer-actions button { border-radius: var(--r-md); min-height: 48px; }
+.employer-v2 .emp-composer .composer-actions .next-step, .employer-v2 .emp-composer button.bg-ink { background: var(--ink); color: var(--on-ink); border-color: var(--ink); border-radius: var(--r-md); min-height: 44px; }
+.employer-v2 .emp-composer .composer-step > span { border-radius: 999px; background: var(--sun-soft); border: 1px solid var(--sun); color: var(--ink); }
+.employer-v2 .emp-composer .composer-loading { background: var(--canvas); color: var(--ink); border-radius: var(--r-md); }
+
+@media (min-width: 1024px) { .employer-v2 .emp-detail-anchor { position: sticky; top: 96px; } }
+@media (max-width: 1023px) {
+  .employer-v2 .emp-body { grid-template-columns: 1fr; }
+  .employer-v2 .emp-back-list { display: block; margin-bottom: 12px; font-size: 13px; color: var(--brand); }
+  .employer-v2 .emp-filters { grid-template-columns: 1fr 1fr; }
+  .employer-v2 .emp-filters .search { grid-column: 1 / -1; }
+  .employer-v2 .emp-kpis { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 760px) {
+  .employer-v2 .emp-head { flex-direction: column; align-items: flex-start; }
+  .employer-v2 .emp-context { grid-template-columns: auto 1fr; }
+  .employer-v2 .emp-selects { grid-column: 1 / -1; }
+  .employer-v2 .sel { min-width: 0; width: 100%; }
+  .employer-v2 .emp-filters { grid-template-columns: 1fr; }
+  .employer-v2 .emp-modes { display: flex; } .employer-v2 .emp-modes button { flex: 1; justify-content: center; }
+  .employer-v2 .cand-card { grid-template-columns: 1fr auto; } .employer-v2 .cand-avatar { display: none; }
+  .employer-v2 .cand-detail { padding: 20px; }
+}

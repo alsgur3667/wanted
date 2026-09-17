@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+html,body{margin:0;background:#fcfaf5}
+.stage{position:relative;width:900px;height:640px;overflow:visible}
+.card{position:absolute;border-radius:22px;background:linear-gradient(160deg,#ffffff 0%,#f7f5f1 100%);box-shadow:0 40px 80px -20px rgba(23,46,36,.22),0 12px 28px -10px rgba(23,46,36,.14),inset 0 1px 0 #fff;border:1px solid rgba(255,255,255,.9);overflow:hidden}
+.card::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.55),rgba(255,255,255,0) 45%)}
+.line{position:absolute;height:9px;border-radius:5px;background:linear-gradient(90deg,#b9c6d6,#d3dce7)}
+.doc{left:70px;top:150px;width:330px;height:330px;transform:rotate(-7deg)}
+.doc .hd{position:absolute;left:34px;top:34px;width:120px;height:14px;background:linear-gradient(90deg,#7f93ab,#a9b8cb)}
+.prof{left:390px;top:60px;width:270px;height:240px;transform:rotate(3deg)}
+.av{position:absolute;left:34px;top:34px;width:74px;height:74px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#4a6a8f,#2f3f52 70%);box-shadow:0 10px 24px -8px rgba(47,63,82,.6)}
+.av::before{content:"";position:absolute;left:50%;top:50%;width:26px;height:26px;border-radius:50%;background:#e9eef5;transform:translate(-50%,-70%)}
+.av::after{content:"";position:absolute;left:50%;bottom:0;width:48px;height:26px;border-radius:24px 24px 0 0;background:#e9eef5;transform:translateX(-50%)}
+.chart{left:420px;top:300px;width:360px;height:280px;transform:rotate(-2deg)}
+.bars{position:absolute;left:44px;right:44px;bottom:60px;height:150px;display:flex;align-items:flex-end;gap:22px;border-bottom:1px solid #dfe5ec}
+.bars b{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#3b5470,#2f3f52);box-shadow:0 8px 18px -8px rgba(47,63,82,.6)}
+.bars b:nth-child(4){background:linear-gradient(180deg,#d09a5a,#b8793a)}
+.ring{position:absolute;left:30px;top:20px;width:820px;height:600px;border:1.5px solid rgba(184,121,58,.55);border-radius:50%;transform:rotate(-14deg);pointer-events:none}
+.ring2{position:absolute;left:120px;top:90px;width:640px;height:470px;border:1px solid rgba(184,121,58,.28);border-radius:50%;transform:rotate(22deg)}
+.dot{position:absolute;width:12px;height:12px;border-radius:50%;background:#b8793a;box-shadow:0 0 0 6px rgba(184,121,58,.15)}
+.glow{position:absolute;left:250px;top:150px;width:500px;height:400px;border-radius:50%;background:radial-gradient(circle,rgba(246,233,216,.9),rgba(246,233,216,0) 70%);filter:blur(30px)}
+</style></head><body>
+<div class="stage">
+  <div class="glow"></div>
+  <div class="ring"></div><div class="ring2"></div>
+  <div class="card doc"><div class="hd"></div>
+    <i class="line" style="left:34px;top:74px;width:230px"></i><i class="line" style="left:34px;top:98px;width:190px"></i><i class="line" style="left:34px;top:122px;width:250px"></i>
+    <i class="line" style="left:34px;top:170px;width:210px"></i><i class="line" style="left:34px;top:194px;width:260px"></i><i class="line" style="left:34px;top:218px;width:160px"></i>
+    <i class="line" style="left:34px;top:262px;width:240px"></i><i class="line" style="left:34px;top:286px;width:120px"></i>
+  </div>
+  <div class="card prof"><div class="av"></div>
+    <i class="line" style="left:128px;top:52px;width:100px;height:12px;background:linear-gradient(90deg,#7f93ab,#a9b8cb)"></i><i class="line" style="left:128px;top:78px;width:70px"></i>
+    <i class="line" style="left:34px;top:140px;width:200px"></i><i class="line" style="left:34px;top:164px;width:150px"></i><i class="line" style="left:34px;top:188px;width:180px"></i>
+  </div>
+  <div class="card chart">
+    <i class="line" style="left:44px;top:36px;width:110px;height:12px;background:linear-gradient(90deg,#7f93ab,#a9b8cb)"></i>
+    <div class="bars"><b style="height:38%"></b><b style="height:60%"></b><b style="height:48%"></b><b style="height:100%"></b><b style="height:78%"></b></div>
+    <i class="line" style="left:44px;bottom:30px;width:220px;height:8px;background:#e3e8ee"></i>
+  </div>
+  <span class="dot" style="left:64px;top:96px"></span><span class="dot" style="left:826px;top:238px"></span><span class="dot" style="left:300px;top:590px"></span>
+</div>
+</body></html>
