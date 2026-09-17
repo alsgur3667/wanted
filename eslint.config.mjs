@@ -16,6 +16,8 @@ const eslintConfig = defineConfig([
     ".uv-cache/**",
     ".uv-python/**",
     "data/raw/**",
+    // Standalone review HTML and its vendored animation bundle are not app source.
+    "output/design-mockup/codex-v5/**",
   ]),
 ]);
 
