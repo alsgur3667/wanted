@@ -5,6 +5,7 @@ import Link from 'next/link';
 import type { AnalysisResult } from '@/types';
 import ResumeInput from '@/components/ResumeInput';
 import ResultView from '@/components/ResultView';
+import IllustrationSlot from '@/components/IllustrationSlot';
 import './personal.css';
 
 export default function Home() {
@@ -14,17 +15,25 @@ export default function Home() {
   return (
     <main className="personal-page">
       {!searching && !result && <header className="personal-intro">
-        <Link href="/" className="text-[12px] text-faint transition-colors hover:text-ink">← Career Navi</Link>
-        <h1 className="mt-2 text-2xl font-bold leading-snug sm:text-3xl">
-          {result ? '당신의 다음 커리어를,' : '쌓아온 경험에서,'}
-          <br />
-          {result ? '데이터로 안내합니다.' : '다음 가능성을 찾아보세요.'}
-        </h1>
-        <p className="mt-3 text-sm leading-relaxed text-mute">
-          이력서나 직접 적은 경험을 바탕으로 강점과 연결되는 직무를 살펴봅니다.
-          <br className="hidden sm:block" />
-          직무명보다 어떤 일을 했는지가 중요합니다.
-        </p>
+        <div className="personal-intro-copy">
+          <Link href="/" className="personal-back">← Career Navi</Link>
+          <p className="personal-eyebrow">YOUR EXPERIENCE, NEXT CAREER</p>
+          <h1>쌓아온 경험에서,<br />다음 가능성을 찾아보세요.</h1>
+          <p className="personal-intro-lead">
+            이력서나 직접 적은 경험을 바탕으로 강점과 연결되는 직무를 살펴봅니다.
+            <br className="hidden sm:block" />
+            직무명보다 어떤 일을 했는지가 중요합니다.
+          </p>
+        </div>
+        <IllustrationSlot
+          className="personal-intro-art"
+          name="personal-hero"
+          alt="새벽 산 위로 난 길을 따라 경험·분석·커리어 카드가 놓여 있고 끝에 빛이 드는 문이 있다"
+          ratio="3 / 2"
+          hint="1600 × 900"
+          ready
+          priority
+        />
       </header>}
 
       {!result && !searching && <ol className="personal-progress" aria-label="커리어 탐색 순서">

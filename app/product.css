@@ -20,18 +20,33 @@ body:has(.product-header) main button:disabled { cursor:not-allowed; }
 .demo-options strong,.demo-options span { display:block; }
 .demo-options span { margin-top:4px; color:var(--mute); font-size:14px; }
 .demo-options > button { margin-top:12px; min-height:40px; padding:0 12px; color:var(--link); }
-body .personal-intro h1 { font-size:32px; }
-body .personal-intro > p,body .personal-editor textarea,body .personal-analyze { font-size:16px; }
-body .personal-progress li,body .personal-expectations h3,body .personal-expectations li p,body .personal-sample-description,body .personal-page > footer { font-size:14px; }
-body .personal-kicker { font-size:12px; }
-body .personal-progress { margin-top:24px; }
-body .personal-editor { padding:26px; }
-body .personal-editor textarea { min-height:220px; }
-body .personal-page { max-width:1240px; }
-body .career-result .result-heading h1 { font-size:32px; margin-top:4px; }
-body .career-result .result-heading > div > p:last-child { font-size:16px; margin-top:8px; }
+/* 읽기 크기 보정 — 제목·여백은 personal.css 가 정한다.
+   ⚠️ 여기는 `body .x` 라 personal.css 의 `.x` 보다 강하다. 크기를 또 적으면
+      그쪽을 조용히 덮어써서, 고쳐도 안 바뀌는 것처럼 보인다.
+      그래서 남길 것만 남겼다 — 아래 둘은 이유가 있는 값이다. */
+/* 16px 미만이면 iOS 사파리가 입력 칸에 포커스할 때 화면을 확대한다 */
+body .personal-editor textarea { font-size:16px; min-height:240px; }
+body .personal-benefits li p,body .personal-sample-description,body .personal-page > footer { font-size:14px; }
+/* 결과는 읽고 판단하는 도구 화면이라 입력 화면만큼 성기게 가지 않는다.
+   다만 넘어올 때 갑자기 조밀해지면 다른 화면처럼 느껴져, 머리말만 키운다. */
+body .career-result .result-heading h1 { font-size:38px; margin-top:6px; letter-spacing:-.04em; }
+body .career-result .result-heading > div > p:last-child { font-size:16px; margin-top:12px; }
+body .career-result .result-eyebrow { letter-spacing:.16em; }
 body .result-reset { font-size:14px; min-height:48px; }
 body .result-eyebrow { font-size:12px; }
+/* 공유 카드 고르기 */
+.share-picker { display:grid; gap:8px; margin-top:16px; }
+.share-picker legend { margin-bottom:10px; font-size:12px; font-weight:600; color:var(--body); }
+.share-picker label { display:flex; align-items:flex-start; gap:11px; padding:13px 15px; border:1px solid var(--hairline); border-radius:12px; background:var(--elevated); cursor:pointer; transition:border-color .15s,background .15s; }
+.share-picker label:hover { border-color:color-mix(in srgb,var(--link) 50%,transparent); background:var(--link-soft); }
+.share-picker label:has(input:checked) { border-color:var(--link); background:var(--link-soft); }
+.share-picker input { margin-top:2px; accent-color:var(--link); width:15px; height:15px; flex-shrink:0; }
+.share-picker span { display:flex; flex-direction:column; gap:3px; min-width:0; }
+.share-picker strong { display:flex; align-items:center; gap:7px; font-size:13px; font-weight:600; color:var(--ink); }
+.share-picker strong b { padding:2px 8px; border-radius:999px; background:var(--warning-soft); color:var(--warning); font-size:10px; font-weight:600; }
+.share-picker em { font-style:normal; font-size:12px; line-height:1.5; color:var(--mute); }
+.share-picker label:has(input:focus-visible) { outline:2px solid var(--link); outline-offset:2px; }
+
 .starting-point { margin:20px 0; padding:18px 22px; border:1px solid var(--hairline); border-radius:14px; background:var(--elevated); }
 .starting-point-top { display:flex; flex-wrap:wrap; align-items:center; gap:12px 24px; }
 .starting-point h2 { font-size:20px; font-weight:650; }
@@ -68,9 +83,9 @@ body .result-skills { margin-top:0; }
 .explorer-grid strong,.explorer-grid span { display:block; }
 .explorer-grid strong { font-size:18px; margin:5px 0; }
 .explorer-grid span { font-size:14px; color:var(--mute); }
-body .employer-page { max-width:1320px; padding-top:26px; }
+body .employer-page { max-width:1320px; padding-top:48px; }
 body .employer-header { display:flex; justify-content:space-between; align-items:center; gap:24px; }
-body .employer-header h1 { font-size:30px; }
+body .employer-header h1 { font-size:38px; letter-spacing:-.04em; }
 body .employer-header p { margin-top:4px; color:var(--mute); font-size:16px; }
 body .employer-workspace { margin-top:20px; }
 body .employer-workspace > nav { margin-bottom:16px; padding-bottom:12px; }
@@ -152,7 +167,7 @@ body .employer-page { padding-top:20px; }
 body .employer-workspace { margin-top:14px; }
 body .employer-metrics > div { padding:10px 18px; }
 
-body .personal-page:has(.career-result) { padding-top:26px; }
+body .personal-page:has(.career-result) { padding-top:48px; }
 .career-result > .content-tabs > .product-tabs { margin:20px 0; }
 .starting-point { display:flex; flex-wrap:wrap; justify-content:space-between; align-items:center; gap:10px 18px; padding:14px 20px; margin:0 0 20px; }
 .starting-point details { margin:0; }

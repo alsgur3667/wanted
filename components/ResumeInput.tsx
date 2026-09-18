@@ -9,6 +9,7 @@ import { INPUT_GUARD } from '@/lib/prompts/extract';
 import RouteSearchLoader from './RouteSearchLoader';
 import PrivacyNotice from './PrivacyNotice';
 import ResumeFileDrop from './ResumeFileDrop';
+import IllustrationSlot from './IllustrationSlot';
 
 
 
@@ -105,11 +106,10 @@ export default function ResumeInput({
   }
 
   return (
-    <div className="personal-input-layout">
-
-
+    <>
+      <div className="personal-input-layout">
       <section className="personal-editor" aria-labelledby="experience-title">
-        <p className="personal-kicker">STEP 01</p>
+        <p className="personal-kicker">01 · EXPERIENCE</p>
         <h2 id="experience-title">어떤 경험을 해오셨나요?</h2>
         <p className="mt-1 text-[12px] leading-[1.6] text-mute">
           경력이 없어도 괜찮아요. <strong className="font-medium text-ink">팀 프로젝트 · 인턴 · 전공 수업 · 동아리</strong> 경험도 그대로 분석됩니다.
@@ -177,33 +177,52 @@ export default function ResumeInput({
           나의 커리어 경로 찾기 <ArrowRight size={18} aria-hidden />
         </button>
       </section>
-      <aside className="personal-sidebar">
-        <section className="personal-expectations">
-          <p className="personal-kicker">YOUR NEXT CHAPTER</p>
-          <h2>경험을 입력하면<br />이런 것을 알 수 있어요.</h2>
-          <ul>
-            <li><ScanText size={19} aria-hidden /><div><h3>경험 속 나의 강점</h3><p>해온 일에서 발견한 역량과 그 근거</p></div></li>
-            <li><Route size={19} aria-hidden /><div><h3>연결되는 커리어 경로</h3><p>나의 역량을 활용할 수 있는 직무</p></div></li>
-            <li><Compass size={19} aria-hidden /><div><h3>다음 도전을 위한 준비</h3><p>직무별 역량 차이와 보완할 부분</p></div></li>
-          </ul>
-        </section>
-        <section className="personal-samples">
-        <h2>먼저 결과가 궁금하다면</h2>
-        <p className="personal-sample-description">준비된 예시로 분석 결과를 둘러보세요.</p>
-        <div className="personal-sample-list">
-          {SAMPLE_PROFILES.filter(sample => sample.id !== 'sp_marketer').map((s) => (
-            <button
-              key={s.id}
-              onClick={() => showSample(s.cachedResult)}
-              className="rounded-lg border border-hairline bg-elevated p-3.5 text-left transition-colors hover:border-link/50 hover:bg-link-soft"
-            >
-              <span className="flex items-center justify-between gap-3 text-sm font-medium">{s.label}<ArrowRight size={15} aria-hidden /></span>
-              <span className="mt-1 block text-[12px] text-mute">{s.hint}</span>
-            </button>
-          ))}
-        </div>
-        </section>
+      {/* 입력 칸 옆 — 시안의 그 자리. 그림과 한 줄이 들어간다.
+          여기는 읽을 거리를 늘리는 자리가 아니다. 입력에 집중하도록
+          비워 두되, 무엇을 하는 중인지만 한 줄로 상기시킨다. */}
+      <aside className="personal-editor-aside">
+        <IllustrationSlot
+          name="experience-analysis"
+          alt="입력한 경험이 역량 카드로 정리되는 모습"
+          ratio="4 / 3"
+          hint="1200 × 900 · 배경 투명"
+        />
+        <p className="personal-aside-line">당신의 경험이<br />더 큰 가능성이 되는 순간</p>
+        <p className="personal-aside-sub">FROM EXPERIENCE TO OPPORTUNITY</p>
       </aside>
-    </div>
+      </div>
+
+      {/* 시안의 '이런 점이 특별해요'. 원래는 오른쪽 세로 사이드바였는데,
+          가로로 펴면 랜딩의 섹션 리듬과 이어진다. */}
+      <section className="personal-benefits" aria-labelledby="benefits-title">
+        <div className="personal-benefits-heading">
+          <span className="personal-section-number">02</span>
+          <h2 id="benefits-title">이런 점이<br />특별해요</h2>
+        </div>
+        <ul>
+          <li><span><ScanText size={20} aria-hidden /></span><div><h3>경험 속 나의 강점</h3><p>해온 일에서 발견한 역량과 그 근거를 함께 보여드립니다.</p></div></li>
+          <li><span><Route size={20} aria-hidden /></span><div><h3>연결되는 커리어 경로</h3><p>나의 역량을 활용할 수 있는 직무와 그 이유를 제안합니다.</p></div></li>
+          <li><span><Compass size={20} aria-hidden /></span><div><h3>다음 도전을 위한 준비</h3><p>직무별 역량 차이와 지금 보완할 부분을 짚어드립니다.</p></div></li>
+        </ul>
+      </section>
+
+      <section className="personal-samples" aria-labelledby="samples-title">
+        <div className="personal-benefits-heading">
+          <span className="personal-section-number">03</span>
+          <h2 id="samples-title">먼저 결과가<br />궁금하다면</h2>
+        </div>
+        <div>
+          <p className="personal-sample-description">준비된 예시로 분석 결과를 둘러보세요. 입력 없이 바로 열립니다.</p>
+          <div className="personal-sample-list">
+            {SAMPLE_PROFILES.filter(sample => sample.id !== 'sp_marketer').map((s) => (
+              <button key={s.id} onClick={() => showSample(s.cachedResult)}>
+                <span>{s.label}<ArrowRight size={15} aria-hidden /></span>
+                <span>{s.hint}</span>
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

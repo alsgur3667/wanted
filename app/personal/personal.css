@@ -1,60 +1,147 @@
-.personal-page { max-width:1180px; margin:0 auto; padding:38px 32px 28px; }
-.personal-intro h1 { margin-top:18px; font-size:clamp(28px,3.1vw,40px); font-weight:650; line-height:1.3; letter-spacing:-.045em; }
-.personal-intro > p { font-size:14px; line-height:1.8; margin-top:16px; }
-@media (min-width:951px) {
-  .personal-intro { display:grid; grid-template-columns:1.1fr 1fr; gap:0 40px; align-items:end; }
-  .personal-intro > a { grid-column:1 / -1; justify-self:start; }
-  .personal-intro h1 { font-size:36px; }
-  .personal-intro > p { margin-bottom:5px; max-width:440px; }
+/* ============================================================================
+   개인 · 경험 입력 화면
+
+   랜딩은 사진과 큰 여백으로 가는데 이 화면만 조밀한 제품 UI였다.
+   로그인을 넘는 순간 다른 서비스처럼 보인다는 지적을 받고 톤을 맞췄다.
+
+   색은 바꾸지 않는다 — 크림 바탕은 globals.css 의 토큰에서 오고,
+   청록은 여전히 '가진 것', 앰버는 '원래 안 보이던 것'이다. 여기서 바꾸는 것은
+   크기·여백·리듬뿐이다.
+   ========================================================================== */
+
+/* ⚠️ 여기에 overflow-x:clip 을 걸면 안 된다. 히어로 그림을 화면 끝까지
+   흘려보내는데, 그 자르기가 페이지 테두리에서 일어나 내가 만든 넘침을
+   내가 잘라내게 된다. 가로 스크롤바 방지는 globals.css 의 body 가 맡는다. */
+.personal-page { max-width:1240px; margin:0 auto; padding:56px 40px 40px; }
+
+/* ── 머리말 ─────────────────────────────────────────────────────────────── */
+.personal-intro { display:grid; grid-template-columns:.74fr 1.26fr; gap:32px; align-items:center; }
+.personal-back { font-size:12px; color:var(--faint); transition:color .15s; }
+.personal-back:hover { color:var(--ink); }
+.personal-eyebrow { margin-top:26px; font-size:11px; font-weight:600; letter-spacing:.22em; color:var(--link); }
+.personal-intro h1 { margin-top:18px; font-size:clamp(32px,3.6vw,48px); font-weight:680; line-height:1.28; letter-spacing:-.045em; word-break:keep-all; }
+.personal-intro-lead { margin-top:20px; font-size:15px; line-height:1.85; color:var(--body); word-break:keep-all; }
+/* ── 히어로 그림 ────────────────────────────────────────────────────────────
+   카드에 담지 않는다. 테두리와 둥근 모서리가 있으면 '페이지에 붙인 사진'으로
+   보이는데, 여기서 원하는 건 배경처럼 깔리는 것이다.
+
+   ① 오른쪽은 화면 끝까지 흘려보낸다. 컨테이너(1240px)에서 잘리면 거기가
+      끝처럼 보여, 아무리 흐려도 붙인 티가 난다.
+   ② 왼쪽과 아래는 mask 로 지운다. 배경색을 덮는 그라데이션을 얹는 방법도
+      있지만, 그러면 배경이 바뀔 때마다 그 색을 따라 고쳐야 한다.
+      mask 는 픽셀 자체를 투명하게 만들어서 배경이 무엇이든 맞는다.
+   ③ 두 방향을 동시에 지우려면 mask 를 두 장 겹쳐 교집합을 낸다.
+      (webkit 은 source-in, 표준은 intersect — 이름만 다르고 같은 뜻이다)
+   ────────────────────────────────────────────────────────────────────────── */
+.personal-intro-art { width:100%; margin-top:-56px; margin-bottom:-40px; }
+.personal-intro-art.is-ready {
+  border-radius:0;
+  /* ⚠️ width 를 auto 로 풀어야 한다. 100% 로 두면 폭이 칸에 고정되어
+     아래 음수 마진이 상자를 넓히지 못하고, 그림이 칸 안에 갇힌다. */
+  width:auto;
+  margin-right:calc(-1 * ((100vw - min(1240px, 100vw)) / 2 + 40px));
+  -webkit-mask-image:linear-gradient(to right, transparent 0%, #000 34%),linear-gradient(to bottom, transparent 0%, #000 16%, #000 62%, transparent 100%);
+  -webkit-mask-composite:source-in;
+  mask-image:linear-gradient(to right, transparent 0%, #000 34%),linear-gradient(to bottom, transparent 0%, #000 16%, #000 62%, transparent 100%);
+  mask-composite:intersect;
 }
-.personal-progress { display:flex; align-items:center; gap:32px; margin-top:30px; padding:18px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
-.personal-progress li { display:flex; align-items:center; gap:9px; font-size:12px; color:var(--mute); }
-.personal-progress span { font-size:10px; font-weight:600; font-variant-numeric:tabular-nums; }
-.personal-progress [aria-current] { color:var(--link); font-weight:600; }
-.personal-progress [aria-current] span { display:grid; place-items:center; width:26px; height:26px; border-radius:50%; background:var(--link-soft); }
-.personal-content { margin-top:28px; }
-.personal-input-layout { display:grid; grid-template-columns:minmax(0,1fr) 310px; gap:30px; align-items:start; }
-.personal-editor { grid-column:1; grid-row:1; padding:30px; border:1px solid var(--hairline); border-radius:20px; background:var(--elevated); box-shadow:0 8px 32px #172e2404; }
-.personal-kicker { font-size:10px; font-weight:600; letter-spacing:.13em; color:var(--link); }
-.personal-editor > h2 { margin-top:8px; margin-bottom:8px; font-size:23px; font-weight:650; letter-spacing:-.035em; }
-.personal-file-drop { margin-top:22px; }
-.personal-file-drop > div > div:first-child { border-radius:12px; padding:22px 16px; background:var(--canvas); border-color:color-mix(in srgb,var(--link) 30%,var(--hairline)); }
-.personal-file-drop button { min-height:30px; }
-.personal-editor textarea { border-radius:12px; background:var(--canvas); font-size:13px; line-height:1.8; padding:18px; margin-top:10px; }
+.personal-intro-art.is-ready > img { object-fit:cover; object-position:62% center; }
+
+/* ── 진행 표시 ──────────────────────────────────────────────────────────── */
+.personal-progress { display:flex; align-items:center; gap:0; margin-top:52px; padding:22px 0; border-top:1px solid var(--hairline); border-bottom:1px solid var(--hairline); }
+.personal-progress li { flex:1; display:flex; align-items:center; gap:14px; font-size:13px; color:var(--mute); }
+.personal-progress span { font-size:20px; font-weight:600; font-variant-numeric:tabular-nums; color:var(--faint); letter-spacing:-.03em; }
+.personal-progress [aria-current] { color:var(--ink); font-weight:600; }
+.personal-progress [aria-current] span { color:var(--link); }
+
+.personal-content { margin-top:56px; }
+
+/* ── 입력 카드 ──────────────────────────────────────────────────────────── */
+.personal-input-layout { display:grid; grid-template-columns:minmax(0,1fr) 340px; gap:0; align-items:stretch; border:1px solid var(--hairline); border-radius:24px; background:var(--elevated); overflow:hidden; }
+.personal-editor { padding:44px; }
+.personal-kicker { font-size:11px; font-weight:600; letter-spacing:.16em; color:var(--link); }
+.personal-editor > h2 { margin-top:14px; margin-bottom:10px; font-size:28px; font-weight:660; letter-spacing:-.04em; }
+.personal-file-drop { margin-top:24px; }
+.personal-file-drop > div > div:first-child { border-radius:14px; padding:30px 18px; background:var(--canvas); border-color:color-mix(in srgb,var(--link) 26%,var(--hairline)); }
+.personal-editor textarea { border-radius:14px; background:var(--canvas); font-size:14px; line-height:1.85; padding:20px; margin-top:10px; }
 .personal-editor textarea:focus-visible { outline:3px solid color-mix(in srgb,var(--link) 13%,transparent); outline-offset:1px; }
-.personal-editor > section { border-radius:12px; background:var(--canvas); margin-top:20px; }
-.personal-analyze { display:flex; align-items:center; justify-content:center; gap:10px; width:100%; min-height:52px; margin-top:22px; border-radius:11px; background:var(--link); color:var(--canvas); font-size:14px; font-weight:600; cursor:pointer; transition:opacity .15s; }
-.personal-analyze:hover { opacity:.88; }
-.personal-sidebar { grid-column:2; grid-row:1; }
-.personal-expectations { padding:26px 24px; border-radius:18px; background:linear-gradient(145deg,var(--link-soft),color-mix(in srgb,var(--link) 3%,var(--canvas))); }
-.personal-expectations h2 { margin-top:14px; font-size:22px; line-height:1.45; letter-spacing:-.035em; font-weight:600; }
-.personal-expectations ul { display:grid; gap:24px; margin-top:26px; }
-.personal-expectations li { display:flex; gap:13px; }
-.personal-expectations svg { flex-shrink:0; margin-top:2px; color:var(--link); }
-.personal-expectations h3 { font-size:13px; font-weight:600; }
-.personal-expectations li p { margin-top:5px; font-size:12px; line-height:1.6; color:var(--mute); word-break:keep-all; }
-.personal-samples { margin-top:30px; }
-.personal-samples > h2 { font-size:15px; font-weight:600; letter-spacing:-.02em; }
-.personal-sample-description { margin-top:6px; font-size:12px; color:var(--mute); }
-.personal-sample-list { display:grid; gap:10px; margin-top:16px; }
-.personal-sample-list button { border-radius:12px; padding:16px; }
-.personal-sample-list button svg { color:var(--link); }
+.personal-editor > section { border-radius:14px; background:var(--canvas); margin-top:22px; }
+.personal-analyze { display:flex; align-items:center; justify-content:center; gap:10px; min-width:230px; min-height:56px; margin-top:26px; padding-inline:26px; border-radius:13px; background:var(--ink); color:var(--elevated); font-size:15px; font-weight:600; cursor:pointer; transition:opacity .15s; }
+.personal-analyze:hover { opacity:.86; }
+
+/* 입력 칸 옆. 크림 바탕으로 한 단계 눌러 카드 안에서 구역이 나뉘어 보이게 한다 */
+.personal-editor-aside { display:flex; flex-direction:column; justify-content:center; gap:0; padding:44px 36px; background:var(--canvas); border-left:1px solid var(--hairline); }
+.personal-aside-line { margin-top:34px; font-size:19px; font-weight:600; line-height:1.6; letter-spacing:-.035em; color:var(--ink); word-break:keep-all; }
+.personal-aside-sub { margin-top:12px; font-size:10px; font-weight:600; letter-spacing:.2em; color:var(--faint); }
+
+/* ── 아래 두 섹션 ───────────────────────────────────────────────────────── */
+.personal-benefits,.personal-samples { display:grid; grid-template-columns:280px minmax(0,1fr); gap:56px; margin-top:76px; padding-top:44px; border-top:1px solid var(--hairline); }
+.personal-section-number { display:block; font-size:12px; font-weight:600; letter-spacing:.12em; color:var(--faint); }
+.personal-benefits-heading h2 { margin-top:18px; font-size:28px; font-weight:660; line-height:1.4; letter-spacing:-.04em; }
+.personal-benefits ul { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:34px; }
+.personal-benefits li > span { display:grid; place-items:center; width:46px; height:46px; border-radius:50%; background:var(--link-soft); color:var(--link); }
+.personal-benefits h3 { margin-top:20px; font-size:15px; font-weight:600; letter-spacing:-.02em; }
+.personal-benefits li p { margin-top:9px; font-size:13px; line-height:1.75; color:var(--mute); word-break:keep-all; }
+.personal-sample-description { font-size:13px; line-height:1.75; color:var(--mute); }
+.personal-sample-list { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:20px; }
+.personal-sample-list button { display:block; padding:20px; text-align:left; border:1px solid var(--hairline); border-radius:14px; background:var(--elevated); transition:border-color .15s,background .15s; }
+.personal-sample-list button:hover { border-color:color-mix(in srgb,var(--link) 50%,transparent); background:var(--link-soft); }
+.personal-sample-list button > span:first-child { display:flex; align-items:center; justify-content:space-between; gap:12px; font-size:14px; font-weight:600; letter-spacing:-.02em; }
+.personal-sample-list button > span:last-child { display:block; margin-top:7px; font-size:12px; line-height:1.6; color:var(--mute); }
+
+/* ── 일러스트 자리 ──────────────────────────────────────────────────────── */
+.illustration-slot { position:relative; width:100%; border-radius:18px; overflow:hidden; }
+.illustration-slot.is-ready > img { object-fit:contain; }
+.illustration-slot.is-empty { display:grid; place-items:center; padding:20px; text-align:center; border:1px dashed color-mix(in srgb,var(--link) 34%,var(--hairline)); background:color-mix(in srgb,var(--link) 4%,var(--canvas)); }
+.illustration-empty-path { font-family:var(--font-mono,monospace); font-size:11px; color:var(--link); word-break:break-all; }
+.illustration-empty-hint { margin-top:8px; font-size:11px; font-weight:600; color:var(--body); }
+.illustration-empty-alt { margin-top:10px; max-width:30ch; font-size:11px; line-height:1.6; color:var(--faint); word-break:keep-all; }
+
 .personal-page button:focus-visible,.personal-page a:focus-visible { outline:2px solid var(--link); outline-offset:3px; }
-.personal-page > footer { margin-top:32px; font-size:11px; }
-@media (max-width:950px) { .personal-input-layout { grid-template-columns:minmax(0,1fr) 270px; gap:20px; } .personal-editor { padding:24px; } .personal-expectations { padding:24px 18px; } }
-@media (max-width:760px) {
-  .personal-page { padding:26px 20px; }
-  .personal-intro h1 { font-size:30px; }
-  .personal-intro > p { font-size:13px; }
-  .personal-progress { gap:18px; justify-content:space-between; margin-top:24px; padding:14px 0; }
-  .personal-progress li { font-size:11px; gap:5px; }
-  .personal-progress [aria-current] span { width:22px; height:22px; }
-  .personal-input-layout { display:flex; flex-direction:column; gap:28px; }
-  .personal-editor { order:0; width:100%; padding:22px 18px; border-radius:16px; }
-  .personal-sidebar { order:1; width:100%; }
-  .personal-editor > h2 { font-size:21px; }
-  .personal-expectations h2 br { display:none; }
-  .personal-expectations h2 { font-size:20px; }
-  .personal-sample-list { grid-template-columns:repeat(2,minmax(0,1fr)); }
+.personal-page > footer { margin-top:80px; font-size:11px; }
+
+/* ── 좁은 화면 ──────────────────────────────────────────────────────────── */
+@media (max-width:1100px) {
+  .personal-input-layout { grid-template-columns:minmax(0,1fr) 290px; }
+  .personal-editor { padding:36px; }
+  .personal-editor-aside { padding:36px 26px; }
+  .personal-benefits,.personal-samples { grid-template-columns:220px minmax(0,1fr); gap:38px; }
+  .personal-benefits ul { gap:24px; }
 }
-@media (max-width:420px) { .personal-progress { gap:8px; } .personal-progress li { font-size:10px; } .personal-sample-list { grid-template-columns:1fr; } }
+@media (max-width:900px) {
+  .personal-page { padding:40px 28px 32px; }
+  .personal-intro { grid-template-columns:1fr; gap:34px; }
+  /* 그림이 먼저 오면 제목을 읽기 전에 장식부터 본다 */
+  .personal-intro-art { order:2; margin-top:0; }
+  /* 좁은 화면에서는 왼쪽 36%까지 지우면 그림이 거의 안 남는다.
+     양옆으로 흘려보내고 아래만 녹인다. */
+  .personal-intro-art.is-ready {
+    margin-inline:-28px;
+    -webkit-mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
+    -webkit-mask-composite:source-over;
+    mask-image:linear-gradient(to bottom, #000 62%, transparent 100%);
+    mask-composite:add;
+  }
+  .personal-progress { margin-top:38px; }
+  .personal-content { margin-top:38px; }
+  .personal-input-layout { grid-template-columns:1fr; }
+  .personal-editor-aside { border-left:0; border-top:1px solid var(--hairline); }
+  .personal-benefits,.personal-samples { grid-template-columns:1fr; gap:26px; margin-top:56px; }
+  .personal-benefits ul { grid-template-columns:1fr; gap:26px; }
+  .personal-benefits li { display:flex; gap:18px; align-items:flex-start; }
+  .personal-benefits li > span { flex-shrink:0; width:42px; height:42px; }
+  .personal-benefits h3 { margin-top:0; }
+}
+@media (max-width:760px) {
+  .personal-page { padding:30px 20px 28px; }
+  .personal-intro h1 { font-size:30px; }
+  .personal-intro-lead { font-size:14px; }
+  .personal-editor { padding:26px 20px; }
+  .personal-editor > h2 { font-size:23px; }
+  .personal-editor-aside { padding:28px 20px; }
+  .personal-analyze { width:100%; }
+  .personal-progress { flex-direction:column; align-items:flex-start; gap:14px; padding:18px 0; }
+  .personal-progress li { flex:none; gap:12px; }
+  .personal-progress span { font-size:17px; }
+  .personal-sample-list { grid-template-columns:1fr; }
+}
