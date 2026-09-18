@@ -18,7 +18,12 @@ import JobExplorer from '@/components/JobExplorer';
 import ShareButton from '@/components/ShareButton';
 import RouteAccordionV2 from './RouteAccordionV2';
 import SkillGroupsV2 from './SkillGroupsV2';
-import CareerMapV2, { placeRoutes } from './CareerMapV2';
+// 지도는 로그인·로딩 화면과 같은 CareerMap 을 쓴다. 세 화면의 지도가 같은
+// 그림이어야 "아까 본 그 지도에 내 결과가 찍혔다"로 읽힌다.
+// 배치 계산(placeRoutes)만 V2 것을 가져온다 — 적합도로 거리를 정하는 규칙이라
+// 범례의 "가까울수록 적합도가 높습니다"가 여기에 달려 있다.
+import CareerMap from '@/components/CareerMap';
+import { placeRoutes } from './CareerMapV2';
 
 export default function ResultViewV2({ result, onReset }: { result: AnalysisResult; onReset: () => void }) {
   const { currentPosition, skills, routes } = result;
@@ -71,7 +76,20 @@ export default function ResultViewV2({ result, onReset }: { result: AnalysisResu
           <p className="start-note">입력된 경험을 바탕으로 한 탐색 결과입니다. 직무별 요구 역량과 근거를 함께 확인해주세요.</p>
         </div>
         <div className="map-card">
-          <CareerMapV2 destinations={mapRoutes} originLabel={currentPosition.jobTitle} className="map-svg" />
+          {/* ⚠️ animated={false} 는 의도다. 로그인·로딩의 지도는 8초마다 다시 그리며
+              "탐색 중"을 보여 주지만, 여기 찍힌 셋은 이미 확정된 추천 결과다.
+              계속 다시 그리면 아직 계산 중인 값처럼 읽힌다. */}
+          <CareerMap
+            destinations={mapRoutes}
+            originLabel={currentPosition.jobTitle}
+            animated={false}
+            animateBase={false}
+            /* 기본 viewBox 는 히어로용 전체 지도라 이 카드에서는 위아래가 잘린다.
+               'login' 은 내용에 맞춰 좁게 자른 크롭이라 카드에 들어맞고,
+               로그인 화면과 같은 프레임이 되어 두 지도가 한 그림으로 읽힌다. */
+            presentation="login"
+            className="map-svg"
+          />
           <div className="map-legend">
             <span><i className="teal" />추천 경로 · 링은 필수 역량 보유 비율</span>
             <span><i className="amber" />이 길도 있어요</span>

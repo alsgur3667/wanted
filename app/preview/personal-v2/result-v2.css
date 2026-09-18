@@ -19,8 +19,11 @@
 .result-v2 .start-stats b { font-size: 30px; line-height: 1; }
 .result-v2 .start-stats span { font-size: 12px; color: var(--mute); }
 .result-v2 .start-note { margin-top: auto; padding-top: 20px; font-size: 12px; line-height: 1.7; color: var(--mute); }
-.result-v2 .map-card { position: relative; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); padding: 16px 16px 12px; overflow: hidden; display: flex; flex-direction: column; }
-.result-v2 .map-svg { width: 100%; height: auto; flex: 1; }
+.result-v2 .map-card { position: relative; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); padding: 16px 16px 12px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
+/* ⚠️ flex:1 을 주지 않는다. 남는 높이만큼 SVG 를 늘리면 viewBox 비율과 어긋나
+   지도가 카드 밖으로 삐져나가거나 위아래가 잘린다. 제 비율대로 두고
+   남는 공간은 카드가 가운데로 모은다(justify-content). */
+.result-v2 .map-svg { width: 100%; height: auto; flex: 0 0 auto; }
 .result-v2 .map-legend { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 8px 8px 0; font-size: 12px; color: var(--mute); }
 .result-v2 .map-legend span { display: inline-flex; align-items: center; gap: 6px; }
 .result-v2 .map-legend i { width: 18px; height: 3px; border-radius: 2px; }
