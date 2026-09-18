@@ -70,9 +70,11 @@
 .employer-v2 .cand-skills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; list-style: none; padding: 0; }
 .employer-v2 .cand-skills li { padding: 4px 9px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-deep); font-size: 11px; font-weight: 500; }
 .employer-v2 .cand-side { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-.employer-v2 .ring { position: relative; width: 52px; height: 52px; display: grid; place-items: center; }
-.employer-v2 .ring svg { position: absolute; inset: 0; }
-.employer-v2 .ring b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+/* ⚠️ 'ring' 이 아니라 'fit-ring' 이다 — Tailwind v4 의 동명 유틸리티가
+   box-shadow: 0 0 0 1px 을 붙여 도넛 둘레에 검은 네모를 만든다. */
+.employer-v2 .fit-ring { position: relative; width: 52px; height: 52px; display: grid; place-items: center; }
+.employer-v2 .fit-ring svg { position: absolute; inset: 0; }
+.employer-v2 .fit-ring b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
 .employer-v2 .stage { padding: 4px 8px; border-radius: var(--r-sm); background: var(--hairline-soft); font-size: 11px; color: var(--body); white-space: nowrap; }
 .employer-v2 .cand-action { grid-column: 1 / -1; display: inline-flex; align-items: center; justify-content: flex-end; gap: 4px; margin-top: 4px; padding-top: 10px; border-top: 1px solid var(--hairline); font-size: 12px; font-weight: 600; color: var(--brand); }
 

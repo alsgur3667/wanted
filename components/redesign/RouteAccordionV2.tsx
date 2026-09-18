@@ -43,7 +43,7 @@ export default function RouteAccordionV2({ route, mySkills, rank }: { route: Rou
         </div>
         <div className="route-side">
           {detail && detail.mustTotal > 0 && (
-            <div className="ring" aria-hidden>
+            <div className="fit-ring" aria-hidden>
               <svg viewBox="0 0 56 56" width="56" height="56">
                 <circle cx="28" cy="28" r={R} fill="none" stroke="var(--hairline)" strokeWidth="4" />
                 <circle cx="28" cy="28" r={R} fill="none" stroke={route.isHiddenRoute ? 'var(--sun)' : 'var(--brand)'} strokeWidth="4" strokeLinecap="round" strokeDasharray={`${C * ratio} ${C}`} transform="rotate(-90 28 28)" />

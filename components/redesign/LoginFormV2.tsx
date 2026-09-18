@@ -14,8 +14,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Loader2 } from 'lucide-react';
 import { DEMO_ACCOUNTS, isRole, ROLES, signIn, verifyDemoCredentials, type Role } from '@/lib/demo-auth';
-import { DESTINATIONS } from '@/lib/career-map';
-import CareerMapV2 from './CareerMapV2';
+import LoginJourney from '@/components/LoginJourney';
 
 const STEPS: Record<Role, [string, string][]> = {
   personal: [['경험 정리', '이력서에서 나의 역량을 발견해요.'], ['경로 탐색', '연결되는 직무와 이유를 살펴봐요.'], ['다음 단계', '부족한 역량과 준비 방향을 확인해요.']],
@@ -57,9 +56,13 @@ export default function LoginFormV2({ nextOverride }: { nextOverride?: Partial<R
           <span className="overline">{personal ? 'For your next chapter' : 'For your next team'}</span>
           <h2 className="hd">{personal ? <>쌓아온 경험이,<br />새로운 길의 시작이 되도록.</> : <>직무명보다 깊이,<br />우리 팀에 맞는 역량을.</>}</h2>
           <p className="login-copy">{personal ? '이력서 속 강점부터 미처 생각하지 못한 직무까지. 나의 경험으로 이어지는 다음 커리어를 살펴보세요.' : '채용 조건을 역량으로 정리하고, 다양한 경험을 가진 후보자가 우리 팀과 어떻게 연결되는지 살펴보세요.'}</p>
+          {/* ⚠️ CareerMapV2 로 되돌리지 말 것.
+              CareerMapV2 는 고정된 목적지를 한 번 그리고 멈춘다. 기존 LoginJourney 는
+              8초마다 위치와 직무를 새로 뽑아 다시 그리고, 겹침을 피하는 배치와
+              일시정지 버튼, 동작 줄이기 설정까지 함께 가지고 있다.
+              v5 인수인계 문서도 로그인은 이 컴포넌트를 쓰라고 못박고 있다. */}
           <div className="login-map">
-            <CareerMapV2 key={role} destinations={DESTINATIONS} originLabel={personal ? '나의 경험' : 'Career Navi'} direction={personal ? 'outgoing' : 'incoming'} compact />
-            <span className="login-map-caption">{personal ? '나의 경험에서 새로운 직무로' : '다양한 경험을 가진 인재가 Career Navi로'} · 서비스 이해를 위한 예시</span>
+            <LoginJourney role={role} />
           </div>
           <ol className="login-steps">
             {STEPS[role].map(([title, desc], i) => (

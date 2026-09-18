@@ -6,18 +6,25 @@
    모든 규칙은 .navi-v2 아래로 한정한다.
    ========================================================================== */
 
-/* 미리보기 라우트에서는 기존 상단 바를 숨기고 RedesignHeader 를 쓴다.
-   layout.tsx 를 수정하지 않기 위한 임시 조치 — 정식 반영 시 SiteHeader 를 교체한다. */
+/* 이 화면들은 RedesignHeader 를 직접 그리므로 기존 상단 바를 숨긴다.
+   layout.tsx 의 SiteHeader 는 랜딩('/')에서만 제 몫을 한다. */
 body:has(.navi-v2) .product-header { display: none; }
-body:has(.navi-v2) { background: #f7f4ee; }
+/* 페이지 바깥 여백까지 같은 바탕으로. 아래 --canvas 와 같은 값이어야
+   스크롤 끝에서 다른 색 띠가 드러나지 않는다. */
+body:has(.navi-v2) { background: #f5f8f6; }
 /* product.css 가 main 에 16px 를 강제한다 — 리디자인 본문은 15px */
 .navi-v2 main.v2-main { font-size: 15px; line-height: 1.75; }
 
 .navi-v2 {
   /* 토큰 — 디자인 시스템 tokens.json 과 같은 값. globals.css 의 이름을 덮어써
      기존 유틸리티(text-ink 등)도 이 안에서는 웜 팔레트를 따른다. */
-  --canvas: #f7f4ee; --canvas-alt: #f1ede6; --elevated: #fcfaf5; --field: #fff;
-  --hairline: #e4ded4; --hairline-soft: #ede8e0;
+  /* 바탕은 랜딩과 같은 계열로 맞춘다.
+     글자색·브랜드색은 원래부터 랜딩과 같은 값이었고, 어긋나 보이던 것은
+     바탕뿐이었다 — 랜딩은 흰색과 민트빛 회색(#fff·#f5f8f6)인데
+     제품 화면만 베이지(#f7f4ee)였다. 로그인을 넘는 순간 톤이 바뀌어 보였다.
+     canvas 는 랜딩의 섹션 바탕과 같은 값을 쓰고, 카드는 흰색으로 띄운다. */
+  --canvas: #f5f8f6; --canvas-alt: #eaf1ed; --elevated: #ffffff; --field: #fff;
+  --hairline: #e1eae5; --hairline-soft: #eef3f1;
   --ink: #192524; --body: #526260; --mute: #687875; --faint: #8a9490; --on-ink: #fff;
   --brand: #087f70; --brand-deep: #086759; --brand-soft: #e9f5f1; --navy: #0f1821;
   --sun: #b8793a; --sun-deep: #8a5a26; --sun-soft: #f6e9d8;

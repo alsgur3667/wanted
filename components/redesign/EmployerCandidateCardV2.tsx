@@ -29,7 +29,10 @@ export default function EmployerCandidateCardV2({ match, selected, onSelect }: {
         <ul className="cand-skills">{skillNames(match.matchedSkillIds).slice(0, 4).map((n) => <li key={n}>{n}</li>)}</ul>
       </div>
       <div className="cand-side">
-        <span className="ring" aria-label={`적합도 ${match.fitScore}`}>
+        {/* ⚠️ 클래스 이름을 'ring' 으로 되돌리지 말 것.
+            Tailwind v4 에 같은 이름의 유틸리티가 있어 box-shadow: 0 0 0 1px 이
+            자동으로 붙는다. 도넛 둘레에 검은 네모가 생긴다. */}
+        <span className="fit-ring" aria-label={`적합도 ${match.fitScore}`}>
           <svg viewBox="0 0 52 52" width="52" height="52" aria-hidden>
             <circle cx="26" cy="26" r={R} fill="none" stroke="var(--hairline)" strokeWidth="4" />
             <circle cx="26" cy="26" r={R} fill="none" stroke={match.isDifferentRole ? 'var(--sun)' : 'var(--brand)'} strokeWidth="4" strokeLinecap="round" strokeDasharray={`${C * match.fitScore / 100} ${C}`} transform="rotate(-90 26 26)" />

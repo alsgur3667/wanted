@@ -27,9 +27,12 @@ export default function RedesignHeader({ active }: { active?: 'personal' | 'empl
           <NaviMark className="size-7" />
           <span>Career <b>Navi</b></span>
         </Link>
+        {/* 제품 화면에서는 '개인·기업 서비스'가 소개가 아니라 입구다.
+            랜딩 앵커로 보내면 이미 들어온 사람을 다시 소개 글로 내보내는 셈이라,
+            바로 그 역할의 로그인으로 보낸다. 랜딩 헤더는 소개가 목적이므로 앵커 그대로 둔다. */}
         <nav className="site-nav" aria-label="서비스 안내">
-          <Link href="/#personal" className={active === 'personal' ? 'on' : undefined}>개인 서비스</Link>
-          <Link href="/#employer" className={active === 'employer' ? 'on' : undefined}>기업 서비스</Link>
+          <Link href="/login?role=personal" className={active === 'personal' ? 'on' : undefined}>개인 서비스</Link>
+          <Link href="/login?role=employer" className={active === 'employer' ? 'on' : undefined}>기업 서비스</Link>
           <Link href="/#evidence">추천의 근거</Link>
           <Link href="/companies" className={active === 'companies' ? 'on' : undefined}>회사·공고</Link>
         </nav>

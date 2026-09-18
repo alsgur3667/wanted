@@ -60,10 +60,12 @@
 .route-v2 .route-preview-v2 .held { background: var(--brand-soft); color: var(--brand-deep); }
 .route-v2 .route-preview-v2 .gap { background: #fff4dd; color: #8a5a26; }
 .route-v2 .route-side { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 96px; }
-.route-v2 .ring { position: relative; width: 56px; height: 56px; display: grid; place-items: center; }
-.route-v2 .ring svg { position: absolute; inset: 0; }
-.route-v2 .ring b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
-.route-v2 .ring small { font-size: 10px; color: var(--mute); font-weight: 500; }
+/* ⚠️ 이름이 'fit-ring' 인 이유 — Tailwind v4 에 'ring' 유틸리티가 있어서
+   그 이름을 쓰면 box-shadow: 0 0 0 1px 이 자동으로 붙고 검은 네모가 생긴다. */
+.route-v2 .fit-ring { position: relative; width: 56px; height: 56px; display: grid; place-items: center; }
+.route-v2 .fit-ring svg { position: absolute; inset: 0; }
+.route-v2 .fit-ring b { font-size: 15px; font-weight: 700; color: var(--ink); font-variant-numeric: tabular-nums; }
+.route-v2 .fit-ring small { font-size: 10px; color: var(--mute); font-weight: 500; }
 .route-v2 .route-summary { font-size: 11px; color: var(--mute); white-space: nowrap; }
 .route-v2 .route-action { display: inline-flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 600; color: var(--brand); white-space: nowrap; }
 .route-v2.is-open .route-action svg { transform: rotate(180deg); }
