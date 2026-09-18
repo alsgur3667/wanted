@@ -1,0 +1,21 @@
+import { createRoot } from 'react-dom/client';
+import LoginJourney from '@/components/LoginJourney';
+import RouteSearchLoader from '@/components/RouteSearchLoader';
+
+// Preview adapter only. The SVG, random scenes, directions and animation clocks
+// come directly from the project's existing components without modification.
+const roots = new Set<ReturnType<typeof createRoot>>();
+window.NaviPreview = {
+  clear() { roots.forEach(root => root.unmount()); roots.clear(); },
+  mount(element: HTMLElement, kind: 'personal' | 'employer' | 'loading' | 'complete') {
+    const root = createRoot(element);
+    roots.add(root);
+    if (kind === 'loading' || kind === 'complete') {
+      root.render(<RouteSearchLoader ready={kind === 'complete'} focusOnMount={false}
+        onDone={() => { location.hash = 'results'; }}
+        onCancel={() => { location.hash = 'personal'; }} />);
+    } else {
+      root.render(<LoginJourney role={kind} />);
+    }
+  }
+};

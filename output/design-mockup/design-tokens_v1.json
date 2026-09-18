@@ -1,0 +1,87 @@
+{
+  "name": "Career Navi",
+  "version": 1,
+  "meta": { "source": { "kind": "code+mockup", "note": "app/landing.css · app/globals.css 의 값과 첨부 시안 이미지 샘플링" } },
+  "color": {
+    "themes": [ { "id": "light", "name": "Light" } ],
+    "tokens": [
+      { "name": "canvas", "value": "#f7f4ee", "usage": "제품 화면(/personal, /companies) 페이지 바탕. 시안의 웜 베이지. 랜딩(#fff)은 그대로 둔다." },
+      { "name": "canvas-alt", "value": "#f1ede6", "usage": "번갈아 나오는 섹션 바탕(03 제공 서비스 안내, WHY WE RECOMMEND 밴드)." },
+      { "name": "elevated", "value": "#fcfaf5", "usage": "카드·입력 카드·드롭다운 바탕. canvas 위에 hairline 테두리와 함께 쓴다." },
+      { "name": "field", "value": "#ffffff", "usage": "검색 입력·텍스트에어리어 내부 바탕." },
+      { "name": "hairline", "value": "#e4ded4", "usage": "카드·입력·구분선의 1px 테두리. 그림자보다 먼저 쓴다." },
+      { "name": "hairline-soft", "value": "#ede8e0", "usage": "탭 트랙, 태그 바탕처럼 면으로 쓰는 옅은 구분." },
+      { "name": "ink", "value": "#192524", "usage": "제목·강조·다크 버튼 바탕. canvas/elevated 위 본문 대비 14:1." },
+      { "name": "body", "value": "#526260", "usage": "본문·설명. canvas 위 6.4:1." },
+      { "name": "mute", "value": "#687875", "usage": "캡션·메타데이터·오버라인. canvas 위 4.6:1 (14px 이하 텍스트의 바닥)." },
+      { "name": "faint", "value": "#8a9490", "usage": "플레이스홀더·비활성. 12px 이상 텍스트에는 쓰지 않는다(3.1:1)." },
+      { "name": "on-ink", "value": "#ffffff", "usage": "ink·navy 바탕 위 글자·아이콘." },
+      { "name": "brand", "value": "#087f70", "usage": "포인트 청록. 오버라인·링크·체크·보유 역량 표시. 랜딩 landing.css 의 --link 와 같은 값. canvas 위 4.7:1." },
+      { "name": "brand-deep", "value": "#086759", "usage": "brand 버튼 hover, 작은 글자용 청록." },
+      { "name": "brand-soft", "value": "#e9f5f1", "usage": "brand 의 tint. 선택된 탭·활성 단계 원·보유 태그 바탕." },
+      { "name": "navy", "value": "#0f1821", "usage": "/companies 헤더 '시작하기' 버튼과 검색 버튼 바탕(시안 값). ink 대신 쓰는 곳은 이 두 곳뿐." },
+      { "name": "sun", "value": "#b8793a", "usage": "노을 앰버. 단계 숫자(01·02·03, 24px 이상)와 아이콘 원 테두리에만. canvas 위 3.2:1 이라 본문에는 쓰지 않는다." },
+      { "name": "sun-deep", "value": "#8a5a26", "usage": "sun 을 14px 글자로 써야 할 때(캡션 라벨). canvas 위 5.3:1." },
+      { "name": "sun-soft", "value": "#f6e9d8", "usage": "sun 의 tint. 기능 아이콘 원 바탕." },
+      { "name": "warning", "value": "#b06f0a", "usage": "'이 길도 있어요'·부족 역량 배지 글자(globals.css 값 유지)." },
+      { "name": "warning-soft", "value": "#fff4dd", "usage": "warning 배지 바탕." },
+      { "name": "error", "value": "#c81e1e", "usage": "입력 오류 문구. canvas 위 5.6:1." },
+      { "name": "mark-navy", "value": "#2f3f52", "usage": "회사 이니셜 마크 바탕 1. 위 글자는 on-ink." },
+      { "name": "mark-tan", "value": "#8d6e4c", "usage": "회사 이니셜 마크 바탕 2. 위 글자는 on-ink." },
+      { "name": "mark-slate", "value": "#4a5b6b", "usage": "회사 이니셜 마크 바탕 3. 위 글자는 on-ink." },
+      { "name": "scrim", "value": "#0a1a17b8", "usage": "CTA 밴드·히어로 사진 위에 깔아 흰 글자를 읽히게 하는 반투명 잉크." }
+    ]
+  },
+  "type": {
+    "fonts": [],
+    "families": {
+      "sans": "\"Geist\", \"Noto Sans KR\", \"Apple SD Gothic Neo\", system-ui, sans-serif",
+      "serif": "\"Noto Serif KR\", \"Apple Myungjo\", Georgia, serif"
+    },
+    "groups": [
+      { "name": "Display · Sans (미도입안)", "family": "sans", "styles": [
+        { "name": "display-xl", "fontSize": "56px", "lineHeight": "1.22", "fontWeight": 700, "letterSpacing": "-0.045em", "sample": "쌓아온 경험에서, 다음 가능성을 찾아보세요.", "usage": "페이지 히어로 h1." },
+        { "name": "display-lg", "fontSize": "36px", "lineHeight": "1.3", "fontWeight": 700, "letterSpacing": "-0.04em", "sample": "어떤 경험을 해오셨나요?", "usage": "섹션 h2, 입력 카드 제목." },
+        { "name": "display-md", "fontSize": "26px", "lineHeight": "1.4", "fontWeight": 650, "letterSpacing": "-0.03em", "sample": "지금, 이런 기업들이 기다리고 있어요.", "usage": "목록 섹션 제목, CTA 밴드 문장." }
+      ] },
+      { "name": "Display · Serif (도입안)", "family": "serif", "styles": [
+        { "name": "serif-xl", "fontSize": "56px", "lineHeight": "1.28", "fontWeight": 600, "letterSpacing": "-0.02em", "sample": "쌓아온 경험에서, 다음 가능성을 찾아보세요.", "usage": "도입안 히어로 h1. 세리프는 자간을 좁히지 않는다." },
+        { "name": "serif-lg", "fontSize": "36px", "lineHeight": "1.34", "fontWeight": 600, "letterSpacing": "-0.015em", "sample": "어떤 경험을 해오셨나요?", "usage": "도입안 섹션 h2." },
+        { "name": "serif-md", "fontSize": "26px", "lineHeight": "1.42", "fontWeight": 600, "letterSpacing": "-0.01em", "sample": "지금, 이런 기업들이 기다리고 있어요.", "usage": "도입안 목록 제목·CTA 문장." },
+        { "name": "serif-numeral", "fontSize": "40px", "lineHeight": "1", "fontWeight": 500, "sample": "01", "usage": "단계 숫자. 두 안 모두 세리프 숫자를 쓴다(시안의 01·02·03)." }
+      ] },
+      { "name": "Text", "family": "sans", "styles": [
+        { "name": "overline", "fontSize": "12px", "lineHeight": "1.4", "fontWeight": 600, "letterSpacing": "0.18em", "sample": "YOUR EXPERIENCE, NEXT CAREER", "usage": "섹션 오버라인. 대문자 영문, mute 또는 brand." },
+        { "name": "lead", "fontSize": "17px", "lineHeight": "1.85", "fontWeight": 400, "sample": "이력서나 직접 적은 경험을 바탕으로 강점과 연결되는 직무를 살펴봅니다.", "usage": "히어로 설명문. body 색." },
+        { "name": "body", "fontSize": "15px", "lineHeight": "1.75", "fontWeight": 400, "sample": "팀 프로젝트, 인턴십, 전공 수업, 동아리 활동 등 다양한 경험도 분석할 수 있어요.", "usage": "본문·카드 설명." },
+        { "name": "body-strong", "fontSize": "15px", "lineHeight": "1.5", "fontWeight": 600, "sample": "경험 속 나의 강점", "usage": "기능 항목 제목, 카드 제목(회사명)." },
+        { "name": "caption", "fontSize": "13px", "lineHeight": "1.6", "fontWeight": 400, "sample": "지원 가능한 파일 형식: PDF, DOCX, TXT", "usage": "캡션·메타·안내 문구. mute 색." },
+        { "name": "label", "fontSize": "13px", "lineHeight": "1", "fontWeight": 600, "sample": "채용 중 8개", "usage": "배지·탭·버튼 소형 글자." },
+        { "name": "button", "fontSize": "15px", "lineHeight": "1", "fontWeight": 600, "sample": "나의 커리어 경로 찾기", "usage": "버튼 글자." }
+      ] }
+    ]
+  },
+  "spacing": { "tokens": [
+    { "name": "space-1", "value": "4px", "usage": "아이콘과 글자 사이 최소 간격." },
+    { "name": "space-2", "value": "8px", "usage": "태그 사이, 배지 안쪽 세로." },
+    { "name": "space-3", "value": "12px", "usage": "버튼 안쪽 세로, 메타 항목 사이." },
+    { "name": "space-4", "value": "16px", "usage": "카드 안 요소 사이, 폼 컨트롤 안쪽 가로." },
+    { "name": "space-5", "value": "24px", "usage": "카드 패딩(소), 그리드 gap." },
+    { "name": "space-6", "value": "32px", "usage": "입력 카드 패딩, 섹션 헤딩과 본문 사이." },
+    { "name": "space-8", "value": "48px", "usage": "페이지 좌우 여백(데스크톱), 섹션 안 큰 덩어리 사이." },
+    { "name": "space-10", "value": "72px", "usage": "섹션 세로 패딩." },
+    { "name": "space-12", "value": "112px", "usage": "히어로 세로 여백." },
+    { "name": "content-width", "value": "1240px", "usage": "본문 최대 폭. 랜딩 .navi-content-width 와 같다." }
+  ] },
+  "radius": { "tokens": [
+    { "name": "radius-sm", "value": "8px", "usage": "태그·배지·드롭다운 옵션." },
+    { "name": "radius-md", "value": "12px", "usage": "버튼·입력·드롭존·탭 트랙." },
+    { "name": "radius-lg", "value": "18px", "usage": "카드." },
+    { "name": "radius-xl", "value": "28px", "usage": "히어로 비주얼·입력 카드(대형 컨테이너)." },
+    { "name": "radius-pill", "value": "999px", "usage": "필 탭·이니셜 마크·아이콘 원." }
+  ] },
+  "shadow": { "tokens": [
+    { "name": "shadow-card", "value": "0 8px 32px #172e2408", "usage": "입력 카드처럼 canvas 위에 떠 있는 큰 컨테이너 한 곳에만. 일반 카드는 hairline 테두리로 충분하다." },
+    { "name": "shadow-hover", "value": "0 10px 28px #172e2414", "usage": "회사 카드 hover 시 -3px 상승과 함께." }
+  ] }
+}

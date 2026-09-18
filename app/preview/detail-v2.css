@@ -1,0 +1,117 @@
+/* detail-v2.css — Career Navi · 2026-09-17
+   회사 상세 · 공고 상세 · 지원하기 공통 스타일. redesign.css 위에 얹는다. */
+
+.detail-v2 .back { display: inline-flex; align-items: center; gap: 6px; margin-top: 28px; font-size: 13px; color: var(--mute); }
+.detail-v2 .back:hover { color: var(--ink); }
+
+/* 상단 */
+.detail-v2 .d-hero { margin-top: 22px; padding-bottom: 28px; border-bottom: 1px solid var(--hairline); }
+.detail-v2 .d-profile { display: flex; gap: 22px; align-items: center; }
+.detail-v2 .d-hero h1 { margin-top: 10px; font-size: clamp(30px, 3.4vw, 44px); line-height: 1.22; }
+.detail-v2 .d-tagline { margin-top: 12px; font-size: 16px; line-height: 1.8; color: var(--body); max-width: 720px; }
+.detail-v2 .d-meta { display: flex; flex-wrap: wrap; gap: 8px 0; margin-top: 18px; list-style: none; padding: 0; font-size: 13px; color: var(--mute); }
+.detail-v2 .d-meta li { display: inline-flex; align-items: center; gap: 6px; padding-right: 14px; margin-right: 14px; border-right: 1px solid var(--hairline); }
+.detail-v2 .d-meta li:last-child { border-right: 0; }
+.detail-v2 .synthetic { margin-top: 18px; padding: 10px 14px; border: 1px solid var(--hairline); border-radius: var(--r-sm); background: var(--canvas-alt); font-size: 12px; line-height: 1.6; color: var(--mute); }
+.detail-v2 .synthetic strong { color: #b06f0a; font-weight: 600; }
+.detail-v2 .d-company-line { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: var(--mute); }
+.detail-v2 .d-company-line a { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; color: var(--ink); }
+.detail-v2 .d-company-line a:hover { color: var(--brand); }
+.detail-v2 .badge { background: var(--brand-soft); color: var(--brand-deep); font-size: 12px; font-weight: 600; line-height: 1; padding: 7px 10px; border-radius: var(--r-sm); white-space: nowrap; }
+
+/* 본문 + 사이드 */
+.detail-v2 .d-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: 48px; margin-top: 36px; padding-bottom: 64px; align-items: start; }
+.detail-v2 .d-section { padding-block: 8px 40px; scroll-margin-top: 96px; }
+.detail-v2 .d-section + .d-section { border-top: 1px solid var(--hairline); padding-top: 36px; }
+.detail-v2 .sec-head-inline { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+.detail-v2 .sec-head-inline .num { font-size: 24px; line-height: 1; }
+.detail-v2 .sec-head-inline .rule { width: 28px; height: 1px; background: var(--ink); }
+.detail-v2 .sec-head-inline h2 { margin-top: 4px; font-size: 24px; line-height: 1.3; }
+.detail-v2 .sec-head-inline h2 b { color: var(--brand); font-weight: 700; }
+.detail-v2 .d-copy { font-size: 15px; line-height: 1.9; color: var(--body); }
+.detail-v2 .d-sub { margin-top: 28px; font-size: 16px; font-weight: 600; }
+.detail-v2 .d-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.detail-v2 .d-tags span { padding: 7px 12px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--elevated); font-size: 13px; color: var(--body); }
+.detail-v2 .d-bullets { display: grid; gap: 10px; list-style: none; padding: 0; }
+.detail-v2 .d-bullets li { position: relative; padding-left: 18px; font-size: 15px; line-height: 1.8; color: var(--body); }
+.detail-v2 .d-bullets li::before { content: ""; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--sun); }
+.detail-v2 .d-values { display: grid; gap: 12px; list-style: none; padding: 0; }
+.detail-v2 .d-values li { display: flex; gap: 16px; align-items: baseline; padding: 16px 20px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-md); }
+.detail-v2 .d-values .num { font-size: 20px; line-height: 1; }
+.detail-v2 .d-values p { font-size: 15px; line-height: 1.7; color: var(--body); }
+.detail-v2 .d-empty { font-size: 14px; color: var(--mute); }
+.detail-v2 .d-nav { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+.detail-v2 .d-nav a { padding: 8px 14px; border-radius: 999px; border: 1px solid var(--hairline); background: var(--elevated); font-size: 13px; font-weight: 500; color: var(--body); }
+.detail-v2 .d-nav a:hover { border-color: var(--brand); color: var(--ink); }
+
+/* 채용 공고 목록(회사 상세) */
+.detail-v2 .d-jobs { display: grid; gap: 12px; }
+.detail-v2 .d-job { display: flex; justify-content: space-between; align-items: center; gap: 18px; padding: 20px 24px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); transition: border-color .2s, transform .2s, box-shadow .2s; }
+.detail-v2 .d-job:hover { border-color: var(--brand); transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+.detail-v2 .d-job h3 { font-size: 17px; font-weight: 600; }
+.detail-v2 .d-job p { margin-top: 6px; font-size: 13px; color: var(--mute); }
+.detail-v2 .d-job-side { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); flex-shrink: 0; }
+
+/* 요구 역량(공고 상세) */
+.detail-v2 .d-skills { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.detail-v2 .d-skill-group { padding: 22px; border: 1px solid var(--hairline); border-radius: var(--r-lg); background: var(--elevated); }
+.detail-v2 .d-skill-group.is-must { border-color: color-mix(in srgb, var(--brand) 35%, var(--hairline)); background: linear-gradient(160deg, var(--brand-soft), var(--elevated) 60%); }
+.detail-v2 .d-skill-group h3 { font-size: 16px; font-weight: 600; display: flex; align-items: baseline; gap: 8px; }
+.detail-v2 .d-skill-group h3 b { font-size: 13px; color: var(--brand-deep); }
+.detail-v2 .d-skill-group > p { margin-top: 6px; font-size: 13px; color: var(--mute); }
+.detail-v2 .d-skill-group ul { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; list-style: none; padding: 0; }
+.detail-v2 .d-skill-group li { padding: 7px 12px; border-radius: 999px; background: var(--field); border: 1px solid var(--hairline); font-size: 13px; color: var(--ink); }
+.detail-v2 .d-skill-group.is-must li { border-color: color-mix(in srgb, var(--brand) 30%, transparent); color: var(--brand-deep); }
+.detail-v2 .d-company-card { display: flex; align-items: center; gap: 16px; margin-top: 8px; padding: 20px 24px; background: var(--canvas-alt); border: 1px solid var(--hairline); border-radius: var(--r-lg); color: var(--ink); }
+.detail-v2 .d-company-card:hover { border-color: var(--brand); }
+.detail-v2 .d-company-card div { flex: 1; }
+.detail-v2 .d-company-card strong { font-size: 15px; }
+.detail-v2 .d-company-card p { margin-top: 4px; font-size: 13px; color: var(--mute); }
+
+/* 사이드 */
+.detail-v2 .d-side { position: sticky; top: 96px; }
+.detail-v2 .d-facts { padding: 26px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); box-shadow: var(--shadow-card); }
+.detail-v2 .d-facts h2 { margin-top: 8px; font-size: 20px; }
+.detail-v2 .d-facts dl { display: grid; gap: 12px; margin: 20px 0 22px; }
+.detail-v2 .d-facts dl > div { display: flex; justify-content: space-between; gap: 12px; font-size: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--hairline); }
+.detail-v2 .d-facts dt { color: var(--mute); }
+.detail-v2 .d-facts dd { color: var(--ink); font-weight: 600; text-align: right; }
+.detail-v2 .d-facts .btn { width: 100%; }
+.detail-v2 .d-note { margin-top: 12px; font-size: 12px; line-height: 1.7; color: var(--mute); }
+.detail-v2 .d-mobile-bar { display: none; }
+
+/* 지원하기 */
+.detail-v2 .apply-posting { display: flex; align-items: center; gap: 16px; margin-top: 22px; padding: 18px 22px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-lg); }
+.detail-v2 .apply-posting p { font-size: 13px; color: var(--mute); }
+.detail-v2 .apply-posting h2 { margin-top: 2px; font-size: 18px; font-weight: 600; }
+.detail-v2 .apply-posting span { display: block; margin-top: 4px; font-size: 12px; color: var(--mute); }
+.detail-v2 .apply-docs { display: grid; gap: 10px; margin-top: 16px; list-style: none; padding: 0; }
+.detail-v2 .apply-docs li { display: flex; align-items: center; gap: 14px; padding: 14px 18px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-md); font-size: 15px; color: var(--ink); }
+.detail-v2 .apply-docs .ico { width: 40px; height: 40px; border-radius: 999px; background: var(--sun-soft); border: 1px solid var(--sun); display: grid; place-items: center; color: var(--ink); flex-shrink: 0; }
+.detail-v2 .apply-card { padding: 28px; background: var(--elevated); border: 1px solid var(--hairline); border-radius: var(--r-xl); box-shadow: var(--shadow-card); display: grid; gap: 14px; }
+.detail-v2 .apply-card.is-complete { border-color: color-mix(in srgb, var(--brand) 40%, var(--hairline)); }
+.detail-v2 .apply-card .sec-head-inline { margin-bottom: 0; }
+.detail-v2 .apply-card h2 { font-size: 24px; line-height: 1.3; outline: none; }
+.detail-v2 .apply-check { width: 48px; height: 48px; border-radius: 999px; background: var(--brand-soft); color: var(--brand-deep); display: grid; place-items: center; }
+.detail-v2 .apply-job { padding: 14px 16px; background: var(--canvas); border-radius: var(--r-md); }
+.detail-v2 .apply-job span { display: block; font-size: 12px; color: var(--mute); }
+.detail-v2 .apply-job strong { display: block; margin-top: 2px; font-size: 15px; color: var(--ink); }
+.detail-v2 .apply-notes { display: grid; gap: 8px; list-style: none; padding: 0; font-size: 13px; color: var(--body); }
+.detail-v2 .apply-notes li { display: flex; align-items: center; gap: 8px; }
+.detail-v2 .apply-notes svg { color: var(--brand); }
+.detail-v2 .apply-card .btn { width: 100%; }
+.detail-v2 .apply-restart { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; color: var(--mute); background: none; border: 0; cursor: pointer; justify-self: start; }
+.detail-v2 .apply-restart:hover { color: var(--ink); }
+
+@media (max-width: 1000px) {
+  .detail-v2 .d-layout { grid-template-columns: 1fr; gap: 28px; }
+  .detail-v2 .d-side { position: static; }
+  .detail-v2 .d-skills { grid-template-columns: 1fr; }
+}
+@media (max-width: 760px) {
+  .detail-v2 .d-profile { flex-direction: column; align-items: flex-start; gap: 14px; }
+  .detail-v2 .d-meta li { padding-right: 10px; margin-right: 10px; }
+  .detail-v2 .d-job { flex-direction: column; align-items: flex-start; }
+  .detail-v2 .d-mobile-bar { position: sticky; bottom: 0; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 20px; background: color-mix(in srgb, var(--canvas) 92%, transparent); backdrop-filter: blur(8px); border-top: 1px solid var(--hairline); font-size: 12px; color: var(--mute); }
+  .detail-v2 .d-facts .btn { display: none; }
+}
