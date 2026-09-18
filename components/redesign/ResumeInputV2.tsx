@@ -18,7 +18,10 @@ import { DEMO_RESUMES } from '@/lib/demo-resumes';
 import { SAMPLE_PROFILES } from '@/data/samples';
 import type { AnalysisResult } from '@/types';
 import { INPUT_GUARD } from '@/lib/prompts/extract';
-import RouteSearchLoaderV2 from './RouteSearchLoaderV2';
+// ⚠️ RouteSearchLoaderV2 로 바꾸지 말 것. 기존 RouteSearchLoader 의 지도가
+//    탐색 중인 느낌을 만든다 — 문구 3개를 1.5초 간격으로 넘기면서 경로를 다시 그리고,
+//    결과가 늦으면 한 바퀴 더 돈다. v5 인수인계 문서도 이 컴포넌트를 쓰라고 적고 있다.
+import RouteSearchLoader from '@/components/RouteSearchLoader';
 import PrivacyNotice from '@/components/PrivacyNotice';
 import ResumeFileDrop from '@/components/ResumeFileDrop';
 
@@ -100,7 +103,7 @@ export default function ResumeInputV2({
 
   if (searching) {
     return (
-      <RouteSearchLoaderV2
+      <RouteSearchLoader
         ready={pending !== null}
         onDone={() => { if (pending) { onSearchingChange?.(false); onResult(pending); } }}
         onCancel={() => {
